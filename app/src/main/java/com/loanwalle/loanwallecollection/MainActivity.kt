@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        // hello from githum
-/*
+        // hello from
+
         val i = Intent(this@MainActivity, LoanDetailActivity::class.java)
-        startActivity(i)*/
+        startActivity(i)
     }
 }

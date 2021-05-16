@@ -10,8 +10,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="btn_color">#123B7CFF</color>
     <color name="gray">#9C9C9C</color>
+    <color name="blacklight">#3E3C3C</color>
     <color name="yellow">#FFEB3B</color>
     <color name="applColor">#0099CC</color>
+    <color name="apbackground">#0099CC</color>
     <color name="back">#1328E4</color>
     <color name="button_color">#2E8CC3</color>
     <color name="lw_coll_clr">#004770</color>
