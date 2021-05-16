@@ -15,5 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val i = Intent(this@MainActivity, LoanDetailActivity::class.java)
         startActivity(i)
+        // hii hello o
+
     }
 }
