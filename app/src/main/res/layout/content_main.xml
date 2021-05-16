@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/titleel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center"
+                    android:text="Today Lead's"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/btn_collection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/btn_drawble"
+                    android:gravity="center_horizontal"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/collection_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="COLLECTION"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/text_drwablw_collect_screen"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="4dp"
+                        android:paddingBottom="2dp"
+                        android:text="50"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/btn_verification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/graybackground"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/verification_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="VERIFICATION"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/text_drwablw_collect_screen"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="4dp"
+                        android:paddingBottom="2dp"
+                        android:text="20"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_lead_list"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/collection_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/collid"
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/man"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03883"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="VIKASH KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87876767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 15"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NEW"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/applColor"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/mant"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03833"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="AMIT KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87873767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 13"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="Reschedule"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:id="@+id/ln_todaylead"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btncamera"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/man"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03883"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="RAHUL KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87876767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 12"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NEW"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/applColor"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/Verification_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/veriid"
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/userimage"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03883"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="VIKASH KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87876767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 15"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/applColor"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/mant"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03833"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="AMIT KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87873767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 13"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/man"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03883"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="RAHUL KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87876767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 12"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/applColor"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="18dp"
+                    android:padding="10dp"
+                    android:background="@drawable/green_round"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/mant"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="LOAN NO : LW03833"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="AMIT KUMAR"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="+91-87873767"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:text="NOIDA 13"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+</LinearLayout>

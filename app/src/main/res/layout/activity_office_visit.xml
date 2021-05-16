@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.OfficeVisitActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/visit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VISIT AT"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFFICE"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:id="@+id/met_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MET WITH"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/met_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="2"
+            android:id="@+id/other_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/if_other"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <EditText
+                android:layout_marginRight="35dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:hint="Enter Name"
+                android:background="@null"
+                android:id="@+id/other_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:id="@+id/relation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            android:layout_weight="1"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/relation"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/relation_spinr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:id="@+id/entry_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entry"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/entry_spinr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/employe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emplye_name"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <EditText
+                android:layout_marginRight="42dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:hint="Enter Name"
+                android:background="@null"
+                android:textColorHint="@color/black"
+                android:id="@+id/employe_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:id="@+id/signboard_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_board"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/signboard_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/locali_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/locality"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/local_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/sinced_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EMPLOYE SINCE"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_marginRight="50dp"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:text="SELECT DATE"
+                android:textColorHint="@color/black"
+                android:id="@+id/since_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_marginRight="40dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:textColorHint="@color/black"
+                android:id="@+id/clndr_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/staff_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/staff_board"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/staff_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/total_emp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp">
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/staff_board"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <Spinner
+
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/total_staff_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/photo_emp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CUSTOMER PHOTO"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_marginRight="25dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:text="@string/click"
+                android:textColorHint="@color/black"
+                android:id="@+id/photo_spiner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/status_emp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_drawble"
+            android:padding="15dp"
+            >
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CUSTOMER PHOTO"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:id="@+id/stets_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_drawble"
+            android:text="submit"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>

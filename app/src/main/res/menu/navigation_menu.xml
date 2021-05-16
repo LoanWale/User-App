@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Today Lead"
+        android:id="@+id/today_lead"
+        />
+
+    <item android:title="Total Lead"
+        android:id="@+id/lead"/>
+
+    <item android:title="IRA Contact"
+        android:id="@+id/emergency"/>
+
+
+</menu>

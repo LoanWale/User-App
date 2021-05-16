@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ResidanceActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ADDRESS"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="NOIDA"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/cstmer_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MET WITH"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/spiner5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/cstmer_layout2"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView252"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/if_other"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <EditText
+                android:layout_weight="1"
+                android:textColorHint="@color/black"
+                android:background="@null"
+                android:hint="@string/if_name"
+                android:id="@+id/spiner6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/cstmer_layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/edit_drawable"
+            android:padding="10dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/textView253"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/relation"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/spiner7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/residance_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/residance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/residance"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/owen_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:id="@+id/house_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/house"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/house_type"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/flat_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/identification_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/identification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/easy"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/easy_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/locality_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/locality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOCALITY"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/locality_spiner_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/sincetext_layout"
+            android:padding="15dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/since"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/since_RES"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <TextView
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:id="@+id/clnder_textt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_weight="1"
+                android:text="SELECT DATE"
+                android:id="@+id/clnder2_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/mamber_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/mamber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MAMBER"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/total_mamber_spiner_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/earning_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/earning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/earning"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/earning_spiner_sp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/living_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/living"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/living"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:id="@+id/living_spiner_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/neighbr_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/neighbr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/neighbr"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/neighbr_spiner_sp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:id="@+id/photo_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/photot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/photo"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/click"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+        <!--  <LinearLayout
+              android:layout_marginRight="24dp"
+              android:layout_marginLeft="24dp"
+              android:orientation="horizontal"
+              android:layout_weight="2"
+              android:id="@+id/kyc_layout"
+              android:padding="10dp"
+              android:background="@drawable/edit_text_drawble"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="24dp"
+              android:layout_marginTop="24dp"
+              android:layout_marginEnd="24dp"
+              >
+
+              <TextView
+                  android:layout_weight="1"
+                  android:id="@+id/kyc"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/kyc"
+                  android:textColor="@color/black"
+                  android:textSize="14sp"
+                  android:textStyle="normal"
+                  />
+
+
+              <TextView
+                  android:layout_weight="1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginEnd="16dp"
+                  android:text="@string/kyc_verfiy"
+                  android:textColor="@color/black"
+                  android:textSize="14sp"
+                  android:textStyle="normal"
+                  />
+
+
+          </LinearLayout>-->
+
+        <!-- <LinearLayout
+             android:layout_marginRight="24dp"
+             android:layout_marginLeft="24dp"
+             android:orientation="horizontal"
+             android:layout_weight="2"
+             android:id="@+id/kyc_verifiy_layout"
+             android:padding="10dp"
+             android:background="@drawable/edit_text_drawble"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="24dp"
+             android:layout_marginTop="24dp"
+             android:layout_marginEnd="24dp"
+          >
+
+             <TextView
+                 android:layout_weight="1"
+                 android:id="@+id/kyc_verifiy"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/kyc_identity"
+                 android:textColor="@color/black"
+                 android:textSize="14sp"
+                 android:textStyle="normal"
+                 />
+
+
+             <TextView
+                 android:layout_weight="1"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginEnd="16dp"
+                 android:text="@string/kyc_identity_report"
+                 android:textColor="@color/black"
+                 android:textSize="14sp"
+                 android:textStyle="normal"
+                />
+
+
+         </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:id="@+id/status_layout"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            >
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:layout_weight="1"/>
+
+
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/status_spiner_sp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/btn_drawble"
+            android:text="submit"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/status_layout" />
+
+    </LinearLayout>
+
+</ScrollView>

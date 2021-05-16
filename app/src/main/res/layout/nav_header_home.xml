@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:scrollbars="none"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|top|start"
+            android:background="@color/white"
+            android:gravity="center|start"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/btncamera"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/mant"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="10dp"     />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/name"
+                    android:fontFamily="@font/robotomedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vikash kumar"
+                    android:gravity="start|center"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="start|center"
+                    android:textColor="@color/black"
+                    android:textSize="19sp" />
+                <TextView
+android:layout_weight="1"
+                    android:background="@color/white"
+                    android:id="@+id/phone"
+                    android:fontFamily="@font/robotoregular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="EMP ID : LW88789"
+                    android:gravity="start|center"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="start|center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+        <View
+            android:layout_marginTop="9dp"
+            android:background="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:id="@+id/ln_todaylead"
+            android:orientation="vertical"
+            android:layout_marginTop="18dp"
+            android:padding="10dp"
+            android:background="@drawable/paytmbutton"
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight=".1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/gray"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_weight=".7"
+                    android:layout_width="0dp"
+                    android:text="Today Lead's"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:background="@drawable/round"
+                    android:layout_gravity="end"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:fontFamily="@font/robotomedium"
+                        android:textSize="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:text="21"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/totallead"
+            android:orientation="vertical"
+            android:layout_marginTop="13dp"
+            android:padding="10dp"
+            android:background="@drawable/paytmbutton"
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight=".1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/gray"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_weight=".7"
+                    android:layout_width="0dp"
+                    android:text="Total Lead's"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:background="@drawable/round"
+                    android:layout_gravity="end"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:fontFamily="@font/robotomedium"
+                        android:textSize="16dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:text="121"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ir_contact"
+            android:orientation="vertical"
+            android:layout_marginTop="13dp"
+            android:padding="10dp"
+            android:background="@drawable/paytmbutton"
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight=".1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/gray"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_weight=".7"
+                    android:layout_width="0dp"
+                    android:text="IRA CONTACT"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_gravity="end"
+                    android:layout_height="50dp">
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="13dp"
+            android:padding="10dp"
+            android:background="@drawable/paytmbutton"
+            android:clickable="true"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight=".1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/gray"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_weight=".7"
+                    android:layout_width="0dp"
+                    android:text="CONVEYANCE REPORT"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_gravity="end"
+                    android:layout_height="50dp">
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        
+    </LinearLayout>
+
+
+        <RelativeLayout
+            android:gravity="center|bottom"
+
+            android:layout_gravity="center|bottom"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/tracker"
+                android:layout_width="230dp"
+                android:layout_margin="20dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageView" />
+
+
+            <TextView
+                android:gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/imageView"
+                android:layout_alignParentBottom="true"
+                android:text="Version 3.13"
+                android:textColor="@color/gray" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/addres_drawable.xml" value="0.25555555555555554" />
+        <entry key="app/src/main/res/drawable/btn_drawble.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/contrain_layot_drawable.xml" value="0.25555555555555554" />
+        <entry key="app/src/main/res/drawable/edit_text_drawble.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/graybackground.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/green_round.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/ic_usernew.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/paytmbutton.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/round.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/text_drwablw_collect_screen.xml" value="0.3111111111111111" />
+        <entry key="app/src/main/res/layout/activity_aadhar_card.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_collection_profile.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_comman.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_document.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_i_r_a.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_loan.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_loan_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_otp.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_previous_payment.xml" value="0.25427350427350426" />
+        <entry key="app/src/main/res/layout/activity_recovery_address.xml" value="0.2423076923076923" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_total_leads.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_unlock.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.25427350427350426" />
+        <entry key="app/src/main/res/layout/activity_verification2.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2907692307692308" />
+        <entry key="app/src/main/res/layout/fragment_address.xml" value="0.2423076923076923" />
+        <entry key="app/src/main/res/layout/fragment_lead.xml" value="0.27037037037037037" />
+        <entry key="app/src/main/res/layout/home_page_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/nav_header_home.xml" value="0.2953125" />
+        <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.28229166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

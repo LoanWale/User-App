@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.loanwalle.loanwallecollection">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/loanwlee"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/loanwlee"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LoanwalleCollection.NoActionBar">
+        <activity android:name=".Activity.OfficeAddressActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.CollectionActivity">
+
+        </activity>
+        <activity android:name=".Activity.ResestActivity" />
+        <activity android:name=".Activity.VerifyOTPActivity" />
+        <activity android:name=".Activity.ForgotPasswordActivity" />
+        <activity android:name=".Activity.PaymentActivity" />
+        <activity android:name=".Activity.RemarksActivity"></activity>
+        <activity android:name=".Activity.OfficeVisitActivity" />
+        <activity android:name=".Activity.ResidanceActivity" />
+        <activity
+            android:name=".Activity.Verification"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PreviousPayment"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.Total_Leads"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.Recovery_Address"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.Collection_Profile"
+            android:exported="true" />
+        <activity android:name=".Activity.UnlockActivity" />
+        <activity android:name=".Activity.DocumentActivity" />
+        <activity android:name=".Activity.LoanActivity" />
+        <activity android:name=".Activity.CommanActivity" />
+        <activity android:name=".Activity.LoanDetailActivity" />
+        <activity android:name=".Activity.VerificationActivity" />
+        <activity android:name=".Activity.IRAActivity" />
+        <activity android:name=".Activity.HomePageActivity" />
+        <activity android:name=".Activity.OtpActivity" />
+        <activity android:name=".Activity.AadharCard" />
+        <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.SplashActivity" />
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

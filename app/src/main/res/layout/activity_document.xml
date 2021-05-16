@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DocumentActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/back_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".1"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_left_arrow"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/titleel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="40sp"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center"
+                    android:text="Documents"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/kyc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/addres_drawable"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="KYC ADDRESS PROOF"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idintity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/addres_drawable"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="IDENTITY PROOF"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/kyc"
+        app:layout_constraintStart_toStartOf="@+id/kyc"
+        app:layout_constraintTop_toBottomOf="@+id/kyc" />
+
+
+    <TextView
+        android:id="@+id/income"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/addres_drawable"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="INCOME PROOF"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/idintity"
+        app:layout_constraintStart_toStartOf="@+id/idintity"
+        app:layout_constraintTop_toBottomOf="@+id/idintity" />
+
+    <TextView
+        android:id="@+id/other_add_proof"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/addres_drawable"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="OTHER ADDRESS PROOF"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/income"
+        app:layout_constraintStart_toStartOf="@+id/income"
+        app:layout_constraintTop_toBottomOf="@+id/income" />
+
+    <TextView
+        android:id="@+id/other_UploadDocu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/paytmbutton"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textAllCaps="true"
+        android:text="Upload Document"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/income"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/income"
+        app:layout_constraintTop_toBottomOf="@+id/income" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

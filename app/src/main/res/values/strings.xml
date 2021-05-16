@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">LWColleX</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="residance">RESIDENCE</string>
+    <string name="own">OWN</string>
+    <string name="house_type">HOUSE TUYPE</string>
+    <string name="easy">EASE OF IDENTIFICATION</string>
+    <string name="locality">LOCALITY</string>
+    <string name="since">10-11-2018</string>
+    <string name="since_RES">RESIDENCE SINCE</string>
+    <string name="member">5</string>
+    <string name="earning">EARNING MEMNER IN FAMILY</string>
+    <string name="earn">3</string>
+    <string name="living">LIVING STANDARD</string>
+    <string name="med">MEDIUM</string>
+    <string name="neighbr">NEIGHBOUR CHECK</string>
+    <string name="postive">POSITIVE</string>
+    <string name="photo">CUSTOMER PHOTO</string>
+    <string name="click">CLICK and UPLOAD</string>
+    <string name="kyc">KYC ADDRESS VERIFIED</string>
+    <string name="kyc_verfiy">YES/NO</string>
+    <string name="kyc_identity">KYC IDENTITY VERIFIED</string>
+    <string name="kyc_identity_report">YES/NO</string>
+    <string name="status">STATUS</string>
+    <string name="status_report">POSITIVE</string>
+    <string name="if_other">IF OTHER</string>
+    <string name="if_name">Name</string>
+    <string name="relation">RELATION</string>
+    <string name="entry">ENTRY</string>
+    <string name="emplye_name">EMPLOYE NAME</string>
+    <string name="sign_board">COMPANY SIGNBOARD</string>
+    <string name="staff_board">No. OF STAFF SIGHTED</string>
+</resources>
