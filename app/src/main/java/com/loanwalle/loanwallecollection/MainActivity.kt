@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
 
         // hello from githum
-
+/*
         val i = Intent(this@MainActivity, LoanDetailActivity::class.java)
-        startActivity(i)
+        startActivity(i)*/
     }
 }
