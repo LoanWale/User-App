@@ -23,69 +23,18 @@ class HomePageActivity : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        var fragmentMAnger = supportFragmentManager
-        val leadFragment = LeadFragment()
-        fragmentMAnger.beginTransaction().replace(R.id.frame,leadFragment).commit()
-        binding!!.layoutCollection.setBackground(getDrawable(R.drawable.btn_drawble))
-        binding!!.layoutVerification.setBackground(getDrawable(R.drawable.layout_drawable))
-        binding!!.collectionBtn.setTextColor(getResources().getColor(R.color.white))
-        binding!!.verificationBtn.setTextColor(getResources().getColor(R.color.black))
-
-      /*  val fragmentManager = supportFragmentManager
-        val loginFragment = LeadFragment()
-        fragmentManager.beginTransaction().replace(R.id.frame, loginFragment).addToBackStack("back")
-            .commit()*/
-
-
-
-      /*  initRecyclerView()
-
-        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-        userViewModel.getData()
-        userViewModel.userLiveData.observe(this, androidx.lifecycle.Observer {
-            userAdapter.setData(it as ArrayList<User>)
-        })*/
-
-
-
-        binding!!.collectionBtn.setOnClickListener{
-
-
-            binding!!.layoutCollection.setBackground(getDrawable(R.drawable.btn_drawble))
-            binding!!.layoutVerification.setBackground(getDrawable(R.drawable.layout_drawable))
-
-            binding!!.collectionBtn.setTextColor(getResources().getColor(R.color.white))
-            binding!!.verificationBtn.setTextColor(getResources().getColor(R.color.black))
-
-            var fragmentMAnger = supportFragmentManager
-            val leadFragment = LeadFragment()
-            fragmentMAnger.beginTransaction().replace(R.id.frame,leadFragment).commit()
-
-
-           /* val layoutManger = LinearLayoutManager(this)
-            layoutManger.orientation = LinearLayoutManager.VERTICAL
-            recycler_view.layoutManager = layoutManger
-
-            val adapter = HomePageAdapter(this, TodayCollection.Coll.todaycollection)
-            recycler_view.adapter = adapter*/
+        back_drawer.setOnClickListener{
+            var intent = Intent(this,Navigation::class.java)
+            startActivity(intent)
         }
 
-        binding!!.verificationBtn.setOnClickListener {
-
-            binding!!.layoutCollection.setBackground(getDrawable(R.drawable.layout_drawable))
-            binding!!.layoutVerification.setBackground(getDrawable(R.drawable.btn_drawble))
-
-            binding!!.collectionBtn.setTextColor(getResources().getColor(R.color.black))
-            binding!!.verificationBtn.setTextColor(getResources().getColor(R.color.white))
-
-          var fragment = supportFragmentManager
-            var vf = VerificationFragment()
-            fragment.beginTransaction().replace(R.id.frame,vf).commit()
-
+        binding!!.collid.setOnClickListener{
+            var intent1 = Intent(this,LoanDetailActivity::class.java)
+            startActivity(intent1)
         }
 
+    }
 
     }
 
 
-}

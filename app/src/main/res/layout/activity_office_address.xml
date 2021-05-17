@@ -241,42 +241,347 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-      <androidx.constraintlayout.widget.ConstraintLayout
-          android:layout_width="match_parent"
-          android:layout_marginTop="24dp"
-          android:layout_marginLeft="24dp"
-          android:layout_marginRight="24dp"
-          android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_height="wrap_content">
 
 
-          <TextView
-              android:id="@+id/textView49"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:fontFamily="@font/robotomedium"
-              android:padding="10dp"
-              android:text="Employer Name and Photo"
-              android:textColor="@color/black"
-              android:textSize="16sp"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="Employer Name and Photo"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-          <ImageView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginEnd="24dp"
-              android:background="@drawable/km_drawable"
-              android:src="@drawable/camera_24"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintTop_toTopOf="parent" />
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/km_drawable"
+                android:src="@drawable/camera_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
 
-      </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:textSize="12sp"
+            android:fontFamily="@font/robotolight"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deepak kumar"
+            android:textColorHint="@color/black" />
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/robotomedium"
+                android:text="Locality"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_gravity="center"
+                android:weightSum="2"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+                <RadioButton
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="Urban"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="Rural"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:weightSum="3"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_drawable"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/black"
+                android:text="Company Since"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="right"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_marginRight="24dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/robotolight"
+                    android:textSize="12sp"
+                    android:text="10-05-2015"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/calendr_drawable"
+                    android:src="@drawable/ic_baseline_calendar_today_24"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:weightSum="1"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotomedium"
+                android:text="No. of staff sighted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:textColor="@color/black"
+                android:id="@+id/staff_spiner"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:weightSum="1"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotomedium"
+                android:text="Total Employes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/employes_sp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/robotomedium"
+                android:text="KYC idintity verified"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_gravity="center"
+                android:weightSum="2"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+                <RadioButton
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="Yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="No"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/robotomedium"
+                android:text="Status"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_gravity="center"
+                android:weightSum="2"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+                <RadioButton
+
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="Positive"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:text="Negitive"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/colex_clr_drawable"
+            android:padding="30dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sign_in_button_drawable"
+                android:text="SUBMIT"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
