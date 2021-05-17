@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.R
@@ -16,5 +17,12 @@ class Collection_Profile : AppCompatActivity() {
         binding= ActivityCollectionProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
        // setContentView(R.layout.activity_collection_profile)
+
+        binding!!.changpass.setOnClickListener {
+            val i = Intent(this@Collection_Profile, ForgotPasswordActivity::class.java)
+            startActivity(i)
+        }
+
+
     }
 }

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:background="@color/white"
             tools:ignore="MissingConstraints">
 
@@ -45,20 +45,32 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".9"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:weightSum="1">
 
                     <TextView
                         android:id="@+id/titleel"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="40sp"
                         android:fontFamily="@font/robotomedium"
                         android:gravity="center"
                         android:text="Loan Details"
                         android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="40sp"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center"
+                        android:text="Vikash Kumar"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -75,17 +87,22 @@
             android:background="@color/gray"
             tools:ignore="MissingConstraints" />
         <LinearLayout
+            android:background="@drawable/paytmbutton"
             android:layout_marginTop="10dp"
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
             android:orientation="horizontal"
             android:paddingStart="15dp"
-            android:paddingTop="2dp"
+            android:paddingTop="12dp"
             android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
+
+            android:paddingBottom="5dp"
             android:weightSum="1"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
@@ -95,27 +112,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_weight=".4"
+                android:layout_weight=".5"
                 android:textStyle="bold"
+                android:gravity="end|center"
+                android:layout_gravity="end|center"
                 android:fontFamily="@font/robotomedium"
                 android:text="Application No"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/full_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="end|center"
+                android:layout_gravity="start|center"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
+                android:layout_weight=".5"
                 android:textStyle="bold"
                 android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
+                android:gravity="start|center"
                 android:paddingStart="15dp"
                 android:text="LW000012"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
@@ -159,6 +178,7 @@
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -180,47 +200,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".4"
                 android:fontFamily="@font/robotomedium"
-                android:text="Name"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="Vikash kumar"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="Loan Amount"
+                android:text="Loan Sanctioned"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -235,6 +215,173 @@
                 android:gravity="end|center"
                 android:paddingStart="15dp"
                 android:text="Rs. 10000"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="2dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/robotomedium"
+                android:text="Free"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".4"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
+                android:paddingStart="15dp"
+                android:text="Rs. 800"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="2dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".4"
+                android:fontFamily="@font/robotomedium"
+                android:text="ROI Per Day"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
+                android:paddingStart="15dp"
+                android:text="1.0 %"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="2dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".4"
+                android:fontFamily="@font/robotomedium"
+                android:text="Tenure"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
+                android:paddingStart="15dp"
+                android:text="90 days"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="2dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".4"
+                android:fontFamily="@font/robotomedium"
+                android:text="Loan Disbursed"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
+                android:paddingStart="15dp"
+                android:text="RS. 8800"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
@@ -279,295 +426,18 @@
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="Tenure"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="90 days"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:text="Loan Processing Free"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="Rs. 800"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="ROI"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="1.0 %(Per day)"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="NET DISBURSAL"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="RS. 8800"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="PENEL ROI"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="1.2 %"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="15sp"
-            android:paddingBottom="2dp"
-            android:weightSum="1"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight=".4"
-                android:fontFamily="@font/robotomedium"
-                android:text="Panel Interest"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end|center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp"
-                android:text="Rs.100"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                tools:ignore="RtlSymmetry" />
-        </LinearLayout>
         <LinearLayout
 
             android:orientation="vertical"
             android:layout_marginTop="15dp"
-            android:background="@drawable/green_round"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="2dp"
-                android:weightSum="1"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="113dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="TOTAL Repay Amount "
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:paddingStart="15dp"
-                    android:text="Rs.22000"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -590,7 +460,7 @@
                     android:layout_weight=".4"
                     android:textAllCaps="true"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Repay Due Date"
+                    android:text="Repayment Date"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -605,6 +475,45 @@
                     android:gravity="end|center"
                     android:paddingStart="15dp"
                     android:text="03-May-2021"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="5sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Repay Amount "
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end|center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp"
+                    android:text="Rs.22000"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
@@ -630,7 +539,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
-                    android:text="AMOUNT PAID TILL DATE"
+                    android:text="Payment Received"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -644,12 +553,52 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Rs.100"
+                    android:text="Rs.1000"
                     android:textColor="@color/black"
                     android:textSize="13sp"
 
                     tools:ignore="RtlSymmetry" />
-            </LinearLayout>
+            </LinearLayout>  <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="12dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".6"
+                android:fontFamily="@font/robotomedium"
+                android:text="Balance Due(A)"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".4"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
+                android:paddingStart="15dp"
+                android:text="Rs.1800"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
 
 
 
@@ -661,7 +610,6 @@
 
             android:orientation="vertical"
             android:layout_marginTop="7dp"
-            android:background="@drawable/green_round"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -687,7 +635,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
-                    android:text="DAY PAST DUE"
+                    android:text="Day Past Due"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -702,6 +650,47 @@
                     android:gravity="end|center"
                     android:paddingStart="15dp"
                     android:text="10 DAYS"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="113dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Penel ROI Per Day"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end|center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp"
+                    android:text="1.2 %"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
@@ -727,7 +716,47 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
-                    android:text="INTREST PER DAY"
+                    android:text="Penal Interest per day"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end|center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp"
+                    android:text="Rs.100"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="113dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Interest Payable (B)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -745,52 +774,9 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-            <LinearLayout
+            </LinearLayout>  <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="1dp"
-                android:weightSum="1"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="113dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="BANK NAME"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:paddingStart="15dp"
-                    android:text="HDFC"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -807,9 +793,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight=".6"
+                    android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Account No."
+                    android:text="Total Payable (A+B)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -819,104 +805,24 @@
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:paddingStart="15dp"
-                    android:text="87387382"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="2dp"
-                android:weightSum="1"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="113dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
-                    android:text="IFSC Code."
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="HDFC098389"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="12dp"
-                android:weightSum="1"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="113dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="BRANCH"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:paddingStart="15dp"
-                    android:text="NOIDA 15"
+                    android:text="RS. 2500"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
+
+
+
 
         </LinearLayout>
         <LinearLayout
 
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:background="@drawable/green_round"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -942,7 +848,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Approved By"
+                    android:text="Underwriter "
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -996,7 +902,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="03-May-2021"
+                    android:text="Aman kumar"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
@@ -1036,7 +942,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Rs.100"
+                    android:text="+918920179062"
                     android:textColor="@color/black"
                     android:textSize="13sp"
 
@@ -1052,16 +958,29 @@
 
 
 
-                <TextView
-                    android:background="@drawable/paytmbutton"
-                    android:layout_width="match_parent"
-                    android:text="Collect Now"
-                    android:layout_margin="10dp"
-                    android:textSize="18dp"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:layout_height="55dp" />
+        <LinearLayout
+            android:background="@drawable/graybackground"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_height="110dp">
+
+
+            <TextView
+                android:background="@drawable/paytmbutton"
+                android:layout_width="match_parent"
+                android:text="Collect Now"
+                android:textSize="18dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_height="55dp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

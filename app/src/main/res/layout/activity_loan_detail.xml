@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".Activity.LoanDetailActivity">
 
@@ -141,17 +140,15 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    app:cardBackgroundColor="@color/white"
                     android:id="@+id/loanDetail_text"
                     android:layout_width="100dp"
                     android:layout_weight="1"
-                    app:cardElevation="5dp"
+                    android:elevation="5dp"
                     android:layout_marginLeft="10dp"
                     app:cardCornerRadius="10dp"
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:id="@+id/loandeatil_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -180,62 +177,16 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    app:cardBackgroundColor="@color/white"
-                    app:cardElevation="5dp"
                     android:layout_width="100dp"
                     android:id="@+id/currentAdd_text"
                     android:layout_marginLeft="5dp"
                     app:cardCornerRadius="10dp"
                     android:layout_weight="1"
-                    android:layout_height="120dp">
-
-                    <LinearLayout
-                        android:background="@color/white"
-                        android:id="@+id/current_add_user"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:background="@drawable/pin"
-                            android:layout_width="40dp"
-                            android:backgroundTint="@color/blacklightlow"
-                            android:layout_height="40dp"/>
-
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:textSize="15dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/robotomedium"
-                            android:text="Current\nAddress"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-
-
-
-
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:id="@+id/residence"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp"
-                    app:cardBackgroundColor="@color/white"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/yellow"
                     android:elevation="5dp"
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:background="@color/white"
-                        android:id="@+id/residance_add_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -265,23 +216,9 @@
                 </androidx.cardview.widget.CardView>
 
 
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:weightSum="3"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:id="@+id/officeadd"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardElevation="5dp"
                     android:layout_weight="1"
                     android:elevation="5dp"
                     android:layout_marginLeft="10dp"
@@ -289,8 +226,6 @@
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:background="@color/white"
-                        android:id="@+id/office_add_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -319,18 +254,66 @@
 
 
                 </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:weightSum="3"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <androidx.cardview.widget.CardView
-                    app:cardElevation="5dp"
-                    app:cardBackgroundColor="@color/white"
+                    android:id="@+id/repayments"
+                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    app:cardCornerRadius="10dp"
+                    android:elevation="5dp"
+                    android:layout_height="120dp">
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:background="@drawable/purse"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:textSize="15dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/robotomedium"
+                            android:text="Repayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:id="@+id/preefredadd"
                     android:layout_marginLeft="5dp"
                     app:cardCornerRadius="10dp"
                     android:layout_weight="1"
+                    android:elevation="5dp"
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:id="@+id/preefred_add_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -364,7 +347,6 @@
                     android:layout_width="100dp"
                     android:id="@+id/offeraccept"
                     app:cardCornerRadius="10dp"
-                    app:cardBackgroundColor="@color/applColor"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
@@ -372,7 +354,6 @@
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:id="@+id/offeraccept_add_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -380,7 +361,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:backgroundTint="@color/white"
+                            android:backgroundTint="@color/black"
                             android:background="@drawable/contract"
                             android:layout_width="40dp"
                             android:layout_height="40dp"/>
@@ -388,7 +369,7 @@
                         <TextView
                             android:textSize="15dp"
                             android:layout_marginTop="5dp"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:fontFamily="@font/robotomedium"
                             android:text="     Offer\nAcceptance"
                             android:layout_width="wrap_content"
@@ -414,48 +395,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/repayments"
-                    android:layout_width="100dp"
-                    app:cardBackgroundColor="@color/white"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    app:cardCornerRadius="10dp"
-                    android:elevation="5dp"
-                    app:cardElevation="5dp"
-                    android:layout_height="120dp">
-
-                    <LinearLayout
-                        android:id="@+id/repayments_add_user"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:background="@drawable/purse"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"/>
-
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:textSize="15dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/robotomedium"
-                            android:text="Repayment"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-
-
-
-
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    app:cardElevation="5dp"
-                    app:cardBackgroundColor="@color/white"
                     android:layout_width="100dp"
                     android:id="@+id/documents"
                     android:layout_marginLeft="5dp"
@@ -465,7 +406,6 @@
                     android:layout_height="120dp">
 
                     <LinearLayout
-                        android:id="@+id/documents_add_user"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
@@ -505,6 +445,16 @@
                     android:layout_height="match_parent">
 
                 </LinearLayout>
+                <LinearLayout
+
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -516,8 +466,6 @@
 
 
     </ScrollView>
-
-
 
 
 

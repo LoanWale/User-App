@@ -17,19 +17,20 @@ class Verification : AppCompatActivity() {
         setContentView(binding!!.root)
 
         binding!!.loanDetailText.setOnClickListener {
-
             val i = Intent(this@Verification, LoanActivity::class.java)
             startActivity(i)
         }
 
-        binding!!.currentAddText2.setOnClickListener{
-            Toast.makeText(this,"helllllll",Toast.LENGTH_SHORT).show()
-            var intent = Intent(this,ResidanceActivity::class.java)
+
+
+        binding!!.residece.setOnClickListener{
+            val intent = Intent(this,ResidanceActivity::class.java)
             startActivity(intent)
         }
 
-        binding!!.offfff.setOnClickListener{
-           var ins = Intent(this,OfficeVisitActivity::class.java)
+
+        binding!!.officeadd.setOnClickListener{
+           val ins = Intent(this,OfficeAddressActivity::class.java)
             startActivity(ins)
         }
     }

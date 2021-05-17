@@ -387,6 +387,7 @@
                 android:layout_marginTop="28dp"
                 android:background="@drawable/edit_text_drawble"
                 android:clickable="true"
+                android:visibility="gone"
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -395,6 +396,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:weightSum="1"
+                    android:visibility="gone"
                     android:layout_height="wrap_content">
                     <LinearLayout
                         android:layout_width="0dp"
@@ -437,7 +439,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/ln_todaylead"
+                android:id="@+id/changpass"
                 android:orientation="vertical"
                 android:layout_marginTop="28dp"
                 android:padding="10dp"

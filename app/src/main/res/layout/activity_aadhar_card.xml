@@ -67,14 +67,17 @@
 
                         <ImageView
                             android:id="@+id/frontimage"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="center"
-                            android:visibility="gone" />
+                            android:background="@drawable/front"
+                            android:visibility="visible" />
 
                         <ImageView
                             android:id="@+id/sampleimage"
                             android:layout_width="60sp"
+                            android:visibility="gone"
                             android:layout_height="60sp"
                             android:background="@drawable/addphoto"
                             android:scaleType="center" />
@@ -172,11 +175,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="center"
-                    android:visibility="gone" />
+                    android:background="@drawable/forntadhar"
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/sampleback"
                     android:layout_width="60sp"
+                    android:visibility="gone"
                     android:layout_height="60sp"
                     android:background="@drawable/addphoto"
                     android:scaleType="center" />

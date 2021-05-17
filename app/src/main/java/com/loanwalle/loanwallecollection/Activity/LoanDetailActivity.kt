@@ -7,7 +7,6 @@ import android.widget.Toast
 import com.loanwalle.loanwallecollection.Fragment.AddressFragment
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.databinding.ActivityLoanDetailBinding
-import kotlinx.android.synthetic.main.activity_loan_detail.*
 
 class LoanDetailActivity : AppCompatActivity() {
 
@@ -18,9 +17,37 @@ class LoanDetailActivity : AppCompatActivity() {
         binding = ActivityLoanDetailBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        officeadd.setOnClickListener{
-            var i = Intent(this,OfficeAddressActivity::class.java)
+        binding!!.currentAddText.setOnClickListener{
+          var inten = Intent(this,Recovery_Address::class.java)
+            startActivity(inten)
+        }
+
+
+
+//        binding!!.officeAddText.setOnClickListener{
+//            var intent = Intent(this,Recovery_Address::class.java)
+//            startActivity(intent)
+//        }
+//        binding!!.permanentAddText.setOnClickListener{
+//            var intent = Intent(this,Recovery_Address::class.java)
+//            startActivity(intent)
+//        }
+//
+//        binding!!.preferdeAddText.setOnClickListener{
+//            var intent1 = Intent(this,Recovery_Address::class.java)
+//            startActivity(intent1)
+//        }
+
+        binding!!.loanDetailText.setOnClickListener{
+            var inte = Intent(this,LoanActivity::class.java)
+            startActivity(inte)
+        }
+
+        binding!!.documents.setOnClickListener{
+            var i = Intent(this,DocumentActivity::class.java)
             startActivity(i)
         }
+
+
     }
 }

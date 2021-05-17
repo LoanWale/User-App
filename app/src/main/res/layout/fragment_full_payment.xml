@@ -308,6 +308,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
+                android:id="@+id/submit"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
                 android:layout_width="wrap_content"

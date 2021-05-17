@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/menu"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/menu"
@@ -31,6 +32,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/profile"
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="110dp"
@@ -117,7 +119,7 @@
 
 
         <LinearLayout
-            android:id="@+id/ln_todaylead"
+            android:id="@+id/todayld"
             android:orientation="vertical"
             android:elevation="5dp"
             android:layout_marginTop="18dp"
@@ -201,7 +203,7 @@
             android:background="@color/gray"
             />
         <LinearLayout
-            android:id="@+id/totallead"
+            android:id="@+id/totaled"
             android:orientation="vertical"
             android:layout_marginTop="13dp"
             android:padding="10dp"
@@ -284,7 +286,7 @@
             android:background="@color/gray"
             />
         <LinearLayout
-            android:id="@+id/ir_contact"
+            android:id="@+id/ircontact"
             android:orientation="vertical"
             android:layout_marginTop="13dp"
             android:padding="10dp"
@@ -432,6 +434,7 @@
             android:background="@color/gray"
             />
         <LinearLayout
+            android:id="@+id/figureprint"
             android:orientation="vertical"
             android:layout_marginTop="13dp"
             android:padding="10dp"

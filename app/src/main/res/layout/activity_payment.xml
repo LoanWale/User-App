@@ -7,6 +7,49 @@
     android:orientation="vertical"
     tools:context=".Activity.PaymentActivity">
 
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="start|center"
+        android:layout_gravity="start|center"
+        android:text="Payment Mode"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:text="LOAN NO : LW03833"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="center|start"
+            android:textColor="@color/black"
+            android:layout_height="match_parent" />
+
+        <RadioButton
+            android:layout_marginLeft="30dp"
+            android:checked="true"
+            android:text="Online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:checked="false"
+            android:text="Offline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
@@ -40,6 +83,7 @@
 
 
             <TextView
+                android:backgroundTint="@color/applColor"
                 android:elevation="4dp"
                 android:id="@+id/upi"
                 android:layout_width="match_parent"
@@ -51,20 +95,17 @@
                 android:gravity="center"
                 android:padding="20dp"
                 android:text="UPI"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
     <EditText
         android:textColorHint="@color/black"
         android:layout_marginTop="44dp"
-        android:padding="50dp"
+        android:padding="10dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/amount_enter_drawable"
@@ -72,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:hint="ENTER AMOUNT"
+        android:hint=" AMOUNT  Rs. 1000"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -81,13 +122,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-
     <EditText
         android:textColorHint="@color/black"
-        android:padding="50dp"
+        android:padding="10dp"
         android:layout_marginTop="44dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
@@ -105,26 +142,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@drawable/btn_drawble"
-        android:layout_marginTop="44dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:padding="20dp"
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/applColor"
+            android:text="SUBMIT"
+            />
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:weightSum="1"
+        android:layout_marginTop="15dp"
+        android:layout_height="60dp">
 
         <TextView
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SUBMIT"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/Green"
+            android:text="Check Payment"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/gray"
+            android:text="Share Receipt"
+            />
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
 
 
