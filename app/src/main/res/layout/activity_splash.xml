@@ -20,18 +20,18 @@
         app:layout_constraintVertical_bias="0.378" />-->
 
 
- <TextView
-     android:id="@+id/merque1"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_marginTop="132dp"
-     android:fontFamily="More Fonts..."
-     android:text="LW"
-     android:textColor="@color/white"
-     android:textSize="25sp"
-     android:textStyle="italic"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/merque1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:fontFamily="More Fonts..."
+        android:text="LW"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
  <TextView
      android:fontFamily="More Fonts..."
