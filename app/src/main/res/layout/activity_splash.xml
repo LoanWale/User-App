@@ -20,32 +20,35 @@
         app:layout_constraintVertical_bias="0.378" />-->
 
 
-    <TextView
-        android:id="@+id/merque1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LW"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+ <TextView
+     android:id="@+id/merque1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="132dp"
+     android:fontFamily="More Fonts..."
+     android:text="LW"
+     android:textColor="@color/white"
+     android:textSize="25sp"
+     android:textStyle="italic"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:fontFamily="More Fonts..."
+     android:id="@+id/merque2"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="C"
+     android:textColor="@color/black"
+     android:textSize="25sp"
+     android:textStyle="italic"
+     app:layout_constraintBottom_toBottomOf="@+id/merque1"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toTopOf="@+id/merque1"
+     app:layout_constraintVertical_bias="0.504" />
 
     <TextView
-        android:id="@+id/merque2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque1"
-        app:layout_constraintVertical_bias="0.504" />
-
-    <TextView
+        android:fontFamily="More Fonts..."
         android:id="@+id/merque3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +61,7 @@
         app:layout_constraintTop_toTopOf="@+id/merque2"/>
 
     <TextView
+        android:fontFamily="More Fonts..."
         android:id="@+id/merque4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +74,7 @@
         app:layout_constraintTop_toTopOf="@+id/merque3"/>
 
     <TextView
+        android:fontFamily="More Fonts..."
         android:id="@+id/merque5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,6 +87,7 @@
         app:layout_constraintTop_toTopOf="@+id/merque4"/>
 
     <TextView
+        android:fontFamily="More Fonts..."
         android:id="@+id/merque6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,6 +109,6 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/merque6"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque6"/>
+        app:layout_constraintTop_toTopOf="@+id/merque6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

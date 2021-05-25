@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    tools:context=".Activity.RemarksVisitActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="Visit Record"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/robotolight"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="Deepak kumar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/application_n0_drawable"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:fontFamily="@font/robotolight"
+                android:text="Application No:"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:fontFamily="@font/robotolight"
+                android:layout_marginLeft="5dp"
+                android:text="LW506070"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/edit_drawable"
+            android:padding="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="Visit Date"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:background="@drawable/calendr_drawable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/edit_drawable"
+            android:padding="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="Visit Date"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:background="@drawable/calendr_drawable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:text="PAYMENT TYPE"
+            android:textColor="@color/black"
+            android:fontFamily="@font/robotomedium"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:weightSum="6"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/part_payment"
+                android:padding="10dp"
+                android:background="@drawable/full_payment_drawable"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/white"
+                android:text="Part"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/full_payment"
+                android:padding="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:text="Full"
+                android:background="@drawable/part_pyment_drawable"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/nil_payment"
+                android:background="@drawable/part_pyment_drawable"
+                android:padding="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:text="Nill"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/edit_drawable"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotomedium"
+                android:text="Wavier Status"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_marginLeft="40dp"
+                android:gravity="right"
+               android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp">
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Approved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Rejected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotomedium"
+                android:text="Visit Address"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp">
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Office"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Residance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotomedium"
+                android:text="Payment Status"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp">
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"/>
+
+                <RadioButton
+                    android:textSize="9sp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:text="Update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"/>
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <RadioGroup
+                    android:layout_marginLeft="160dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp">
+
+                    <RadioButton
+                        android:textSize="9sp"
+                        android:fontFamily="@font/robotolight"
+                        android:textColor="@color/black"
+                        android:text="Rejected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"/>
+
+                    <RadioButton
+                        android:textSize="9sp"
+                        android:fontFamily="@font/robotolight"
+                        android:textColor="@color/black"
+                        android:text="Panding part"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"/>
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/robotomedium"
+                android:hint="Reject Reason"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="12sp"
+              />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/robotomedium"
+                android:hint="Visit By"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="12sp"
+                />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:textSize="12sp"
+            android:padding="5dp"
+            android:gravity="top"
+            android:textColor="@color/black"
+            android:fontFamily="@font/robotolight"
+            android:textColorHint="@color/black"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:background="@drawable/edit_drawable"
+            android:hint="Remarks"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/colex_clr_drawable"
+            android:padding="30dp"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sign_in_button_drawable"
+                android:text="SUBMIT"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+
+
+</ScrollView>

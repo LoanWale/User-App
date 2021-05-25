@@ -48,6 +48,9 @@ class LoanDetailActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-
+        binding!!.repayments.setOnClickListener{
+            var inten = Intent(this,PreviousPayment::class.java)
+            startActivity(inten)
+        }
     }
 }

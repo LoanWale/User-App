@@ -117,7 +117,7 @@
                     android:background="@drawable/part_pyment_drawable"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Customer"
+                    android:text="Other"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -304,8 +304,8 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_weight="1.5"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:fontFamily="@font/robotomedium"
                 android:text="Locality"
                 android:textSize="14sp"
@@ -314,32 +314,100 @@
                 android:layout_height="wrap_content"/>
 
             <RadioGroup
+                android:layout_marginLeft="20dp"
+                android:layout_weight=".5"
                 android:layout_gravity="center"
-                android:weightSum="2"
-                android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="20dp">
 
                 <RadioButton
-                    android:layout_marginLeft="10dp"
+
                     android:fontFamily="@font/robotolight"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    android:layout_weight="1"
                     android:text="Urban"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"/>
 
                 <RadioButton
                     android:fontFamily="@font/robotolight"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    android:layout_weight="1"
+                    android:text="Semi-Urban"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
                     android:text="Rural"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"/>
             </RadioGroup>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/edit_drawable"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1.5"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotomedium"
+                android:text="Comp. Type"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_marginLeft="20dp"
+                android:layout_weight=".5"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="Govt."
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+
+                <RadioButton
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="Public         "
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+                <RadioButton
+                    android:fontFamily="@font/robotolight"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="Private"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+            </RadioGroup>
+
+
 
         </LinearLayout>
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.databinding.ActivityNavigationBinding
+import kotlinx.android.synthetic.main.activity_navigation.*
 
 class Navigation : AppCompatActivity() {
 
@@ -18,6 +19,10 @@ class Navigation : AppCompatActivity() {
         //setContentView(R.layout.activity_navigation)
 
 
+        convey_reprt.setOnClickListener{
+            var i = Intent(this,Covence_Report::class.java)
+            startActivity(i)
+        }
 
         binding!!.profile.setOnClickListener{
             var intent1 = Intent(this,Collection_Profile::class.java)

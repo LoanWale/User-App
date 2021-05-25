@@ -16,6 +16,57 @@ class CollectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collection)
 
+        nil_payment.setBackground(getDrawable(R.drawable.part_pyment_drawable))
+        part_payment.setTextColor(getColor(R.color.white))
+        part_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
+        full_payment.setTextColor(getColor(R.color.black))
+        full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+        imageView6.isVisible = true
+        next_sch_date.isVisible = true
+
+        part_payment.setOnClickListener{
+            part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
+            part_payment.setTextColor(getColor(R.color.white))
+
+            full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+            nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+            full_payment.setTextColor(getColor(R.color.black))
+            nil_payment.setTextColor(getColor(R.color.black))
+
+            imageView6.isVisible = true
+            next_sch_date.isVisible = true
+        }
+
+        full_payment.setOnClickListener{
+            part_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
+            nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+            full_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
+
+            full_payment.setTextColor(getColor(R.color.white))
+            nil_payment.setTextColor(getColor(R.color.black))
+            part_payment.setTextColor(getColor(R.color.black))
+
+            next_sch_date.isVisible = false
+            imageView6.isVisible = false
+
+
+
+        }
+
+        nil_payment.setOnClickListener{
+            nil_payment.setTextColor(getColor(R.color.white))
+            nil_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
+
+            full_payment.setTextColor(getColor(R.color.black))
+            full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+
+            part_payment.setTextColor(getColor(R.color.black))
+            part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+
+            next_sch_date.isVisible = true
+            imageView6.isVisible = true
+        }
+
 //        var fragment = supportFragmentManager
 //        var partPaymentFragment = PartPaymentFragment()
 //        fragment.beginTransaction().replace(R.id.part_frame,partPaymentFragment).commit()

@@ -17,27 +17,22 @@ class UserAdapter(private val context: Context, private var userList: ArrayList<
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.home_page_layout
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.repayment_layout
         ,parent,false)
         return UserViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = userList[position]
-        holder.name.text = user.name
-        holder.mob.text = user.number
-        holder.itemView.setOnClickListener{
-            var intent = Intent(context, LoanDetailActivity::class.java )
-            context.startActivity(intent)
-        }
+
+
     }
 
     override fun getItemCount(): Int =
         userList.size
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val name : TextView = itemView.findViewById(R.id.textView7)
-        val mob : TextView = itemView.findViewById(R.id.textView8)
+
     }
     fun setData(userList: ArrayList<User>){
         this.userList = userList

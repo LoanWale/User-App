@@ -214,7 +214,7 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="end|center"
                 android:paddingStart="15dp"
-                android:text="Rs. 10000"
+                android:text="Rs 10000"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
@@ -242,7 +242,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".6"
                 android:fontFamily="@font/robotomedium"
-                android:text="Free"
+                android:text="Fee"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -256,7 +256,7 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="end|center"
                 android:paddingStart="15dp"
-                android:text="Rs. 800"
+                android:text="Rs 800"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
@@ -284,7 +284,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".4"
                 android:fontFamily="@font/robotomedium"
-                android:text="ROI Per Day"
+                android:text="ROI(per day)"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -381,7 +381,7 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="end|center"
                 android:paddingStart="15dp"
-                android:text="RS. 8800"
+                android:text="Rs 8800"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
@@ -457,7 +457,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
+                    android:layout_weight=".5"
                     android:textAllCaps="true"
                     android:fontFamily="@font/robotomedium"
                     android:text="Repayment Date"
@@ -470,7 +470,7 @@
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".6"
+                    android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
@@ -513,7 +513,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Rs.22000"
+                    android:text="Rs 22000"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
@@ -553,7 +553,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Rs.1000"
+                    android:text="Rs 1000"
                     android:textColor="@color/black"
                     android:textSize="13sp"
 
@@ -593,7 +593,7 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="end|center"
                 android:paddingStart="15dp"
-                android:text="Rs.1800"
+                android:text="Rs 1800"
                 android:textColor="@color/black"
                 android:textSize="13sp"
 
@@ -674,9 +674,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
+                    android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Penel ROI Per Day"
+                    android:text="Penel ROI (per day)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -686,7 +686,7 @@
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".6"
+                    android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
@@ -714,9 +714,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
+                    android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Penal Interest per day"
+                    android:text="Penal Interest (per day)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -726,11 +726,11 @@
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".6"
+                    android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Rs.100"
+                    android:text="Rs 100"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
@@ -754,7 +754,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
+                    android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
                     android:text="Interest Payable (B)"
                     android:textColor="@color/gray"
@@ -766,54 +766,54 @@
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".6"
+                    android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="RS. 700"
+                    android:text="Rs 700"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>  <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="15sp"
+            android:paddingBottom="2dp"
+            android:weightSum="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/robotomedium"
+                android:text="Total Payable (A+B)"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="end|center"
                 android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="2dp"
-                android:weightSum="1"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="113dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="Total Payable (A+B)"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:paddingStart="15dp"
-                    android:text="RS. 2500"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
+                android:text="Rs 2500"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
 
 
 
