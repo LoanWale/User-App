@@ -14,7 +14,7 @@ class CommanActivity : AppCompatActivity() {
         var binding : ActivityCommanBinding? = null
         super.onCreate(savedInstanceState)
         binding = ActivityCommanBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
+        setContentView(binding.root)
 
 
     }
