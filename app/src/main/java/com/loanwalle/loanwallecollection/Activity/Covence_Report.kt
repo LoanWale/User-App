@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loanwalle.loanwallecollection.Adaptor.ConVayAdapter
 import com.loanwalle.loanwallecollection.Model.User
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.ViewModel.UserViewModel
