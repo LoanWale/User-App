@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Activity.LoanActivity">
+    tools:context=".ui.main.view.Activity.LoanActivity">
 
     <LinearLayout
         android:orientation="vertical"

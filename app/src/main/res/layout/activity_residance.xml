@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".Activity.ResidanceActivity">
+    tools:context=".ui.main.view.Activity.ResidanceActivity">
 
     <LinearLayout
         android:orientation="vertical"

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:fillViewport="true"
     android:layout_height="match_parent"
-    tools:context=".Activity.Navigation">
+    tools:context=".ui.main.view.Activity.Navigation">
 
 
 
