@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.loanwalle.loanwallecollection.Fragment.FullPaymentFragment
-import com.loanwalle.loanwallecollection.Fragment.PartPaymentFragment
 import com.loanwalle.loanwallecollection.R
 import kotlinx.android.synthetic.main.activity_collection.*
 import kotlinx.android.synthetic.main.fragment_part_payment.*

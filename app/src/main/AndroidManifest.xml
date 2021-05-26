@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.loanwalle.loanwallecollection">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -9,30 +11,31 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/loanwlee"
         android:label="@string/app_name"
         android:roundIcon="@drawable/loanwlee"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LoanwalleCollection.NoActionBar">
-        <activity android:name=".Activity.CurrentRecoveryAddressActivity"></activity>
-        <activity android:name=".Activity.OfficeAddressActivity"></activity>
-        <activity android:name=".Activity.CollectionActivity"></activity>
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.LoanwalleCollection.NoActionBar"
+        tools:ignore="MissingClass">
+        <activity
+            android:name=".Activity.Upload_Document"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Activity.Covence_Report"
+            android:exported="true" />
+        <activity android:name=".Activity.OfficeAddressActivity" />
+        <activity android:name=".Activity.CollectionActivity" />
         <activity android:name=".Activity.ResestActivity" />
         <activity android:name=".Activity.VerifyOTPActivity" />
         <activity android:name=".Activity.ForgotPasswordActivity" />
         <activity android:name=".Activity.PaymentActivity" />
         <activity android:name=".Activity.RemarksActivity" />
-        <activity android:name=".Activity.ResidanceActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".Activity.ResidanceActivity" />
         <activity
             android:name=".Activity.Verification"
             android:exported="true" />
@@ -60,7 +63,6 @@
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.Navigation" />
-        <activity android:name=".Activity.Covence_Report" />
         <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,7 +70,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+
 
         <meta-data
             android:name="preloaded_fonts"
