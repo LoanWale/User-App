@@ -21,49 +21,49 @@
         android:theme="@style/Theme.LoanwalleCollection.NoActionBar"
         tools:ignore="MissingClass">
         <activity
-            android:name=".Activity.Upload_Document"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Upload_Document"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".Activity.Covence_Report"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Covence_Report"
             android:exported="true" />
-        <activity android:name=".Activity.OfficeAddressActivity" />
-        <activity android:name=".Activity.CollectionActivity" />
-        <activity android:name=".Activity.ResestActivity" />
-        <activity android:name=".Activity.VerifyOTPActivity" />
-        <activity android:name=".Activity.ForgotPasswordActivity" />
-        <activity android:name=".Activity.PaymentActivity" />
-        <activity android:name=".Activity.RemarksActivity" />
-        <activity android:name=".Activity.ResidanceActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.OfficeAddressActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.CollectionActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ResestActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.VerifyOTPActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ForgotPasswordActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.PaymentActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.RemarksActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ResidanceActivity" />
         <activity
-            android:name=".Activity.Verification"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.PreviousPayment"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Verification"
             android:exported="true" />
         <activity
-            android:name=".Activity.Total_Leads"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.PreviousPayment"
             android:exported="true" />
         <activity
-            android:name=".Activity.Recovery_Address"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Total_Leads"
             android:exported="true" />
         <activity
-            android:name=".Activity.Collection_Profile"
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Recovery_Address"
             android:exported="true" />
-        <activity android:name=".Activity.UnlockActivity" />
-        <activity android:name=".Activity.DocumentActivity" />
-        <activity android:name=".Activity.LoanActivity" />
-        <activity android:name=".Activity.CommanActivity" />
-        <activity android:name=".Activity.LoanDetailActivity" />
-        <activity android:name=".Activity.IRAActivity" />
-        <activity android:name=".Activity.HomePageActivity" />
-        <activity android:name=".Activity.OtpActivity" />
-        <activity android:name=".Activity.AadharCard" />
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.Navigation" />
-        <activity android:name=".Activity.SplashActivity">
+        <activity
+            android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Collection_Profile"
+            android:exported="true" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.UnlockActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.DocumentActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.CommanActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.IRAActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomePageActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.OtpActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.AadharCard" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomeActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.LoginActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Navigation" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
