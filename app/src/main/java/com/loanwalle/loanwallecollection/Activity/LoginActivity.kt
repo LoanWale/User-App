@@ -1,28 +1,28 @@
 package com.loanwalle.loanwallecollection.Activity
 
-import android.Manifest.permission
-import android.content.Intent
-import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.CAMERA
-import android.view.View
-import android.content.DialogInterface
-
-import android.os.Build
-
-import com.google.android.material.snackbar.Snackbar
-
-import android.content.pm.PackageManager
-
-import androidx.core.app.ActivityCompat
-
-import androidx.core.content.ContextCompat
-import android.R
 import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
+import com.loanwalle.loanwallecollection.Model.CommanModel
+
+import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
+
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.Calendar.getInstance
 
 
 class LoginActivity : AppCompatActivity() {
@@ -46,6 +46,23 @@ class LoginActivity : AppCompatActivity() {
 
         binding!!.loginBtn.setOnClickListener({ v ->
             //Toast.makeText(applicationContext,"Hello",Toast.LENGTH_LONG).show();
+
+            var number = editText.text.trim()
+            var password = editText2.text.trim()
+
+            if (number.isEmpty()){
+                editText.error = "Phone Number is Required"
+                editText.requestFocus()
+                return@setOnClickListener
+            }
+            if (password.isEmpty()){
+                editText2.error = "Password is Required"
+                editText2.requestFocus()
+                return@setOnClickListener
+            }
+
+            
+
             val intent = Intent(this,OtpActivity::class.java)
             startActivity(intent)
         })
@@ -55,6 +72,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
+
+
 
 
     private fun showMessageOKCancel(message: String, okListener: DialogInterface.OnClickListener) {
@@ -107,8 +128,7 @@ class LoginActivity : AppCompatActivity() {
 //                    Snackbar.LENGTH_LONG
 //                ).show()
 //
-                }
-                else {
+                } else {
                     Snackbar.make(
                         view!!,
                         "Permission Denied, You cannot access location data and camera.",

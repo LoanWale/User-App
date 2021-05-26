@@ -6,10 +6,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.loanwalle.loanwallecollection.Adaptor.UserAdapter
-import com.loanwalle.loanwallecollection.Fragment.LeadFragment
-import com.loanwalle.loanwallecollection.Fragment.VerificationFragment
+
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.ViewModel.UserViewModel
+
 import com.loanwalle.loanwallecollection.databinding.ActivityHomePageBinding
 import kotlinx.android.synthetic.main.activity_home_page.*
 import java.util.*

@@ -24,5 +24,6 @@ class Collection_Profile : AppCompatActivity() {
         }
 
 
+
     }
 }

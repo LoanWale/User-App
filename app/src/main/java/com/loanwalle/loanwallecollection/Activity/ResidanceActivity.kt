@@ -10,8 +10,6 @@ import androidx.core.view.isVisible
 import com.loanwalle.loanwallecollection.R
 import kotlinx.android.synthetic.main.activity_office_address.*
 import kotlinx.android.synthetic.main.activity_residance.*
-import kotlinx.android.synthetic.main.activity_residance.employes_sp
-import kotlinx.android.synthetic.main.activity_residance.staff_spiner
 import java.util.*
 
 class ResidanceActivity : AppCompatActivity() {
@@ -19,7 +17,7 @@ class ResidanceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_residance)
 
-        cstmer_layout2.isVisible = false
+        /* cstmer_layout2.isVisible = false
         cstmer_layout3.isVisible = false
         residance_layout.isVisible = false
         house_layout.isVisible = false
@@ -137,5 +135,6 @@ class ResidanceActivity : AppCompatActivity() {
         flat_sp!!.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,flat_list)
         owen_sp!!.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,own_list)
         spiner7!!.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,list_of_relation)
+    */
     }
 }
