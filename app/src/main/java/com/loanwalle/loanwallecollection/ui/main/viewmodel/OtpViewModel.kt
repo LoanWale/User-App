@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
-import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
-import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
+import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
+import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
@@ -17,35 +17,35 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
 
-class LoginViewModel(
+class OtpViewModel(
     app: Application,
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _loginResponse = MutableLiveData<Event<Resource<LoginResponce>>>()
-    val loginResponse:LiveData<Event<Resource<LoginResponce>>> = _loginResponse
+    private val _otpResponse = MutableLiveData<Event<Resource<ResponseOtp>>>()
+    val otpResponse: LiveData<Event<Resource<ResponseOtp>>> = _otpResponse
 
 
-    fun loginUser(body: RequestBodies.LoginBody) = viewModelScope.launch {
-        login(body)
+    fun loginOtp(body: RequestOtpBody.RequestOtp) = viewModelScope.launch {
+        callOtp(body)
     }
 
 
 
 
-    private suspend fun login(body: RequestBodies.LoginBody) {
-        _loginResponse.postValue(Event(Resource.Loading()))
+    private suspend fun callOtp(body: RequestOtpBody.RequestOtp) {
+        _otpResponse.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
-                val response = appRepository.loginUser(body)
-               _loginResponse.postValue(handlePicsResponse(response))
+                val response = appRepository.loginOtp(body)
+                _otpResponse.postValue(handleOtpResponse(response))
             } else {
-                _loginResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
+                _otpResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
             }
         } catch (t: Throwable) {
             when (t) {
                 is IOException -> {
-                    _loginResponse.postValue(
+                    _otpResponse.postValue(
                         Event(Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.network_failure
@@ -54,7 +54,7 @@ class LoginViewModel(
                     )
                 }
                 else -> {
-                    _loginResponse.postValue(
+                    _otpResponse.postValue(
                         Event(Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.conversion_error
@@ -66,9 +66,9 @@ class LoginViewModel(
         }
     }
 
-    private fun handlePicsResponse(response: Response<LoginResponce>): Event<Resource<LoginResponce>>? {
+    private fun handleOtpResponse(response: Response<ResponseOtp>): Event<Resource<ResponseOtp>>? {
         if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
+            response.body().let { resultResponse ->
                 return Event(Resource.Success(resultResponse))
             }
         }

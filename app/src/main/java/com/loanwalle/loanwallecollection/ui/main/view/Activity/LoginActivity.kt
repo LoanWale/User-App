@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.app.AlertDialog
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
@@ -137,7 +138,12 @@ class LoginActivity : AppCompatActivity() {
                 password
             )
 
+
+
             loginViewModel.loginUser(body)
+
+
+
             loginViewModel.loginResponse.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
