@@ -46,16 +46,16 @@ class OtpActivity : AppCompatActivity() {
     private fun init() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
-        otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
+        otpViewModel = ViewModelProvider(this, factory).get(otpViewModel::class.java)
     }
 
 
     fun requestOTP() {
-        val mobile = "9034799606"//otp_text.text.toString()
+        val OTP = otp_text.text.toString()
         val userid = 113
-        if (mobile.isNotEmpty() && userid!=null) {
+        if (OTP.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
-                mobile,
+                OTP,
                 userid
             )
 

@@ -68,11 +68,12 @@ class OtpViewModel(
 
     private fun handleOtpResponse(response: Response<ResponseOtp>): Event<Resource<ResponseOtp>>? {
         if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
+            response.body().let { resultResponse ->
                 return Event(Resource.Success(resultResponse))
             }
         }
         return Event(Resource.Error(response.message()))
     }
+
 
 }
