@@ -46,7 +46,7 @@ class OtpActivity : AppCompatActivity() {
     private fun init() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
-        otpViewModel = ViewModelProvider(this, factory).get(otpViewModel::class.java)
+        otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
     }
 
 
