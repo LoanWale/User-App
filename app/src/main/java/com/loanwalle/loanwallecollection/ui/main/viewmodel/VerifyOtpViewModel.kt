@@ -1,56 +1,57 @@
 package com.loanwalle.loanwallecollection.ui.main.viewmodel
 
 import android.app.Application
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
 import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
+import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyResponse
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.Utils
-import com.loanwalle.loanwallecollection.utils.errorSnack
-import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
 
-class OtpViewModel(
+class VerifyOtpViewModel(
     app: Application,
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _otpResponse = MutableLiveData<Event<Resource<ResponseOtp>>>()
-    val otpResponse: LiveData<Event<Resource<ResponseOtp>>> = _otpResponse
+    private val _verifyResponse = MutableLiveData<Event<Resource<VerifyResponse>>>()
+    val verifyResponse: LiveData<Event<Resource<VerifyResponse>>> = _verifyResponse
 
 
-    fun loginOtp(body: RequestOtpBody.RequestOtp) = viewModelScope.launch {
+    fun verifyOtp(body: VerifyRequestBody.VerifyRequest) = viewModelScope.launch {
         callOtp(body)
     }
-    
 
-    private suspend fun callOtp(body: RequestOtpBody.RequestOtp) {
-        _otpResponse.postValue(Event(Resource.Loading()))
+
+    private suspend fun callOtp(body: VerifyRequestBody.VerifyRequest) {
+        _verifyResponse.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
-                val response = appRepository.loginOtp(body)
-                _otpResponse.postValue(handlePicsResponse(response))
+                val response = appRepository.verifyOtp(body)
+                _verifyResponse.postValue(handlePicsResponse(response))
             } else {
-                _otpResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
+                _verifyResponse.postValue(
+                    Event(
+                        Resource.Error(getApplication<MyApplication>().getString(
+                            R.string.no_internet_connection)))
+                )
             }
         } catch (t: Throwable) {
             when (t) {
                 is IOException -> {
-                    _otpResponse.postValue(
-                        Event(Resource.Error(
+                    _verifyResponse.postValue(
+                        Event(
+                            Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.network_failure
                             )
@@ -58,8 +59,9 @@ class OtpViewModel(
                     )
                 }
                 else -> {
-                    _otpResponse.postValue(
-                        Event(Resource.Error(
+                    _verifyResponse.postValue(
+                        Event(
+                            Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.conversion_error
                             )
@@ -71,7 +73,7 @@ class OtpViewModel(
     }
 
 
-    private fun handlePicsResponse(response: Response<ResponseOtp>): Event<Resource<ResponseOtp>>? {
+    private fun handlePicsResponse(response: Response<VerifyResponse>): Event<Resource<VerifyResponse>>? {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Event(Resource.Success(resultResponse))
@@ -79,7 +81,6 @@ class OtpViewModel(
         }
         return Event(Resource.Error(response.message()))
     }
-
 
 
 }
