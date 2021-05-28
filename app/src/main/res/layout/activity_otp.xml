@@ -107,7 +107,7 @@
 
     <Button
         android:gravity="center"
-        android:id="@+id/otp_submit"
+        android:id="@+id/otp_submitClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

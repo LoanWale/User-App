@@ -24,7 +24,7 @@ interface API {
     suspend fun verifyOtp(@Body body:VerifyRequestBody.VerifyRequest): Response<VerifyResponse>
 
 
-    @POST("User_login/get_profile")
+    @POST("User/get_profile")
     suspend fun userProfile(@Body body:UserProfileBody.UserProfileRequest): Response<UserProfileResponse>
 
 

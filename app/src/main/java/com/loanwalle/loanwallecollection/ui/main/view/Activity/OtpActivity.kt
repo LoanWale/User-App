@@ -34,21 +34,19 @@ class OtpActivity : AppCompatActivity() {
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        init1()
+
 
         init()
         requestOTP()
 
 
-        binding!!.otpSubmit.setOnClickListener({
+       otp_submitClick.setOnClickListener{
+           init1()
+
+           submitClick()
+       }
 
 
-            submitClick()
-
-           /* //Toast.makeText(this,"Clicked",Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,HomePageActivity::class.java)
-            startActivity(intent)*/
-        })
 
 
     }
@@ -86,15 +84,15 @@ class OtpActivity : AppCompatActivity() {
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
+
+
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
                                 Log.e("Resopncelogin",message);
-                                if (message.equals("success!")&&otpResponse.user_id!=null)
+                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
                                 {
-                                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                   /* Intent(this@LoginActivi, OtpActivity::class.java).also {
-                                        startActivity(it)*/
+
                                 }
                                 else
 
@@ -156,14 +154,17 @@ class OtpActivity : AppCompatActivity() {
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
                                 Log.e("Resopncelogin",message);
-                                if (message.equals("success!")&&verifyResponse.message.equals("success!"))
+                                if (message.equals("Login success!")&&verifyResponse.status.equals("200"))
                                 {
-                                    Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    /* Intent(this@LoginActivi, OtpActivity::class.java).also {
-                                         startActivity(it)*/
 
-                                    Toast.makeText(this,"hiiiii", Toast.LENGTH_SHORT).show()
+                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+
+
+
+                                    var intent = Intent(this,HomePageActivity::class.java)
+                                    startActivity(intent)
+
+
 
 
                                 }

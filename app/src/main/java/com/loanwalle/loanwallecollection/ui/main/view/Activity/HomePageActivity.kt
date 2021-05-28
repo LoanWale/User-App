@@ -5,17 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
+import com.loanwalle.loanwallecollection.data.model.userProfile.Data
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
-import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityHomePageBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -28,10 +27,14 @@ class HomePageActivity : AppCompatActivity() {
 
     lateinit var userProfileViewModel : UserProfileViewModel
 
+    var data : Data? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        init()
+        requestUserProfile()
 
         collection_layout!!.visibility= View.VISIBLE
         Verification_layout!!.visibility= View.GONE
@@ -100,7 +103,7 @@ class HomePageActivity : AppCompatActivity() {
         userProfileViewModel = ViewModelProvider(this, factory).get(UserProfileViewModel::class.java)
     }
 
-    fun requestOTP() {
+    fun requestUserProfile() {
         val userid = 113
         if (userid!=null) {
             val body = UserProfileBody.UserProfileRequest(
@@ -110,8 +113,7 @@ class HomePageActivity : AppCompatActivity() {
 
 
             userProfileViewModel.userProfile(body)
-
-
+            Log.e("BODY",body.toString())
 
 
             userProfileViewModel.userProfileResponse.observe(this, Observer { event ->
@@ -119,20 +121,23 @@ class HomePageActivity : AppCompatActivity() {
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
+
+
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("success!")&&otpResponse.user_id!=null)
+                                Log.e("Resopncelogin7",message);
+                                if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
-                                    Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    /* Intent(this@LoginActivi, OtpActivity::class.java).also {
-                                         startActivity(it)*/
+                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+
+
+
                                 }
                                 else
 
                                 {
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    Log.e("Resopncelogin5",message);
                                 }
 
 
@@ -142,7 +147,8 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                                Log.e("Resopncelogin6",message);
                             }
                         }
 
@@ -152,15 +158,17 @@ class HomePageActivity : AppCompatActivity() {
                     }
                 }
             })
+
+
         }
 
     }
 
     fun hideProgressBar() {
-        progress.visibility = View.GONE
+        progress4.visibility = View.GONE
     }
     fun showProgressBar() {
-        progress.visibility = View.VISIBLE
+        progress4.visibility = View.VISIBLE
     }
     }
 
