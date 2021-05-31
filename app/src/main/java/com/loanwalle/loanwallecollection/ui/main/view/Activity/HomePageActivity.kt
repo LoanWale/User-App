@@ -27,7 +27,7 @@ class HomePageActivity : AppCompatActivity() {
 
     lateinit var userProfileViewModel : UserProfileViewModel
 
-    var data : Data? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
@@ -104,11 +104,12 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     fun requestUserProfile() {
-        val userid = 113
+        val userid = "2457"
         if (userid!=null) {
             val body = UserProfileBody.UserProfileRequest(
                 userid
             )
+
 
 
 
@@ -122,22 +123,21 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
 
-
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
-                                Log.e("Resopncelogin7",message);
+                                Log.e("Resopncelogin7",message)
                                 if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
+
+                                    Log.e("Resopncelogin5",otpResponse.data.city)
+                                    Toast.makeText(this,"DEEPAK KUMAR",Toast.LENGTH_SHORT).show()
                                     progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-
-
-
                                 }
                                 else
 
                                 {
                                     progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    Log.e("Resopncelogin5",message);
+
                                 }
 
 
