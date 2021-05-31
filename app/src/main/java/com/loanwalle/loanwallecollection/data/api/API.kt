@@ -2,6 +2,8 @@ import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
+import com.loanwalle.loanwallecollection.data.model.totalLead.LeadResponse
+import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileResponse
 import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
@@ -24,8 +26,11 @@ interface API {
     suspend fun verifyOtp(@Body body:VerifyRequestBody.VerifyRequest): Response<VerifyResponse>
 
 
-    @POST("User/get_profile")
+    @POST("user/get-current-address")
     suspend fun userProfile(@Body body:UserProfileBody.UserProfileRequest): Response<UserProfileResponse>
+
+    @POST("user/get-total_leads")
+    suspend fun totalLeads(@Body body:TotalLeadRequest.LeadRequest): Response<LeadResponse>
 
 
 
