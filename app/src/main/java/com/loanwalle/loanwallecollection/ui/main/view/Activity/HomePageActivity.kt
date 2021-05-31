@@ -5,16 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.data.model.userProfile.Data
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityHomePageBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
+import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -24,26 +24,24 @@ import java.util.*
 
 class HomePageActivity : AppCompatActivity() {
     var binding: ActivityHomePageBinding? = null
-
     lateinit var userProfileViewModel : UserProfileViewModel
 
-    var data : Data? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        init()
-        requestUserProfile()
-
         collection_layout!!.visibility= View.VISIBLE
         Verification_layout!!.visibility= View.GONE
 
 
+        init()
+        getProfile()
+
 
 
         binding!!.collid.setOnClickListener{
-            var intent1 = Intent(this,LoanDetailActivity::class.java)
+            val intent1 = Intent(this,LoanDetailActivity::class.java)
             startActivity(intent1)
         }
 
@@ -103,64 +101,50 @@ class HomePageActivity : AppCompatActivity() {
         userProfileViewModel = ViewModelProvider(this, factory).get(UserProfileViewModel::class.java)
     }
 
-    fun requestUserProfile() {
-        val userid = 113
-        if (userid!=null) {
-            val body = UserProfileBody.UserProfileRequest(
-                userid
-            )
+    fun getProfile() {
+        val user_id =1
+        val body = UserProfileBody.UserProfileRequest(
+            user_id
+        )
 
-
-
-            userProfileViewModel.userProfile(body)
-            Log.e("BODY",body.toString())
-
-
-            userProfileViewModel.userProfileResponse.observe(this, Observer { event ->
-                event.getContentIfNotHandled()?.let { response ->
-                    when (response) {
-                        is Resource.Success -> {
-                            hideProgressBar()
-
-
-                            response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
-                                Log.e("Resopncelogin7",message);
-                                if (message.equals("success")&&otpResponse.status.equals("200"))
-                                {
-                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-
-
-
-                                }
-                                else
-
-                                {
-                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    Log.e("Resopncelogin5",message);
-                                }
-
-
-                            }
-                        }
-
-                        is Resource.Error -> {
-                            hideProgressBar()
-                            response.message?.let { message ->
+        Log.e("Senddata", user_id.toString())
+        userProfileViewModel.userProfile(body)
+        userProfileViewModel.userProfileResponse.observe(this, Observer { event ->
+            event.getContentIfNotHandled()?.let { response ->
+                when (response) {
+                    is Resource.Success -> {
+                        hideProgressBar()
+                        response.data?.let { otpResponse ->
+                            val message:String= otpResponse.message
+                            Log.e("messagemessage",otpResponse.toString());
+                            if (message.equals("success")&&otpResponse.status.equals("200"))
+                            {
+                                Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
                                 progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                Log.e("Resopncelogin6",message);
                             }
-                        }
+                            else
 
-                        is Resource.Loading -> {
-                            showProgressBar()
+                            {
+                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                            }
+
+
                         }
                     }
+
+                    is Resource.Error -> {
+                        hideProgressBar()
+                        response.message?.let { message ->
+                            progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        showProgressBar()
+                    }
                 }
-            })
-
-
-        }
+            }
+        })
 
     }
 

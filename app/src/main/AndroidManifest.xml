@@ -57,7 +57,11 @@
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.CommanActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.IRAActivity" />
-        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomePageActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomePageActivity" >
+
+
+
+        </activity>
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.OtpActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.AadharCard" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomeActivity" />

@@ -65,8 +65,8 @@ class OtpActivity : AppCompatActivity() {
 
 
     fun requestOTP() {
-        val mobile = "9034799606"
-        val userid = 113
+        val mobile = "8920179062"
+        val userid = 1
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
@@ -130,7 +130,7 @@ class OtpActivity : AppCompatActivity() {
 
     fun submitClick() {
         val mobile = otp_text.text.toString().toInt()
-        val userid = 113
+        val userid = 1
         if (mobile!= null && userid!=null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,

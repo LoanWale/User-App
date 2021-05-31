@@ -1,24 +1,18 @@
 package com.loanwalle.loanwallecollection.ui.main.viewmodel
 
 import android.app.Application
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
-import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.Utils
-import com.loanwalle.loanwallecollection.utils.errorSnack
-import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
@@ -35,14 +29,16 @@ class OtpViewModel(
     fun loginOtp(body: RequestOtpBody.RequestOtp) = viewModelScope.launch {
         callOtp(body)
     }
-    
+
+
+
 
     private suspend fun callOtp(body: RequestOtpBody.RequestOtp) {
         _otpResponse.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
                 val response = appRepository.loginOtp(body)
-                _otpResponse.postValue(handlePicsResponse(response))
+                _otpResponse.postValue(handleOtpResponse(response))
             } else {
                 _otpResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
             }
@@ -70,8 +66,7 @@ class OtpViewModel(
         }
     }
 
-
-    private fun handlePicsResponse(response: Response<ResponseOtp>): Event<Resource<ResponseOtp>>? {
+    private fun handleOtpResponse(response: Response<ResponseOtp>): Event<Resource<ResponseOtp>>? {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Event(Resource.Success(resultResponse))
@@ -79,7 +74,5 @@ class OtpViewModel(
         }
         return Event(Resource.Error(response.message()))
     }
-
-
 
 }

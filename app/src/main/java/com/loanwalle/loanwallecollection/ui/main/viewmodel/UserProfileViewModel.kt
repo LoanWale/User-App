@@ -9,8 +9,6 @@ import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileResponse
-import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
-import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyResponse
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
