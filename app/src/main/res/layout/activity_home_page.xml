@@ -14,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <ProgressBar
             android:id="@+id/progress4"
             android:visibility="gone"
@@ -196,7 +198,6 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_lead_list"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

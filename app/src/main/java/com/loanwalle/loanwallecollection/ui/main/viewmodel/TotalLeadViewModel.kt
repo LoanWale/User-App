@@ -24,8 +24,8 @@ class TotalLeadViewModel(
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _leadResponse = MutableLiveData<Event<Resource<UserProfileResponse>>>()
-    val leadResponse: LiveData<Event<Resource<UserProfileResponse>>> = _leadResponse
+    private val _leadResponse = MutableLiveData<Event<Resource<LeadResponse>>>()
+    val leadResponse: LiveData<Event<Resource<LeadResponse>>> = _leadResponse
 
 
     fun totalLeads(body: TotalLeadRequest.LeadRequest) = viewModelScope.launch {
