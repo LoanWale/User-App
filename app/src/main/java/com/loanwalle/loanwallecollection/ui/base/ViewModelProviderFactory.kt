@@ -4,10 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoginViewModel
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
+import com.loanwalle.loanwallecollection.ui.main.viewmodel.*
 
 class ViewModelProviderFactory(
     val app: Application,
@@ -18,6 +15,10 @@ class ViewModelProviderFactory(
 
         if (modelClass.isAssignableFrom(OtpViewModel::class.java)) {
             return OtpViewModel(app, appRepository) as T
+        }
+
+        if (modelClass.isAssignableFrom(TotalLeadViewModel::class.java)) {
+            return TotalLeadViewModel(app, appRepository) as T
         }
 
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {

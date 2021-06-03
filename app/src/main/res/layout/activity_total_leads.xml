@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/graylight"
+    android:id="@+id/rootLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -187,14 +188,33 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_lead_list"
-                android:visibility="gone"
+                android:id="@+id/rvPics"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"
+                 />
+
+            <LinearLayout
+                android:id="@+id/progress"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:onClick="onProgressClick"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:id="@+id/collection_layout"
                 android:layout_marginTop="15dp"
@@ -699,6 +719,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:id="@+id/Verification_layout"
                 android:layout_width="match_parent"

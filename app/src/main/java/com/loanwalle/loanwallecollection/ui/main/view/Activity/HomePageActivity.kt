@@ -130,7 +130,7 @@ class HomePageActivity : AppCompatActivity() {
                                 {
 
                                     Log.e("Resopncelogin5",otpResponse.data.city)
-                                    Toast.makeText(this,"DEEPAK KUMAR",Toast.LENGTH_SHORT).show()
+                                   // Toast.makeText(this,"DEEPAK KUMAR",Toast.LENGTH_SHORT).show()
                                     progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
