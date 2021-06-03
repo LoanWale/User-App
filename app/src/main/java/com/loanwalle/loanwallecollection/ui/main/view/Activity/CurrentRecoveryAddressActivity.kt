@@ -25,8 +25,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             startvisit!!.setBackgroundResource(R.color.gray)
            starttnow.setBackgroundResource(R.color.applColor)
 
-
-
         }
 
         binding!!.starttnow.setOnClickListener{

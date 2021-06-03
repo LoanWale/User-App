@@ -324,7 +324,7 @@
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotomedium"
-                android:text="Easy of Identification"
+                android:text="Ease of Identification"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"

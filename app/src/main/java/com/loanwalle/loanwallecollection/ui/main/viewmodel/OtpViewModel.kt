@@ -24,15 +24,9 @@ class OtpViewModel(
 
     private val _otpResponse = MutableLiveData<Event<Resource<ResponseOtp>>>()
     val otpResponse: LiveData<Event<Resource<ResponseOtp>>> = _otpResponse
-
-
     fun loginOtp(body: RequestOtpBody.RequestOtp) = viewModelScope.launch {
         callOtp(body)
     }
-
-
-
-
     private suspend fun callOtp(body: RequestOtpBody.RequestOtp) {
         _otpResponse.postValue(Event(Resource.Loading()))
         try {

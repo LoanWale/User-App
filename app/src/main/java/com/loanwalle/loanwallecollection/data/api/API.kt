@@ -17,14 +17,11 @@ interface API {
     @POST("User_login/login_api")
     suspend fun loginUser(@Body body: RequestBodies.LoginBody): Response<LoginResponce>
 
-
-
     @POST("User_login/send_otp")
     suspend fun loginOtp(@Body body: RequestOtpBody.RequestOtp): Response<ResponseOtp>
 
     @POST("User_login/verify_otp")
     suspend fun verifyOtp(@Body body:VerifyRequestBody.VerifyRequest): Response<VerifyResponse>
-
 
     @POST("user/get-current-address")
     suspend fun userProfile(@Body body:UserProfileBody.UserProfileRequest): Response<UserProfileResponse>

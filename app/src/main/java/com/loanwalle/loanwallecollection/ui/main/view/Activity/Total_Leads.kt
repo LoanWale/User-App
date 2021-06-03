@@ -26,6 +26,8 @@ class Total_Leads : AppCompatActivity() {
     var binding:ActivityTotalLeadsBinding? = null
     private lateinit var viewModel: TotalLeadViewModel
     lateinit var picsAdapter: Total_Lead_ADP
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityTotalLeadsBinding.inflate(layoutInflater)

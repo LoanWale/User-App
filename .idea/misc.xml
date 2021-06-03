@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/activity_collection_profile.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_comman.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_covence_report.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_current_recovery_address.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_document.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2953125" />
@@ -37,7 +38,7 @@
         <entry key="app/src/main/res/layout/activity_recovery_address.xml" value="0.2423076923076923" />
         <entry key="app/src/main/res/layout/activity_remarks.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_resest.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_residance.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_residance.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_total_leads.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_unlock.xml" value="0.2953125" />

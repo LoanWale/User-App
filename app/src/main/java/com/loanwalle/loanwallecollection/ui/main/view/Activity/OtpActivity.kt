@@ -23,34 +23,19 @@ import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
 
 class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
-
     lateinit var otpViewModel: OtpViewModel
-
-    private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
-
-
         init()
         requestOTP()
-
-
        otp_submitClick.setOnClickListener{
            init1()
-
            submitClick()
        }
-
-
-
-
     }
-
     private fun init1() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)

@@ -67,6 +67,7 @@
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.HomeActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.LoginActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Navigation" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.CurrentRecoveryAddressActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -147,6 +147,7 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.loginResponse.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
+                        
                         is Resource.Success -> {
                             hideProgressBar()
                             response.data?.let { loginResponse ->
