@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
+import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPasswordOTPRequest
 import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
+import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_forgot_password.*
@@ -24,7 +26,7 @@ import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
 class VerifyOTPActivity : AppCompatActivity() {
 
     private var view: View? = null
-    lateinit var verifyViewModel: VerifyOtpViewModel
+    lateinit var verifyViewModel: VerifyPasswordViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +37,12 @@ class VerifyOTPActivity : AppCompatActivity() {
 
         number_phon.text = num
 
-        //init()
+        init()
 
         complete_btn_otp.setOnClickListener{
-            var intent = Intent(this,ResestActivity::class.java)
-            startActivity(intent)
+            verifyClick()
+
+
 
         }
     }
@@ -48,46 +51,45 @@ class VerifyOTPActivity : AppCompatActivity() {
     private fun init() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
-        verifyViewModel = ViewModelProvider(this, factory).get(VerifyOtpViewModel::class.java)
+        verifyViewModel = ViewModelProvider(this, factory).get(VerifyPasswordViewModel::class.java)
     }
 
 
     fun verifyClick() {
-        val mobile = 4433
+        val mobile = pinView.text.toString()
         val userid = 113
         if (mobile!= null && userid!=null) {
-            val body = VerifyRequestBody.VerifyRequest(
+            val body = VerifyPasswordOTPRequest.VerifyPasswordOTP(
                 mobile,
                 userid
             )
 
 
 
-            verifyViewModel.verifyOtp(body)
+            verifyViewModel.verfiyPassword(body)
 
 
 
-            verifyViewModel.verifyResponse.observe(this, Observer { event ->
+            verifyViewModel.userForgotPassword.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
 
-                            var intent = Intent(this,VerifyOTPActivity::class.java)
-                            intent.putExtra("number",mobile)
-                            startActivity(intent)
 
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("success!")&&verifyResponse.message.equals("success!"))
+                                Log.e("Resopncelogin99",userid.toString());
+                                if (message.equals("OTP verified Successfully")&&verifyResponse.status.equals("200"))
                                 {
-                                    Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
+
                                     progress2.errorSnack(message, Snackbar.LENGTH_LONG)
                                     /* Intent(this@LoginActivi, OtpActivity::class.java).also {
                                          startActivity(it)*/
 
-                                    Toast.makeText(this,"hiiiii", Toast.LENGTH_SHORT).show()
+                                    var intent = Intent(this,ResestActivity::class.java)
+                                    startActivity(intent)
+
 
 
                                 }

@@ -2,6 +2,7 @@ package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -32,6 +33,7 @@ class HomePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
 
         init()
         requestUserProfile()
@@ -109,8 +111,6 @@ class HomePageActivity : AppCompatActivity() {
             val body = UserProfileBody.UserProfileRequest(
                 userid
             )
-
-
 
 
             userProfileViewModel.userProfile(body)

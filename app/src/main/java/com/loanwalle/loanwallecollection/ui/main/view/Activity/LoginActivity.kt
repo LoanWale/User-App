@@ -131,7 +131,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun onLoginClick(view: View) {
         val mobilenono = mobileno.text.toString()
-        val password = password.text.toString()
+        val password = password_new.text.toString()
         if (mobilenono.isNotEmpty() && password.isNotEmpty()) {
             val body = RequestBodies.LoginBody(
                 mobilenono,
@@ -155,6 +155,7 @@ class LoginActivity : AppCompatActivity() {
                                 if (message.equals("success!")&&loginResponse.USERID!=null)
                                 {
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
+
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
                                         startActivity(it)
                                     }

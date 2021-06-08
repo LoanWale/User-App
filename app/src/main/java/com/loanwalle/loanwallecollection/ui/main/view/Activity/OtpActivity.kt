@@ -1,11 +1,11 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -19,7 +19,6 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_otp.*
-import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
 
 class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
@@ -29,10 +28,16 @@ class OtpActivity : AppCompatActivity() {
     private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
 
+
+
+    var preferences: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+
+
 
 
 
@@ -65,8 +70,8 @@ class OtpActivity : AppCompatActivity() {
 
 
     fun requestOTP() {
-        val mobile = "8920179062"
-        val userid = 1
+        val mobile = "9034799606"
+        val userid = intent.getStringExtra("user_id")?.toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
@@ -130,7 +135,7 @@ class OtpActivity : AppCompatActivity() {
 
     fun submitClick() {
         val mobile = otp_text.text.toString().toInt()
-        val userid = 1
+        val userid = 113
         if (mobile!= null && userid!=null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,
