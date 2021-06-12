@@ -30,6 +30,16 @@ class ViewModelProviderFactory(
         if (modelClass.isAssignableFrom(UserProfileViewModel::class.java)){
             return UserProfileViewModel(app,appRepository) as T
         }
+
+        if (modelClass.isAssignableFrom(ForgotPasswordViewModel::class.java)){
+            return ForgotPasswordViewModel(app,appRepository) as T
+        }
+        if (modelClass.isAssignableFrom(VerifyPasswordViewModel::class.java)){
+            return VerifyPasswordViewModel(app,appRepository) as T
+        }
+        if (modelClass.isAssignableFrom(NewPasswordViewModel::class.java)){
+            return NewPasswordViewModel(app,appRepository) as T
+        }
         throw IllegalArgumentException("Unknown class name")
     }
 

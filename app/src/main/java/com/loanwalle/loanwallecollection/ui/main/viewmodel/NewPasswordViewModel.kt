@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
-import com.loanwalle.loanwallecollection.data.model.totalLead.LeadResponse
-import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
-import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
-import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileResponse
+import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
+import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
+import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPasswordOTPRequest
+import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPasswordResponse
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
@@ -19,28 +19,30 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
 
-class TotalLeadViewModel(
+class NewPasswordViewModel(
     app: Application,
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _leadResponse = MutableLiveData<Event<Resource<LeadResponse>>>()
-    val leadResponse: LiveData<Event<Resource<LeadResponse>>> = _leadResponse
+    private val _newPassword = MutableLiveData<Event<Resource<NewPasswordResponse>>>()
+    val newPassword: LiveData<Event<Resource<NewPasswordResponse>>> = _newPassword
 
 
-    fun totalLeads(body: TotalLeadRequest.LeadRequest) = viewModelScope.launch {
-        callProfile(body)
+    fun verfiyPassword(body: NewPasswordRequestBodies.NewPasswordRequest) = viewModelScope.launch {
+        callOtp(body)
     }
 
 
-    private suspend fun callProfile(body: TotalLeadRequest.LeadRequest) {
-        _leadResponse.postValue(Event(Resource.Loading()))
+
+
+    private suspend fun callOtp(body: NewPasswordRequestBodies.NewPasswordRequest) {
+        _newPassword.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
-                val response = appRepository.totalLeads(body)
-                //_leadResponse.postValue(handlePicsResponse(response))
+                val response = appRepository.newPassword(body)
+                _newPassword.postValue(handleOtpResponse(response))
             } else {
-                _leadResponse.postValue(
+                _newPassword.postValue(
                     Event(
                         Resource.Error(getApplication<MyApplication>().getString(
                             R.string.no_internet_connection)))
@@ -49,7 +51,7 @@ class TotalLeadViewModel(
         } catch (t: Throwable) {
             when (t) {
                 is IOException -> {
-                    _leadResponse.postValue(
+                    _newPassword.postValue(
                         Event(
                             Resource.Error(
                                 getApplication<MyApplication>().getString(
@@ -59,7 +61,7 @@ class TotalLeadViewModel(
                     )
                 }
                 else -> {
-                    _leadResponse.postValue(
+                    _newPassword.postValue(
                         Event(
                             Resource.Error(
                                 getApplication<MyApplication>().getString(
@@ -72,8 +74,7 @@ class TotalLeadViewModel(
         }
     }
 
-
-    private fun handlePicsResponse(response: Response<LeadResponse>): Event<Resource<LeadResponse>>? {
+    private fun handleOtpResponse(response: Response<NewPasswordResponse>): Event<Resource<NewPasswordResponse>>? {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Event(Resource.Success(resultResponse))
@@ -81,6 +82,5 @@ class TotalLeadViewModel(
         }
         return Event(Resource.Error(response.message()))
     }
-
 
 }
