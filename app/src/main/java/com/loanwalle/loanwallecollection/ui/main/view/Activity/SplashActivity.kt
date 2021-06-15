@@ -1,11 +1,14 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import com.loanwalle.loanwallecollection.databinding.ActivitySplashBinding
+import com.loanwalle.loanwallecollection.utils.ConstantsSave
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -20,6 +23,8 @@ class SplashActivity : AppCompatActivity() {
     var botbbbb: Animation? = null
     var bot5: Animation? = null
     var bot6: Animation? = null
+    var sessionManegar = SessionManegar()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,15 +32,7 @@ class SplashActivity : AppCompatActivity() {
 
         setContentView(binding!!.root)
 
-        //topA = AnimationUtils.loadAnimation(this, R.anim.top_animation)
 
-
-       /* merque1.setAnimation(topA)
-        merque2.setAnimation(botA)
-        merque3.setAnimation(botb)
-        merque4.setAnimation(botbb)
-        merque5.setAnimation(botbbb)
-        merque6.setAnimation(botbbbb)*/
 
 
         merque1.animate().translationX(235f).setDuration(3000).startDelay = 0
@@ -46,12 +43,23 @@ class SplashActivity : AppCompatActivity() {
         merque6.animate().translationX(-290f).setDuration(3000).startDelay = 2000
         merque7.animate().translationX(-260f).setDuration(3000).startDelay = 2500
 
-        //hellllllllooooooo
+
 
        Handler().postDelayed({
+
            var intent = Intent(this, LoginActivity::class.java)
            startActivity(intent)
-           finish()
+
+
+           var intnt = Intent()
+           var state = sessionManegar.getInt(this@SplashActivity,sessionManegar.LOGIN_STATE)
+
+           if (state== ConstantsSave.LoginFlow.LOGINSCREEN){
+               intnt.setClass(this@SplashActivity,LoginActivity::class.java)
+           }else{
+               intnt.setClass(this@SplashActivity,OtpActivity::class.java)
+           }
+
        }, 6000)
 
     }

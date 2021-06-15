@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_otp.*
 
@@ -24,13 +26,33 @@ class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
 
     lateinit var otpViewModel: OtpViewModel
+
+    private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
+
+
+    var sessionManegar = SessionManegar()
+
+
+
+    var preferences: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+
+        Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
+
+
+
+
+
+
         init()
         requestOTP()
+
+
        otp_submitClick.setOnClickListener{
            init1()
 
@@ -56,8 +78,9 @@ class OtpActivity : AppCompatActivity() {
 
 
     fun requestOTP() {
-        val mobile = "8920179062"
-        val userid = 5//intent.getStringExtra("user_id")?.toInt()
+        var user =sessionManegar.getString(this@OtpActivity,"userid")
+        val mobile = "9034799606"
+        val userid = user.toString().toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
@@ -120,8 +143,9 @@ class OtpActivity : AppCompatActivity() {
     }
 
     fun submitClick() {
+        var use =sessionManegar.getString(this@OtpActivity,"userid")
         val mobile = otp_text.text.toString().toInt()
-        val userid = 5
+        val userid = use.toString().toInt()
         if (mobile!= null && userid!=null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,

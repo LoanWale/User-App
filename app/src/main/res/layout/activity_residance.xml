@@ -379,7 +379,9 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:layout_height="300dp">
+            android:layout_height="wrap_content">
+
+
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -617,6 +619,7 @@
 
 
             <LinearLayout
+                android:id="@+id/lt8"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -678,7 +681,8 @@
                 </LinearLayout>
             </LinearLayout>
 
-           <!-- <LinearLayout
+            <LinearLayout
+                android:id="@+id/lt9"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -689,7 +693,252 @@
                 android:paddingTop="2dp"
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
-                android:weightSum="1">
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/lt8"
+                app:layout_constraintStart_toStartOf="@+id/lt8"
+                app:layout_constraintTop_toBottomOf="@+id/lt8">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Neighbour"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp">
+
+
+
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="Positive"
+                        android:textSize="10sp"
+                        android:textColor="@color/black" />
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lt10"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/lt9"
+                app:layout_constraintStart_toStartOf="@+id/lt9"
+                app:layout_constraintTop_toBottomOf="@+id/lt9">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Coustomer Photo"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp">
+
+
+                    <ImageView
+
+                        android:background="@drawable/calendr_drawable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/camera_24"
+
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lt12"
+                android:orientation="horizontal"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/lt10"
+                app:layout_constraintStart_toStartOf="@+id/lt10"
+                app:layout_constraintTop_toBottomOf="@+id/lt10">
+
+
+                <TextView
+                    android:id="@+id/ralation_house33"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="KYC Address"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ralation_house33"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+
+                        android:paddingRight="@dimen/_12sdp"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="right"
+                        android:layout_gravity="right"
+                        android:id="@+id/customer_select_family_residance_house33"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/part_pyment_drawable"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="YES" />
+
+                    <TextView
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_14sdp"
+                        android:paddingRight="@dimen/_14sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:id="@+id/other_met_other_residance_house33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@drawable/full_payment_drawable"
+                        android:gravity="right"
+                        android:text="NO"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lt13"
+                android:orientation="horizontal"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/lt12"
+                app:layout_constraintStart_toStartOf="@+id/lt12"
+                app:layout_constraintTop_toBottomOf="@+id/lt12">
+
+
+                <TextView
+                    android:id="@+id/ralation_house34"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="KYC Identity Verified"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ralation_house34"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:paddingRight="@dimen/_12sdp"
+                        android:paddingLeft="@dimen/_12sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="right"
+                        android:layout_gravity="right"
+                        android:id="@+id/customer_select_family_residance_house34"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/full_payment_drawable"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="YES" />
+
+                    <TextView
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_14sdp"
+                        android:paddingRight="@dimen/_14sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:id="@+id/other_met_other_residance_house34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@drawable/part_pyment_drawable"
+                        android:gravity="right"
+                        android:text="NO"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lt15"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/lt13"
+                app:layout_constraintStart_toStartOf="@+id/lt13"
+                app:layout_constraintTop_toBottomOf="@+id/lt13">
 
                 <TextView
                     android:layout_width="0dp"
@@ -701,658 +950,43 @@
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".6"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="end|center"
-                android:paddingStart="15dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="Mic"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="Lic"
+                        android:textSize="10sp"
+                        android:textColor="@color/black" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="Lc"
+                        android:textSize="10sp"
+                        android:textColor="@color/black" />
 
 
-                <RadioButton
-                    android:textColor="@color/black"
-                    android:text="Positive"
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
+                </LinearLayout>
             </LinearLayout>
 
-
-
-
-            </LinearLayout>-->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<!--
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/textView47"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotomedium"
-                android:text="Entry"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:weightSum="2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView47"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/part_pyment_drawable"
-                    android:padding="10dp"
-                    android:text="Allowed" />
-
-                <TextView
-                    android:layout_marginRight="24dp"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/full_payment_drawable"
-                    android:padding="10dp"
-                    android:text="Not Allowed" />
-
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotomedium"
-                android:text="Sign Board"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:weightSum="2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView48"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:textColor="@color/white"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/full_payment_drawable"
-                    android:padding="10dp"
-                    android:text="Yes" />
-
-                <TextView
-                    android:layout_marginRight="24dp"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/part_pyment_drawable"
-                    android:padding="10dp"
-                    android:text="No" />
-
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <LinearLayout
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:id="@+id/cstmer_layout2"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="24dp"
-            >
-
-            <TextView
-                android:fontFamily="@font/robotomedium"
-                android:layout_weight="1"
-                android:id="@+id/textView252"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/if_other"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-            <EditText
-                android:fontFamily="@font/robotomedium"
-                android:layout_weight="1"
-                android:textColorHint="@color/black"
-                android:background="@null"
-                android:hint="@string/if_name"
-                android:id="@+id/spiner6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:orientation="horizontal"
-            android:id="@+id/cstmer_layout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/edit_drawable"
-            android:padding="10dp"
-            android:layout_weight="2">
-
-            <TextView
-                android:fontFamily="@font/robotomedium"
-                android:layout_weight="1"
-                android:id="@+id/textView253"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/relation"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-            <Spinner
-                android:layout_weight="1"
-                android:id="@+id/spiner7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:orientation="horizontal"
-            android:id="@+id/residance_layout"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_weight="2">
-
-            <TextView
-                android:fontFamily="@font/robotomedium"
-                android:layout_weight="1"
-                android:id="@+id/residance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/residance"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-            <Spinner
-                android:layout_weight="1"
-                android:id="@+id/owen_sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:orientation="horizontal"
-            android:id="@+id/house_layout"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_weight="2">
-
-            <TextView
-                android:fontFamily="@font/robotomedium"
-                android:layout_weight="1"
-                android:id="@+id/house"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/house_type"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-            <Spinner
-                android:layout_weight="1"
-                android:id="@+id/flat_sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                />
-
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/textView49"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotomedium"
-                android:text="Employer Name"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-           &lt;!&ndash; <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/km_drawable"
-                android:src="@drawable/camera_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <EditText
-            android:textSize="12sp"
-            android:fontFamily="@font/robotolight"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Deepak kumar"
-            android:textColorHint="@color/black" />
-
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:fontFamily="@font/robotomedium"
-                android:text="Locality"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <RadioGroup
-                android:layout_gravity="center"
-                android:weightSum="2"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp">
-
-                <RadioButton
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="Urban"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-                <RadioButton
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="Rural"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:paddingTop="5dp"
-            android:weightSum="3"
-            android:layout_gravity="center"
-            android:background="@drawable/edit_drawable"
-            android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:fontFamily="@font/robotomedium"
-                android:textColor="@color/black"
-                android:text="Company Since"
-                android:textSize="14sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:layout_gravity="center"
-                android:gravity="right"
-                android:weightSum="1"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:layout_marginRight="24dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/robotolight"
-                    android:textSize="12sp"
-                    android:text="10-05-2015"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/calendr_drawable"
-                    android:src="@drawable/ic_baseline_calendar_today_24"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:padding="10dp"
-            android:weightSum="1"
-            android:background="@drawable/edit_drawable"
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/robotomedium"
-                android:text="No. of staff sighted"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <Spinner
-                android:textColor="@color/black"
-                android:id="@+id/staff_spiner"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:padding="10dp"
-            android:weightSum="1"
-            android:background="@drawable/edit_drawable"
-            android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_weight="1"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/robotomedium"
-                android:text="Total Employes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Spinner
-                android:id="@+id/employes_sp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:fontFamily="@font/robotomedium"
-                android:text="KYC idintity verified"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <RadioGroup
-                android:layout_gravity="center"
-                android:weightSum="2"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp">
-
-                <RadioButton
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="Yes"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-                <RadioButton
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="No"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:background="@drawable/edit_drawable"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:fontFamily="@font/robotomedium"
-                android:text="Status"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <RadioGroup
-                android:layout_gravity="center"
-                android:weightSum="2"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp">
-
-                <RadioButton
-
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="Positive"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-
-                <RadioButton
-                    android:fontFamily="@font/robotolight"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_weight="1"
-                    android:text="Negitive"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-            </RadioGroup>
-
-        </LinearLayout>-->
-
-
-     <!--   <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/colex_clr_drawable"
-            android:padding="30dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sign_in_button_drawable"
-                android:text="SUBMIT"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
 
     </LinearLayout>
 
