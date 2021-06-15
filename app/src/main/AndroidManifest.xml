@@ -35,7 +35,9 @@
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ForgotPasswordActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.PaymentActivity" />
         <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.RemarksActivity" />
-        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ResidanceActivity" />
+        <activity android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.ResidanceActivity">
+
+        </activity>
         <activity
             android:name="com.loanwalle.loanwallecollection.ui.main.view.Activity.Verification"
             android:exported="true" />

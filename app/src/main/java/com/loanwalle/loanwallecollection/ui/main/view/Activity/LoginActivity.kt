@@ -27,7 +27,9 @@ import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoginViewModel
+import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -37,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
     private var view: View? = null
     var binding: ActivityLoginBinding? = null
     lateinit var loginViewModel: LoginViewModel
+    var sessionManegar = SessionManegar()
 
 
     override fun onResume() {
@@ -53,12 +56,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding!!.root)
         init()
 
+
         forgot_passwrd.setOnClickListener{
             val intent = Intent(this,ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
 
     }
+
+
 
 
 
@@ -155,6 +161,10 @@ class LoginActivity : AppCompatActivity() {
                                 if (message.equals("success!")&&loginResponse.USERID!=null)
                                 {
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
+
+                                    sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
+
+                                    sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
 
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
                                         startActivity(it)

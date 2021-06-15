@@ -5,6 +5,10 @@ import android.content.SharedPreferences
 
 class SessionManegar {
 
+    var LOGIN_STATE = "login_state"
+    var IS_LOGIN = "is_login"
+    var DATA_PROFILE = "data_profile"
+
     private fun getPreference(context: Context): SharedPreferences {
         return context.getSharedPreferences("app_pref", Context.MODE_PRIVATE)
     }
