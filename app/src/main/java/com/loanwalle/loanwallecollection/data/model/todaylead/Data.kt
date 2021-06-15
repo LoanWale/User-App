@@ -1,4 +1,4 @@
-package com.loanwalle.loanwallecollection.data.model.totalLead
+package com.loanwalle.loanwallecollection.data.model.todaylead
 
 data class Data(
     val alternate_no: String,
@@ -16,6 +16,5 @@ data class Data(
     val present_address_line1: String,
     val present_address_line2: String,
     val product_id: String,
-    val repayment_date: String,
     val surname: String
 )

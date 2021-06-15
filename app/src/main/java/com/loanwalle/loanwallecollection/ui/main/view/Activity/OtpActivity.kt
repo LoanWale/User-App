@@ -24,27 +24,13 @@ class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
 
     lateinit var otpViewModel: OtpViewModel
-
-    private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
-
-
-
-    var preferences: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
-
-
-
-
-
         init()
         requestOTP()
-
-
        otp_submitClick.setOnClickListener{
            init1()
 
@@ -70,8 +56,8 @@ class OtpActivity : AppCompatActivity() {
 
 
     fun requestOTP() {
-        val mobile = "9034799606"
-        val userid = intent.getStringExtra("user_id")?.toInt()
+        val mobile = "8920179062"
+        val userid = 5//intent.getStringExtra("user_id")?.toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
@@ -135,7 +121,7 @@ class OtpActivity : AppCompatActivity() {
 
     fun submitClick() {
         val mobile = otp_text.text.toString().toInt()
-        val userid = 113
+        val userid = 5
         if (mobile!= null && userid!=null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,

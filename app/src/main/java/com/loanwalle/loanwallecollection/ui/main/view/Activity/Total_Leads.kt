@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityTotalLeadsBinding
@@ -17,7 +16,6 @@ import com.loanwalle.loanwallecollection.ui.main.adapter.Total_Lead_ADP
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TotalLeadViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
-import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.android.synthetic.main.activity_total_leads.*
 import kotlinx.android.synthetic.main.activity_total_leads.progress
 
@@ -46,12 +44,12 @@ class Total_Leads : AppCompatActivity() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
         viewModel = ViewModelProvider(this, factory).get(TotalLeadViewModel::class.java)
-        getPictures()
+        getTodayLead()
     }
 
 
 
-    fun getPictures() {
+    fun getTodayLead() {
         val userid = "5"
         if (userid!=null) {
             val body = TotalLeadRequest.LeadRequest(userid)
@@ -62,20 +60,20 @@ class Total_Leads : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
                             response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
+                                val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",message);
-                                picsAdapter.differ.submitList(otpResponse.data)
+                                picsAdapter.differ.submitList(otpResponse!!.data)
                                 rvPics.adapter = picsAdapter
-//                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
-//                                {
-//                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-//
-//                                }
-//                                else
-//
-//                                {
-//                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-//                                }
+                                //                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
+                                //                                {
+                                //                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //
+                                //                                }
+                                //                                else
+                                //
+                                //                                {
+                                //                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //                                }
 
 
                             }
@@ -107,8 +105,4 @@ class Total_Leads : AppCompatActivity() {
         progress.visibility = View.VISIBLE
     }
 
-
-    fun onProgressClick(view: View) {
-        //Preventing Click during loading
-    }
 }

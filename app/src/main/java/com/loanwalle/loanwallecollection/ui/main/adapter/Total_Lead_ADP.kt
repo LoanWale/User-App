@@ -37,7 +37,7 @@ class Total_Lead_ADP : RecyclerView.Adapter<Total_Lead_ADP.TotalViewHolder>() {
     override fun onBindViewHolder(holder: TotalViewHolder, position: Int) {
         val picItem = differ.currentList[position]
         holder.itemView.apply {
-            lead_name.text = picItem.name
+            lead_name.text = picItem.borrower_name
         }
     }
 }

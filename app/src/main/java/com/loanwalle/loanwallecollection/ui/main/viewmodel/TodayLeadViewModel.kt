@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
+import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.totalLead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
 
-class TotalLeadViewModel(
+class TodayLeadViewModel(
     app: Application,
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
@@ -26,16 +27,16 @@ class TotalLeadViewModel(
     val leadResponse: LiveData<Event<Resource<TodayLeadResponce>>> = _leadResponse
 
 
-    fun totalLeads(body: TotalLeadRequest.LeadRequest) = viewModelScope.launch {
+    fun todaylead(body: TodayleadRequ.LeadRequest) = viewModelScope.launch {
         callProfile(body)
     }
 
 
-    private suspend fun callProfile(body: TotalLeadRequest.LeadRequest) {
+    private suspend fun callProfile(body: TodayleadRequ.LeadRequest) {
         _leadResponse.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
-                val response = appRepository.totalLeads(body)
+                val response = appRepository.todayLeads(body)
                 _leadResponse.postValue(handlePicsResponse(response))
             } else {
                 _leadResponse.postValue(

@@ -16,7 +16,7 @@ class UnlockActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
         binding!!.usePatt.setOnClickListener{
-            var intent = Intent(this,HomeActivity::class.java)
+            var intent = Intent(this,HomePageActivity::class.java)
             startActivity(intent)
         }
 

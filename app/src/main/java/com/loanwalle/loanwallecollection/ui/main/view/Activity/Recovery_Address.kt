@@ -81,7 +81,7 @@ class Recovery_Address : AppCompatActivity() {
 
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
-                                Log.e("Resopncelogin7",message)
+                                Log.e("Resopncelogin7",otpResponse.toString())
                                 if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
 

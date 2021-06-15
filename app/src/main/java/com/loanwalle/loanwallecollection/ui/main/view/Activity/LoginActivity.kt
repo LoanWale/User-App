@@ -135,15 +135,8 @@ class LoginActivity : AppCompatActivity() {
         if (mobilenono.isNotEmpty() && password.isNotEmpty()) {
             val body = RequestBodies.LoginBody(
                 mobilenono,
-                password
-            )
-
-
-
+                password)
             loginViewModel.loginUser(body)
-
-
-
             loginViewModel.loginResponse.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {

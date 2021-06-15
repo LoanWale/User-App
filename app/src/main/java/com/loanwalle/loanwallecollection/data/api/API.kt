@@ -6,7 +6,8 @@ import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordReque
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
-import com.loanwalle.loanwallecollection.data.model.totalLead.LeadResponse
+import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
+import com.loanwalle.loanwallecollection.data.model.totalLead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileResponse
@@ -33,12 +34,15 @@ interface API {
 
 
 
-    @POST("user/get-current-address")
+    @POST("user/get-residential-address")
     suspend fun userProfile(@Body body:UserProfileBody.UserProfileRequest): Response<UserProfileResponse>
 
 
-    @POST("user/get-total_leads")
-    suspend fun totalLeads(@Body body:TotalLeadRequest.LeadRequest): Response<LeadResponse>
+    @POST("user/get-old-collection-leads")
+    suspend fun totalLeads(@Body body:TotalLeadRequest.LeadRequest): Response<TodayLeadResponce>
+
+    @POST("user/get-todays-collection-leads")
+    suspend fun todayLeads(@Body body: TodayleadRequ.LeadRequest): Response<TodayLeadResponce>
 
 
     @POST("login/forget-password")

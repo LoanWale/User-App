@@ -76,7 +76,7 @@
                             android:layout_marginEnd="40sp"
                             android:fontFamily="@font/robotomedium"
                             android:gravity="center"
-                            android:text="Total Lead"
+                            android:text="Previous Lead"
                             android:textColor="@color/black"
                             android:textSize="22sp" />
 

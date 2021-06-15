@@ -3,8 +3,6 @@ package com.loanwalle.loanwallecollection.ui.main.view.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.loanwalle.loanwallecollection.data.model.totalLead.Data
 import com.loanwalle.loanwallecollection.databinding.ActivityLoanDetailBinding
 
 class LoanDetailActivity : AppCompatActivity() {

@@ -17,6 +17,10 @@ class ViewModelProviderFactory(
             return OtpViewModel(app, appRepository) as T
         }
 
+        if (modelClass.isAssignableFrom(TodayLeadViewModel::class.java)) {
+            return TodayLeadViewModel(app, appRepository) as T
+        }
+
         if (modelClass.isAssignableFrom(TotalLeadViewModel::class.java)) {
             return TotalLeadViewModel(app, appRepository) as T
         }
