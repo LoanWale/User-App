@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.data.model.totalLead.Data
+import com.loanwalle.loanwallecollection.data.model.todaylead.Data
 import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity
 
 

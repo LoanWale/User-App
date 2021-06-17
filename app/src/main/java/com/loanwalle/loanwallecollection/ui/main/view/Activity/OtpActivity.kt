@@ -79,7 +79,7 @@ class OtpActivity : AppCompatActivity() {
 
     fun requestOTP() {
         var user =sessionManegar.getString(this@OtpActivity,"userid")
-        val mobile = "9034799606"
+        val mobile = "8920179062"
         val userid = user.toString().toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(

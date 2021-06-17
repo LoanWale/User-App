@@ -40,9 +40,9 @@ class HomePageActivity : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
-        //requestUserProfile()
-        collection_layout!!.visibility= View.VISIBLE
-        Verification_layout!!.visibility= View.GONE
+        requestUserProfile()
+//        collection_layout!!.visibility= View.VISIBLE
+//        Verification_layout!!.visibility= View.GONE
 
 //        binding!!.collid.setOnClickListener{
 //            val intent1 = Intent(this,LoanDetailActivity::class.java)
@@ -82,12 +82,14 @@ class HomePageActivity : AppCompatActivity() {
         }
 
 
-        collid!!.setOnClickListener{
-            //  Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
-            val i = Intent(this@HomePageActivity, LoanDetailActivity::class.java)
-            startActivity(i)
+//        collid!!.setOnClickListener{
+//            //  Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
+//            val i = Intent(this@HomePageActivity, LoanDetailActivity::class.java)
+//            startActivity(i)
+//
+//        }
 
-        }
+
         verify!!.setOnClickListener{
             //  Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
             val i = Intent(this@HomePageActivity, Verification::class.java)
@@ -140,7 +142,7 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
 

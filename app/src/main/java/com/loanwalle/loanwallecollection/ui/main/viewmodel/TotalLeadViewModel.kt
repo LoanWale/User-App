@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
-import com.loanwalle.loanwallecollection.data.model.totalLead.TodayLeadResponce
+import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadResponce
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
@@ -22,8 +22,8 @@ class TotalLeadViewModel(
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _leadResponse = MutableLiveData<Event<Resource<TodayLeadResponce>>>()
-    val leadResponse: LiveData<Event<Resource<TodayLeadResponce>>> = _leadResponse
+    private val _leadResponse = MutableLiveData<Event<Resource<TotalLeadResponce>>>()
+    val leadResponse: LiveData<Event<Resource<TotalLeadResponce>>> = _leadResponse
 
 
     fun totalLeads(body: TotalLeadRequest.LeadRequest) = viewModelScope.launch {
@@ -71,7 +71,7 @@ class TotalLeadViewModel(
     }
 
 
-    private fun handlePicsResponse(response: Response<TodayLeadResponce>): Event<Resource<TodayLeadResponce>>? {
+    private fun handlePicsResponse(response: Response<TotalLeadResponce>): Event<Resource<TotalLeadResponce>>? {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Event(Resource.Success(resultResponse))

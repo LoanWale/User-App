@@ -6,7 +6,6 @@ data class Data(
     val cam_id: String,
     val company_id: String,
     val customer_id: String,
-    val docs_id: String,
     val `file`: String,
     val lead_id: String,
     val loan_id: String,

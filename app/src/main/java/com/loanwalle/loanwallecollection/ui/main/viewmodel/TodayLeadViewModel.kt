@@ -7,9 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.app.MyApplication
+import com.loanwalle.loanwallecollection.data.model.todaylead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
-import com.loanwalle.loanwallecollection.data.model.totalLead.TodayLeadResponce
-import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.utils.Event
 import com.loanwalle.loanwallecollection.utils.Resource
