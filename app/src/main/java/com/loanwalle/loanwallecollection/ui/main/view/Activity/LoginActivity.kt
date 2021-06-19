@@ -157,11 +157,10 @@ class LoginActivity : AppCompatActivity() {
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                     sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
-
                                     sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
-
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
                                         it.putExtra("moble",mobilenono)
+                                        sessionManegar.saveString(this@LoginActivity,"mobile",mobileno.text.toString())
                                         startActivity(it)
                                         finish()
                                     }

@@ -29,43 +29,20 @@ class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
 
     lateinit var otpViewModel: OtpViewModel
-
     private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
-
-
     var sessionManegar = SessionManegar()
-
-
-
-
-
-    var preferences: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
-
-        var numbr = intent.getStringExtra("moble")
-
-        textView5.setText(numbr)
-
-
-        Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
-
-
-
-
-
-
+      ////  val numbr = intent.getStringExtra("moble")
+        textView5.setText(sessionManegar.getString(this,"mobile"))
+      //  Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
         init()
         requestOTP()
-
-
        otp_submitClick.setOnClickListener{
            init1()
-
            submitClick()
        }
 
@@ -88,10 +65,10 @@ class OtpActivity : AppCompatActivity() {
 
 
     fun requestOTP() {
-        var user =sessionManegar.getString(this@OtpActivity,"userid")
-        val mobile = "9034799606"
+        val user =sessionManegar.getString(this@OtpActivity,"userid")
+        val mobile = sessionManegar.getString(this@OtpActivity,"mobile")
         val userid = user.toString().toInt()
-        if (mobile.isNotEmpty() && userid!=null) {
+        if (mobile!!.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
                 userid
@@ -153,7 +130,7 @@ class OtpActivity : AppCompatActivity() {
     }
 
     fun submitClick() {
-        var use =sessionManegar.getString(this@OtpActivity,"userid")
+        val use =sessionManegar.getString(this@OtpActivity,"userid")
         val mobile = otp_text.text.toString().toInt()
         val userid = use.toString().toInt()
         if (mobile!= null && userid!=null) {

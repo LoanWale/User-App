@@ -1,115 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/splash_pix"
     tools:context=".ui.main.view.Activity.SplashActivity">
 
-   <!-- <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/loanwlee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />-->
 
-
-    <TextView
-        android:id="@+id/merque1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_marginTop="172dp"
-        android:fontFamily="More Fonts..."
-        android:text="LW"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center|top"
+        android:layout_gravity="center|top"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
- <TextView
-     android:fontFamily="More Fonts..."
-     android:id="@+id/merque2"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="C"
-     android:textColor="@color/black"
-     android:textSize="25sp"
-     android:textStyle="italic"
-     app:layout_constraintBottom_toBottomOf="@+id/merque1"
-     app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintTop_toTopOf="@+id/merque1"
-     app:layout_constraintVertical_bias="0.504" />
 
-    <TextView
-        android:fontFamily="More Fonts..."
-        android:id="@+id/merque3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="O"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque2"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque2"/>
 
-    <TextView
-        android:fontFamily="More Fonts..."
-        android:id="@+id/merque4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="L"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque3"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque3"/>
 
-    <TextView
-        android:fontFamily="More Fonts..."
-        android:id="@+id/merque5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="L"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque4"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque4"/>
+        <LinearLayout
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:fontFamily="More Fonts..."
-        android:id="@+id/merque6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque5"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque5"/>
 
-    <TextView
-        android:fontFamily="@font/montserrat"
-        android:id="@+id/merque7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X"
-        android:textColor="@color/purple_700"
-        android:textSize="40sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/merque6"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/merque6" />
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/startone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/start2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="W"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                />
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/merque2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
+
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/merque3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="O"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
+
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/merque4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
+
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/merque5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
+
+            <TextView
+                android:fontFamily="@font/robotomedium"
+                android:id="@+id/merque6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                />
+
+            <TextView
+                android:fontFamily="@font/montserrat"
+                android:id="@+id/merque7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textColor="@color/purple_700"
+                android:textSize="30sp"
+                android:textStyle="italic"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
