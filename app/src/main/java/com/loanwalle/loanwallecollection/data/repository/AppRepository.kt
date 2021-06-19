@@ -1,6 +1,7 @@
 package com.loanwalle.loanwallecollection.data.repository
 
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
+import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
@@ -20,4 +21,5 @@ class AppRepository {
     suspend fun forgotPassword(body:ForgotRequestBodies.ForgotRequest) = RetrofitInstance.loginApi.forgotPassword(body)
     suspend fun verfiyPassword(body:VerifyPasswordOTPRequest.VerifyPasswordOTP) = RetrofitInstance.loginApi.verfiyPassword(body)
     suspend fun newPassword(body: NewPasswordRequestBodies.NewPasswordRequest) = RetrofitInstance.loginApi.newPassword(body)
+    suspend fun getUserProfile(body: GetUserProfileBodies.GetUserProfileRequest) = RetrofitInstance.loginApi.getUserProfile(body)
 }

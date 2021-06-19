@@ -1,5 +1,7 @@
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotResponse
+import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
+import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileResponse
 import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
@@ -54,6 +56,9 @@ interface API {
 
     @POST("user/update-password")
     suspend fun newPassword(@Body body:NewPasswordRequestBodies.NewPasswordRequest): Response<NewPasswordResponse>
+
+    @POST("User/get_profile")
+    suspend fun getUserProfile(@Body body:GetUserProfileBodies.GetUserProfileRequest): Response<GetUserProfileResponse>
 
 
 
