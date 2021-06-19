@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.databinding.ActivityNavigationBinding
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import kotlinx.android.synthetic.main.activity_navigation.*
 
 class Navigation : AppCompatActivity() {
@@ -12,8 +13,10 @@ class Navigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var sessionManegar = SessionManegar()
         binding= ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
 
         //setContentView(R.layout.activity_navigation)
 
@@ -49,6 +52,12 @@ class Navigation : AppCompatActivity() {
         }
 
 
+        logout.setOnClickListener{
+
+            sessionManegar.clearAll(this)
+            var intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

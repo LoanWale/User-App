@@ -17,10 +17,13 @@ import com.loanwalle.loanwallecollection.databinding.ActivityOtpBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
+import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_otp.*
+import kotlinx.android.synthetic.main.activity_otp.progress
 
 class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
@@ -35,11 +38,18 @@ class OtpActivity : AppCompatActivity() {
 
 
 
+
+
     var preferences: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+
+        var numbr = intent.getStringExtra("moble")
+
+        textView5.setText(numbr)
 
 
         Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
@@ -79,7 +89,7 @@ class OtpActivity : AppCompatActivity() {
 
     fun requestOTP() {
         var user =sessionManegar.getString(this@OtpActivity,"userid")
-        val mobile = "8920179062"
+        val mobile = "9034799606"
         val userid = user.toString().toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
@@ -176,8 +186,11 @@ class OtpActivity : AppCompatActivity() {
 
 
 
+                                    sessionManegar.saveInt(this@OtpActivity,sessionManegar.LOGIN_STATE,
+                                        ConstantsSave.LoginFlow.HOMESCREEN)
                                     var intent = Intent(this,HomePageActivity::class.java)
                                     startActivity(intent)
+                                    finish()
 
 
 

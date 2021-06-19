@@ -161,7 +161,9 @@ class LoginActivity : AppCompatActivity() {
                                     sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
 
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
+                                        it.putExtra("moble",mobilenono)
                                         startActivity(it)
+                                        finish()
                                     }
                                 }else
 

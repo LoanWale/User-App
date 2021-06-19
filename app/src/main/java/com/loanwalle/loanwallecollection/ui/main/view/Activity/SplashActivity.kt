@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.loanwalle.loanwallecollection.databinding.ActivitySplashBinding
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
@@ -33,8 +34,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
 
-
-
         merque1.animate().translationX(235f).setDuration(3000).startDelay = 0
         merque2.animate().translationX(-375f).setDuration(3000).startDelay = 0
         merque3.animate().translationX(-375f).setDuration(3000).startDelay = 500
@@ -47,20 +46,27 @@ class SplashActivity : AppCompatActivity() {
 
        Handler().postDelayed({
 
-           var intent = Intent(this, LoginActivity::class.java)
-           startActivity(intent)
-
-
            var intnt = Intent()
            var state = sessionManegar.getInt(this@SplashActivity,sessionManegar.LOGIN_STATE)
 
            if (state== ConstantsSave.LoginFlow.LOGINSCREEN){
                intnt.setClass(this@SplashActivity,LoginActivity::class.java)
-           }else{
+               finish()
+           }
+           else if (state == ConstantsSave.LoginFlow.Otpscreen){
                intnt.setClass(this@SplashActivity,OtpActivity::class.java)
+               finish()
+           }
+           else{
+               intnt.setClass(this@SplashActivity,HomePageActivity::class.java)
+               finish()
            }
 
+           startActivity(intnt)
+           finish()
        }, 6000)
 
     }
+
+
 }
