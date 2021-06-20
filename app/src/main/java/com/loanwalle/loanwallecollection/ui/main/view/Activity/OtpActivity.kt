@@ -29,7 +29,6 @@ class OtpActivity : AppCompatActivity() {
     var binding: ActivityOtpBinding? = null
 
     lateinit var otpViewModel: OtpViewModel
-    private var view: View? = null
     lateinit var verifyViewModel: VerifyOtpViewModel
     var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {

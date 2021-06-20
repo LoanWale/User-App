@@ -19,6 +19,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
@@ -27,13 +28,13 @@ class VerifyOTPActivity : AppCompatActivity() {
 
     private var view: View? = null
     lateinit var verifyViewModel: VerifyPasswordViewModel
-
+    var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verify_otpactivity)
 
-        var intent = intent
-        var num = intent.getStringExtra("number")
+        val intent = intent
+        val num = intent.getStringExtra("number")
 
         number_phon.text = num
 
@@ -57,26 +58,17 @@ class VerifyOTPActivity : AppCompatActivity() {
 
     fun verifyClick() {
         val mobile = pinView.text.toString()
-        val userid = 113
+        val  userid : String? = sessionManegar.getString(this,"userid")
         if (mobile!= null && userid!=null) {
             val body = VerifyPasswordOTPRequest.VerifyPasswordOTP(
-                mobile,
-                userid
-            )
-
-
+                mobile,userid.toInt())
 
             verifyViewModel.verfiyPassword(body)
-
-
-
             verifyViewModel.userForgotPassword.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
-
-
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
                                 Log.e("Resopncelogin99",userid.toString());
@@ -87,19 +79,13 @@ class VerifyOTPActivity : AppCompatActivity() {
                                     /* Intent(this@LoginActivi, OtpActivity::class.java).also {
                                          startActivity(it)*/
 
-                                    var intent = Intent(this,ResestActivity::class.java)
+                                    val intent = Intent(this,ResestActivity::class.java)
                                     startActivity(intent)
-
-
-
                                 }
                                 else
-
                                 {
                                     progress2.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
-
-
                             }
                         }
 

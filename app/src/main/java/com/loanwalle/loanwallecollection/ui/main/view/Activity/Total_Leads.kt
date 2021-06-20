@@ -12,10 +12,13 @@ import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityTotalLeadsBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
+import com.loanwalle.loanwallecollection.ui.main.adapter.TodayLeadAdp
+import com.loanwalle.loanwallecollection.ui.main.adapter.TotalLeadAdp
 import com.loanwalle.loanwallecollection.ui.main.adapter.Total_Lead_ADP
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TotalLeadViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.activity_total_leads.*
 import kotlinx.android.synthetic.main.activity_total_leads.progress
 
@@ -23,7 +26,6 @@ class Total_Leads : AppCompatActivity() {
 
     var binding:ActivityTotalLeadsBinding? = null
     private lateinit var viewModel: TotalLeadViewModel
-    lateinit var picsAdapter: Total_Lead_ADP
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +38,6 @@ class Total_Leads : AppCompatActivity() {
     private fun init() {
         rvPics.setHasFixedSize(true)
         rvPics.layoutManager = LinearLayoutManager(this)
-        picsAdapter = Total_Lead_ADP()
         setupViewModel()
     }
 
@@ -62,8 +63,16 @@ class Total_Leads : AppCompatActivity() {
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",message);
-                                picsAdapter.differ.submitList(otpResponse!!.data)
+                             //   picsAdapter.differ.submitList(otpResponse!!.data)
+                                val status = otpResponse!!.data
+                                val picsAdapter = status?.let {
+                                    TotalLeadAdp(
+                                        this@Total_Leads,
+                                        it
+                                    )
+                                }
                                 rvPics.adapter = picsAdapter
+
                                 //                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
                                 //                                {
                                 //                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)

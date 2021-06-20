@@ -2,6 +2,8 @@ import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequest
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotResponse
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileResponse
+import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsReq
+import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsResponse
 import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
@@ -47,7 +49,6 @@ interface API {
     @POST("user/get-todays-collection-leads")
     suspend fun todayLeads(@Body body:TodayleadRequ.LeadRequest): Response<TodayLeadResponce>
 
-
     @POST("login/forget-password")
     suspend fun forgotPassword(@Body body:ForgotRequestBodies.ForgotRequest): Response<ForgotResponse>
 
@@ -59,6 +60,9 @@ interface API {
 
     @POST("User/get_profile")
     suspend fun getUserProfile(@Body body:GetUserProfileBodies.GetUserProfileRequest): Response<GetUserProfileResponse>
+
+    @POST("user/get-loan-deatils-by-id")
+    suspend fun getLoanDetails(@Body body: LoanDetailsReq): Response<LoanDetailsResponse>
 
 
 

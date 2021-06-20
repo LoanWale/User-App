@@ -206,7 +206,7 @@
 
 
             <LinearLayout
-
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:id="@+id/Verification_layout"
                 android:layout_width="match_parent"

@@ -17,6 +17,11 @@ class ViewModelProviderFactory(
             return OtpViewModel(app, appRepository) as T
         }
 
+
+  if (modelClass.isAssignableFrom(LoanDetailsViewModal::class.java)) {
+            return LoanDetailsViewModal(app, appRepository) as T
+        }
+
         if (modelClass.isAssignableFrom(TodayLeadViewModel::class.java)) {
             return TodayLeadViewModel(app, appRepository) as T
         }

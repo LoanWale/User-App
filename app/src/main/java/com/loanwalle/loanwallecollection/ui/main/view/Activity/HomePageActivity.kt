@@ -41,6 +41,7 @@ class HomePageActivity : AppCompatActivity() {
         setContentView(binding!!.root)
         init()
         requestUserProfile()
+
 //        collection_layout!!.visibility= View.VISIBLE
 //        Verification_layout!!.visibility= View.GONE
 
@@ -51,33 +52,24 @@ class HomePageActivity : AppCompatActivity() {
 
 
         btn_collection!!.setOnClickListener{
-            //    Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
-
-//            collection_layout!!.visibility=View.VISIBLE
-//            Verification_layout!!.visibility=View.GONE
+            Verification_layout!!.visibility=View.GONE
+            rec_todaycollection!!.visibility=View.VISIBLE
             btn_collection!!.setBackgroundResource(R.drawable.paytmbutton)
             btn_verification!!.setBackgroundResource(R.drawable.graybackground)
-
         }
-
-
 
         btn_verification!!.setOnClickListener{
-
             Verification_layout!!.visibility=View.VISIBLE
+            rec_todaycollection!!.visibility=View.GONE
             btn_verification!!.setBackgroundResource(R.drawable.paytmbutton)
             btn_collection!!.setBackgroundResource(R.drawable.graybackground)
-
-
-
         }
-
-
 
         back_layout!!.setOnClickListener{
             //  Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
             val i = Intent(this@HomePageActivity, Navigation::class.java)
             startActivity(i)
+          //  finish()
 
         }
 

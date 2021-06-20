@@ -37,17 +37,17 @@ class LoanDetailActivity : AppCompatActivity() {
 //        }
 
         binding!!.loanDetailText.setOnClickListener{
-            var inte = Intent(this,LoanActivity::class.java)
+            val inte = Intent(this,LoanActivity::class.java)
             startActivity(inte)
         }
 
         binding!!.documents.setOnClickListener{
-            var i = Intent(this,DocumentActivity::class.java)
+            val i = Intent(this,DocumentActivity::class.java)
             startActivity(i)
         }
 
         binding!!.repayments.setOnClickListener{
-            var inten = Intent(this,PreviousPayment::class.java)
+            val inten = Intent(this,PreviousPayment::class.java)
             startActivity(inten)
         }
     }

@@ -68,7 +68,7 @@
                         android:layout_marginEnd="40sp"
                         android:fontFamily="@font/robotoregular"
                         android:gravity="center"
-                        android:text="Vikash Kumar"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -122,7 +122,7 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/full_name"
+                android:id="@+id/applicationno"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start|center"
@@ -164,6 +164,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/loanno"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -195,6 +196,7 @@
             tools:layout_editor_absoluteY="113dp">
 
             <TextView
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -205,6 +207,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/loan_sanctioned"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -237,6 +240,7 @@
             tools:layout_editor_absoluteY="113dp">
 
             <TextView
+                android:id="@+id/processing_fee"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -429,7 +433,13 @@
 
 
 
-
+        <ProgressBar
+            android:id="@+id/loan_progress"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
 
