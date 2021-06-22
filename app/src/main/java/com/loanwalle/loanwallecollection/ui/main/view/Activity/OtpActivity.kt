@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
@@ -18,6 +19,7 @@ import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
+import com.loanwalle.loanwallecollection.utils.OTP.SMSReceiver
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -25,7 +27,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.android.synthetic.main.activity_otp.progress
 
-class OtpActivity : AppCompatActivity() {
+class OtpActivity : AppCompatActivity() ,
+   SMSReceiver.OTPReceiveListener {
     var binding: ActivityOtpBinding? = null
 
     lateinit var otpViewModel: OtpViewModel
@@ -61,7 +64,30 @@ class OtpActivity : AppCompatActivity() {
         val factory = ViewModelProviderFactory(application, repository)
         otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
     }
+    override fun onOTPReceived(otp: String) {
+        //  showToast("OTP Received: " + otp);
+        otp_text.setText("")
+        otp_text.setText(otp.substring(15, 21))
 
+//        if (a.equals("1")) {
+//
+//           getLoginVerify(pinView.getText().toString());
+//
+//        } else {
+//
+//            getPhoneverification(pinView.getText().toString());
+//
+//        }
+
+    }
+
+    override fun onOTPTimeOut() {
+        // showToast("OTP Time out");
+    }
+
+    override fun onOTPReceivedError(error: String?) {
+        // showToast(error);
+    }
 
     fun requestOTP() {
         val user =sessionManegar.getString(this@OtpActivity,"userid")
