@@ -33,7 +33,7 @@ class LoanActivity : AppCompatActivity() {
         getloandetails()
     }
     fun getloandetails() {
-        val userid = "5"
+        val userid = "44"
         if (userid!=null) {
             val body = LoanDetailsReq(
                 "2","2457","2",userid)
