@@ -61,4 +61,11 @@ class SessionManegar {
             .remove(key)
             .apply()
     }
+
+//    fun (context: Context, key: String?) {
+//        getPreference(context)
+//            .edit()
+//            .remove(key)
+//            .apply()
+//    }
 }

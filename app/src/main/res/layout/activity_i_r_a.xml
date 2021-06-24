@@ -124,7 +124,10 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="3dp"
                 android:weightSum="1">
-
+                <ImageView
+                    android:background="@drawable/ic_usernew"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -136,7 +139,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/full_name"
+                    android:id="@+id/ircontactName"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -148,7 +151,7 @@
                     android:paddingStart="15dp"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:text="Rahul kumar"
+                    android:text="Sample"
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
@@ -167,32 +170,78 @@
                 android:paddingBottom="3dp"
                 android:weightSum="1"
                 tools:ignore="RtlSymmetry">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="MOBILE"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
                 <ImageView
                     android:background="@drawable/ic_baseline_call_24"
                     android:layout_width="30dp"
                     android:layout_height="30dp"/>
                 <TextView
-                    android:id="@+id/alterno"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="MOBILE"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/ir_mobile"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".4"
+                    android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="+91-8932983293"
+                    android:text="+91-0398398398"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:paddingStart="15dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="3dp"
+                android:weightSum="1"
+                tools:ignore="RtlSymmetry">
+                <ImageView
+                    android:backgroundTint="@color/blacklight"
+                    android:background="@drawable/ic_baseline_email_24"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Email ID"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/ir_email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end|center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:paddingStart="15dp"
+                    android:text="Sample@gmail.com"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 

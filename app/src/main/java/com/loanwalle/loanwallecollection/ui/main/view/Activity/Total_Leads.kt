@@ -17,6 +17,7 @@ import com.loanwalle.loanwallecollection.ui.main.adapter.TotalLeadAdp
 import com.loanwalle.loanwallecollection.ui.main.adapter.Total_Lead_ADP
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TotalLeadViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.activity_total_leads.*
@@ -45,13 +46,13 @@ class Total_Leads : AppCompatActivity() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
         viewModel = ViewModelProvider(this, factory).get(TotalLeadViewModel::class.java)
-        getTodayLead()
+        getTotalLead()
     }
 
 
 
-    fun getTodayLead() {
-        val userid = "5"
+    fun getTotalLead() {
+        val userid = SessionManegar().getString(this,"userid")
         if (userid!=null) {
             val body = TotalLeadRequest.LeadRequest(userid)
             viewModel.totalLeads(body)
@@ -72,18 +73,6 @@ class Total_Leads : AppCompatActivity() {
                                     )
                                 }
                                 rvPics.adapter = picsAdapter
-
-                                //                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
-                                //                                {
-                                //                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                //
-                                //                                }
-                                //                                else
-                                //
-                                //                                {
-                                //                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                //                                }
-
 
                             }
                         }
