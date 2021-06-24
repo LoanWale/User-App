@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -13,12 +14,14 @@ import com.loanwalle.loanwallecollection.databinding.ActivityLoanBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoanDetailsViewModal
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_loan.*
 
 class LoanActivity : AppCompatActivity() {
     lateinit var loanDetailsViewModal : LoanDetailsViewModal
     var binding: ActivityLoanBinding? = null
+    var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoanBinding.inflate(layoutInflater)
@@ -33,7 +36,9 @@ class LoanActivity : AppCompatActivity() {
         getloandetails()
     }
     fun getloandetails() {
-        val userid = "44"
+        var user = sessionManegar.getString(this,"userid")
+
+        val userid = user
         if (userid!=null) {
             val body = LoanDetailsReq(
                 "2","2457","2",userid)
