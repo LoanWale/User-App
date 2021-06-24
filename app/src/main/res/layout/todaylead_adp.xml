@@ -78,6 +78,7 @@
 
                 </LinearLayout>
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_user"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:src="@drawable/man"
@@ -111,17 +112,23 @@
                     android:textColor="@color/black"
                     android:layout_height="match_parent" />
 
-                <RadioButton
-                    android:layout_marginLeft="30dp"
-                    android:checked="false"
-                    android:text="Reschedule"
+                <RadioGroup
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:checked="true"
-                    android:text="New"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_marginLeft="30dp"
+                        android:text="Reschedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:text="New"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
 
             </LinearLayout>
 

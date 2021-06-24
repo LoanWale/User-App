@@ -4,6 +4,7 @@ data class Data(
     val balance_due: Int,
     val day_past_due: Int,
     val disbursal_date: String,
+    val application_no: String,
     val interest_payable: Int,
     val loan_no: String,
     val loan_sanctioned: String,

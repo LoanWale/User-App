@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.loanwalle.loanwallecollection.databinding.ActivityNavigationBinding
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import kotlinx.android.synthetic.main.activity_navigation.*
-import kotlin.system.exitProcess
 
 class Navigation : AppCompatActivity() {
 
@@ -55,13 +54,10 @@ class Navigation : AppCompatActivity() {
 
         logout.setOnClickListener{
 
-            //sessionManegar.clearAll(this)
-
-            val intent = Intent(this,LoginActivity::class.java)
+            sessionManegar.clearAll(this)
+            var intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
-            exitProcess(-1)
             finish()
-
         }
 
     }
