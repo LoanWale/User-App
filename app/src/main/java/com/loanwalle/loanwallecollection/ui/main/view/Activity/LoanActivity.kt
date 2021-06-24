@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -75,23 +74,14 @@ class LoanActivity : AppCompatActivity() {
                                     total_payble.text = otpResponse.data.total_payable.toString()
                                     name_admine.text = otpResponse.data.name
                                     mobile_admin.text = otpResponse.data.mobile_no
-
-
-
-
                                     loan_progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
-
                                 {
                                     loan_progress.errorSnack(message, Snackbar.LENGTH_LONG)
-
                                 }
-
-
                             }
                         }
-
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
