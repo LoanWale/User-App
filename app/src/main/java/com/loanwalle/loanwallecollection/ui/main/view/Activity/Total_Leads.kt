@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,7 +52,7 @@ class Total_Leads : AppCompatActivity() {
 
 
     fun getTodayLead() {
-        val userid = "5"
+        val userid = "44"
         if (userid!=null) {
             val body = TotalLeadRequest.LeadRequest(userid)
             viewModel.totalLeads(body)
@@ -65,6 +66,7 @@ class Total_Leads : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                              //   picsAdapter.differ.submitList(otpResponse!!.data)
                                 val status = otpResponse!!.data
+                                Toast.makeText(this,otpResponse.data.get(0).cam_id,Toast.LENGTH_LONG).show()
                                 val picsAdapter = status?.let {
                                     TotalLeadAdp(
                                         this@Total_Leads,

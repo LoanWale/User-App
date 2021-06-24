@@ -18,6 +18,7 @@ import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.ForgotPasswordViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_otp.*
@@ -29,6 +30,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private var view: View? = null
     lateinit var otpViewModel: ForgotPasswordViewModel
 
+    var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
@@ -76,14 +78,16 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("OTP sent Successfully")&&otpResponse.user_id!=null)
                                 {
+
+                                    sessionManegar.saveString(this,"mobile",mobile)
+                                    sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
+                                    sessionManegar.saveString(this,"userId",otpResponse.user_id)
                                     progress9.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                     var intent = Intent(this,VerifyOTPActivity::class.java)
-                                    intent.putExtra("number",mobile)
                                     startActivity(intent)
                                 }
                                 else
-
                                 {
                                     progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }

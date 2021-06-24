@@ -33,7 +33,7 @@ class LoanActivity : AppCompatActivity() {
         getloandetails()
     }
     fun getloandetails() {
-        val userid = "5"
+        val userid = "44"
         if (userid!=null) {
             val body = LoanDetailsReq(
                 "2","2457","2",userid)
@@ -49,13 +49,31 @@ class LoanActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin7",message)
                                 if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
+
                                     Log.e("Resopncelogin5",otpResponse.data.loan_no)
-                                    applicationno.text=otpResponse.data.loan_no
+                                    applicationno.text=otpResponse.data.application_no
                                     loanno.text=otpResponse.data.loan_no
                                     loan_sanctioned.text=otpResponse.data.loan_sanctioned
                                     processing_fee.text=otpResponse.data.processing_fee
+                                    tenur_roi.text = otpResponse.data.roi
+                                    tenure_days.text = otpResponse.data.tenure
+                                    loan_disbursal.text = otpResponse.data.net_disbursal_amount
+                                    disbursal_date.text = otpResponse.data.disbursal_date
+                                    repayment_date.text = otpResponse.data.repayment_date
+                                    repayements_amount.text = otpResponse.data.payable_amount.toString()
+                                    payment_received.text = otpResponse.data.payment_recived
+                                    balance_due.text = otpResponse.data.balance_due.toString()
+                                    day_past_due.text = otpResponse.data.day_past_due.toString()
+                                    panel_roi.text = otpResponse.data.penel_roi
+                                    panel_intrst_perday.text = otpResponse.data.penal_interest_per_day.toString()
+                                    inteset_payble.text = otpResponse.data.interest_payable.toString()
+                                    total_payble.text = otpResponse.data.total_payable.toString()
+                                    name_admine.text = otpResponse.data.name
+                                    mobile_admin.text = otpResponse.data.mobile_no
 
-                                    // Toast.makeText(this,"DEEPAK KUMAR",Toast.LENGTH_SHORT).show()
+
+
+
                                     loan_progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else

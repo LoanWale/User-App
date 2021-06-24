@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,7 @@ import com.loanwalle.loanwallecollection.ui.main.adapter.TodayLeadAdp
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TodayLeadViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.activity_home_page.Verification_layout
@@ -35,6 +37,7 @@ class HomePageActivity : AppCompatActivity() {
     var binding: ActivityHomePageBinding? = null
     lateinit var userProfileViewModel : UserProfileViewModel
     private lateinit var viewModel: TodayLeadViewModel
+    val sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
@@ -87,6 +90,7 @@ class HomePageActivity : AppCompatActivity() {
             val i = Intent(this@HomePageActivity, Verification::class.java)
             startActivity(i)
 
+
         }
 
     }
@@ -107,7 +111,7 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     fun getTodayLead() {
-        val userid = "5"
+        val userid = sessionManegar.getString(this,"userid")
         if (userid!=null) {
             val body = TodayleadRequ.LeadRequest(userid)
             viewModel.todaylead(body)
@@ -121,11 +125,9 @@ class HomePageActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",otpResponse.toString());
                                 val status = otpResponse!!.data
                                 val picsAdapter = status?.let {
-                                    TodayLeadAdp(
-                                        this@HomePageActivity,
-                                        it
-                                    )
+                                    TodayLeadAdp(this@HomePageActivity, it)
                                 }
+                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                                 rec_todaycollection.adapter = picsAdapter
 
                             }
@@ -154,7 +156,7 @@ class HomePageActivity : AppCompatActivity() {
 
 
     fun requestUserProfile() {
-        val userid = "2457"
+        val userid = "44"
         if (userid!=null) {
             val body = UserProfileBody.UserProfileRequest(
                 userid
@@ -178,12 +180,13 @@ class HomePageActivity : AppCompatActivity() {
                                 {
 
                                     Log.e("Resopncelogin5",otpResponse.data.city)
-                                   // Toast.makeText(this,"DEEPAK KUMAR",Toast.LENGTH_SHORT).show()
                                     progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    Toast.makeText(this,"yeeee",Toast.LENGTH_LONG).show()
                                 }
                                 else
 
                                 {
+                                    Toast.makeText(this,"else",Toast.LENGTH_LONG).show()
                                     progress4.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
@@ -195,8 +198,9 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                Log.e("Resopncelogin6",message);
+                                //Toast.makeText(this,"is",Toast.LENGTH_LONG).show()
+                                //progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //Log.e("Resopncelogin6",message);
                             }
                         }
 

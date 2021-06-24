@@ -5,14 +5,18 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.totalLead.Data
 import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.todaylead_adp.view.*
 
 
 class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
@@ -30,6 +34,7 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
         var address: TextView = view.findViewById(R.id.address)
         var loanno: TextView = view.findViewById(R.id.loanno)
         var collid: LinearLayout = view.findViewById(R.id.collid)
+        var image: ImageView = view.findViewById(R.id.image_user)
 
 
     }
@@ -47,6 +52,9 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
             holder.mobileno.text = tasks.mobile
             holder.address.text = tasks.present_address_line1
             holder.loanno.text = "Loan No. "+tasks.loan_no
+        var im = holder.image
+        Glide.with(context).load(tasks.file).into(im)
+
 
         holder.collid.setOnClickListener {
             val intent1 = Intent(context, LoanDetailActivity::class.java)

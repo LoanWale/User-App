@@ -293,6 +293,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tenur_roi"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -334,6 +335,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tenure_days"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -376,6 +378,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/loan_disbursal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -416,6 +419,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/disbursal_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -475,6 +479,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/repayment_date"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -514,6 +519,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/repayements_amount"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -554,6 +560,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/payment_received"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -594,6 +601,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/balance_due"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -650,6 +658,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/day_past_due"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -691,6 +700,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/panel_roi"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -731,6 +741,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/panel_intrst_perday"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -771,6 +782,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/inteset_payble"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -810,6 +822,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/total_payble"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center"
@@ -903,6 +916,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/name_admine"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -943,6 +957,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/mobile_admin"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"

@@ -11,6 +11,7 @@
     tools:context=".ui.main.view.Activity.LoginActivity">
 
     <ProgressBar
+        android:elevation="@dimen/_5sdp"
         android:id="@+id/progress"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_8sdp"
