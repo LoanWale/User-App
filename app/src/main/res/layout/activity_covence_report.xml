@@ -119,6 +119,7 @@
         android:id="@+id/convey_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        tools:listitem="@layout/convay_report_layout"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"

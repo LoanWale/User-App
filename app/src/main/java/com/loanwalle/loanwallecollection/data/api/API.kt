@@ -2,6 +2,8 @@ import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequest
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotResponse
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileResponse
+import com.loanwalle.loanwallecollection.data.model.irContact.IrContact_Response
+import com.loanwalle.loanwallecollection.data.model.irContact.Ir_Request
 import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsReq
 import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsResponse
 import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
@@ -68,6 +70,10 @@ interface API {
 
     @POST("user/insert-collection-followup")
     suspend fun startVisit(@Body body: StartVisitRequestBodies.StartVisitRequest): Response<StartVisitResponse>
+
+
+  @POST("user/get-users-ircontacts")
+    suspend fun getIrContact(@Body body: Ir_Request): Response<IrContact_Response>
 
 
 
