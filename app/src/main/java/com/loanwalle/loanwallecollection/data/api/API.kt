@@ -10,6 +10,8 @@ import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordReque
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
+import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
+import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitResponse
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadResponce
@@ -63,6 +65,9 @@ interface API {
 
     @POST("user/get-loan-deatils-by-id")
     suspend fun getLoanDetails(@Body body: LoanDetailsReq): Response<LoanDetailsResponse>
+
+    @POST("user/insert-collection-followup")
+    suspend fun startVisit(@Body body: StartVisitRequestBodies.StartVisitRequest): Response<StartVisitResponse>
 
 
 

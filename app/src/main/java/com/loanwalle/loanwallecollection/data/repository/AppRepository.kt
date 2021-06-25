@@ -6,6 +6,7 @@ import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsReq
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
+import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
@@ -24,4 +25,5 @@ class AppRepository {
     suspend fun newPassword(body: NewPasswordRequestBodies.NewPasswordRequest) = RetrofitInstance.loginApi.newPassword(body)
     suspend fun getUserProfile(body: GetUserProfileBodies.GetUserProfileRequest) = RetrofitInstance.loginApi.getUserProfile(body)
     suspend fun getLoanDeatils(body: LoanDetailsReq) = RetrofitInstance.loginApi.getLoanDetails(body)
+    suspend fun startVisit(body: StartVisitRequestBodies.StartVisitRequest) = RetrofitInstance.loginApi.startVisit(body)
 }
