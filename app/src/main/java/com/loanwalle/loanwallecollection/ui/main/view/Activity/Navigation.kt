@@ -17,10 +17,6 @@ class Navigation : AppCompatActivity() {
         binding= ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-
-        //setContentView(R.layout.activity_navigation)
-
-
         convey_reprt.setOnClickListener{
             var i = Intent(this,Covence_Report::class.java)
             startActivity(i)
@@ -51,9 +47,7 @@ class Navigation : AppCompatActivity() {
             startActivity(intent1)
         }
 
-
         logout.setOnClickListener{
-
             sessionManegar.clearAll(this)
             var intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)

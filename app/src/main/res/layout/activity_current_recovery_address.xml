@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".ui.main.view.Activity.CurrentRecoveryAddressActivity">
 
+    <ProgressBar
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/newprogress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -238,5 +245,28 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
+    <TextView
+        android:id="@+id/location_id"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/latitude_id"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/longitude_id"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

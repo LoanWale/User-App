@@ -59,11 +59,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 mobile,
             )
 
-
-
             otpViewModel.forgotPassword(body)
-
-
 
             otpViewModel.userForgotPassword.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
@@ -71,38 +67,29 @@ class ForgotPasswordActivity : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
 
-
-
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("OTP sent Successfully")&&otpResponse.user_id!=null)
                                 {
-
                                     sessionManegar.saveString(this,"mobile",mobile)
                                     sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
                                     sessionManegar.saveString(this,"userId",otpResponse.user_id)
                                     progress9.errorSnack(message, Snackbar.LENGTH_LONG)
-
                                     var intent = Intent(this,VerifyOTPActivity::class.java)
                                     startActivity(intent)
                                 }
-                                else
-                                {
+                                else {
                                     progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
-
-
                             }
                         }
-
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
                                 progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
-
                         is Resource.Loading -> {
                             showProgressBar()
                         }
@@ -112,7 +99,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
 
     }
-
     fun hideProgressBar() {
         progress9.visibility = View.GONE
     }
