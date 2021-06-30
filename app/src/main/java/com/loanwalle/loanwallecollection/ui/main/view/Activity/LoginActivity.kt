@@ -1,30 +1,29 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
+import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.CAMERA
-import android.view.View
-import android.content.DialogInterface
-
-import android.os.Build
-
-import com.google.android.material.snackbar.Snackbar
-
-import android.content.pm.PackageManager
-
-import androidx.core.app.ActivityCompat
-
-import androidx.core.content.ContextCompat
 import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
+import android.os.Build
+import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationListener
+import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
+import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoginViewModel
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
@@ -40,6 +39,15 @@ class LoginActivity : AppCompatActivity() {
     var binding: ActivityLoginBinding? = null
     lateinit var loginViewModel: LoginViewModel
     var sessionManegar = SessionManegar()
+    var fusedLocationProviderClient: FusedLocationProviderClient? = null
+    private val locationListener: LocationListener? = null
+    private val listener: android.location.LocationListener? = null
+    private val locationManager: LocationManager? = null
+    private val MIN_TIME: Long = 1000
+    private val MIN_DIST: Long = 5
+    private val LOCATION_CODE = 1
+
+
 
 
     override fun onResume() {
@@ -56,6 +64,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding!!.root)
         init()
 
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
+            PackageManager.PERMISSION_GRANTED
+        )
+
 
         forgot_passwrd.setOnClickListener{
             val intent = Intent(this,ForgotPasswordActivity::class.java)
@@ -63,6 +77,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
+
+
 
 
 
@@ -159,6 +176,7 @@ class LoginActivity : AppCompatActivity() {
                                     sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
 
                                     sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
+                                    sessionManegar.saveString(this@LoginActivity,"mobile",mobilenono)
 
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
                                         it.putExtra("moble",mobilenono)

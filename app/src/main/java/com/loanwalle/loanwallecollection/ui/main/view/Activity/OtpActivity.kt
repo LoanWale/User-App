@@ -49,10 +49,12 @@ class OtpActivity : AppCompatActivity() ,
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
+        var num =sessionManegar.getString(this,"mobile")
 
-        var numbr = intent.getStringExtra("moble")
+        textView5.text = num
+       /* var numbr = intent.getStringExtra("moble")
 
-        textView5.setText(numbr)
+        textView5.setText(numbr)*/
 
 
         Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
@@ -115,7 +117,8 @@ class OtpActivity : AppCompatActivity() ,
 
     fun requestOTP() {
         var user =sessionManegar.getString(this@OtpActivity,"userid")
-        val mobile = "8920179062"
+        var mob =sessionManegar.getString(this@OtpActivity,"mobile")
+        val mobile = mob.toString()
         val userid = user.toString().toInt()
         if (mobile.isNotEmpty() && userid!=null) {
             val body = RequestOtpBody.RequestOtp(
