@@ -1,6 +1,7 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.Manifest
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,24 +9,22 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityCurrentRecoveryAddressBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.NewPasswordViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -33,7 +32,10 @@ import kotlinx.android.synthetic.main.activity_current_recovery_address.*
 import kotlinx.android.synthetic.main.activity_recovery_address.*
 import kotlinx.android.synthetic.main.activity_recovery_address.startvisit
 import kotlinx.android.synthetic.main.activity_resest.*
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
+import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class CurrentRecoveryAddressActivity : AppCompatActivity() {
      var binding :ActivityCurrentRecoveryAddressBinding? = null
@@ -46,6 +48,10 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+
+
+
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -62,6 +68,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             init()
             verifyClick()
             getLastLocation()
+            getCurrentDate()
         }
 
     }
@@ -255,5 +262,30 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
         countryName = address.get(0).getAddressLine(0)
         return countryName
+    }
+    private fun getCurrentDate(){
+
+
+        val dateFormatter: DateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+        dateFormatter.setLenient(false)
+        val today = Date()
+        val s: String = dateFormatter.format(today)
+
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        calender_id.text = s
+
+       /* val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+
+            // Display Selected date in textbox
+            calender_id.setText("" + dayOfMonth + " " + MONTHS + ", " + year)
+
+        }, year, month, day)
+
+        dpd.show()*/
+
     }
 }

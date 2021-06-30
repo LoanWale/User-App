@@ -1,5 +1,8 @@
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotResponse
+
+import com.loanwalle.loanwallecollection.data.model.getFollowupCollection.GetFollowupRequest
+import com.loanwalle.loanwallecollection.data.model.getFollowupCollection.GetFollowupResponse
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileResponse
 import com.loanwalle.loanwallecollection.data.model.irContact.IrContact_Response
@@ -18,6 +21,8 @@ import com.loanwalle.loanwallecollection.data.model.todaylead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadResponce
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
+import com.loanwalle.loanwallecollection.data.model.upDateFollowup.UpdateFollowupRequestBodies
+import com.loanwalle.loanwallecollection.data.model.upDateFollowup.UpdateFollowupResponse
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
 import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileResponse
 import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPasswordOTPRequest
@@ -74,6 +79,13 @@ interface API {
 
   @POST("user/get-users-ircontacts")
     suspend fun getIrContact(@Body body: Ir_Request): Response<IrContact_Response>
+
+
+    @POST("user/get-collection-followup")
+    suspend fun getfollowupColle(@Body body: GetFollowupRequest.GetFollowupRequest): Response<GetFollowupResponse>
+
+    @POST("user/update-collection-followup")
+    suspend fun updatefollowupColle(@Body body:UpdateFollowupRequestBodies.UpdateFollowupRequest): Response<UpdateFollowupResponse>
 
 
 
