@@ -4,6 +4,6 @@ object NewPasswordRequestBodies{
 data class NewPasswordRequest(
     val confirm_password: String,
     val new_password: String,
-    val user_id: Int
+    val user_id: String
 )
 }

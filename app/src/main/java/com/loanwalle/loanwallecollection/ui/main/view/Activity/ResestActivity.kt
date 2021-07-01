@@ -19,6 +19,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.NewPasswordViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_resest.*
 import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
@@ -44,7 +45,7 @@ class ResestActivity : AppCompatActivity() {
     fun verifyClick() {
         val new_password = editText_new_pass.text.toString()
         val confirm_password = editText_confirm_passwrd.text.toString()
-        val userid = 113
+        val userid = SessionManegar().getString(this,"user_id")
         if (new_password!= null && confirm_password!= null && userid!=null) {
             val body = NewPasswordRequestBodies.NewPasswordRequest(
                 new_password,

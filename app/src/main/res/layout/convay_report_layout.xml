@@ -47,6 +47,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/creatdate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -89,6 +90,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/loanno_conv"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -131,6 +133,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/starttime"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -173,6 +176,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/endtime"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -215,6 +219,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/traveltime"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -257,6 +262,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/traveldis"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
@@ -274,6 +280,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"

@@ -1,3 +1,5 @@
+import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
+import com.loanwalle.loanwallecollection.data.model.convenc.Convence_Resopnce
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotResponse
 
@@ -86,6 +88,11 @@ interface API {
 
     @POST("user/update-collection-followup")
     suspend fun updatefollowupColle(@Body body:UpdateFollowupRequestBodies.UpdateFollowupRequest): Response<UpdateFollowupResponse>
+
+
+
+@POST("user/get-convenience-report")
+    suspend fun getconvenceReport(@Body body:ConvenReque): Response<Convence_Resopnce>
 
 
 
