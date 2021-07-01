@@ -61,11 +61,7 @@ class ResidanceActivity : AppCompatActivity() {
 
             )
 
-
-
             getFollowupViewModel.getCollec(body)
-
-
 
             getFollowupViewModel.getCollec.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
@@ -73,28 +69,17 @@ class ResidanceActivity : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
 
-
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success")&&verifyResponse.status.equals("200"))
                                 {
-
                                     ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                   /* var intent = Intent(this,LoginActivity::class.java)
-                                    startActivity(intent)*/
-
-
-
                                 }
                                 else
-
                                 {
                                     ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
-
-
                             }
                         }
 
@@ -104,7 +89,6 @@ class ResidanceActivity : AppCompatActivity() {
                                 ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
-
                         is Resource.Loading -> {
                             showProgressBar()
                         }
@@ -140,14 +124,11 @@ class ResidanceActivity : AppCompatActivity() {
                 executive_ending_latitude,
                 executive_ending_longitude,
                 followup_ended_at
-
             )
 
 
 
             updateCollectionViewModel.updateCollec(body)
-
-
 
             updateCollectionViewModel.upDateCollec.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
@@ -161,17 +142,10 @@ class ResidanceActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("Data updated Successfully")&&verifyResponse.status.equals("200"))
                                 {
-
                                     ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                    /*var intent = Intent(this,LoginActivity::class.java)
-                                    startActivity(intent)*/
-
-
 
                                 }
                                 else
-
                                 {
                                     ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }

@@ -8,5 +8,6 @@ data class StartVisitRequest(
     val followup_satarted_at: String,
     val lead_id: String,
     val product_id: Int,
-    val user_id: String
+    val user_id: String,
+    val loan_no: String,
 )}

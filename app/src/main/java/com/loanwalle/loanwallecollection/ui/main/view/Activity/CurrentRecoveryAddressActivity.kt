@@ -85,7 +85,9 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         val followup_satarted_at = "2021-06-24 25:45"
         val executive_start_letitude = location_id.toString()
         val executive_start_longitude = 67.8
-        if (lead_id!= null && company_id!= null && user_id!=null && product_id != null && executive_start_letitude != null && executive_start_longitude != null && followup_satarted_at != null) {
+        val loan_no = "12345"
+        if (lead_id!= null && company_id!= null && user_id!=null && product_id != null && executive_start_letitude != null &&
+            executive_start_longitude != null && followup_satarted_at != null && loan_no !=null) {
             val body = StartVisitRequestBodies.StartVisitRequest(
                 lead_id.toInt(),
                 company_id.toString(),
@@ -93,7 +95,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                 product_id.toString(),
                 executive_start_letitude,
                 executive_start_longitude.toInt(),
-                followup_satarted_at
+                followup_satarted_at,
+                loan_no
             )
             startVisitViewModel.startVisits(body)
 
@@ -109,14 +112,11 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success")&&verifyResponse.status.equals("200"))
                                 {
-
                                     newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                     val i = Intent(this@CurrentRecoveryAddressActivity, ResidanceActivity::class.java)
                                     startActivity(i)
                                     finish()
-
-
 
                                 }
                                 else
