@@ -26,6 +26,7 @@ import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoginViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
@@ -39,16 +40,6 @@ class LoginActivity : AppCompatActivity() {
     var binding: ActivityLoginBinding? = null
     lateinit var loginViewModel: LoginViewModel
     var sessionManegar = SessionManegar()
-    var fusedLocationProviderClient: FusedLocationProviderClient? = null
-    private val locationListener: LocationListener? = null
-    private val listener: android.location.LocationListener? = null
-    private val locationManager: LocationManager? = null
-    private val MIN_TIME: Long = 1000
-    private val MIN_DIST: Long = 5
-    private val LOCATION_CODE = 1
-
-
-
 
     override fun onResume() {
         super.onResume()
@@ -77,13 +68,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
-
-
-
-
-
-
 
 
     private fun checkPermission(): Boolean {
@@ -172,14 +156,11 @@ class LoginActivity : AppCompatActivity() {
                                 if (message.equals("success!")&&loginResponse.USERID!=null)
                                 {
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
-
                                     sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
-
-                                    sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
-                                    sessionManegar.saveString(this@LoginActivity,"mobile",mobilenono)
-
+                                    sessionManegar.saveString(this@LoginActivity,Constants.USER_ID,loginResponse.USERID)
+                                    sessionManegar.saveString(this@LoginActivity,Constants.USER_MOBILE,mobilenono)
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
-                                        it.putExtra("moble",mobilenono)
+                                        it.putExtra(Constants.USER_MOBILE,mobilenono)
                                         startActivity(it)
                                         finish()
                                     }

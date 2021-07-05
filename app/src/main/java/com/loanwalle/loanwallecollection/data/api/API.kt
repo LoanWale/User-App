@@ -15,6 +15,8 @@ import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
+import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
+import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryResponse
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
@@ -75,9 +77,6 @@ interface API {
     @POST("user/get-loan-deatils-by-id")
     suspend fun getLoanDetails(@Body body: LoanDetailsReq): Response<LoanDetailsResponse>
 
-    @POST("user/insert-collection-followup")
-    suspend fun startVisit(@Body body: StartVisitRequestBodies.StartVisitRequest): Response<StartVisitResponse>
-
 
   @POST("user/get-users-ircontacts")
     suspend fun getIrContact(@Body body: Ir_Request): Response<IrContact_Response>
@@ -86,15 +85,17 @@ interface API {
     @POST("user/get-collection-followup")
     suspend fun getfollowupColle(@Body body: GetFollowupRequest.GetFollowupRequest): Response<GetFollowupResponse>
 
+
+    @POST("user/insert-collection-followup")
+    suspend fun startVisit(@Body body: StartVisitRequestBodies.StartVisitRequest): Response<StartVisitResponse>
+
     @POST("user/update-collection-followup")
     suspend fun updatefollowupColle(@Body body:UpdateFollowupRequestBodies.UpdateFollowupRequest): Response<UpdateFollowupResponse>
-
-
 
 @POST("user/get-convenience-report")
     suspend fun getconvenceReport(@Body body:ConvenReque): Response<Convence_Resopnce>
 
-
-
+@POST("user/get-residential-address")
+    suspend fun getRecoveryAddress(@Body body:RecoveryRequest): Response<RecoveryResponse>
 
 }

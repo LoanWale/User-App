@@ -1,51 +1,32 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
-import com.loanwalle.loanwallecollection.data.model.SmsBroadcastReceiver
-import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPasswordOTPRequest
-import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
-import java.security.Permission
-import java.util.jar.Manifest
-import java.util.regex.Pattern
 
 class VerifyOTPActivity : AppCompatActivity() {
-
-    private val Req_user_consnt = 200
-    var smsBroadcastReceiver : SmsBroadcastReceiver?=null
-    private var view: View? = null
     lateinit var verifyViewModel: VerifyPasswordViewModel
     var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verify_otpactivity)
-
-        val nmbr = sessionManegar.getString(this,"mobile")
-        number_phon.text = nmbr
+        val Mobile_No = sessionManegar.getString(this,"mobile")
+        number_phon.text = Mobile_No
 
         init()
 

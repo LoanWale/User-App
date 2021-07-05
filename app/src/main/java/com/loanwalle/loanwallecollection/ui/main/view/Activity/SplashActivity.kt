@@ -45,6 +45,6 @@ class SplashActivity : AppCompatActivity() {
            }
            startActivity(intnt)
            finish()
-       }, 6000)
+       }, 1)
     }
 }

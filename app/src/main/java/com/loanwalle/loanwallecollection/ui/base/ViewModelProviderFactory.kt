@@ -17,6 +17,13 @@ class ViewModelProviderFactory(
             return OtpViewModel(app, appRepository) as T
         }
 
+        if (modelClass.isAssignableFrom(RecoveryAddressViewModel::class.java)) {
+            return RecoveryAddressViewModel(app, appRepository) as T
+        }
+ if (modelClass.isAssignableFrom(IRViewModel::class.java)) {
+            return IRViewModel(app, appRepository) as T
+        }
+
         if (modelClass.isAssignableFrom(ConcenceViewModel::class.java)) {
             return ConcenceViewModel(app, appRepository) as T
         }

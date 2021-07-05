@@ -1,17 +1,24 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loanwalle.loanwallecollection.R
+import com.loanwalle.loanwallecollection.databinding.ActivityCollectionBinding
 import kotlinx.android.synthetic.main.activity_collection.*
+import kotlinx.android.synthetic.main.activity_total_leads.*
 
 class CollectionActivity : AppCompatActivity() {
     @SuppressLint("UseCompatLoadingForDrawables")
+
+    var binding :ActivityCollectionBinding ? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_collection)
+
+        binding= ActivityCollectionBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
 
         nil_payment.setBackground(getDrawable(R.drawable.part_pyment_drawable))
         part_payment.setTextColor(getColor(R.color.white))
@@ -20,6 +27,12 @@ class CollectionActivity : AppCompatActivity() {
         full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
         imageView6.isVisible = true
         next_sch_date.isVisible = true
+
+
+        submit.setOnClickListener {
+            val intent=Intent(this,PaymentActivity::class.java)
+            startActivity(intent)
+        }
 
         part_payment.setOnClickListener{
             part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
@@ -64,58 +77,6 @@ class CollectionActivity : AppCompatActivity() {
             imageView6.isVisible = true
         }
 
-//        var fragment = supportFragmentManager
-//        var partPaymentFragment = PartPaymentFragment()
-//        fragment.beginTransaction().replace(R.id.part_frame,partPaymentFragment).commit()
-//        part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
-//        nil_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//        full_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//        part_payment.setTextColor(getColor(R.color.white))
-//        full_payment.setTextColor(getColor(R.color.black))
-//        nil_payment.setTextColor(getColor(R.color.black))
-//
-//
-//
-//        part_payment.setOnClickListener{
-//            var fragment2 = supportFragmentManager
-//            var partPaymentFragment2 = PartPaymentFragment()
-//            fragment2.beginTransaction().replace(R.id.part_frame,partPaymentFragment2).commit()
-//            part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
-//            nil_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//            full_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//            part_payment.setTextColor(getColor(R.color.white))
-//            full_payment.setTextColor(getColor(R.color.black))
-//            nil_payment.setTextColor(getColor(R.color.black))
-//
-//        }
-//
-//        full_payment.setOnClickListener{
-//            var fragment1 = supportFragmentManager
-//            var fullPaymentFragment = FullPaymentFragment()
-//            fragment1.beginTransaction().replace(R.id.part_frame,fullPaymentFragment).commit()
-//            full_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
-//            part_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//            nil_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//
-//            part_payment.setTextColor(getColor(R.color.black))
-//            full_payment.setTextColor(getColor(R.color.white))
-//            nil_payment.setTextColor(getColor(R.color.black))
-//
-//
-//        }
-//
-//        nil_payment.setOnClickListener{
-//            var fragment3 = supportFragmentManager
-//            var partPaymentFragment3 = PartPaymentFragment()
-//            fragment3.beginTransaction().replace(R.id.part_frame,partPaymentFragment3).commit()
-//            full_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//            part_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
-//            nil_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
-//            nil_payment.setTextColor(getColor(R.color.white))
-//            full_payment.setTextColor(getColor(R.color.black))
-//            part_payment.setTextColor(getColor(R.color.black))
-//        }
-//    }
 
     }
 }

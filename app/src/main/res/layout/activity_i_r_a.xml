@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
+    <ProgressBar
+        android:id="@+id/ir_progress"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -97,7 +103,7 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:padding="10dp"
-                    android:src="@drawable/mant"
+                    android:src="@drawable/userimage"
                     app:civ_border_color="#DFC0C0C0"
                     app:civ_border_width="3dp" />
 
@@ -151,7 +157,7 @@
                     android:paddingStart="15dp"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:text="Sample"
+                    android:text=""
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
@@ -195,7 +201,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="+91-0398398398"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
@@ -241,7 +247,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="Sample@gmail.com"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 

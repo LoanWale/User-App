@@ -13,43 +13,45 @@ class Navigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var sessionManegar = SessionManegar()
+        val sessionManegar = SessionManegar()
         binding= ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
         convey_reprt.setOnClickListener{
-            var i = Intent(this,Covence_Report::class.java)
+            val i = Intent(this,Covence_Report::class.java)
             startActivity(i)
         }
 
         binding!!.profile.setOnClickListener{
-            var intent1 = Intent(this,Collection_Profile::class.java)
+            val intent1 = Intent(this,Collection_Profile::class.java)
             startActivity(intent1)
         }
 
 
+        binding!!.menu.setOnClickListener { finish() }
+
            binding!!.todayld.setOnClickListener{
-            var intent1 = Intent(this,HomePageActivity::class.java)
+            val intent1: Intent = Intent(this,HomePageActivity::class.java)
             startActivity(intent1)
         }
            binding!!.totaled.setOnClickListener{
-            var intent1 = Intent(this,Total_Leads::class.java)
+            val intent1 = Intent(this,Total_Leads::class.java)
             startActivity(intent1)
         }
            binding!!.ircontact.setOnClickListener{
-            var intent1 = Intent(this,IRAActivity::class.java)
+            val intent1 = Intent(this,IRAActivity::class.java)
             startActivity(intent1)
         }
 
 
         binding!!.figureprint.setOnClickListener{
-            var intent1 = Intent(this,UnlockActivity::class.java)
+            val intent1 = Intent(this,UnlockActivity::class.java)
             startActivity(intent1)
         }
 
         logout.setOnClickListener{
             sessionManegar.clearAll(this)
-            var intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
             finish()
         }

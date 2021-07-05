@@ -9,8 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.view.Activity.Navigation">
 
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -18,7 +16,7 @@
 
     <ImageView
         android:id="@+id/menu"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/menu"
         android:layout_width="40dp"

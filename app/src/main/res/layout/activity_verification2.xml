@@ -25,7 +25,7 @@
                 android:weightSum="1">
 
                 <LinearLayout
-                    android:id="@+id/back_layout"
+                    android:id="@+id/veri_back"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
