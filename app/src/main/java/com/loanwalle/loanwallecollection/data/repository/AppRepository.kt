@@ -4,6 +4,7 @@ import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
 
 import com.loanwalle.loanwallecollection.data.model.getFollowupCollection.GetFollowupRequest
+import com.loanwalle.loanwallecollection.data.model.getTodayCountLead.GetCountLeadRequest
 import com.loanwalle.loanwallecollection.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.loanwallecollection.data.model.irContact.Ir_Request
 import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsReq
@@ -35,4 +36,5 @@ class AppRepository {
     suspend fun getIrContact(body: Ir_Request) = RetrofitInstance.loginApi.getIrContact(body)
     suspend fun getfollowupColle(body: GetFollowupRequest.GetFollowupRequest) = RetrofitInstance.loginApi.getfollowupColle(body)
     suspend fun updatefollowupColle(body: UpdateFollowupRequestBodies.UpdateFollowupRequest) = RetrofitInstance.loginApi.updatefollowupColle(body)
+    suspend fun getTodayCountLead(body: GetCountLeadRequest) = RetrofitInstance.loginApi.getTodayCountLead(body)
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -43,7 +44,8 @@ class HomePageActivity : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
-        requestUserProfile()
+
+      sessionManegar.getBoolean(this,"checked")
 
 //        collection_layout!!.visibility= View.VISIBLE
 //        Verification_layout!!.visibility= View.GONE
@@ -111,7 +113,7 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     fun getTodayLead() {
-        val userid = sessionManegar.getString(this,"userid")
+        val userid = sessionManegar.getString(this,sessionManegar.USER_ID)
         if (userid!=null) {
             val body = TodayleadRequ.LeadRequest(userid)
             viewModel.todaylead(body)
@@ -124,12 +126,22 @@ class HomePageActivity : AppCompatActivity() {
                                 val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",otpResponse.toString());
                                 val status = otpResponse!!.data
+                                if (status.isEmpty()){
+                                   binding!!.noDataFound.isVisible = true
+                                    binding!!.VerificationLayout.isVisible = false
+                                }else{
+                                    binding!!.noDataFound.isVisible = false
+                                    binding!!.VerificationLayout.isVisible = true
+                                }
                                 val picsAdapter = status?.let {
                                     TodayLeadAdp(this@HomePageActivity, it)
+
                                 }
-                                progress4.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                                 rec_todaycollection.adapter = picsAdapter
 
+
+
                             }
                         }
 
@@ -146,72 +158,6 @@ class HomePageActivity : AppCompatActivity() {
                     }
                 }
             })
-        }
-
-    }
-
-
-
-
-
-
-    fun requestUserProfile() {
-        val userid = "44"
-        if (userid!=null) {
-            val body = UserProfileBody.UserProfileRequest(
-                userid
-            )
-
-
-            userProfileViewModel.userProfile(body)
-            Log.e("BODY",body.toString())
-
-
-            userProfileViewModel.userProfileResponse.observe(this, Observer { event ->
-                event.getContentIfNotHandled()?.let { response ->
-                    when (response) {
-                        is Resource.Success -> {
-                            hideProgressBar()
-
-                            response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
-                                Log.e("Resopncelogin7",message)
-                                if (message.equals("success")&&otpResponse.status.equals("200"))
-                                {
-
-                                    Log.e("Resopncelogin5",otpResponse.data.city)
-                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    Toast.makeText(this,"yeeee",Toast.LENGTH_LONG).show()
-                                }
-                                else
-
-                                {
-                                    Toast.makeText(this,"else",Toast.LENGTH_LONG).show()
-                                    progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                }
-
-
-                            }
-                        }
-
-                        is Resource.Error -> {
-                            hideProgressBar()
-                            response.message?.let { message ->
-                                //Toast.makeText(this,"is",Toast.LENGTH_LONG).show()
-                                //progress4.errorSnack(message, Snackbar.LENGTH_LONG)
-                                //Log.e("Resopncelogin6",message);
-                            }
-                        }
-
-                        is Resource.Loading -> {
-                            showProgressBar()
-                        }
-                    }
-                }
-            })
-
-
         }
 
     }

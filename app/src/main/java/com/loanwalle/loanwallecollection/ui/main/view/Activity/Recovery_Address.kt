@@ -31,7 +31,6 @@ class Recovery_Address : AppCompatActivity() {
         setContentView(binding!!.root)
 
         init()
-        requestUserProfile()
 
         binding!!.backLayout.setOnClickListener {
            finish()
@@ -41,9 +40,7 @@ class Recovery_Address : AppCompatActivity() {
             startvisit!!.setBackgroundResource(R.color.gray)
             collectnow!!.setBackgroundResource(R.color.applColor)
 
-
         }
-
 
        binding!!.collectnow.setOnClickListener{
             //    Toast.makeText(this@HomeActivity,"today leads",Toast.LENGTH_LONG).show()
@@ -61,68 +58,7 @@ class Recovery_Address : AppCompatActivity() {
         userProfileViewModel = ViewModelProvider(this, factory).get(UserProfileViewModel::class.java)
     }
 
-    fun requestUserProfile() {
-        val userid = "2457"
-        if (userid!=null) {
-            val body = UserProfileBody.UserProfileRequest(
-                userid
-            )
 
-
-            userProfileViewModel.userProfile(body)
-            Log.e("BODY",body.toString())
-
-
-            userProfileViewModel.userProfileResponse.observe(this, Observer { event ->
-                event.getContentIfNotHandled()?.let { response ->
-                    when (response) {
-                        is Resource.Success -> {
-                            hideProgressBar()
-
-                            response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
-                                Log.e("Resopncelogin7",otpResponse.toString())
-                                if (message.equals("success")&&otpResponse.status.equals("200"))
-                                {
-
-                                   phoneno.setText(otpResponse.data.residence_address_line2)
-                                    city_add.setText(otpResponse.data.city)
-                                    state_add.setText(otpResponse.data.state)
-
-                                    Log.e("Resopncelogin5",otpResponse.data.city)
-                                    //Toast.makeText(this,"DEEPAK KUMAR", Toast.LENGTH_SHORT).show()
-                                    //progress_add.errorSnack(message, Snackbar.LENGTH_LONG)
-                                }
-                                else
-
-                                {
-                                    progress_add.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                }
-
-
-                            }
-                        }
-
-                        is Resource.Error -> {
-                            hideProgressBar()
-                            response.message?.let { message ->
-                                progress_add.errorSnack(message, Snackbar.LENGTH_LONG)
-                                Log.e("Resopncelogin6",message);
-                            }
-                        }
-
-                        is Resource.Loading -> {
-                            showProgressBar()
-                        }
-                    }
-                }
-            })
-
-
-        }
-
-    }
 
     fun hideProgressBar() {
         progress_add.visibility = View.GONE

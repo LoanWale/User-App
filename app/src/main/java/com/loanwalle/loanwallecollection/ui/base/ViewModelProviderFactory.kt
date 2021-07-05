@@ -66,6 +66,9 @@ class ViewModelProviderFactory(
         if (modelClass.isAssignableFrom(UpdateCollectionViewModel::class.java)){
             return UpdateCollectionViewModel(app,appRepository) as T
         }
+        if (modelClass.isAssignableFrom(GetCountLeadViewModel::class.java)){
+            return GetCountLeadViewModel(app, appRepository) as T
+        }
         throw IllegalArgumentException("Unknown class name")
     }
 

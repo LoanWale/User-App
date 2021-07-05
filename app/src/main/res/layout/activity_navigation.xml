@@ -16,6 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:id="@+id/nav_progreess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     <ImageView
         android:id="@+id/menu"
         android:layout_marginLeft="10dp"
@@ -165,6 +172,7 @@
                     android:layout_gravity="end"
                     android:layout_height="50dp">
                     <TextView
+                        android:id="@+id/today_lead_count"
                         android:fontFamily="@font/robotomedium"
                         android:textSize="16dp"
                         android:gravity="center"
@@ -249,6 +257,7 @@
                     android:layout_gravity="end"
                     android:layout_height="50dp">
                     <TextView
+                        android:id="@+id/total_lead_count"
                         android:fontFamily="@font/robotomedium"
                         android:textSize="16dp"
                         android:gravity="center"
@@ -479,10 +488,17 @@
                     android:layout_height="match_parent" />
 
                 <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_gravity="end"
-                    android:layout_height="50dp">
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
 
+                    <Switch
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:id="@+id/tooggllee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 

@@ -4,7 +4,6 @@ import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.CAMERA
 import android.app.AlertDialog
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -175,13 +174,20 @@ class LoginActivity : AppCompatActivity() {
 
                                     sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
 
-                                    sessionManegar.saveString(this@LoginActivity,"userid",loginResponse.USERID)
-                                    sessionManegar.saveString(this@LoginActivity,"mobile",mobilenono)
+                                    var userrrr = loginResponse.USERID
+
+                                    Log.e("iiiiddd",userrrr)
+
+                                    sessionManegar.saveString(this, sessionManegar.USER_ID,loginResponse.USERID)
+
+                                    sessionManegar.saveString(this@LoginActivity, "userid",loginResponse.USERID)
+                                    sessionManegar.saveString(this@LoginActivity, "mobile",mobilenono)
+
 
                                     Intent(this@LoginActivity, OtpActivity::class.java).also {
-                                        it.putExtra("moble",mobilenono)
                                         startActivity(it)
                                         finish()
+
                                     }
                                 }else
 
