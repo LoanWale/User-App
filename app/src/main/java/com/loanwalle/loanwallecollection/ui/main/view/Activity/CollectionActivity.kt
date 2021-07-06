@@ -37,12 +37,10 @@ class CollectionActivity : AppCompatActivity() {
         part_payment.setOnClickListener{
             part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
             part_payment.setTextColor(getColor(R.color.white))
-
             full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
             nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
             full_payment.setTextColor(getColor(R.color.black))
             nil_payment.setTextColor(getColor(R.color.black))
-
             imageView6.isVisible = true
             next_sch_date.isVisible = true
         }

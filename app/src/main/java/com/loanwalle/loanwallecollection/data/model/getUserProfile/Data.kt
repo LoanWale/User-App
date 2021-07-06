@@ -25,5 +25,6 @@ data class Data(
     val role: String,
     val status: String,
     val updated_on: String,
-    val user_id: String
+    val user_id: String,
+    val profile_pic: String
 )

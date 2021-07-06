@@ -1,6 +1,7 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
@@ -10,15 +11,19 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.*
@@ -43,7 +48,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.xml.datatype.DatatypeConstants.MONTHS
 
-class CurrentRecoveryAddressActivity : AppCompatActivity() {
+class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener {
      var binding :ActivityCurrentRecoveryAddressBinding? = null
     lateinit var startVisitViewModel : StartVisitViewModel
     lateinit var RecoveryViewModal : RecoveryAddressViewModel
@@ -69,11 +74,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
         binding!!.startvisit.setOnClickListener {
 
-
             showDialog()
-
-
-
 
         }
 
@@ -189,15 +190,31 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                 }
 
             }else{
-
                 Toast.makeText(this,"Location not on",Toast.LENGTH_LONG).show()
-
             }
-
         }else{
             RequestLocationPermission()
         }
     }
+
+    override fun onClick(v: View?) {
+        if (!checkGPSEnabled()) {
+            return
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                //Location Permission already granted
+                getLocation();
+            } else {
+                //Request Location Permission
+                checkLocationPermission()
+            }
+        } else {
+            getLocation();
+        }
+    }
+
     private fun checkLocationPermission():Boolean{
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this,
@@ -292,10 +309,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 //        calender_id.text = s
-
     }
-
-
 
     fun GetCollectionAddress() {
         val lead_id = "2457"
@@ -376,5 +390,25 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
     }
 
+
+
+    private fun checkGPSEnabled(): Boolean {
+        if (!isLocationEnabled())
+            showAlert()
+        return isLocationEnabled()
+    }
+
+
+    private fun showAlert() {
+        val dialog = AlertDialog.Builder(this)
+        dialog.setTitle("Enable Location")
+            .setMessage("Your Locations Settings is set to 'Off'.\nPlease Enable Location to " + "use this app")
+            .setPositiveButton("Location Settings") { paramDialogInterface, paramInt ->
+                val myIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(myIntent)
+            }
+            .setNegativeButton("Cancel") { paramDialogInterface, paramInt -> }
+        dialog.show()
+    }
 
 }

@@ -30,6 +30,8 @@ class SplashActivity : AppCompatActivity() {
        Handler().postDelayed({
            val intnt = Intent()
            val state = sessionManegar.getInt(this@SplashActivity,sessionManegar.LOGIN_STATE)
+           val ulock = sessionManegar.getString(this,sessionManegar.SWITCH_BUTTON)
+
 
            if (state== ConstantsSave.LoginFlow.LOGINSCREEN){
                intnt.setClass(this@SplashActivity,LoginActivity::class.java)
@@ -37,6 +39,9 @@ class SplashActivity : AppCompatActivity() {
            }
            else if (state == ConstantsSave.LoginFlow.Otpscreen){
                intnt.setClass(this@SplashActivity,OtpActivity::class.java)
+               finish()
+           } else if (ulock!= null){
+               intnt.setClass(this@SplashActivity,HomePageActivity::class.java)
                finish()
            }
            else{

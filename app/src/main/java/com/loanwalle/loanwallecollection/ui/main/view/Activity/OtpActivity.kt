@@ -52,12 +52,8 @@ class OtpActivity : AppCompatActivity() ,
         var num =sessionManegar.getString(this,"mobile")
 
         textView5.text = num
-       /* var numbr = intent.getStringExtra("moble")
-
-        textView5.setText(numbr)*/
 
 
-        Toast.makeText(this," "+sessionManegar.getString(this@OtpActivity,"userid"),Toast.LENGTH_LONG).show()
 
 
 
@@ -69,8 +65,8 @@ class OtpActivity : AppCompatActivity() ,
 
 
        otp_submitClick.setOnClickListener{
-           init1()
 
+           init1()
            submitClick()
        }
 
@@ -116,14 +112,14 @@ class OtpActivity : AppCompatActivity() ,
     }
 
     fun requestOTP() {
-        var user =sessionManegar.getString(this@OtpActivity,"userid")
+        var user =sessionManegar.getString(this@OtpActivity,sessionManegar.USER_ID)
         var mob =sessionManegar.getString(this@OtpActivity,"mobile")
         val mobile = mob.toString()
-        val userid = user.toString().toInt()
-        if (mobile.isNotEmpty() && userid!=null) {
+        val user_id = user
+        if (mobile.isNotEmpty() && user_id!=null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
-                userid
+                user_id.toString()
             )
 
 
@@ -182,13 +178,13 @@ class OtpActivity : AppCompatActivity() ,
     }
 
     fun submitClick() {
-        var use =sessionManegar.getString(this@OtpActivity,"userid")
+        var use =sessionManegar.getString(this@OtpActivity,sessionManegar.USER_ID)
         val mobile = otp_text.text.toString().toInt()
-        val userid = use.toString().toInt()
-        if (mobile!= null && userid!=null) {
+        val user_id = use.toString().toInt()
+        if (mobile!= null && user_id!=null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,
-                userid
+                user_id
             )
 
 
