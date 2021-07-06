@@ -4,27 +4,17 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class SessionManegar {
-
     var LOGIN_STATE = "login_state"
-    val USER_ID = ""
-    val MOBILE_NUMBER = ""
     val SWITCH_BUTTON = ""
-    val TOKEN_NUMBER = ""
-    var IS_LOGIN = "is_login"
-    var DATA_PROFILE = "data_profile"
-
     private fun getPreference(context: Context): SharedPreferences {
         return context.getSharedPreferences("app_pref", Context.MODE_PRIVATE)
     }
-
     fun saveString(context: Context, key: String?,value: String) {
         getPreference(context)
             .edit()
             .putString(key, value)
             .apply()
     }
-
-
     fun saveBoolean(context: Context, key: String?, value: Boolean) {
         getPreference(context)
             .edit()

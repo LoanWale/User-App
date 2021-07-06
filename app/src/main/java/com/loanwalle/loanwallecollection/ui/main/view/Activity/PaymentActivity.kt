@@ -10,7 +10,6 @@ class PaymentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
-
         upi.setBackground(getDrawable(R.drawable.upi_id_drawable))
         qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
         upi.setTextColor(getColor(R.color.white))

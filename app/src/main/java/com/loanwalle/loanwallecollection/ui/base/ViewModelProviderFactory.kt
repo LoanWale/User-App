@@ -13,8 +13,18 @@ class ViewModelProviderFactory(
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
 
-        if (modelClass.isAssignableFrom(OtpViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(TokenViewModel::class.java)) {
+            return TokenViewModel(app, appRepository) as T
+        }
+  if (modelClass.isAssignableFrom(OtpViewModel::class.java)) {
             return OtpViewModel(app, appRepository) as T
+        }
+
+        if (modelClass.isAssignableFrom(RecoveryAddressViewModel::class.java)) {
+            return RecoveryAddressViewModel(app, appRepository) as T
+        }
+ if (modelClass.isAssignableFrom(IRViewModel::class.java)) {
+            return IRViewModel(app, appRepository) as T
         }
 
         if (modelClass.isAssignableFrom(ConcenceViewModel::class.java)) {

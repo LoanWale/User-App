@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.totalLead.Data
 import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity
+import com.loanwalle.loanwallecollection.util.Constants
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.todaylead_adp.view.*
 
@@ -52,12 +53,14 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
             holder.mobileno.text = tasks.mobile
             holder.address.text = tasks.present_address_line1
             holder.loanno.text = "Loan No. "+tasks.loan_no
-        var im = holder.image
+        val im = holder.image
         Glide.with(context).load(tasks.file).into(im)
 
 
         holder.collid.setOnClickListener {
             val intent1 = Intent(context, LoanDetailActivity::class.java)
+            intent1.putExtra(Constants.USER_PIC,tasks.file)
+            intent1.putExtra(Constants.USER_NAME,"Vikash kumar")
             context.startActivity(intent1)
         }
     }

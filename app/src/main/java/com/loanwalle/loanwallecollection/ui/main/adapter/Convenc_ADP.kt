@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.ui.main.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -54,6 +55,7 @@ class Convenc_ADP(context:Context, var listOfTasks: List<Data>) :
         return listOfTasks.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun settodaylist(listOfTasks: List<Data>) {
         this.listOfTasks = listOfTasks
         notifyDataSetChanged()

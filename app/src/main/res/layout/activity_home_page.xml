@@ -10,6 +10,7 @@
 
 
     <LinearLayout
+        android:background="@color/graylight"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -86,7 +87,7 @@
                             android:layout_marginEnd="40sp"
                             android:fontFamily="@font/robotomedium"
                             android:gravity="center"
-                            android:text="Collection/Verification"
+                            android:text="Today Lead"
                             android:textColor="@color/black"
                             android:textSize="22sp" />
 
@@ -199,6 +200,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_todaycollection"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

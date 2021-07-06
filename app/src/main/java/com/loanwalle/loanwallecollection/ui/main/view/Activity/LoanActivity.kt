@@ -35,8 +35,7 @@ class LoanActivity : AppCompatActivity() {
         getloandetails()
     }
     fun getloandetails() {
-        var user = sessionManegar.getString(this,"userid")
-
+        val user = "44"// sessionManegar.getString(this, Constants.USER_ID)
         val userid = user
         if (userid!=null) {
             val body = LoanDetailsReq(

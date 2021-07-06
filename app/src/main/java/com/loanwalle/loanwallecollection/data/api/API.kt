@@ -17,12 +17,16 @@ import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
+import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
+import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryResponse
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitResponse
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
+import com.loanwalle.loanwallecollection.data.model.token.TokenRequest
+import com.loanwalle.loanwallecollection.data.model.token.TokenResponse
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadResponce
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
 import com.loanwalle.loanwallecollection.data.model.upDateFollowup.UpdateFollowupRequestBodies
@@ -96,6 +100,13 @@ interface API {
 
     @POST("user/get-total-count-of-todays-collection-leads")
     suspend fun getTodayCountLead(@Body body:GetCountLeadRequest):Response<GetCountLeadResponse>
+
+@POST("user/get-residential-address")
+    suspend fun getRecoveryAddress(@Body body:RecoveryRequest):Response<RecoveryResponse>
+
+
+    @POST("user/update-token-by-id")
+    suspend fun updatetoken(@Body body:TokenRequest):Response<TokenResponse>
 
 
 }

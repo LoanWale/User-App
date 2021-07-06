@@ -11,14 +11,14 @@ import android.os.Handler
 import android.util.Log
 import android.view.animation.Animation
 import android.widget.Toast
-import com.google.firebase.ktx.Firebase
 
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.databinding.ActivitySplashBinding
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.toast
@@ -77,10 +77,11 @@ class SplashActivity : AppCompatActivity() {
             // Log and toast
             val msg = getString(R.string.msg_token_fmt, token)
             Log.d("Token", msg)
-            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
 
-            sessionManegar.saveString(this,sessionManegar.TOKEN_NUMBER,token)
-            toast(token)
+            sessionManegar.saveString(this,Constants.USER_TOKEN,token)
+           // toast(token)
+
 
         })
         // [END log_reg_token]
@@ -135,6 +136,6 @@ class SplashActivity : AppCompatActivity() {
            }
            startActivity(intnt)
            finish()
-       }, 6000)
+       }, 1)
     }
 }

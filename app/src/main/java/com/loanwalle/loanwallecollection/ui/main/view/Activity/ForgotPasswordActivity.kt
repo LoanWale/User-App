@@ -26,17 +26,12 @@ import kotlinx.android.synthetic.main.activity_otp.*
 class ForgotPasswordActivity : AppCompatActivity() {
 
     var binding: ActivityOtpBinding? = null
-
-    private var view: View? = null
     lateinit var otpViewModel: ForgotPasswordViewModel
-
     var sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
-
         init()
-
         otp_send.setOnClickListener{
             onForgotClick()
         }
@@ -53,14 +48,12 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     fun onForgotClick() {
         val mobile = phone_num_forgot.text.toString().trim()
-
         if (mobile.isNotEmpty()) {
             val body = ForgotRequestBodies.ForgotRequest(
                 mobile,
             )
 
             otpViewModel.forgotPassword(body)
-
             otpViewModel.userForgotPassword.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
@@ -70,6 +63,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
                                 Log.e("Resopncelogin",message);
+
+
                                 if (message.equals("OTP sent Successfully")&&otpResponse.user_id!=null)
                                 {
                                     sessionManegar.saveString(this, "mobile",mobile,)

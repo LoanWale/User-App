@@ -80,6 +80,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/re_pymnt_recycler_view"
             android:layout_width="match_parent"
+            tools:listitem="@layout/repayment_layout"
             android:layout_height="match_parent"/>
 
 

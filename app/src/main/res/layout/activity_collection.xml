@@ -148,7 +148,8 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:autofillHints="" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
@@ -333,12 +334,27 @@
                             android:textColor="@color/black"
                             android:textSize="10sp" />
 
-                        <RadioButton
-                            android:id="@+id/radio_writeoff"
-                            android:layout_width="30dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:gravity="center" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <RadioButton
+                                android:id="@+id/radio_writeoff"
+                                android:layout_width="30dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="center"
+                                android:gravity="center" />
+
+                            <RadioButton
+                                android:layout_width="30dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="center"
+                                android:gravity="center" />
+
+                        </RadioGroup>
+
 
                     </LinearLayout>
 
@@ -562,6 +578,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
+                android:id="@+id/submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sign_in_button_drawable"
