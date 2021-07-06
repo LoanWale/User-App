@@ -22,8 +22,8 @@ class TokenViewModel(
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
-    private val _loginResponse = MutableLiveData<Event<Resource<TokenResponse>>>()
-    val loginResponse:LiveData<Event<Resource<TokenResponse>>> = _loginResponse
+    private val _TokenResponse = MutableLiveData<Event<Resource<TokenResponse>>>()
+    val loginResponse:LiveData<Event<Resource<TokenResponse>>> = _TokenResponse
 
 
     fun loginUser(body: TokenRequest) = viewModelScope.launch {
@@ -34,18 +34,18 @@ class TokenViewModel(
 
 
     private suspend fun login(body: TokenRequest) {
-        _loginResponse.postValue(Event(Resource.Loading()))
+        _TokenResponse.postValue(Event(Resource.Loading()))
         try {
             if (Utils.hasInternetConnection(getApplication<MyApplication>())) {
                 val response = appRepository.updateToken(body)
-               _loginResponse.postValue(handlePicsResponse(response))
+               _TokenResponse.postValue(handlePicsResponse(response))
             } else {
-                _loginResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
+                _TokenResponse.postValue(Event(Resource.Error(getApplication<MyApplication>().getString(R.string.no_internet_connection))))
             }
         } catch (t: Throwable) {
             when (t) {
                 is IOException -> {
-                    _loginResponse.postValue(
+                    _TokenResponse.postValue(
                         Event(Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.network_failure
@@ -54,7 +54,7 @@ class TokenViewModel(
                     )
                 }
                 else -> {
-                    _loginResponse.postValue(
+                    _TokenResponse.postValue(
                         Event(Resource.Error(
                             getApplication<MyApplication>().getString(
                                 R.string.conversion_error

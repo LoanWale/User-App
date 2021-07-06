@@ -13,13 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
-import com.loanwalle.loanwallecollection.data.model.userProfile.UserProfileBody
+import com.loanwalle.loanwallecollection.data.model.token.TokenRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityHomePageBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.adapter.TodayLeadAdp
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TodayLeadViewModel
+import com.loanwalle.loanwallecollection.ui.main.viewmodel.TokenViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -29,6 +31,7 @@ import kotlinx.android.synthetic.main.activity_home_page.back_layout
 import kotlinx.android.synthetic.main.activity_home_page.btn_collection
 import kotlinx.android.synthetic.main.activity_home_page.btn_verification
 import kotlinx.android.synthetic.main.activity_home_page.verify
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.android.synthetic.main.activity_otp.progress
 import kotlinx.android.synthetic.main.activity_total_leads.*
@@ -38,6 +41,7 @@ class HomePageActivity : AppCompatActivity() {
     var binding: ActivityHomePageBinding? = null
     lateinit var userProfileViewModel : UserProfileViewModel
     private lateinit var viewModel: TodayLeadViewModel
+    private lateinit var tokenViewModel: TokenViewModel
     val sessionManegar = SessionManegar()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,11 +113,13 @@ class HomePageActivity : AppCompatActivity() {
         val factory = ViewModelProviderFactory(application, repository)
         viewModel = ViewModelProvider(this, factory).get(TodayLeadViewModel::class.java)
         userProfileViewModel = ViewModelProvider(this, factory).get(UserProfileViewModel::class.java)
+        tokenViewModel = ViewModelProvider(this, factory).get(TokenViewModel::class.java)
+
         getTodayLead()
     }
 
     fun getTodayLead() {
-        val userid = sessionManegar.getString(this,sessionManegar.USER_ID)
+        val userid = sessionManegar.getString(this,Constants.USER_ID)
         if (userid!=null) {
             val body = TodayleadRequ.LeadRequest(userid)
             viewModel.todaylead(body)
@@ -169,12 +175,58 @@ class HomePageActivity : AppCompatActivity() {
         progress4.visibility = View.VISIBLE
     }
 
-    fun UpdateToken ()
-
+    // update fibase token
+   public fun UpdateToken ()
     {
 
     }
+    
+    fun onLoginClick(view: View) {
+        val Token = SessionManegar().getString(this,Constants.USER_TOKEN)
+        val Userid = SessionManegar().getString(this,Constants.USER_ID)
+        if (Token!!.isNotEmpty() && Userid!!.isNotEmpty()) {
+            val body = TokenRequest(
+                Token,Userid
+                )
+            tokenViewModel.loginUser(body)
+            tokenViewModel.loginResponse.observe(this, Observer { event ->
+                event.getContentIfNotHandled()?.let { response ->
+                    when (response) {
 
+                        is Resource.Success -> {
+                            hideProgressBar()
+                            response.data?.let { loginResponse ->
+                                val message:String= loginResponse.message
+                                Log.e("Resopncelogin",message);
+                                if (message.equals("success!"))
+                                {
+
+                                }else
+
+                                {
+                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                }
+
+
+                            }
+                        }
+
+                        is Resource.Error -> {
+                            hideProgressBar()
+                            response.message?.let { message ->
+                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                            }
+                        }
+
+                        is Resource.Loading -> {
+                            showProgressBar()
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
     }
 
 

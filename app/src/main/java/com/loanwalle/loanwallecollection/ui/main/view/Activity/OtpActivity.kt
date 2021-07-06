@@ -18,6 +18,7 @@ import com.loanwalle.loanwallecollection.databinding.ActivityOtpBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.OTP.SMSReceiver
 import com.loanwalle.loanwallecollection.utils.Resource
@@ -112,7 +113,7 @@ class OtpActivity : AppCompatActivity() ,
     }
 
     fun requestOTP() {
-        var user =sessionManegar.getString(this@OtpActivity,sessionManegar.USER_ID)
+        var user =sessionManegar.getString(this@OtpActivity, Constants.USER_ID)
         var mob =sessionManegar.getString(this@OtpActivity,"mobile")
         val mobile = mob.toString()
         val user_id = user
@@ -178,7 +179,7 @@ class OtpActivity : AppCompatActivity() ,
     }
 
     fun submitClick() {
-        var use =sessionManegar.getString(this@OtpActivity,sessionManegar.USER_ID)
+        var use =sessionManegar.getString(this@OtpActivity,Constants.USER_ID)
         val mobile = otp_text.text.toString().toInt()
         val user_id = use.toString().toInt()
         if (mobile!= null && user_id!=null) {
