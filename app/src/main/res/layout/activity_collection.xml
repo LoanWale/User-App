@@ -9,12 +9,17 @@
     tools:context=".ui.main.view.Activity.CollectionActivity">
 
 
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/prog_ress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,6 +47,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:textColor="@color/black"
+            android:id="@+id/text_balnce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_marginLeft="16dp"
@@ -293,12 +306,21 @@
                     app:layout_constraintStart_toEndOf="@+id/textView44"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <RadioGroup
+                        android:id="@+id/radio_group"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
                     <LinearLayout
                         android:id="@+id/writ_off"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
+
 
                         <TextView
                             android:id="@+id/radio_regular"
@@ -392,6 +414,8 @@
 
                     </LinearLayout>
 
+
+                    </RadioGroup>
 
                 </LinearLayout>
 

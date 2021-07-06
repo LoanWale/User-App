@@ -47,9 +47,6 @@ import javax.xml.datatype.DatatypeConstants.MONTHS
 class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener{
      var binding :ActivityCurrentRecoveryAddressBinding? = null
     lateinit var startVisitViewModel : StartVisitViewModel
-    private val LOCATION_CODE = 1
-    lateinit var fusedLocationProviderClient : FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
 
     private var REQUEST_LOCATION_CODE = 101
     private var mGoogleApiClient: GoogleApiClient? = null
@@ -65,10 +62,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener{
 
 
 
-
-
-        //fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
         binding!!.backLayout.setOnClickListener {
             finish()
         }
@@ -80,7 +73,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener{
 
         binding!!.starttnow.setOnClickListener(this)
         buildGoogleApiClient()
-
     }
 
     @Synchronized
@@ -132,7 +124,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener{
                                 if (message.equals("success")&&verifyResponse.status.equals("200"))
                                 {
                                     newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    val i = Intent(this@CurrentRecoveryAddressActivity, ResidanceActivity::class.java)
+                                    val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
                                     startActivity(i)
                                     finish()
 

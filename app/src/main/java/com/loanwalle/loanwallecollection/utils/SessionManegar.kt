@@ -9,6 +9,7 @@ class SessionManegar {
     val USER_ID = ""
     val MOBILE_NUMBER = ""
     val SWITCH_BUTTON = ""
+    val TOKEN_NUMBER = ""
     var IS_LOGIN = "is_login"
     var DATA_PROFILE = "data_profile"
 
