@@ -48,7 +48,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.xml.datatype.DatatypeConstants.MONTHS
 
-class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener {
+class CurrentRecoveryAddressActivity : AppCompatActivity() {
      var binding :ActivityCurrentRecoveryAddressBinding? = null
     lateinit var startVisitViewModel : StartVisitViewModel
     lateinit var RecoveryViewModal : RecoveryAddressViewModel
@@ -65,6 +65,23 @@ class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener 
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+
+        if (!checkGPSEnabled()) {
+            return
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                //Location Permission already granted
+                getLocation();
+            } else {
+                //Request Location Permission
+                checkLocationPermission()
+            }
+        } else {
+            getLocation();
+        }
+
 
 
         binding!!.backLayout.setOnClickListener {
@@ -194,24 +211,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity(),View.OnClickListener 
             }
         }else{
             RequestLocationPermission()
-        }
-    }
-
-    override fun onClick(v: View?) {
-        if (!checkGPSEnabled()) {
-            return
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                //Location Permission already granted
-                getLocation();
-            } else {
-                //Request Location Permission
-                checkLocationPermission()
-            }
-        } else {
-            getLocation();
         }
     }
 
