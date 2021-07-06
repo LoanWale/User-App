@@ -113,8 +113,40 @@ class CollectionActivity : AppCompatActivity() {
                                     val bal = otpResponse.data.payable_amount.toString()
                                     prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
                                     var amount = editText6.text.toString()
-                                    if (bal > amount){
+                                    if (amount >= bal){
+                                        part_payment.background =resources.getDrawable(R.drawable.part_pyment_drawable)
+                                        nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+                                        full_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
 
+                                        full_payment.setTextColor(getColor(R.color.white))
+                                        nil_payment.setTextColor(getColor(R.color.black))
+                                        part_payment.setTextColor(getColor(R.color.black))
+
+                                        next_sch_date.isVisible = false
+                                        imageView6.isVisible = false
+                                    }else if (amount < bal){
+                                        part_payment.background =resources.getDrawable(R.drawable.full_payment_drawable)
+                                        part_payment.setTextColor(getColor(R.color.white))
+
+                                        full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+                                        nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+                                        full_payment.setTextColor(getColor(R.color.black))
+                                        nil_payment.setTextColor(getColor(R.color.black))
+
+                                        imageView6.isVisible = true
+                                        next_sch_date.isVisible = true
+                                    }else if (amount.equals(0)){
+                                        nil_payment.setTextColor(getColor(R.color.white))
+                                        nil_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
+
+                                        full_payment.setTextColor(getColor(R.color.black))
+                                        full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
+
+                                        part_payment.setTextColor(getColor(R.color.black))
+                                        part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+
+                                        next_sch_date.isVisible = true
+                                        imageView6.isVisible = true
                                     }
                                 }
                                 else
