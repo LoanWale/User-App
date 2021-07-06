@@ -35,4 +35,10 @@
     <string name="no_internet_connection">No internet connection</string>
     <string name="network_failure">Network Failure</string>
     <string name="conversion_error">Conversion Error</string>
+    <string name="msg_token_fmt">Token</string>
+    <string name="default_notification_channel_id">Chenel Id</string>
+    <string name="fcm_message">Notification</string>
+    <string name="default_notification_channel_name">Notification</string>
+    <string name="msg_subscribed">Subscribe</string>
+    <string name="msg_subscribe_failed">Subscribe Failed</string>
 </resources>

@@ -69,6 +69,13 @@ class Navigation : AppCompatActivity() {
         setContentView(binding!!.root)
 
 
+        binding!!.tooggllee.setOnCheckedChangeListener({
+            _, isChecked ->
+            val message = if(isChecked){
+            sessionManegar.saveBoolean(this,"checked",true)
+            }else{}
+        })
+
         if (tooggllee.isChecked){
             sessionManegar.saveBoolean(this@Navigation,"checked",true)
 
