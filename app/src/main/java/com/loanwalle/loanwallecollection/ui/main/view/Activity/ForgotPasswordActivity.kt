@@ -20,6 +20,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_otp.*
 
@@ -36,6 +37,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
             onForgotClick()
         }
 
+        imageView8.setOnClickListener{
+            onBackPressed()
+        }
 
     }
 
@@ -70,7 +74,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                     sessionManegar.saveString(this, "mobile",mobile,)
                                     sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
                                     sessionManegar.saveString(this, "userId",otpResponse.user_id)
-                                    progress9.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                     var intent = Intent(this,VerifyOTPActivity::class.java)
                                     startActivity(intent)
                                 }

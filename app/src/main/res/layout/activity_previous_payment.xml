@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.view.Activity.PreviousPayment">
 
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/payment_progress"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -19,12 +25,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/back_layout"
+                android:id="@+id/back_layout_previous"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginEnd="10dp"
-                android:layout_weight=".1"
+                android:layout_weight=".16"
                 android:gravity="center">
 
                 <ImageView

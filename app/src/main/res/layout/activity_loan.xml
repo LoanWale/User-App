@@ -24,15 +24,16 @@
                 android:weightSum="1">
 
                 <LinearLayout
-                    android:id="@+id/back_layout"
+                    android:id="@+id/back_layout_detail"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight=".1"
+                    android:layout_weight=".16"
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/back_btn_loan_dt"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:background="@drawable/ic_left_arrow" />
@@ -288,7 +289,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".4"
                 android:fontFamily="@font/robotomedium"
-                android:text="ROI(per day)"
+                android:text="ROI (per day)"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -472,7 +473,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight=".5"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
                     android:fontFamily="@font/robotomedium"
                     android:text="Repayment Date"
                     android:textColor="@color/gray"
@@ -523,8 +524,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end|center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="20dp"
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
@@ -994,6 +995,7 @@
 
 
             <TextView
+                android:id="@+id/collect_button"
                 android:background="@drawable/paytmbutton"
                 android:layout_width="match_parent"
                 android:text="Collect Now"

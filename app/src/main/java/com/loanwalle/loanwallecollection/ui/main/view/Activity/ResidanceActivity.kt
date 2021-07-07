@@ -19,6 +19,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.NewPasswordViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UpdateCollectionViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_resest.*
 import kotlinx.android.synthetic.main.activity_residance.*
 
@@ -31,6 +32,10 @@ class ResidanceActivity : AppCompatActivity() {
 
         init1()
         verifyClick1()
+
+        back_residance.setOnClickListener{
+            onBackPressed()
+        }
 
 
     }
@@ -74,7 +79,7 @@ class ResidanceActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success")&&verifyResponse.status.equals("200"))
                                 {
-                                    ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //ppprrrooggess.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
                                 {

@@ -37,6 +37,9 @@ class CollectionActivity : AppCompatActivity() {
 
         binding= ActivityCollectionBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+        back_collec.setOnClickListener{
+            onBackPressed()
+        }
 
 
 
@@ -182,7 +185,7 @@ class CollectionActivity : AppCompatActivity() {
                                     principlea.setText(prinpleAmount)
 
 
-                                    prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
                                 {

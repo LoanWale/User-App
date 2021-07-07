@@ -79,6 +79,9 @@ class ViewModelProviderFactory(
         if (modelClass.isAssignableFrom(GetCountLeadViewModel::class.java)){
             return GetCountLeadViewModel(app, appRepository) as T
         }
+        if (modelClass.isAssignableFrom(PreviousPaymentViewModel::class.java)){
+            return PreviousPaymentViewModel(app, appRepository) as T
+        }
         throw IllegalArgumentException("Unknown class name")
     }
 

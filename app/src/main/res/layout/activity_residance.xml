@@ -17,6 +17,7 @@
         android:layout_height="match_parent">
 
         <ProgressBar
+            android:visibility="gone"
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/ppprrrooggess"
@@ -28,23 +29,30 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/back_residance"
+                android:padding="@dimen/_5sdp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:src="@drawable/ic_left_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/robotomedium"
+                android:gravity="center"
                 android:text="Residence Visit"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

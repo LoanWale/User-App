@@ -2,6 +2,7 @@ package com.loanwalle.loanwallecollection.ui.main.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,18 +32,18 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
     }
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var lead_name: TextView = view.findViewById(R.id.lead_name)
-        var mobileno: TextView = view.findViewById(R.id.mobileno)
-        var address: TextView = view.findViewById(R.id.address)
-        var loanno: TextView = view.findViewById(R.id.loanno)
-        var collid: LinearLayout = view.findViewById(R.id.collid)
-        var image: ImageView = view.findViewById(R.id.image_user)
+        var mobileno: TextView = view.findViewById(R.id.mob_number)
+        var address: TextView = view.findViewById(R.id.loc_total)
+        var loanno: TextView = view.findViewById(R.id.loan_total)
+        var collid: CardView = view.findViewById(R.id.collid_total)
+        var image: ImageView = view.findViewById(R.id.total_image)
 
 
     }
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.todaylead_adp, parent, false)
+            .inflate(R.layout.totalleadadp, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -53,14 +54,18 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
             holder.mobileno.text = tasks.mobile
             holder.address.text = tasks.present_address_line1
             holder.loanno.text = "Loan No. "+tasks.loan_no
+        val lnmber = tasks.loan_no
+        Log.e("loan_number",tasks.loan_no)
         val im = holder.image
-        Glide.with(context).load(tasks.file).into(im)
+        Glide.with(context).load(tasks.file).error(R.drawable.userimage).into(im)
 
 
         holder.collid.setOnClickListener {
             val intent1 = Intent(context, LoanDetailActivity::class.java)
             intent1.putExtra(Constants.USER_PIC,tasks.file)
-            intent1.putExtra(Constants.USER_NAME,"Vikash kumar")
+            intent1.putExtra(Constants.USER_NAME,holder.lead_name.text.toString())
+            intent1.putExtra(Constants.USER_LOAN_NUMBER,tasks.loan_no)
+
             context.startActivity(intent1)
         }
     }

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.databinding.ActivityDocumentBinding
+import kotlinx.android.synthetic.main.activity_document.*
 
 class DocumentActivity : AppCompatActivity() {
     var bindig : ActivityDocumentBinding ?=null
@@ -12,6 +13,10 @@ class DocumentActivity : AppCompatActivity() {
 
         bindig= ActivityDocumentBinding.inflate(layoutInflater)
         setContentView(bindig!!.root)
+
+        back_layout_docs.setOnClickListener{
+            onBackPressed()
+        }
 
 
        // System.currentTimeMillis()

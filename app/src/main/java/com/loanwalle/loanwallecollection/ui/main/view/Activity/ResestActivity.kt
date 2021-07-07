@@ -21,6 +21,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewMod
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_resest.*
 import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
 
@@ -31,6 +32,9 @@ class ResestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_resest)
 
         init()
+        image_back.setOnClickListener{
+            onBackPressed()
+        }
 
         send_pswrd_btn.setOnClickListener{
             verifyClick()
@@ -72,7 +76,7 @@ class ResestActivity : AppCompatActivity() {
                                 if (message.equals("password changed Successfully")&&verifyResponse.status.equals("200"))
                                 {
 
-                                    new_progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //new_progress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                     var intent = Intent(this,LoginActivity::class.java)
                                     startActivity(intent)

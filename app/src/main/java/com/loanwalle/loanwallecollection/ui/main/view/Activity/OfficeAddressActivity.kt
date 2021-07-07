@@ -6,12 +6,17 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.loanwalle.loanwallecollection.R
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_office_address.*
 
 class OfficeAddressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_office_address)
+
+        back_office.setOnClickListener{
+            onBackPressed()
+        }
 
         staff_spiner.onItemSelectedListener
         employes_sp.onItemSelectedListener

@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.R
@@ -19,12 +20,18 @@ class PaymentActivity : AppCompatActivity() {
             upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
             qrcode.setTextColor(getColor(R.color.white))
             upi.setTextColor(getColor(R.color.black))
+
+            var intent=Intent(this,QrCodeActivity::class.java)
+            startActivity(intent)
+
         }
         upi.setOnClickListener{
+
             upi.setBackground(getDrawable(R.drawable.upi_id_drawable))
             qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
             upi.setTextColor(getColor(R.color.white))
             qrcode.setTextColor(getColor(R.color.black))
+
         }
     }
 }

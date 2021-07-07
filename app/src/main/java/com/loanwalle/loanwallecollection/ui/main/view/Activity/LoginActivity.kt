@@ -155,7 +155,7 @@ class LoginActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success!")&&loginResponse.USERID!=null)
                                 {
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                     sessionManegar.saveInt(this@LoginActivity,sessionManegar.LOGIN_STATE,ConstantsSave.LoginFlow.Otpscreen)
                                     sessionManegar.saveString(this@LoginActivity,Constants.USER_ID,loginResponse.USERID)
                                     sessionManegar.saveString(this@LoginActivity,Constants.USER_MOBILE,mobilenono)

@@ -32,6 +32,9 @@ class Collection_Profile : AppCompatActivity() {
 
         init()
         verifyClick()
+        back_layout_coll.setOnClickListener{
+            onBackPressed()
+        }
 
         binding= ActivityCollectionProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
@@ -89,7 +92,7 @@ class Collection_Profile : AppCompatActivity() {
 
 
 
-                                    progress9.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //progress9.errorSnack(message, Snackbar.LENGTH_LONG)
 
 
                                 }

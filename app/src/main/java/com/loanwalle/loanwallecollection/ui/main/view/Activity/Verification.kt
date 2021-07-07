@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.databinding.ActivityVerification2Binding
+import kotlinx.android.synthetic.main.activity_document.*
+import kotlinx.android.synthetic.main.activity_verification2.*
 
 class Verification : AppCompatActivity() {
 
@@ -16,6 +18,10 @@ class Verification : AppCompatActivity() {
         binding!!.loanDetailText.setOnClickListener {
             val i = Intent(this@Verification, LoanActivity::class.java)
             startActivity(i)
+        }
+
+        veri_back.setOnClickListener{
+            onBackPressed()
         }
 
         binding!!.veriBack.setOnClickListener { finish() }
