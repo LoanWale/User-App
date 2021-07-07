@@ -15,7 +15,7 @@
             android:gravity="center"
             android:fontFamily="@font/robotomedium"
             android:layout_gravity="center"
-            android:text="Are you want to visit now"
+            android:text="Are you want to visit now ? "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

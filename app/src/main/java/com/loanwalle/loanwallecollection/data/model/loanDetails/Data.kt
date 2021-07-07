@@ -10,7 +10,7 @@ data class Data(
     val loan_sanctioned: String,
     val mobile_no: String,
     val name: String,
-    val net_disbursal_amount: String,
+    val net_disbursal_amount: Int,
     val payable_amount: Int,
     val payment_recived: String,
     val penal_interest_per_day: Int,

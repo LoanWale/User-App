@@ -183,7 +183,7 @@ class HomePageActivity : AppCompatActivity() {
     
     fun onLoginClick(view: View) {
         val Token = SessionManegar().getString(this,Constants.USER_TOKEN)
-        val Userid = SessionManegar().getString(this,Constants.USER_ID)
+        val Userid =   "44" //SessionManegar().getString(this,Constants.USER_ID)
         if (Token!!.isNotEmpty() && Userid!!.isNotEmpty()) {
             val body = TokenRequest(
                 Token,Userid
@@ -200,13 +200,7 @@ class HomePageActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success!"))
                                 {
-
-                                }else
-
-                                {
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
-
 
                             }
                         }

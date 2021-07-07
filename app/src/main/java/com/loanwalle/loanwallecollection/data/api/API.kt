@@ -1,3 +1,5 @@
+import com.loanwalle.loanwallecollection.data.model.collection.Collection_Request
+import com.loanwalle.loanwallecollection.data.model.collection.Collection_Response
 import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
 import com.loanwalle.loanwallecollection.data.model.convenc.Convence_Resopnce
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
@@ -107,6 +109,10 @@ interface API {
 
     @POST("user/update-token-by-id")
     suspend fun updatetoken(@Body body:TokenRequest):Response<TokenResponse>
+
+
+  @POST("user/update-collection-followup")
+    suspend fun loanupdat(@Body body: Collection_Request):Response<Collection_Response>
 
 
 }

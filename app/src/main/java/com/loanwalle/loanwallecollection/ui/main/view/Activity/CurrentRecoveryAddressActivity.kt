@@ -50,8 +50,11 @@ import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class CurrentRecoveryAddressActivity : AppCompatActivity() {
      var binding :ActivityCurrentRecoveryAddressBinding? = null
+
     lateinit var startVisitViewModel : StartVisitViewModel
     lateinit var RecoveryViewModal : RecoveryAddressViewModel
+
+
     private val LOCATION_CODE = 1
     lateinit var fusedLocationProviderClient : FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
@@ -65,6 +68,9 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+
+
+
 
         if (!checkGPSEnabled()) {
             return
@@ -279,6 +285,10 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
     }
+
+
+
+
     private fun getCityName(lat:Double,lon:Double):String{
         var cityName = ""
         val geocoder = Geocoder(this,Locale.getDefault())
@@ -335,7 +345,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                 }
                                 else
                                 {
-                                    newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                 //   newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
                             }
@@ -344,7 +354,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                              //  newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 Log.e("Resopncelogin6",message);
                             }
                         }

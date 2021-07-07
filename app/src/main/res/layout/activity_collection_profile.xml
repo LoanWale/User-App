@@ -156,7 +156,7 @@
                     android:paddingStart="15dp"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:text="Vikash kumar"
+                    android:text=""
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
@@ -192,7 +192,7 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:text="LW0033"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -232,7 +232,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="+91-8932983293"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -272,7 +272,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-                    android:text="VIKASH@GMAIL.COM"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
@@ -310,7 +310,7 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:text="10-02-1980"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -346,7 +346,7 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:text="10-04-2021"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -384,7 +384,7 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:text="B+"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>

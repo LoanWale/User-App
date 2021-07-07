@@ -56,11 +56,14 @@ class LoanActivity : AppCompatActivity() {
                                     Log.e("Resopncelogin5",otpResponse.data.loan_no)
                                     applicationno.text=otpResponse.data.application_no
                                     loanno.text=otpResponse.data.loan_no
-                                    loan_sanctioned.text=otpResponse.data.loan_sanctioned
+
+                                    val sansctiondata=otpResponse.data.loan_sanctioned.replace(".00","")
+                                    loan_sanctioned.text=String.format("%,d",(sansctiondata.toLong()))+".00"
+
                                     processing_fee.text=otpResponse.data.processing_fee
                                     tenur_roi.text = otpResponse.data.roi
                                     tenure_days.text = otpResponse.data.tenure
-                                    loan_disbursal.text = otpResponse.data.net_disbursal_amount
+                                    loan_disbursal.text = otpResponse.data.net_disbursal_amount.toString()
                                     disbursal_date.text = otpResponse.data.disbursal_date
                                     repayment_date.text = otpResponse.data.repayment_date
                                     repayements_amount.text = otpResponse.data.payable_amount.toString()

@@ -29,6 +29,11 @@ class LoanDetailActivity : AppCompatActivity() {
           val inten = Intent(this,CurrentRecoveryAddressActivity::class.java)
             startActivity(inten)
         }
+
+        binding!!.officeadd.setOnClickListener{
+          val inten = Intent(this,OfferAccepetance::class.java)
+            startActivity(inten)
+        }
         Glide.with(this).load(userpic).error(R.drawable.userimage).into(binding!!.imageView4)
 
 

@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.data.repository
 
+import com.loanwalle.loanwallecollection.data.model.collection.Collection_Request
 import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
 
@@ -41,4 +42,5 @@ class AppRepository {
     suspend fun updatefollowupColle(body: UpdateFollowupRequestBodies.UpdateFollowupRequest) = RetrofitInstance.loginApi.updatefollowupColle(body)
     suspend fun getTodayCountLead(body: GetCountLeadRequest) = RetrofitInstance.loginApi.getTodayCountLead(body)
     suspend fun updateToken(body: TokenRequest) = RetrofitInstance.loginApi.updatetoken(body)
+    suspend fun loanupdate(body: Collection_Request) = RetrofitInstance.loginApi.loanupdat(body)
 }

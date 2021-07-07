@@ -4,14 +4,11 @@ import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.animation.Animation
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.ktx.Firebase
@@ -21,7 +18,6 @@ import com.loanwalle.loanwallecollection.databinding.ActivitySplashBinding
 import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.SessionManegar
-import com.loanwalle.loanwallecollection.utils.toast
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -59,8 +55,8 @@ class SplashActivity : AppCompatActivity() {
                 if (!task.isSuccessful) {
                     msg = getString(R.string.msg_subscribe_failed)
                 }
-                Log.d("TAG", msg)
-                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                Log.e("TAG", msg)
+               // Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
             }
 
 
@@ -76,7 +72,7 @@ class SplashActivity : AppCompatActivity() {
 
             // Log and toast
             val msg = getString(R.string.msg_token_fmt, token)
-            Log.d("Token", msg)
+            Log.e("Token", msg)
           //  Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
 
             sessionManegar.saveString(this,Constants.USER_TOKEN,token)

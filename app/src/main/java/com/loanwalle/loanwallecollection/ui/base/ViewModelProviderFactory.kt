@@ -16,6 +16,10 @@ class ViewModelProviderFactory(
         if (modelClass.isAssignableFrom(TokenViewModel::class.java)) {
             return TokenViewModel(app, appRepository) as T
         }
+
+        if (modelClass.isAssignableFrom(LoanUpdateViewModal::class.java)) {
+            return LoanUpdateViewModal(app, appRepository) as T
+        }
   if (modelClass.isAssignableFrom(OtpViewModel::class.java)) {
             return OtpViewModel(app, appRepository) as T
         }

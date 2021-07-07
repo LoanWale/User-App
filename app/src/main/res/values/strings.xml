@@ -15,6 +15,7 @@
     <string name="earn">3</string>
     <string name="living">LIVING STANDARD</string>
     <string name="med">MEDIUM</string>
+    <string name="Rs">\u20B9</string>
     <string name="neighbr">NEIGHBOUR CHECK</string>
     <string name="postive">POSITIVE</string>
     <string name="photo">CUSTOMER PHOTO</string>

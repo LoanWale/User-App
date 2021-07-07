@@ -2,29 +2,49 @@ package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.loanwalle.loanwallecollection.R
 import kotlinx.android.synthetic.main.activity_payment.*
-
 class PaymentActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
-        upi.setBackground(getDrawable(R.drawable.upi_id_drawable))
-        qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
-        upi.setTextColor(getColor(R.color.white))
+        Ra_web.setBackground(getDrawable(R.drawable.upi_id_drawable))
+        Ra_qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
+        Ra_upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
 
-        qrcode.setOnClickListener{
-            qrcode.setBackground(getDrawable(R.drawable.upi_id_drawable))
-            upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
-            qrcode.setTextColor(getColor(R.color.white))
-            upi.setTextColor(getColor(R.color.black))
+        Ra_online.setOnClickListener {
+            Ra_web.visibility = View.VISIBLE
+            Ra_qrcode.visibility = View.VISIBLE
+            Ra_upi.visibility = View.VISIBLE
+            Ra_Cash.visibility = View.GONE
         }
-        upi.setOnClickListener{
-            upi.setBackground(getDrawable(R.drawable.upi_id_drawable))
-            qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
-            upi.setTextColor(getColor(R.color.white))
-            qrcode.setTextColor(getColor(R.color.black))
+
+        Ra_offline.setOnClickListener {
+            Ra_web.visibility = View.GONE
+            Ra_qrcode.visibility = View.GONE
+            Ra_upi.visibility = View.GONE
+            Ra_Cash.visibility = View.VISIBLE
+        }
+
+
+        Ra_web.setOnClickListener {
+            Ra_web.setBackground(getDrawable(R.drawable.upi_id_drawable))
+            Ra_qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
+            Ra_upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
+        }
+
+        Ra_qrcode.setOnClickListener{
+            Ra_web.setBackground(getDrawable(R.drawable.qr_code_drawable))
+            Ra_qrcode.setBackground(getDrawable(R.drawable.upi_id_drawable))
+            Ra_upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
+        }
+        Ra_upi.setOnClickListener{
+            Ra_web.setBackground(getDrawable(R.drawable.qr_code_drawable))
+            Ra_qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
+            Ra_upi.setBackground(getDrawable(R.drawable.upi_id_drawable))
         }
     }
 }

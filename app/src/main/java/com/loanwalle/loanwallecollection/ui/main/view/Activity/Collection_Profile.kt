@@ -85,7 +85,7 @@ class Collection_Profile : AppCompatActivity() {
                                     emailid.setText(verifyResponse.data.get(0).email)
                                     fathername.setText(verifyResponse.data.get(0).dob)
                                     dob.setText(verifyResponse.data.get(0).created_on)
-                                    bloodGroup.setText(verifyResponse.data.get(0).created_on)
+                                    bloodGroup.setText("A+")
 
 
 

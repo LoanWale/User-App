@@ -10,16 +10,9 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ProgressBar
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:id="@+id/prog_ress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,95 +26,102 @@
                 android:src="@drawable/ic_left_arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/robotomedium"
+                android:gravity="center"
                 android:text="Collection"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <TextView
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:textColor="@color/black"
-            android:id="@+id/text_balnce"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="44dp"
+            android:fontFamily="@font/robotomedium"
             android:text="PAYMENT TYPE"
             android:textColor="@color/black"
-            android:fontFamily="@font/robotomedium"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:textSize="16sp" />
         <LinearLayout
-            android:weightSum="6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:weightSum="6">
 
             <TextView
                 android:id="@+id/part_payment"
-                android:padding="10dp"
-                android:background="@drawable/full_payment_drawable"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="@font/robotoregular"
-                android:textColor="@color/white"
-                android:text="Part"
-                android:layout_weight="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="2"
+                android:background="@drawable/full_payment_drawable"
+                android:fontFamily="@font/robotoregular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Part"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/full_payment"
-                android:padding="10dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="@font/robotoregular"
-                android:textColor="@color/black"
-                android:text="Full"
-                android:background="@drawable/part_pyment_drawable"
-                android:layout_weight="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="2"
+                android:background="@drawable/part_pyment_drawable"
+                android:fontFamily="@font/robotoregular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Full"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/nil_payment"
-                android:background="@drawable/part_pyment_drawable"
-                android:padding="10dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="@font/robotoregular"
-                android:textColor="@color/black"
-                android:text="Nil"
-                android:layout_weight="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="2"
+                android:background="@drawable/part_pyment_drawable"
+                android:fontFamily="@font/robotoregular"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Nil"
+                android:textColor="@color/black" />
 
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/prog_ress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_balnce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/black" />
 
 
 
@@ -131,7 +131,6 @@
 
 
             <EditText
-                android:inputType="number"
                 android:id="@+id/principlea"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -142,14 +141,261 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="center"
                 android:hint="Enter Amount"
+                android:inputType="number"
+                android:padding="10dp"
+                android:maxLength="7"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/Collection_Remark"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:background="@drawable/amount_enter_drawable"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="top"
+                android:hint="Remarks"
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-               />
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_b"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_b"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_b" />
+
+
+            <ImageView
+                android:id="@+id/img_calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/calendr_drawable"
+                android:padding="10dp"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:layout_constraintEnd_toEndOf="@+id/Collection_Remark"
+                app:layout_constraintTop_toTopOf="@+id/next_sch_date" />
+
+            <TextView
+                android:id="@+id/next_sch_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/sign_in_button_drawable"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="60dp"
+                android:text="Next Schedule Date"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Collection_Remark"
+                app:layout_constraintTop_toBottomOf="@+id/Collection_Remark" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_a">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView44"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/robotolight"
+                            android:gravity="center"
+                            android:text="Regular"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/robotolight"
+                            android:gravity="center"
+                            android:text="Settlement"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/robotolight"
+                            android:gravity="center"
+                            android:text="Write Off"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/robotolight"
+                            android:gravity="center"
+                            android:text="Discount"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <RadioGroup
+                            android:id="@+id/groi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <RadioButton
+                                android:id="@+id/radio_reg"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/robotolight"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_settalment"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/robotolight"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_writeoff"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/robotolight"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp" />
+
+                            <RadioButton
+                                android:id="@+id/radi_discount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/robotolight"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp" />
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+
+                    <RadioGroup
+                        android:id="@+id/radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/robotomedium"
+                    android:padding="10dp"
+                    android:text="Closure Type"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3_b"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edit_drawable"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                <TextView
+                    android:id="@+id/textView43_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/robotomedium"
+                    android:padding="10dp"
+                    android:text="Unpaid Amount"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/unpaidamount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="@font/robotomedium"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
@@ -179,6 +425,7 @@
 
 
                 <TextView
+                    android:id="@+id/balanceprinciple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -190,9 +437,22 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="68dp"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="@string/Rs"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout3"
@@ -211,7 +471,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/robotomedium"
                     android:padding="10dp"
-                    android:text="Balance Interest%"
+                    android:text="Balance Interest %"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -219,6 +479,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/balance_totalintrest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -229,6 +490,20 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="68dp"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="@string/Rs"
+
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.476" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -256,6 +531,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/totalpaybleamount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -266,310 +542,71 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_a">
-
-                <TextView
-                    android:id="@+id/textView44"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/robotomedium"
-                    android:padding="10dp"
-                    android:text="Closure Type"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:orientation="horizontal"
-                    android:weightSum="4"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView44"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <RadioGroup
-                        android:id="@+id/radio_group"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
-
-                    <LinearLayout
-                        android:id="@+id/writ_off"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-
-                        <TextView
-                            android:id="@+id/radio_regular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/robotolight"
-                            android:gravity="center"
-                            android:text="Regular"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
-
-
-                        <RadioGroup
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <RadioButton
-                                android:id="@+id/radio_writeoff"
-                                android:layout_width="30dp"
-                                android:layout_height="25dp"
-                                android:layout_gravity="center"
-                                android:gravity="center" />
-
-                            <RadioButton
-                                android:layout_width="30dp"
-                                android:layout_height="25dp"
-                                android:layout_gravity="center"
-                                android:gravity="center" />
-
-                        </RadioGroup>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/robotolight"
-                            android:gravity="center"
-                            android:text="Settlement"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
-
-                        <RadioButton
-                            android:layout_width="30dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:gravity="center" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/robotolight"
-                            android:gravity="center"
-                            android:text="Write Off"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
-
-                        <RadioButton
-                            android:layout_width="30dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:gravity="center" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/robotolight"
-                            android:gravity="center"
-                            android:text="Discount"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
-
-                        <RadioButton
-                            android:layout_width="30dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:gravity="center" />
-
-                    </LinearLayout>
-
-
-                    </RadioGroup>
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout3_b"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/edit_drawable"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
-
-                <TextView
-                    android:id="@+id/textView43_b"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/robotomedium"
-                    android:padding="10dp"
-                    android:text="Unpaid Amount"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="68dp"
                     android:fontFamily="@font/robotomedium"
-                    android:text="20,000"
+                    android:text="@string/Rs"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.476" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <EditText
-                android:textSize="12sp"
-                android:id="@+id/editText7"
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_gravity="top"
-                android:layout_marginTop="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/amount_enter_drawable"
-                android:fontFamily="@font/robotolight"
-                android:gravity="top"
-                android:hint="Remarks"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_b"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_b"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_b" />
-
-            <TextView
-                android:paddingLeft="5dp"
-                android:gravity="center"
-                android:paddingRight="60dp"
-                android:id="@+id/next_sch_date"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/sign_in_button_drawable"
-                android:text="Next Schedule Date"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/editText7"
-                app:layout_constraintTop_toBottomOf="@+id/editText7" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/calendr_drawable"
-                android:padding="10dp"
-                android:src="@drawable/ic_baseline_calendar_today_24"
-                app:layout_constraintEnd_toEndOf="@+id/editText7"
-                app:layout_constraintTop_toTopOf="@+id/next_sch_date" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
 
 
             <EditText
-                android:gravity="center"
-                android:layout_marginLeft="24dp"
-                android:background="@drawable/edit_drawable"
-                android:id="@+id/editText8"
+                android:id="@+id/Edit_KM"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
-                android:fontFamily="@font/robotolight"
-                android:hint="Total KM"
+                android:layout_marginLeft="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="center"
+                android:hint="Total Distance"
+                android:maxLength="3"
                 android:inputType="number"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="14sp"
-                android:paddingLeft="70dp"
-                android:paddingRight="70dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-
-            <ImageView
-                android:layout_marginRight="33dp"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/km_drawable"
-                android:src="@drawable/ic_baseline_location_disabled_24"
+                android:layout_marginEnd="148dp"
+                android:fontFamily="@font/robotomedium"
+                android:text="KM"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.523" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="24dp"
             android:id="@+id/constraintLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/colex_clr_drawable"
             android:padding="30dp"
