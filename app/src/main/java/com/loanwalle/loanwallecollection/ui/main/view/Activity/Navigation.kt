@@ -31,6 +31,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.GetUserProfileViewMod
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_navigation.*
 
 
@@ -68,6 +69,9 @@ class Navigation : AppCompatActivity() {
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
+        menu.setOnClickListener{
+            onBackPressed()
+        }
 
         binding!!.tooggllee.setOnCheckedChangeListener({
             _, isChecked ->
@@ -195,7 +199,7 @@ class Navigation : AppCompatActivity() {
 
                                     phone.text ="Emp Id "+ empid
                                     Glide.with(this).load(verifyResponse.data.get(0).profile_pic).into(btncamera)
-                                nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
                                 else

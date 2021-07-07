@@ -49,7 +49,7 @@ class TodayLeadAdp(context:Context, var listOfTasks: List<Data>) :
             holder.mobileno.text = tasks.mobile
             holder.address.text = tasks.present_address_line1
             holder.loanno.text = "Loan No. "+tasks.loan_no
-        Glide.with(context).load(tasks.file).into(holder.image_user)
+        Glide.with(context).load(tasks.file).error(R.drawable.userimage).into(holder.image_user)
 
 
         holder.lner.setOnClickListener {
@@ -57,8 +57,9 @@ class TodayLeadAdp(context:Context, var listOfTasks: List<Data>) :
             if (tasks.file.isNullOrEmpty())
             {
                 val intent1 = Intent(context, LoanDetailActivity::class.java)
-                intent1.putExtra(Constants.USER_PIC,"djhsfj")
-                intent1.putExtra(Constants.USER_NAME,"Vikash kumar")
+                intent1.putExtra(Constants.USER_PIC,tasks.file)
+                intent1.putExtra(Constants.USER_NAME,holder.lead_name.text.toString())
+                intent1.putExtra(Constants.USER_LOAN_NUMBER,tasks.loan_no)
                 context.startActivity(intent1)
             }else
             {

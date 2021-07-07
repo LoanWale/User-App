@@ -20,12 +20,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/back_layout"
+                android:id="@+id/back_layout_docs"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginEnd="10dp"
-                android:layout_weight=".1"
+                android:layout_weight=".16"
                 android:gravity="center">
 
                 <ImageView

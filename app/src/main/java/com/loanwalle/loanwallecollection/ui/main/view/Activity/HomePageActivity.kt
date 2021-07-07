@@ -49,6 +49,10 @@ class HomePageActivity : AppCompatActivity() {
         setContentView(binding!!.root)
         init()
 
+        back_layout.setOnClickListener{
+            onBackPressed()
+        }
+
       sessionManegar.getBoolean(this,"checked")
 
 //        collection_layout!!.visibility= View.VISIBLE
@@ -138,6 +142,8 @@ class HomePageActivity : AppCompatActivity() {
                                 }else{
                                     binding!!.noDataFound.isVisible = false
                                     binding!!.VerificationLayout.isVisible = true
+                                    binding!!.collectioncount.setText(otpResponse.data.size.toString())
+                                    binding!!.verificationCount.setText(otpResponse.data.size.toString())
                                 }
                                 val picsAdapter = status?.let {
                                     TodayLeadAdp(this@HomePageActivity, it)

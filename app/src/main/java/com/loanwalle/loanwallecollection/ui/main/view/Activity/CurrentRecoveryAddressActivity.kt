@@ -36,6 +36,7 @@ import com.loanwalle.loanwallecollection.databinding.ActivityCurrentRecoveryAddr
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.RecoveryAddressViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.LOG
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -61,6 +62,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     var Latitude:Double?=null
     var Longitude:Double?=null
     var CurrentDate:String?=null
+    var addName:String?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +70,22 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+        back_layout_currnt.setOnClickListener{
+            onBackPressed()
+        }
+
+        if (intent.getStringExtra(Constants.RESIDANCE_ADD)!= null){
+            addName = intent.getStringExtra(Constants.RESIDANCE_ADD)
+            of_res_pre_add.text = addName
+        }
+        else if (intent.getStringExtra(Constants.OFFICE_ADD)!= null){
+            addName = intent.getStringExtra(Constants.OFFICE_ADD)
+            of_res_pre_add.text = addName
+        }
+        else if (intent.getStringExtra(Constants.PREFERRED_ADD)!= null){
+            addName = intent.getStringExtra(Constants.PREFERRED_ADD)
+            of_res_pre_add.text = addName
+        }
 
 
 
@@ -90,9 +108,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
 
-        binding!!.backLayout.setOnClickListener {
-            finish()
-        }
+
 
 
         binding!!.startvisit.setOnClickListener {
@@ -160,7 +176,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("success")&&verifyResponse.status.equals("200"))
                                 {
-                                    newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                     val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
                                     startActivity(i)

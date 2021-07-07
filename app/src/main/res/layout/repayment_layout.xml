@@ -52,6 +52,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_loanno"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -99,6 +100,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_visit_date"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -145,6 +147,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_next_date"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -193,6 +196,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/HS_paid_Am"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -241,6 +245,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_payment_type"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -289,6 +294,7 @@
                         android:textSize="12sp"/>
 
                     <TextView
+                        android:id="@+id/His_wavier_type"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -337,6 +343,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_payment_status"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -384,6 +391,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_reject_type"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"
@@ -431,6 +439,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/His_visit_type"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|center"

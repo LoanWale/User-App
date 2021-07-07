@@ -41,6 +41,9 @@ class Covence_Report : AppCompatActivity() {
         binding = ActivityCovenceReportBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+        back_layout_conv.setOnClickListener{
+            onBackPressed()
+        }
         
     }
 
@@ -76,7 +79,7 @@ class Covence_Report : AppCompatActivity() {
                                 val picsAdapter = status?.let {
                                     Convenc_ADP(this@Covence_Report, it)
                                 }
-                                progresst6.errorSnack(message, Snackbar.LENGTH_LONG)
+                                //progresst6.errorSnack(message, Snackbar.LENGTH_LONG)
                                 convey_recycler.adapter = picsAdapter
 
                             }

@@ -21,6 +21,7 @@ import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_i_r_a.*
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -34,7 +35,9 @@ class IRAActivity : AppCompatActivity() {
         binding  = ActivityIRABinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         setupViewModel()
-        back_layout.setOnClickListener { finish() }
+        back_layout_docs.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     private fun setupViewModel() {

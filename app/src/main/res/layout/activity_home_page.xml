@@ -59,7 +59,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
-                        android:layout_weight=".1"
+                        android:layout_weight=".16"
                         android:gravity="center">
 
                         <ImageView
@@ -73,6 +73,9 @@
 
 
                     <LinearLayout
+                        android:layout_marginRight="@dimen/_25sdp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".9"
@@ -137,6 +140,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/collectioncount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -179,6 +183,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/verification_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

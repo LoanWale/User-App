@@ -19,6 +19,7 @@ import com.loanwalle.loanwallecollection.ui.main.adapter.Total_Lead_ADP
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TotalLeadViewModel
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.activity_total_leads.*
 import kotlinx.android.synthetic.main.activity_total_leads.progress
@@ -34,6 +35,10 @@ class Total_Leads : AppCompatActivity() {
         binding= ActivityTotalLeadsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+
+        back_layout_total.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     private fun init() {
@@ -65,6 +70,7 @@ class Total_Leads : AppCompatActivity() {
                                 val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",message);
                              //   picsAdapter.differ.submitList(otpResponse!!.data)
+
                                 val status = otpResponse!!.data
                                 Toast.makeText(this,otpResponse.data.get(0).cam_id,Toast.LENGTH_LONG).show()
                                 val picsAdapter = status?.let {

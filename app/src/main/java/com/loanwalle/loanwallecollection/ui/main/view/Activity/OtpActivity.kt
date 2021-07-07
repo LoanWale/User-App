@@ -19,11 +19,8 @@ import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyOtpViewModel
 import com.loanwalle.loanwallecollection.util.Constants
-import com.loanwalle.loanwallecollection.utils.ConstantsSave
+import com.loanwalle.loanwallecollection.utils.*
 import com.loanwalle.loanwallecollection.utils.OTP.SMSReceiver
-import com.loanwalle.loanwallecollection.utils.Resource
-import com.loanwalle.loanwallecollection.utils.SessionManegar
-import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.android.synthetic.main.activity_otp.progress
@@ -141,7 +138,8 @@ class OtpActivity : AppCompatActivity() ,
                                 Log.e("Resopncelogin",message);
                                 if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
                                 {
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    toast("OTP Sent Successfully")
+                                    //progress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
                                 else

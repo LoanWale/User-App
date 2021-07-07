@@ -19,6 +19,8 @@ import com.loanwalle.loanwallecollection.data.model.loginResponse.LoginResponce
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordResponse
+import com.loanwalle.loanwallecollection.data.model.previousPayment.PreviousPaymentRequest
+import com.loanwalle.loanwallecollection.data.model.previousPayment.PreviousPaymentResponse
 import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
 import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryResponse
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
@@ -110,6 +112,8 @@ interface API {
     @POST("user/update-token-by-id")
     suspend fun updatetoken(@Body body:TokenRequest):Response<TokenResponse>
 
+    @POST("user/get-prevous-payment-history")
+    suspend fun previousPayment(@Body body:PreviousPaymentRequest):Response<PreviousPaymentResponse>
 
   @POST("user/update-collection-followup")
     suspend fun loanupdat(@Body body: Collection_Request):Response<Collection_Response>

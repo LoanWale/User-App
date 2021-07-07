@@ -26,12 +26,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/back_layout"
+                android:id="@+id/back_layout_currnt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginEnd="10dp"
-                android:layout_weight=".1"
+                android:layout_weight=".16"
                 android:gravity="center">
 
                 <ImageView
@@ -52,7 +52,7 @@
                 android:weightSum="1">
 
                 <TextView
-                    android:id="@+id/titleel"
+                    android:id="@+id/of_res_pre_add"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"

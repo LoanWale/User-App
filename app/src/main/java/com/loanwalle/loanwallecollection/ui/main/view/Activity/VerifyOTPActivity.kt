@@ -16,6 +16,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewMod
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_verify_otpactivity.*
 
@@ -30,6 +31,9 @@ class VerifyOTPActivity : AppCompatActivity() {
 
         init()
 
+        imageView5.setOnClickListener{
+            onBackPressed()
+        }
 
         complete_btn_otp.setOnClickListener{
             verifyClick()
@@ -65,7 +69,7 @@ class VerifyOTPActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin99",userid.toString());
                                 if (message.equals("OTP verified Successfully")&&verifyResponse.status.equals("200"))
                                 {
-                                    progress2.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    //progress2.errorSnack(message, Snackbar.LENGTH_LONG)
                                     val intent = Intent(this,ResestActivity::class.java)
                                     startActivity(intent)
                                 }
