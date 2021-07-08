@@ -11,6 +11,7 @@ import com.loanwalle.loanwallecollection.data.model.irContact.Ir_Request
 import com.loanwalle.loanwallecollection.data.model.loanDetails.LoanDetailsReq
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.model.newPassword.NewPasswordRequestBodies
+import com.loanwalle.loanwallecollection.data.model.previousPayment.PreviousPaymentRequest
 import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
@@ -43,4 +44,5 @@ class AppRepository {
     suspend fun getTodayCountLead(body: GetCountLeadRequest) = RetrofitInstance.loginApi.getTodayCountLead(body)
     suspend fun updateToken(body: TokenRequest) = RetrofitInstance.loginApi.updatetoken(body)
     suspend fun loanupdate(body: Collection_Request) = RetrofitInstance.loginApi.loanupdat(body)
+    suspend fun previousPayment(body: PreviousPaymentRequest) = RetrofitInstance.loginApi.previousPayment(body)
 }

@@ -120,6 +120,7 @@ class HomePageActivity : AppCompatActivity() {
         tokenViewModel = ViewModelProvider(this, factory).get(TokenViewModel::class.java)
 
         getTodayLead()
+        UpdateToken ()
     }
 
     fun getTodayLead() {
@@ -184,10 +185,6 @@ class HomePageActivity : AppCompatActivity() {
     // update fibase token
    public fun UpdateToken ()
     {
-
-    }
-    
-    fun onLoginClick(view: View) {
         val Token = SessionManegar().getString(this,Constants.USER_TOKEN)
         val Userid =   "44" //SessionManegar().getString(this,Constants.USER_ID)
         if (Token!!.isNotEmpty() && Userid!!.isNotEmpty()) {
@@ -204,7 +201,7 @@ class HomePageActivity : AppCompatActivity() {
                             response.data?.let { loginResponse ->
                                 val message:String= loginResponse.message
                                 Log.e("Resopncelogin",message);
-                                if (message.equals("success!"))
+                                if (message.equals("success"))
                                 {
                                 }
 

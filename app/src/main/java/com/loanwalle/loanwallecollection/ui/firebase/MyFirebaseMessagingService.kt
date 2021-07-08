@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
@@ -15,6 +16,16 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoginActivity
+import com.loanwalle.loanwallecollection.ui.main.view.Activity.Notification
+import org.json.JSONObject
+import java.lang.Exception
+import android.media.AudioAttributes
+import android.media.RingtoneManager.TYPE_NOTIFICATION
+
+import android.media.RingtoneManager.getDefaultUri
+import android.net.Uri
+import android.provider.Settings
+
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -39,9 +50,24 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: ${remoteMessage.from}")
 
+
+            if (remoteMessage.data.size > 0) {
+                // Log.e(TAG, "Data Payload: " + remoteMessage.getData().toString());
+                try {
+                    val json = JSONObject(remoteMessage.data as Map<*, *>)
+                     Log.e("data",json.toString());
+                    sendPushNotification(json)
+                } catch (e: Exception) {
+                    //  Log.e(TAG, "Exception: " + e.getMessage());
+                }
+            }
+
+
+
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
+
 
             if (/* Check if data needs to be processed by long running job */ true) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -113,20 +139,30 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      *
      * @param messageBody FCM message body received.
      */
-    private fun sendNotification(messageBody: String) {
-        val intent = Intent(this, LoginActivity::class.java)
+    private fun sendNotification(Title: String,Message: String) {
+        val intent = Intent(this, Notification::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
             PendingIntent.FLAG_ONE_SHOT)
 
         val channelId = getString(R.string.default_notification_channel_id)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val uri: Uri =
+            getDefaultUri(TYPE_NOTIFICATION) // To get the URI of default notification uri
+
+        val audioAttributes =
+            AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build()
+
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.logo_back_final)
-            .setContentTitle(getString(R.string.fcm_message))
-            .setContentText(messageBody)
+            .setSmallIcon(R.drawable.loanwlee)
+            .setContentTitle(Title)
+            .setContentText(Message)
             .setAutoCancel(true)
-            .setSound(defaultSoundUri)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setLights(Color.RED, 3000, 3000)
+            .setSound(Settings.System.DEFAULT_ALARM_ALERT_URI)
             .setContentIntent(pendingIntent)
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -135,7 +171,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(channelId,
                 "Channel human readable title",
-                NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationManager.IMPORTANCE_HIGH)
             notificationManager.createNotificationChannel(channel)
         }
 
@@ -143,7 +179,19 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     companion object {
-
         private const val TAG = "MyFirebaseMsgService"
     }
+    private fun sendPushNotification(json: JSONObject) {
+        try {
+            val title = json.getString("mesgTitle")
+            val message = json.getString("alert")
+            val imageUrl = ""
+            Log.e("title", title)
+            Log.e("message", message)
+            sendNotification(title,message)
+        } catch (e: Exception) {
+            Log.e(TAG, "Json Exception: " + e.message)
+        }
+    }
+
 }

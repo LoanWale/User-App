@@ -29,15 +29,16 @@ class Collection_Profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        binding= ActivityCollectionProfileBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
         init()
+
         verifyClick()
         back_layout_coll.setOnClickListener{
             onBackPressed()
         }
 
-        binding= ActivityCollectionProfileBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
+
        // setContentView(R.layout.activity_collection_profile)
 
         binding!!.changpass.setOnClickListener {

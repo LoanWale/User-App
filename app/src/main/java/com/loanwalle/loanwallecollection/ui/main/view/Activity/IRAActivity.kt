@@ -35,7 +35,7 @@ class IRAActivity : AppCompatActivity() {
         binding  = ActivityIRABinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         setupViewModel()
-        back_layout_docs.setOnClickListener{
+        back_layout.setOnClickListener{
             onBackPressed()
         }
     }

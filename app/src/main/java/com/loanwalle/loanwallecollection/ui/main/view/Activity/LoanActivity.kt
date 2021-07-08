@@ -82,7 +82,7 @@ class LoanActivity : AppCompatActivity() {
                                     processing_fee.text=String.format("%,d",(fee.toLong()))+".00"
                                     tenur_roi.text = otpResponse.data.roi
                                     tenure_days.text = otpResponse.data.tenure
-                                    val disbursal = otpResponse.data.net_disbursal_amount.replace(".00","")
+                                    val disbursal = otpResponse.data.net_disbursal_amount//.toString.replace(".00","")
                                     loan_disbursal.text=String.format("%,d",(disbursal.toLong()))+".00"
                                     disbursal_date.text = otpResponse.data.disbursal_date.substring(0,10)
 

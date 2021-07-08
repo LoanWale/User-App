@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -30,16 +31,28 @@ class PaymentActivity : AppCompatActivity() {
         }
 
 
+
+
+
+        submitpage.setOnClickListener {
+            val intt= Intent(this,PaymentSuccessfullActivity::class.java)
+        startActivity(intt)
+        }
+
+
         Ra_web.setOnClickListener {
             Ra_web.setBackground(getDrawable(R.drawable.upi_id_drawable))
             Ra_qrcode.setBackground(getDrawable(R.drawable.qr_code_drawable))
             Ra_upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
+
         }
 
         Ra_qrcode.setOnClickListener{
             Ra_web.setBackground(getDrawable(R.drawable.qr_code_drawable))
             Ra_qrcode.setBackground(getDrawable(R.drawable.upi_id_drawable))
             Ra_upi.setBackground(getDrawable(R.drawable.qr_code_drawable))
+            val intt= Intent(this,QrCodeActivity::class.java)
+            startActivity(intt)
         }
         Ra_upi.setOnClickListener{
             Ra_web.setBackground(getDrawable(R.drawable.qr_code_drawable))
