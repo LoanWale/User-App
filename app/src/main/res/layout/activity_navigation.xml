@@ -64,7 +64,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vikash kumar"
+                    android:text="Sample kumar"
                     android:gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_gravity="center"
@@ -177,7 +177,7 @@
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
-                        android:text="21"
+                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
 
@@ -262,7 +262,7 @@
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
-                        android:text="121"
+                        android:text=""
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
 
@@ -469,13 +469,9 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:background="@drawable/fingerprint"
-                        android:backgroundTint="@color/apbackground"
                         android:layout_width="35dp"
                         android:layout_height="35dp" />
-
                 </LinearLayout>
-
-
                 <TextView
                     android:layout_weight=".8"
                     android:layout_marginLeft="5dp"

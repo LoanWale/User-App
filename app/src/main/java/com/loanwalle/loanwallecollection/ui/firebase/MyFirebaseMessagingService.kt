@@ -185,7 +185,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         try {
             val title = json.getString("mesgTitle")
             val message = json.getString("alert")
-            val imageUrl = ""
             Log.e("title", title)
             Log.e("message", message)
             sendNotification(title,message)

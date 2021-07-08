@@ -9,75 +9,11 @@
 
     <ProgressBar
         android:id="@+id/progress9"
-        android:visibility="gone"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:id="@+id/back_layout_coll"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".16"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/ic_left_arrow"
-                    />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".9"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:id="@+id/titleel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="40sp"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="center"
-                    android:text="My Profile"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray" />
-
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -99,6 +35,15 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/black"
+                    android:visibility="gone" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/circularPhoto"
                     android:layout_width="120dp"
@@ -108,17 +53,7 @@
                     android:src="@drawable/ic_usernew"
                     app:civ_border_color="#DFC0C0C0"
                     app:civ_border_width="3dp" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="start|center"
-                    android:layout_marginStart="-10dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/black"
-                    android:visibility="gone" />
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -154,9 +89,9 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:text=""
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
@@ -177,8 +112,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight=".4"
-                    android:text="EMP ID"
                     android:fontFamily="@font/robotomedium"
+                    android:text="EMP ID"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -314,6 +249,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -392,42 +328,35 @@
 
             <LinearLayout
                 android:id="@+id/finerprint"
-                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/edit_text_drawble"
                 android:clickable="true"
-                android:visibility="gone"
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:focusable="true">
+                android:focusable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:weightSum="1"
+                    android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:layout_height="wrap_content">
+                    android:weightSum="1">
+
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_weight=".1"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1">
+
                         <ImageView
-                            android:layout_marginStart="10dp"
-                            android:backgroundTint="@color/gray"
                             android:layout_width="25dp"
-                            android:layout_height="25dp" />
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:backgroundTint="@color/gray" />
 
                     </LinearLayout>
 
-
-                    <TextView
-                        android:layout_weight=".8"
-                        android:layout_width="0dp"
-                        android:text="Do you want to enable fingerprint"
-                        android:fontFamily="@font/robotomedium"
-                        android:gravity="center|start"
-                        android:textColor="@color/black"
-                        android:layout_height="60dp" />
 
                     <LinearLayout
                         android:layout_width="100dp"
@@ -437,64 +366,74 @@
                         <Switch
                             android:id="@+id/swithc"
                             android:layout_width="100dp"
-                            android:layout_height="60dp"/>
+                            android:layout_height="60dp" />
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight=".8"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center|start"
+                        android:text="Do you want to enable fingerprint"
+                        android:textColor="@color/black" />
+
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/changpass"
-                android:orientation="vertical"
-                android:layout_marginTop="28dp"
-                android:padding="10dp"
-                android:background="@drawable/paytmbutton"
-                android:clickable="true"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="true">
+                android:layout_margin="5dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/paytmbutton"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:weightSum="1"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_weight=".1"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1">
+
                         <ImageView
-                            android:layout_marginStart="10dp"
-                            android:backgroundTint="@color/gray"
                             android:layout_width="25dp"
-                            android:layout_height="25dp" />
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:backgroundTint="@color/gray" />
 
                     </LinearLayout>
 
-
-                    <TextView
-                        android:layout_weight=".7"
-                        android:layout_width="0dp"
-                        android:text="Change password"
-                        android:fontFamily="@font/robotomedium"
-                        android:gravity="center|start"
-                        android:textColor="@color/white"
-                        android:layout_height="match_parent" />
 
                     <LinearLayout
                         android:layout_width="50dp"
-                        android:layout_gravity="end"
-                        android:layout_height="50dp">
+                        android:layout_height="50dp"
+                        android:layout_gravity="end">
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".7"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center|start"
+                        android:text="Change password"
+                        android:textColor="@color/white" />
+
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -503,6 +442,69 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/back_layout_coll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".16"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_left_arrow" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/titleel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="40sp"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center"
+                    android:text="My Profile"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
 
 
 </LinearLayout>

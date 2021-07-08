@@ -15,6 +15,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -72,20 +77,96 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <View
+
+        <LinearLayout
+            android:weightSum="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/from_date_btn"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:background="@drawable/edit_drawable"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/robotomedium"
+                android:text=" From Date "
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"/>
+            <TextView
+
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_15sdp"
+                android:background="@drawable/edit_drawable"
+                android:fontFamily="@font/robotomedium"
+                android:text="  To Date"
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:weightSum="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/fromdate"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/robotomedium"
+                android:text=""
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/text_todate"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/robotomedium"
+                android:text=""
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:visibility="gone"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/edit_drawable"
             android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/calendr_drawable"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -99,43 +180,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/calendr_drawable"
-                android:src="@drawable/ic_baseline_calendar_today_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
+
     <ProgressBar
-        android:elevation="@dimen/_5sdp"
         android:id="@+id/progresst6"
-        android:visibility="gone"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="@dimen/_5sdp"
+        android:gravity="center"
+        android:visibility="gone"
         tools:ignore="MissingConstraints" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/convey_recycler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:listitem="@layout/convay_report_layout"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
@@ -193,16 +251,6 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
         <LinearLayout
             android:id="@+id/linearLayout2_3"
             android:layout_width="match_parent"
@@ -246,17 +294,6 @@
                 android:textSize="12sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2_3" />
-
 
         <LinearLayout
             android:id="@+id/linearLayout_g_distance"
@@ -302,6 +339,27 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2_3" />
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
         <View
             android:id="@+id/view3"
@@ -316,6 +374,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/convey_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/convay_report_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

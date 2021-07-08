@@ -23,7 +23,7 @@
         <entry key="app/src/main/res/layout/activity_collection.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_collection_profile.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_comman.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/activity_covence_report.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_covence_report.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_current_recovery_address.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_document.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.25427350427350426" />
@@ -32,11 +32,11 @@
         <entry key="app/src/main/res/layout/activity_i_r_a.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_loan.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_loan_detail.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22863247863247863" />
         <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_notification.xml" value="0.25427350427350426" />
-        <entry key="app/src/main/res/layout/activity_offer_accepetance.xml" value="0.21752136752136753" />
+        <entry key="app/src/main/res/layout/activity_offer_accepetance.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_office_address.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_office_visit.xml" value="0.23162393162393163" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.25" />
@@ -50,7 +50,7 @@
         <entry key="app/src/main/res/layout/activity_residance.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_total_leads.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_unlock.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_unlock.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_verification2.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_verify_otpactivity.xml" value="0.2423076923076923" />

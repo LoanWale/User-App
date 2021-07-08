@@ -29,7 +29,6 @@ class IRAActivity : AppCompatActivity() {
     var binding: ActivityIRABinding? = null
    var IrViewModal: IRViewModel? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding  = ActivityIRABinding.inflate(layoutInflater)
@@ -48,8 +47,7 @@ class IRAActivity : AppCompatActivity() {
     }
 
     fun getIrContact() {
-        val usrid : String? =  "44"//SessionManegar().getString(this,"userid")
-      //  val userid= Constants.USER_ID
+        val usrid : String? =  SessionManegar().getString(this,"userid")
         usrid?.let { Log.e("useridircont", it) }
         if (usrid != null) {
             if (usrid.isNotEmpty() && usrid.isNotEmpty()) {

@@ -9,12 +9,14 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricPrompt
 import android.hardware.fingerprint.FingerprintManager
+import android.os.Build
 import android.os.Bundle
 import android.os.CancellationSignal
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
@@ -45,7 +47,8 @@ class Navigation : AppCompatActivity() {
     private var cancellationSignal : CancellationSignal?=null
     private val authenticationCallback : BiometricPrompt.AuthenticationCallback
 
-        get() = object :BiometricPrompt.AuthenticationCallback(){
+        get() = @RequiresApi(Build.VERSION_CODES.P)
+        object :BiometricPrompt.AuthenticationCallback(){
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
                 super.onAuthenticationError(errorCode, errString)
                 notifiyUser("AuthenticationError :$errString")
@@ -63,6 +66,7 @@ class Navigation : AppCompatActivity() {
     private var fingerprintManager: FingerprintManager? = null
     private var keyguardManager: KeyguardManager? = null
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -108,8 +112,8 @@ class Navigation : AppCompatActivity() {
             }else{
 
                 val biometricPrompt = BiometricPrompt.Builder(this)
-                    .setTitle("Title of propot")
-                    .setSubtitle("Auth required")
+                    .setTitle("Unlock your LW Collex")
+                    .setSubtitle("Confirm Your Screen Lock")
                     .setDescription("This App is use FingerPrint for your Data is secure")
                     .setNegativeButton("Cancel",this.mainExecutor, DialogInterface.OnClickListener{
                             dialog, which ->

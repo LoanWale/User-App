@@ -75,13 +75,84 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray" />
+
+
+    <LinearLayout
+        android:weightSum="1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/datefrom_btn"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:background="@drawable/edit_drawable"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/robotomedium"
+            android:text=" Date From "
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
+        <TextView
+            android:id="@+id/dateto_btn"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:background="@drawable/edit_drawable"
+            android:fontFamily="@font/robotomedium"
+            android:text=" Date To "
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_datefrom"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/robotomedium"
+            android:text=""
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/text_Dateto"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/robotomedium"
+            android:text=""
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginTop="16dp"
         android:background="@drawable/green_round"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/re_pymnt_recycler_view"

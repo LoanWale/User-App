@@ -14,42 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/ic_left_arrow"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="center"
-                android:text="Collection"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="44dp"
-            android:fontFamily="@font/robotomedium"
-            android:text="PAYMENT TYPE"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,17 +76,53 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/robotomedium"
+            android:text="PAYMENT TYPE"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/text_balnce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:visibility="gone" />
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="center"
+                android:text="Collection"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -142,8 +142,8 @@
                 android:gravity="center"
                 android:hint="Enter Amount"
                 android:inputType="number"
-                android:padding="10dp"
                 android:maxLength="7"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="22sp"
@@ -575,8 +575,8 @@
                 android:fontFamily="@font/robotomedium"
                 android:gravity="center"
                 android:hint="Total Distance"
-                android:maxLength="3"
                 android:inputType="number"
+                android:maxLength="3"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
                 android:textColor="@color/black"
