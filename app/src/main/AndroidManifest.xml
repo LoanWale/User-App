@@ -51,7 +51,7 @@
         <activity android:name=".ui.main.view.Activity.DocumentActivity" />
         <activity android:name=".ui.main.view.Activity.LoanActivity" />
         <activity android:name=".ui.main.view.Activity.CommanActivity" />
-        <activity android:name=".ui.main.view.Activity.LoanDetailActivity" />
+        <activity android:name=".ui.main.view.Activity.LoanDashboardActivity" />
         <activity android:name=".ui.main.view.Activity.IRAActivity" />
         <activity android:name=".ui.main.view.Activity.HomePageActivity" />
         <activity android:name=".ui.main.view.Activity.OtpActivity" />

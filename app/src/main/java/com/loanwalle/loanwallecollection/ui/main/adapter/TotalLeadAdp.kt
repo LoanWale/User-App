@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.cardview.widget.CardView
@@ -15,10 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.totalLead.Data
-import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity
+import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDashboardActivity
 import com.loanwalle.loanwallecollection.util.Constants
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.todaylead_adp.view.*
 
 
 class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
@@ -61,7 +58,7 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
 
 
         holder.collid.setOnClickListener {
-            val intent1 = Intent(context, LoanDetailActivity::class.java)
+            val intent1 = Intent(context, LoanDashboardActivity::class.java)
             intent1.putExtra(Constants.USER_PIC,tasks.file)
             intent1.putExtra(Constants.USER_NAME,holder.lead_name.text.toString())
             intent1.putExtra(Constants.USER_LOAN_NUMBER,tasks.loan_no)

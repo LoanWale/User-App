@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.todaylead.Data
-import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDetailActivity
+import com.loanwalle.loanwallecollection.ui.main.view.Activity.LoanDashboardActivity
 import com.loanwalle.loanwallecollection.util.Constants
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -56,14 +56,15 @@ class TodayLeadAdp(context:Context, var listOfTasks: List<Data>) :
 
             if (tasks.file.isNullOrEmpty())
             {
-                val intent1 = Intent(context, LoanDetailActivity::class.java)
+                val intent1 = Intent(context, LoanDashboardActivity::class.java)
                 intent1.putExtra(Constants.USER_PIC,tasks.file)
                 intent1.putExtra(Constants.USER_NAME,holder.lead_name.text.toString())
                 intent1.putExtra(Constants.USER_LOAN_NUMBER,tasks.loan_no)
+                intent1.putExtra(Constants.USER_LEAD_ID,tasks.lead_id)
                 context.startActivity(intent1)
             }else
             {
-                val intent1 = Intent(context, LoanDetailActivity::class.java)
+                val intent1 = Intent(context, LoanDashboardActivity::class.java)
                 intent1.putExtra(Constants.USER_PIC,tasks.file)
                 context.startActivity(intent1)
             }

@@ -4,7 +4,12 @@ object Constants{
 
     const val USER_ID = "userid"
     const val USER_LOAN_NUMBER = "loan_number"
+    const val USER_LEAD_ID = "lead_id"
+    const val RUNNING_STATUS = "running_status"
+    const val RUNNING_LEAD_ID = "running_id"
     const val USER_MOBILE = "mobile"
+    const val CAMPNEY_ID = "cam_id"
+    const val PRODUCT_ID = "produ_id"
     const val USER_EMAIL = "email"
     const val USER_NAME = "name"
     const val USER_PIC = "user_pic"

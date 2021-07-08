@@ -46,6 +46,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.google.android.gms.location.*
+import com.loanwalle.loanwallecollection.util.Constants
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -141,6 +142,7 @@ class CollectionActivity : AppCompatActivity() {
 
         submit.setOnClickListener {
             update_Loan_Detils()
+            SessionManegar().remove(this,Constants.RUNNING_LEAD_ID)
         }
 
         radio_settalment.setOnClickListener {
