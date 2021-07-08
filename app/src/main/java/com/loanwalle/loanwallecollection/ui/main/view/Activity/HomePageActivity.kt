@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -22,12 +21,9 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.TodayLeadViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.TokenViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.UserProfileViewModel
 import com.loanwalle.loanwallecollection.util.Constants
-import com.loanwalle.loanwallecollection.utils.Resource
-import com.loanwalle.loanwallecollection.utils.SessionManegar
-import com.loanwalle.loanwallecollection.utils.errorSnack
+import com.loanwalle.loanwallecollection.utils.*
 import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.activity_home_page.Verification_layout
-import kotlinx.android.synthetic.main.activity_home_page.back_layout
 import kotlinx.android.synthetic.main.activity_home_page.btn_collection
 import kotlinx.android.synthetic.main.activity_home_page.btn_verification
 import kotlinx.android.synthetic.main.activity_home_page.verify
@@ -47,7 +43,13 @@ class HomePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-        init()
+
+        if (Network.getConnectivityStatus(this@HomePageActivity)) {
+            init()
+        }else{
+
+        }
+
 
         back_layout.setOnClickListener{
             onBackPressed()
@@ -137,6 +139,7 @@ class HomePageActivity : AppCompatActivity() {
                                 val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",otpResponse.toString());
                                 val status = otpResponse!!.data
+                                refersh_progress.isVisible = false
                                 if (status.isEmpty()){
                                    binding!!.noDataFound.isVisible = true
                                     binding!!.VerificationLayout.isVisible = false
@@ -161,6 +164,18 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
+                                refersh_progress.isVisible = true
+                                refersh_progress.setOnClickListener{
+
+                                    getTodayLead()
+
+                                    refersh_text.setText("Please Wait.....")
+                                    //ref_prog.isVisible = true
+                                }
+
+                                refersh_text.setText("Network Failure Please check Network Conn.. Try Again")
+
+
                                 progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
