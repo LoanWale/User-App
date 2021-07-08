@@ -43,6 +43,7 @@
         <activity
             android:name=".ui.main.view.Activity.Collection_Profile"
             android:exported="true" />
+
         <activity android:name=".ui.main.view.Activity.UnlockActivity" />
         <activity android:name=".ui.main.view.Activity.DocumentActivity" />
         <activity android:name=".ui.main.view.Activity.LoanActivity" />
@@ -116,6 +117,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <receiver android:name=".utils.NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
