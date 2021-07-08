@@ -47,7 +47,7 @@ class HomePageActivity : AppCompatActivity() {
         if (Network.getConnectivityStatus(this@HomePageActivity)) {
             init()
         }else{
-
+            toast("Pleaae Check Network connection")
         }
 
 
@@ -226,7 +226,7 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
+                               // progress.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
 

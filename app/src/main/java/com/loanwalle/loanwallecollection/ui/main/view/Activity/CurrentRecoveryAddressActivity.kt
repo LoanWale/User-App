@@ -39,6 +39,7 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
 import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.LOG
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_current_recovery_address.*
 import kotlinx.android.synthetic.main.activity_recovery_address.*
@@ -63,6 +64,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     var Longitude:Double?=null
     var CurrentDate:String?=null
     var addName:String?=null
+    var lead_id:String?=null
+    var loanNub:String?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +80,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         if (intent.getStringExtra(Constants.RESIDANCE_ADD)!= null){
             addName = intent.getStringExtra(Constants.RESIDANCE_ADD)
             of_res_pre_add.text = addName
+            lead_id = intent.getStringExtra(Constants.USER_LEAD_ID)
+            loanNub = intent.getStringExtra(Constants.USER_LOAN_NUMBER)
         }
         else if (intent.getStringExtra(Constants.OFFICE_ADD)!= null){
             addName = intent.getStringExtra(Constants.OFFICE_ADD)
@@ -113,6 +118,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
         binding!!.startvisit.setOnClickListener {
 
+
+
             showDialog()
 
         }
@@ -144,14 +151,14 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     }
 
     fun verifyClick() {
-        val lead_id = "2457"
-        val user_id = 44
+        val lead_id = lead_id
+        val user_id = SessionManegar().getString(this,Constants.USER_ID)
         val company_id = 2
         val product_id = 2
         val followup_satarted_at = CurrentDate
         val executive_start_letitude = Latitude
         val executive_start_longitude = Longitude
-        val loan_no = "12345"
+        val loan_no = loanNub
         if (lead_id!= null && company_id!= null && user_id!=null && product_id != null && executive_start_letitude != null &&
             executive_start_longitude != null && followup_satarted_at != null && loan_no !=null) {
             val body = StartVisitRequestBodies.StartVisitRequest(
@@ -161,7 +168,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                 followup_satarted_at,
                 lead_id,
                 product_id,
-                user_id ,
+                user_id.toInt() ,
                 loan_no
             )
 
@@ -337,7 +344,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     }
 
     fun GetCollectionAddress() {
-        val lead_id = "2457"
+        val lead_id = lead_id
         if (lead_id!=null) {
             val body = RecoveryRequest(
                 lead_id
@@ -403,6 +410,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         Visit_yes.setOnClickListener {
             startvisit!!.setBackgroundResource(R.color.gray)
             starttnow.setBackgroundResource(R.color.applColor)
+            SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
             dialog.dismiss()
         }
 

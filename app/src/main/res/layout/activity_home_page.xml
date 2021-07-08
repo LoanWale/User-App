@@ -218,7 +218,7 @@
                 android:layout_marginRight="@dimen/_40sdp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/refersh_progress"
                 android:orientation="vertical"
                 android:layout_width="match_parent"

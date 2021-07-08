@@ -41,7 +41,7 @@
             android:name=".ui.main.view.Activity.Total_Leads"
             android:exported="true" />
         <activity
-            android:name=".ui.main.view.Activity.OfferAccepetance"
+            android:name=".ui.main.view.Activity.Recovery_Address"
             android:exported="true" />
         <activity
             android:name=".ui.main.view.Activity.Collection_Profile"
@@ -50,6 +50,7 @@
         <activity android:name=".ui.main.view.Activity.UnlockActivity" />
         <activity android:name=".ui.main.view.Activity.DocumentActivity" />
         <activity android:name=".ui.main.view.Activity.LoanActivity" />
+        <activity android:name=".ui.main.view.Activity.CommanActivity" />
         <activity android:name=".ui.main.view.Activity.LoanDashboardActivity" />
         <activity android:name=".ui.main.view.Activity.IRAActivity" />
         <activity android:name=".ui.main.view.Activity.HomePageActivity" />
@@ -89,17 +90,21 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_icon] -->
         <!-- [START fcm_default_channel] -->
-        <receiver android:name=".utils.NetworkConnection">
+        <service
+            android:name=".ui.firebase.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </receiver> <!-- [END fcm_default_channel] -->
+        </service> <!-- [END fcm_default_channel] -->
         <service
             android:name=".ui.firebase.MyFirebaseMessagingService"
             android:exported="false">
@@ -115,24 +120,22 @@
             </intent-filter>
         </service>
 
-        <service
-            android:name=".ui.firebase.MyFirebaseMessagingService"
-            android:exported="false">
+        <receiver android:name=".utils.NetworkConnection" >
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
-        </service>
+        </receiver>
 
     </application>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
