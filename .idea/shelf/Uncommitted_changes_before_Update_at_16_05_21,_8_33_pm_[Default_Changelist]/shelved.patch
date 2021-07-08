@@ -1,0 +1,18 @@
+Index: app/src/main/java/com/loanwalle/loanwallecollection/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.loanwalle.loanwallecollection\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n\r\n\r\n        // hello deep\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/loanwalle/loanwallecollection/MainActivity.kt b/app/src/main/java/com/loanwalle/loanwallecollection/MainActivity.kt
+--- a/app/src/main/java/com/loanwalle/loanwallecollection/MainActivity.kt	(revision 82769cd852d1bcd0abdbb3909a5a9bf02111c76d)
++++ b/app/src/main/java/com/loanwalle/loanwallecollection/MainActivity.kt	(date 1621177397951)
+@@ -10,6 +10,6 @@
+         setContentView(R.layout.activity_main)
+ 
+ 
+-        // hello deep
++        // github stup successfully
+     }
+ }
