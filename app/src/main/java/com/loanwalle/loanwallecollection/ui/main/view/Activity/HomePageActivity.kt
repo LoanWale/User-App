@@ -2,6 +2,7 @@ package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -136,6 +137,7 @@ class HomePageActivity : AppCompatActivity() {
                                 val message:String= otpResponse!!.message
                                 Log.e("Resopncelogin",otpResponse.toString());
                                 val status = otpResponse!!.data
+                                refersh_progress.isVisible = false
                                 if (status.isEmpty()){
                                    binding!!.noDataFound.isVisible = true
                                     binding!!.VerificationLayout.isVisible = false
@@ -160,6 +162,18 @@ class HomePageActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
+                                refersh_progress.isVisible = true
+                                refersh_progress.setOnClickListener{
+
+                                    getTodayLead()
+
+                                    refersh_text.setText("Please Wait.....")
+                                    //ref_prog.isVisible = true
+                                }
+
+                                refersh_text.setText("Network Failure Please check Network Conn.. Try Again")
+
+
                                 progress4.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
