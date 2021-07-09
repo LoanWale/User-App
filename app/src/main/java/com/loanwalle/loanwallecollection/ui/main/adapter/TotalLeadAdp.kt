@@ -54,7 +54,7 @@ class TotalLeadAdp(context:Context, var listOfTasks: List<Data>) :
         val lnmber = tasks.loan_no
         Log.e("loan_number",tasks.loan_no)
         val im = holder.image
-        Glide.with(context).load(tasks.file).error(R.drawable.userimage).into(im)
+        Glide.with(context).load(tasks.file).error(R.drawable.businessman).into(im)
 
 
         holder.collid.setOnClickListener {

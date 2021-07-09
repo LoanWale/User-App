@@ -89,7 +89,7 @@ class LoanDashboardActivity : AppCompatActivity() {
             inten.putExtra(Constants.PREFERRED_ADD, "PREFERRED ADDRESS")
             startActivity(inten)
         }
-        Glide.with(this).load(userpic).error(R.drawable.userimage).into(binding!!.imageUs)
+        Glide.with(this).load(userpic).error(R.drawable.businessman).into(binding!!.imageUs)
 
 
 //        binding!!.officeAddText.setOnClickListener{

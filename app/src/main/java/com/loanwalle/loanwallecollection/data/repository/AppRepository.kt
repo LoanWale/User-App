@@ -1,5 +1,6 @@
 package com.loanwalle.loanwallecollection.data.repository
 
+import com.loanwalle.loanwallecollection.data.model.checkpayment.CheckPaymentR_Request
 import com.loanwalle.loanwallecollection.data.model.collection.Collection_Request
 import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
 import com.loanwalle.loanwallecollection.data.model.forgotPassword.ForgotRequestBodies
@@ -38,6 +39,7 @@ class AppRepository {
     suspend fun getLoanDeatils(body: LoanDetailsReq) = RetrofitInstance.loginApi.getLoanDetails(body)
     suspend fun startVisit(body: StartVisitRequestBodies.StartVisitRequest) = RetrofitInstance.loginApi.startVisit(body)
     suspend fun getIrContact(body: Ir_Request) = RetrofitInstance.loginApi.getIrContact(body)
+    suspend fun getCheckPayment(body: CheckPaymentR_Request) = RetrofitInstance.loginApi.getCheckpayment(body)
     suspend fun getRecoveryAddress(body: RecoveryRequest) = RetrofitInstance.loginApi.getRecoveryAddress(body)
     suspend fun getfollowupColle(body: GetFollowupRequest.GetFollowupRequest) = RetrofitInstance.loginApi.getfollowupColle(body)
     suspend fun updatefollowupColle(body: UpdateFollowupRequestBodies.UpdateFollowupRequest) = RetrofitInstance.loginApi.updatefollowupColle(body)

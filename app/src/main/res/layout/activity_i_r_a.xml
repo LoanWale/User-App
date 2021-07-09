@@ -103,7 +103,7 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:padding="10dp"
-                    android:src="@drawable/userimage"
+                    android:src="@drawable/businessman"
                     app:civ_border_color="#DFC0C0C0"
                     app:civ_border_width="3dp" />
 

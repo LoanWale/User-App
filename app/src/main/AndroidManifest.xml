@@ -55,6 +55,7 @@
         <activity android:name=".ui.main.view.Activity.OtpActivity" />
         <activity android:name=".ui.main.view.Activity.AadharCard" />
         <activity android:name=".ui.main.view.Activity.LoginActivity" />
+        <activity android:name=".ui.main.view.Activity.PaymentSuccessfullActivity" />
         <activity android:name=".ui.main.view.Activity.Navigation" />
         <activity android:name=".utils.OTP.Auto_Otp" />
         <activity android:name=".ui.main.view.Activity.CurrentRecoveryAddressActivity" />
@@ -132,7 +133,6 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

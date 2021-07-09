@@ -1,3 +1,5 @@
+import com.loanwalle.loanwallecollection.data.model.checkpayment.CheckPaymentR_Request
+import com.loanwalle.loanwallecollection.data.model.checkpayment.CheckPayment_Response
 import com.loanwalle.loanwallecollection.data.model.collection.Collection_Request
 import com.loanwalle.loanwallecollection.data.model.collection.Collection_Response
 import com.loanwalle.loanwallecollection.data.model.convenc.ConvenReque
@@ -117,6 +119,10 @@ interface API {
 
   @POST("user/update-collection-followup")
     suspend fun loanupdat(@Body body: Collection_Request):Response<Collection_Response>
+
+
+    @POST("Notify/repayCallBack")
+    suspend fun getCheckpayment(@Body body: CheckPaymentR_Request):Response<CheckPayment_Response>
 
 
 }
