@@ -34,9 +34,13 @@ class PaymentActivity : AppCompatActivity() {
 
 
 
+
+
         submitpage.setOnClickListener {
             val intt= Intent(this,PaymentSuccessfullActivity::class.java)
         startActivity(intt)
+
+          //  SessionManegar().
         }
 
 

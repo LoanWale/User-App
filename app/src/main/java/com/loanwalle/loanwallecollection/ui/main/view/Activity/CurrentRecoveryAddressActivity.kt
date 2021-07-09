@@ -37,10 +37,7 @@ import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.RecoveryAddressViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
 import com.loanwalle.loanwallecollection.util.Constants
-import com.loanwalle.loanwallecollection.utils.LOG
-import com.loanwalle.loanwallecollection.utils.Resource
-import com.loanwalle.loanwallecollection.utils.SessionManegar
-import com.loanwalle.loanwallecollection.utils.errorSnack
+import com.loanwalle.loanwallecollection.utils.*
 import kotlinx.android.synthetic.main.activity_current_recovery_address.*
 import kotlinx.android.synthetic.main.activity_recovery_address.*
 import kotlinx.android.synthetic.main.activity_recovery_address.startvisit
@@ -94,6 +91,30 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
 
+        val runningstatus=SessionManegar().getString(this,Constants.RUNNING_STATUS)
+        val running_Leadid=SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
+
+    if(runningstatus=="1" && running_Leadid!!.equals(lead_id))
+        {
+        // check for running loan status
+            val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
+            startActivity(i)
+            finish()
+            toast("your running status is Active")
+        }else
+    {
+
+    //ss start running for collection
+
+    }
+
+
+
+
+
+
+
+
 
         if (!checkGPSEnabled()) {
             return
@@ -117,11 +138,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
         binding!!.startvisit.setOnClickListener {
-
-
-
             showDialog()
-
         }
 
         binding!!.starttnow.setOnClickListener{
@@ -302,6 +319,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
@@ -336,11 +354,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         dateFormatter.setLenient(false)
         val today = Date()
         CurrentDate = dateFormatter.format(today)
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-//        calender_id.text = s
     }
 
     fun GetCollectionAddress() {
@@ -411,6 +424,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             startvisit!!.setBackgroundResource(R.color.gray)
             starttnow.setBackgroundResource(R.color.applColor)
             SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
+            SessionManegar().saveString(this,Constants.RUNNING_STATUS,"1")
             dialog.dismiss()
         }
 
