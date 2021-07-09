@@ -43,16 +43,13 @@
         <activity
             android:name=".ui.main.view.Activity.Total_Leads"
             android:exported="true" />
-        <activity
-            android:name=".ui.main.view.Activity.Recovery_Address"
-            android:exported="true" />
+
         <activity
             android:name=".ui.main.view.Activity.Collection_Profile"
             android:exported="true" />
         <activity android:name=".ui.main.view.Activity.UnlockActivity" />
         <activity android:name=".ui.main.view.Activity.DocumentActivity" />
         <activity android:name=".ui.main.view.Activity.LoanActivity" />
-        <activity android:name=".ui.main.view.Activity.CommanActivity" />
         <activity android:name=".ui.main.view.Activity.IRAActivity" />
         <activity android:name=".ui.main.view.Activity.HomePageActivity" />
         <activity android:name=".ui.main.view.Activity.OtpActivity" />
