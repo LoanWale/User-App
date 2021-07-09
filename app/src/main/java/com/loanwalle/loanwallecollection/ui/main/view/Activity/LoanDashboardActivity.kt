@@ -78,6 +78,12 @@ class LoanDashboardActivity : AppCompatActivity() {
             startActivity(inten)
         }
 
+
+       binding!!.offeraccept.setOnClickListener {
+            val inten = Intent(this, OfferAccepetance::class.java)
+            startActivity(inten)
+        }
+
         binding!!.preefredadd.setOnClickListener {
             val inten = Intent(this, CurrentRecoveryAddressActivity::class.java)
             inten.putExtra(Constants.PREFERRED_ADD, "PREFERRED ADDRESS")
