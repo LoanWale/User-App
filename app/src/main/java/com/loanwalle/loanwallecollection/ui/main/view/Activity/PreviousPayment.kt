@@ -154,6 +154,7 @@ class PreviousPayment : AppCompatActivity() {
                                 }else
 
                                 {
+                                    Log.e("error","ERRROORR")
                                     payment_progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
 
