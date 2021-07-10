@@ -190,7 +190,7 @@
                 android:gravity="center"
                 android:paddingLeft="5dp"
                 android:paddingRight="60dp"
-                android:text="Next Schedule Date"
+                android:text=""
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/Collection_Remark"
                 app:layout_constraintTop_toBottomOf="@+id/Collection_Remark" />
@@ -221,7 +221,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:weightSum="4">
+                        android:weightSum="5">
 
                         <TextView
                             android:layout_width="0dp"
@@ -238,7 +238,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:fontFamily="@font/robotolight"
                             android:gravity="center"
                             android:text="Settlement"
@@ -266,6 +266,16 @@
                             android:text="Discount"
                             android:textColor="@color/black"
                             android:textSize="10sp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".96"
+                            android:fontFamily="@font/robotolight"
+                            android:gravity="center"
+                            android:text="Part"
+                            android:textColor="@color/black"
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -281,7 +291,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:weightSum="4">
+                            android:weightSum="5">
 
                             <RadioButton
                                 android:id="@+id/radio_reg"
@@ -327,6 +337,21 @@
                                 android:textColor="@color/black"
                                 android:textSize="10sp" />
 
+
+                             <RadioButton
+                                android:id="@+id/part_radio"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/robotolight"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="10sp" />
+
+
+
+
                         </RadioGroup>
 
 
@@ -346,9 +371,8 @@
                     android:id="@+id/textView44"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/robotomedium"
-                    android:padding="10dp"
+                    android:padding="6dp"
                     android:text="Closure Type"
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -607,19 +631,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/colex_clr_drawable"
-            android:padding="30dp"
+            android:layout_marginBottom="30dp"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:id="@+id/submit"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sign_in_button_drawable"
-                android:paddingLeft="50dp"
+                android:paddingLeft="20dp"
                 android:paddingRight="50dp"
                 android:text="SUBMIT"
                 android:textColor="@color/white"

@@ -151,7 +151,7 @@
                         android:paddingTop="2dp"
                         android:paddingRight="4dp"
                         android:paddingBottom="2dp"
-                        android:text="50"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -194,7 +194,7 @@
                         android:paddingTop="2dp"
                         android:paddingRight="4dp"
                         android:paddingBottom="2dp"
-                        android:text="20"
+                        android:text="1"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -413,7 +413,7 @@
                            android:layout_marginTop="@dimen/_15sdp"
                            android:fontFamily="@font/robotomedium"
                            android:layout_gravity="center"
-                           android:text="No User Found"
+                           android:text="No Lead Found"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"/>
 

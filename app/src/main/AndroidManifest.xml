@@ -55,6 +55,7 @@
         <activity android:name=".ui.main.view.Activity.OtpActivity" />
         <activity android:name=".ui.main.view.Activity.AadharCard" />
         <activity android:name=".ui.main.view.Activity.LoginActivity" />
+        <activity android:name=".ui.main.view.Activity.OfferAccepetance" />
         <activity android:name=".ui.main.view.Activity.PaymentSuccessfullActivity" />
         <activity android:name=".ui.main.view.Activity.Navigation" />
         <activity android:name=".utils.OTP.Auto_Otp" />

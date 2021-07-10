@@ -1,8 +1,8 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.*
@@ -45,15 +47,12 @@ import kotlinx.android.synthetic.main.activity_resest.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class CurrentRecoveryAddressActivity : AppCompatActivity() {
-     var binding :ActivityCurrentRecoveryAddressBinding? = null
+     var binding : ActivityCurrentRecoveryAddressBinding? = null
 
     lateinit var startVisitViewModel : StartVisitViewModel
     lateinit var RecoveryViewModal : RecoveryAddressViewModel
-
-
     private val LOCATION_CODE = 1
     lateinit var fusedLocationProviderClient : FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
@@ -63,8 +62,12 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     var addName:String?=null
     var lead_id:String?=null
     var loanNub:String?=null
+    var FollupAddress:String?=null
+    var runningstatus:String?=null
+    var running_Leadid:String?=null
 
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
@@ -90,29 +93,55 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
 
+        map.setOnClickListener {
 
-        val runningstatus=SessionManegar().getString(this,Constants.RUNNING_STATUS)
-        val running_Leadid=SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
 
-    if(runningstatus=="1" && running_Leadid!!.equals(lead_id))
+            Log.e("mappp","ook")
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("geo:28.6782,77.3608"))
+            i.setClassName(
+                "com.google.android.apps.maps",
+                "com.google.android.maps.MapsActivity",
+
+            )
+            startActivity(i)
+        }
+
+
+
+
+
+
+         runningstatus=SessionManegar().getString(this,Constants.RUNNING_STATUS)
+         running_Leadid=SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
+
+
+
+        if(runningstatus=="1" && running_Leadid!!.equals(lead_id))
         {
-        // check for running loan status
+
+            Continue.isVisible=true
+            // check for running loan status
+            startvisit.isVisible=false
+            starttnow.isVisible=false
+
+
+        }else
+        {
+            Continue.isVisible=false
+            startvisit.isVisible=true
+            starttnow.isVisible=true
+            //ss start running for collection
+
+        }
+
+
+
+        Continue.setOnClickListener {
             val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
             startActivity(i)
             finish()
             toast("your running status is Active")
-        }else
-    {
-
-    //ss start running for collection
-
-    }
-
-
-
-
-
-
+        }
 
 
 
@@ -133,10 +162,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
 
-
-
-
-
         binding!!.startvisit.setOnClickListener {
             showDialog()
         }
@@ -150,6 +175,11 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             }else
             {
                 verifyClick()
+
+
+
+
+
             }
 
 
@@ -168,7 +198,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
     }
 
     fun verifyClick() {
-        val lead_id = lead_id
         val user_id = SessionManegar().getString(this,Constants.USER_ID)
         val company_id = 2
         val product_id = 2
@@ -183,7 +212,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                 executive_start_letitude,
                 executive_start_longitude,
                 followup_satarted_at,
-                lead_id,
+                lead_id.toString(),
                 product_id,
                 user_id.toInt() ,
                 loan_no
@@ -197,11 +226,15 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                             hideProgressBar()
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("success")&&verifyResponse.status.equals("200"))
+                                Log.e("Resopncelogin",message)
+                                if (message.equals("success")&& verifyResponse.status.equals("200"))
                                 {
                                     //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-
+                                        //
+                                            //
+                                    val follupid:String=verifyResponse.data.followup_id.toString()
+                                    SessionManegar().saveString(this,Constants.USER_Follup_id,follupid)
+                                    SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
                                     val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
                                     startActivity(i)
                                     finish()
@@ -378,6 +411,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                     Re_Address.setText(otpResponse.data.residence_address_line2)
                                     Re_City.setText(otpResponse.data.city)
                                     Re_State.setText(otpResponse.data.state)
+                                    FollupAddress=Re_Address.text.toString()+" "+Re_City.text.toString()
+                                    SessionManegar().saveString(this,Constants.USER_Follup_Address,FollupAddress.toString())
                                 }
                                 else
                                 {
