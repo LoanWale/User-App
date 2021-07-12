@@ -44,10 +44,13 @@ class HomePageActivity : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        if (Network.getConnectivityStatus(this@HomePageActivity)) {
-            init()
-        }else{
-            toast("Pleaae Check Network connection")
+        init()
+
+        binding!!.refershLayout.setOnRefreshListener {
+            getTodayLead()
+            refersh_progress.isVisible = false
+
+
         }
 
 
@@ -140,6 +143,7 @@ class HomePageActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin",otpResponse.toString());
                                 val status = otpResponse!!.data
                                 refersh_progress.isVisible = false
+                                binding!!.refershLayout.isRefreshing = false
                                 if (status.isEmpty()){
                                    binding!!.noDataFound.isVisible = true
                                     binding!!.VerificationLayout.isVisible = false

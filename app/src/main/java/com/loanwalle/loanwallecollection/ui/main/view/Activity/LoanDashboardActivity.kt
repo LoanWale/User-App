@@ -27,7 +27,6 @@ class LoanDashboardActivity : AppCompatActivity() {
         }
 
         if (intent.getStringExtra(Constants.USER_NAME) != null) {
-            name = intent.getStringExtra(Constants.USER_PIC)!!.toString()
             userpic = intent.getStringExtra(Constants.USER_PIC)!!.toString()
             name = intent.getStringExtra(Constants.USER_NAME)!!.toString()
             loanNumber = intent.getStringExtra(Constants.USER_LOAN_NUMBER)!!.toString()
@@ -36,6 +35,9 @@ class LoanDashboardActivity : AppCompatActivity() {
             loan_user.text = loanNumber
 
         }
+
+
+        Log.e("USERPIC",userpic.toString())
 
         // residance_add = 1
         // office_add = 2

@@ -49,12 +49,13 @@ class TodayLeadAdp(context:Context, var listOfTasks: List<Data>) :
             holder.mobileno.text = tasks.mobile
             holder.address.text = tasks.present_address_line1
             holder.loanno.text = "Loan No. "+tasks.loan_no
+
         Glide.with(context).load(tasks.file).error(R.drawable.businessman).into(holder.image_user)
 
 
         holder.lner.setOnClickListener {
 
-            if (tasks.file.isNullOrEmpty())
+            if (tasks.file.isNotEmpty())
             {
                 val intent1 = Intent(context, LoanDashboardActivity::class.java)
                 intent1.putExtra(Constants.USER_PIC,tasks.file)
