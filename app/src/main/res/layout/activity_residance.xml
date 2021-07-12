@@ -392,14 +392,12 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/edit_drawable"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_width="match_parent"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_height="wrap_content">
-
-
+            android:background="@drawable/edit_drawable"
+            android:layout_height="@dimen/_350sdp">
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -426,8 +424,8 @@
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
                     android:text="Locality"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
 
                 <RadioGroup
@@ -464,7 +462,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/lt8"
+                android:id="@+id/linearLayout005"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -476,7 +474,141 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
                 android:weightSum="1"
-                tools:ignore="MissingConstraints">
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="Residance Since"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="10-05-2021"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                    <ImageView
+                        android:src="@drawable/ic_baseline_calendar_today_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="Rural"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout006"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout005"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout005"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout005">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="No. of Earning Family member"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:src="@drawable/ic_baseline_calendar_today_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout007"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout006"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout006"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout006">
 
                 <TextView
                     android:layout_width="0dp"
@@ -485,8 +617,8 @@
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
                     android:text="Living Standard"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -494,7 +626,9 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:paddingStart="15dp">
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -520,14 +654,15 @@
                         android:textSize="10sp"
                         android:textColor="@color/black" />
 
-
                 </LinearLayout>
+
+
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/lt9"
+                android:id="@+id/linearLayout008"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -537,9 +672,9 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
                 android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/lt8"
-                app:layout_constraintStart_toStartOf="@+id/lt8"
-                app:layout_constraintTop_toBottomOf="@+id/lt8">
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout007"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout007"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout007">
 
                 <TextView
                     android:layout_width="0dp"
@@ -547,38 +682,40 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Neighbour"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:text="Neighbour Check"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
-                <LinearLayout
+                <RadioGroup
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:paddingStart="15dp">
-
-
-
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
                         android:text="Positive"
-                        android:textSize="10sp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
 
 
 
-                </LinearLayout>
+                </RadioGroup>
+
+
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/lt10"
+                android:id="@+id/linearLayout009"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -588,9 +725,9 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
                 android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/lt9"
-                app:layout_constraintStart_toStartOf="@+id/lt9"
-                app:layout_constraintTop_toBottomOf="@+id/lt9">
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout008"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout008"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout008">
 
                 <TextView
                     android:layout_width="0dp"
@@ -599,8 +736,8 @@
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
                     android:text="Coustomer Photo"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -608,61 +745,64 @@
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:paddingStart="15dp">
-
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
 
                     <ImageView
-
-                        android:background="@drawable/calendr_drawable"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
                         android:src="@drawable/camera_24"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
 
-                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
+
+
             </LinearLayout>
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lt12"
-                android:orientation="horizontal"
-                android:layout_marginLeft="24dp"
+            <LinearLayout
+                android:id="@+id/linearLayout0010"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/lt10"
-                app:layout_constraintStart_toStartOf="@+id/lt10"
-                app:layout_constraintTop_toBottomOf="@+id/lt10">
-
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout009"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout009"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout009">
 
                 <TextView
-                    android:id="@+id/ralation_house33"
-                    android:layout_width="135dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="KYC Address"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:gravity="right"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="KYC Address Verified"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ralation_house33"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:text="73287"
+                    android:textColor="@color/black">
 
                     <TextView
-
                         android:paddingRight="@dimen/_12sdp"
                         android:paddingLeft="@dimen/_12sdp"
                         android:textSize="@dimen/_10sdp"
@@ -693,43 +833,50 @@
                         android:text="NO"
                         android:textColor="@color/white" />
 
+
+
+
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lt13"
-                android:orientation="horizontal"
-                android:layout_marginLeft="24dp"
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout0011"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/lt12"
-                app:layout_constraintStart_toStartOf="@+id/lt12"
-                app:layout_constraintTop_toBottomOf="@+id/lt12">
-
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="2dp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout0010"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout0010"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout0010">
 
                 <TextView
-                    android:id="@+id/ralation_house34"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="KYC Identity Verified"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:gravity="right"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".4"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="KYC identity Verified"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="end|center"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ralation_house34"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:text="73287"
+                    android:textColor="@color/black">
 
                     <TextView
                         android:paddingRight="@dimen/_12sdp"
@@ -738,10 +885,10 @@
                         android:gravity="right"
                         android:layout_gravity="right"
                         android:id="@+id/customer_select_family_residance_house34"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/full_payment_drawable"
+                        android:background="@drawable/part_pyment_drawable"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
                         android:text="YES" />
@@ -757,19 +904,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:background="@drawable/part_pyment_drawable"
+                        android:background="@drawable/full_payment_drawable"
                         android:gravity="right"
                         android:text="NO"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white" />
+
+
+
 
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+            </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/lt15"
+                android:id="@+id/linearLayout0012"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -779,9 +930,9 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
                 android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/lt13"
-                app:layout_constraintStart_toStartOf="@+id/lt13"
-                app:layout_constraintTop_toBottomOf="@+id/lt13">
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout0011"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout0011"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout0011">
 
                 <TextView
                     android:layout_width="0dp"
@@ -789,47 +940,67 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Living Standard"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
+                    android:text="Neighbour Check"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
-                <LinearLayout
+                <RadioGroup
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".6"
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
-                    android:paddingStart="15dp">
+                    android:orientation="horizontal"
+                    android:text="73287"
+                    android:textColor="@color/black">
 
-                    <TextView
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:fontFamily="@font/robotolight"
-                        android:text="Mic"
+                        android:text="Positive"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
 
-                    <TextView
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:text="Lic"
-                        android:textSize="10sp"
-                        android:textColor="@color/black" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:text="Lc"
-                        android:textSize="10sp"
-                        android:textColor="@color/black" />
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="Negetive"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
 
 
-                </LinearLayout>
+                </RadioGroup>
+
+
             </LinearLayout>
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@drawable/full_payment_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
