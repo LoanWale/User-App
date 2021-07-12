@@ -25,21 +25,18 @@ import kotlinx.android.synthetic.main.activity_resest.*
 class Collection_Profile : AppCompatActivity() {
 
     lateinit var getUserProfileViewModel: GetUserProfileViewModel
-    var binding : ActivityCollectionProfileBinding? =null
+    var binding: ActivityCollectionProfileBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityCollectionProfileBinding.inflate(layoutInflater)
+        binding = ActivityCollectionProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
 
         verifyClick()
-        back_layout_coll.setOnClickListener{
+        back_layout_coll.setOnClickListener {
             onBackPressed()
         }
-
-
-       // setContentView(R.layout.activity_collection_profile)
 
         binding!!.changpass.setOnClickListener {
             val i = Intent(this@Collection_Profile, ForgotPasswordActivity::class.java)
@@ -47,19 +44,18 @@ class Collection_Profile : AppCompatActivity() {
         }
 
 
-
-
     }
 
     private fun init() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
-        getUserProfileViewModel = ViewModelProvider(this, factory).get(GetUserProfileViewModel::class.java)
+        getUserProfileViewModel =
+            ViewModelProvider(this, factory).get(GetUserProfileViewModel::class.java)
     }
 
     fun verifyClick() {
         val userid = 113
-        if (userid!=null) {
+        if (userid != null) {
             val body = GetUserProfileBodies.GetUserProfileRequest(
                 userid
             )
@@ -67,8 +63,6 @@ class Collection_Profile : AppCompatActivity() {
 
 
             getUserProfileViewModel.getUserProfile(body)
-
-
 
             getUserProfileViewModel.getUserProfile.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
@@ -78,10 +72,9 @@ class Collection_Profile : AppCompatActivity() {
 
 
                             response.data?.let { verifyResponse ->
-                                val message:String= verifyResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("success")&&verifyResponse.status.equals("200"))
-                                {
+                                val message: String = verifyResponse.message
+                                Log.e("Resopncelogin", message);
+                                if (message.equals("success") && verifyResponse.status.equals("200")) {
 
                                     full_name.setText(verifyResponse.data.get(0).name)
                                     phoneno.setText(verifyResponse.data.get(0).user_id)
@@ -90,16 +83,7 @@ class Collection_Profile : AppCompatActivity() {
                                     fathername.setText(verifyResponse.data.get(0).dob)
                                     dob.setText(verifyResponse.data.get(0).created_on)
                                     bloodGroup.setText("A+")
-
-
-
-                                    //progress9.errorSnack(message, Snackbar.LENGTH_LONG)
-
-
-                                }
-                                else
-
-                                {
+                                } else {
                                     progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
 
@@ -127,6 +111,7 @@ class Collection_Profile : AppCompatActivity() {
     fun hideProgressBar() {
         progress9.visibility = View.GONE
     }
+
     fun showProgressBar() {
         progress9.visibility = View.VISIBLE
     }

@@ -1,29 +1,27 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.data.model.irContact.Ir_Request
-import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityIRABinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.IRViewModel
-import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoanDetailsViewModal
-import com.loanwalle.loanwallecollection.util.Constants
-import com.loanwalle.loanwallecollection.utils.ConstantsSave
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_i_r_a.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.nav_header_home.*
 
 class IRAActivity : AppCompatActivity() {
     var binding: ActivityIRABinding? = null
@@ -36,6 +34,12 @@ class IRAActivity : AppCompatActivity() {
         setupViewModel()
         back_layout.setOnClickListener{
             onBackPressed()
+        }
+
+        call.setOnClickListener {
+//            val callIntent = Intent(Intent.ACTION_CALL)
+//            callIntent.data = Uri.parse("tel:"+8802177690)// +ir_mobile.text.toString().trim()) //change the number
+//            startActivity(callIntent)
         }
     }
 

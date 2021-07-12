@@ -36,7 +36,7 @@ class LoanActivity : AppCompatActivity() {
         setupViewModel()
 
         collect_button.setOnClickListener{
-            var intent = Intent(this,CurrentRecoveryAddressActivity::class.java)
+            val intent = Intent(this,CurrentRecoveryAddressActivity::class.java)
             startActivity(intent)
         }
         back_layout_detail.setOnClickListener{
@@ -96,7 +96,7 @@ class LoanActivity : AppCompatActivity() {
 
                                     try {
                                         date1 = input.parse(date) // parse input
-                                        Log.e("===============","======currentData======"+output.format(date1))
+                                     //   Log.e("===============","======currentData======"+output.format(date1))
 
 
                                     } catch (e: ParseException) {
@@ -160,15 +160,7 @@ class LoanActivity : AppCompatActivity() {
 
     }
 
-    fun afterTextChanged(view: Editable) {
-        var s: String? = null
-        try {
-            // The comma in the format specifier does the trick
-            s = String.format("%,d", view.toString().toLong())
-        } catch (e: NumberFormatException) {
-        }
-        // Set s back to the view after temporarily removing the text change listener
-    }
+
     fun hideProgressBar() {
         loan_progress.visibility = View.GONE
     }

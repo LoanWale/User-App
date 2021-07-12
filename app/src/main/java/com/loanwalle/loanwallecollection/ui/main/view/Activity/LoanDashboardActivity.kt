@@ -32,7 +32,6 @@ class LoanDashboardActivity : AppCompatActivity() {
             name = intent.getStringExtra(Constants.USER_NAME)!!.toString()
             loanNumber = intent.getStringExtra(Constants.USER_LOAN_NUMBER)!!.toString()
             lead_id = intent.getStringExtra(Constants.USER_LEAD_ID)!!.toString()
-
             name_user.text = name
             loan_user.text = loanNumber
 
@@ -52,6 +51,7 @@ class LoanDashboardActivity : AppCompatActivity() {
             inten.putExtra(Constants.USER_LEAD_ID, lead_id)
             inten.putExtra(Constants.USER_LOAN_NUMBER, loanNumber)
             startActivity(inten)
+            finish()
 
             /* if (running == null){
                  if (lead_id != null) {
@@ -88,22 +88,9 @@ class LoanDashboardActivity : AppCompatActivity() {
             inten.putExtra(Constants.PREFERRED_ADD, "PREFERRED ADDRESS")
             startActivity(inten)
         }
+
         Glide.with(this).load(userpic).error(R.drawable.businessman).into(binding!!.imageUs)
 
-
-//        binding!!.officeAddText.setOnClickListener{
-//            var intent = Intent(this,Recovery_Address::class.java)
-//            startActivity(intent)
-//        }
-//        binding!!.permanentAddText.setOnClickListener{
-//            var intent = Intent(this,Recovery_Address::class.java)
-//            startActivity(intent)
-//        }
-//
-//        binding!!.preferdeAddText.setOnClickListener{
-//            var intent1 = Intent(this,Recovery_Address::class.java)
-//            startActivity(intent1)
-//        }
 
         binding!!.loanDetailText.setOnClickListener {
             val inte = Intent(this, LoanActivity::class.java)

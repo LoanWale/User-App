@@ -27,7 +27,7 @@ class Verification : AppCompatActivity() {
         binding!!.veriBack.setOnClickListener { finish() }
 
         binding!!.residece.setOnClickListener{
-            val intent = Intent(this,CurrentRecoveryAddressActivity::class.java)
+            val intent = Intent(this,ResidanceActivity::class.java)
             startActivity(intent)
         }
 

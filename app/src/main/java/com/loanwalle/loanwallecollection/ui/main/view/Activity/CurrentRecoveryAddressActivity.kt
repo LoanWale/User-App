@@ -94,8 +94,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
         map.setOnClickListener {
-
-
             Log.e("mappp","ook")
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("geo:28.6782,77.3608"))
             i.setClassName(
