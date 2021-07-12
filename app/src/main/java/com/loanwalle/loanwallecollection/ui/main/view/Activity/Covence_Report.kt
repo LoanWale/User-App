@@ -78,7 +78,7 @@ class Covence_Report : AppCompatActivity() {
         text_todate.setText(currentDateandTime)
         fromdate.setText(currentDateandTime)
 
-        datefrom_btn.setOnClickListener {
+        todate.setOnClickListener {
             DatePickerDialog(this, dateSetListener,
                 cal.get(Calendar.YEAR),
                 cal.get(Calendar.MONTH),

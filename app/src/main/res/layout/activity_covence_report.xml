@@ -100,6 +100,7 @@
                 android:layout_height="45dp"/>
             <TextView
 
+                android:id="@+id/todate"
                 android:gravity="center"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_gravity="center"

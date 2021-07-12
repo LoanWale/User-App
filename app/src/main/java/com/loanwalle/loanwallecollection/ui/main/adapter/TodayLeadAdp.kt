@@ -67,6 +67,9 @@ class TodayLeadAdp(context:Context, var listOfTasks: List<Data>) :
             {
                 val intent1 = Intent(context, LoanDashboardActivity::class.java)
                 intent1.putExtra(Constants.USER_PIC,tasks.file)
+                intent1.putExtra(Constants.USER_NAME,holder.lead_name.text.toString())
+                intent1.putExtra(Constants.USER_LOAN_NUMBER,tasks.loan_no)
+                intent1.putExtra(Constants.USER_LEAD_ID,tasks.lead_id)
                 context.startActivity(intent1)
             }
 

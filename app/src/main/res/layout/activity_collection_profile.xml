@@ -20,6 +20,8 @@
         android:layout_height="wrap_content">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,6 +29,62 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="6dp"
             android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:id="@+id/back_layout_coll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight=".16"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/ic_left_arrow" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".9"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/titleel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="40sp"
+                            android:fontFamily="@font/robotomedium"
+                            android:gravity="center"
+                            android:text="My Profile"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -449,62 +507,6 @@
         android:background="@color/gray" />
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:id="@+id/back_layout_coll"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".16"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/ic_left_arrow" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".9"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:id="@+id/titleel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="40sp"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="center"
-                    android:text="My Profile"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-    </androidx.appcompat.widget.Toolbar>
 
 
 </LinearLayout>
