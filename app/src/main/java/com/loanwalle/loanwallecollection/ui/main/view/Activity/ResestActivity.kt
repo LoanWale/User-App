@@ -49,7 +49,7 @@ class ResestActivity : AppCompatActivity() {
     fun verifyClick() {
         val new_password = editText_new_pass.text.toString()
         val confirm_password = editText_confirm_passwrd.text.toString()
-        val userid = SessionManegar().getString(this,"user_id")
+        val userid = SessionManegar().getString(this,SessionManegar().getString(this,com.loanwalle.loanwallecollection.util.Constants.USER_ID))
         if (new_password!= null && confirm_password!= null && userid!=null) {
             val body = NewPasswordRequestBodies.NewPasswordRequest(
                 new_password,

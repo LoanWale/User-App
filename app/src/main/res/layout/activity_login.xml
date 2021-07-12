@@ -85,18 +85,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:fontFamily="@font/robotomedium"
             android:id="@+id/forgot_passwrd"
             android:layout_gravity="center|end"
             android:padding="@dimen/_10sdp"
             android:gravity="end"
+            android:textStyle="italic"
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_40sdp"
-            android:text="Forgot Password?"
+            android:text="Forgot Password ?"
             android:textColor="@color/black"
             />
 

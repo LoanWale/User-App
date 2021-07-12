@@ -70,6 +70,8 @@ class VerifyOTPActivity : AppCompatActivity() {
                                 if (message.equals("OTP verified Successfully")&&verifyResponse.status.equals("200"))
                                 {
                                     //progress2.errorSnack(message, Snackbar.LENGTH_LONG)
+                                      //  SessionManegar().saveString(this,com.loanwalle.loanwallecollection.util.Constants.USER_ID,verifyResponse)
+
                                     val intent = Intent(this,ResestActivity::class.java)
                                     startActivity(intent)
                                 }

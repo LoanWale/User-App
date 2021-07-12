@@ -17,6 +17,7 @@ import com.loanwalle.loanwallecollection.databinding.ActivityOtpBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.ForgotPasswordViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.OtpViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -73,7 +74,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                 {
                                     sessionManegar.saveString(this, "mobile",mobile,)
                                     sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
-                                    sessionManegar.saveString(this, "userId",otpResponse.user_id)
+                                    sessionManegar.saveString(this, Constants.USER_ID,otpResponse.user_id)
                                     //progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                     var intent = Intent(this,VerifyOTPActivity::class.java)
                                     startActivity(intent)
