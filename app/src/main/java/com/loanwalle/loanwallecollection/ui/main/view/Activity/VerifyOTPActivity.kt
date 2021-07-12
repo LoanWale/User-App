@@ -13,6 +13,7 @@ import com.loanwalle.loanwallecollection.data.model.verifyPasswordOtp.VerifyPass
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.VerifyPasswordViewModel
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
@@ -51,7 +52,7 @@ class VerifyOTPActivity : AppCompatActivity() {
 
     fun verifyClick() {
         val mobile = pinView.text.toString()
-        val  userid = sessionManegar.getString(this,"userId")
+        val  userid = sessionManegar.getString(this,Constants.USER_ID)
 
         if (mobile!= null && userid!=null) {
             val body = VerifyPasswordOTPRequest.VerifyPasswordOTP(

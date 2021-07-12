@@ -72,9 +72,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
                                 if (message.equals("OTP sent Successfully")&&otpResponse.user_id!=null)
                                 {
-                                    sessionManegar.saveString(this, "mobile",mobile,)
-                                    sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
                                     sessionManegar.saveString(this, Constants.USER_ID,otpResponse.user_id)
+                                    sessionManegar.saveString(this, "mobile",mobile)
+                                    sessionManegar.saveInt(this,"otpCode",otpResponse.otp_code)
                                     //progress9.errorSnack(message, Snackbar.LENGTH_LONG)
                                     var intent = Intent(this,VerifyOTPActivity::class.java)
                                     startActivity(intent)

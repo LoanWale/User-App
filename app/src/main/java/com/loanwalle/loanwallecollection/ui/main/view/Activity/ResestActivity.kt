@@ -49,7 +49,9 @@ class ResestActivity : AppCompatActivity() {
     fun verifyClick() {
         val new_password = editText_new_pass.text.toString()
         val confirm_password = editText_confirm_passwrd.text.toString()
-        val userid = SessionManegar().getString(this,SessionManegar().getString(this,com.loanwalle.loanwallecollection.util.Constants.USER_ID))
+        val userid = SessionManegar().getString(this,com.loanwalle.loanwallecollection.util.Constants.USER_ID)
+
+        Log.e("useridaccc",userid.toString())
         if (new_password!= null && confirm_password!= null && userid!=null) {
             val body = NewPasswordRequestBodies.NewPasswordRequest(
                 new_password,
@@ -68,7 +70,6 @@ class ResestActivity : AppCompatActivity() {
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
-
 
                             response.data?.let { verifyResponse ->
                                 val message:String= verifyResponse.message
