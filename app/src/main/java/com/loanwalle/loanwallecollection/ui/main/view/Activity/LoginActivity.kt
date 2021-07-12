@@ -72,8 +72,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun checkPermission(): Boolean {
         val result = ContextCompat.checkSelfPermission(applicationContext, ACCESS_FINE_LOCATION)
-        val result1 = ContextCompat.checkSelfPermission(applicationContext, CAMERA)
-        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED
+       // val result1 = ContextCompat.checkSelfPermission(applicationContext, CAMERA)
+        return result == PackageManager.PERMISSION_GRANTED //&& result1 == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestPermission() {
