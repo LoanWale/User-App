@@ -11,6 +11,8 @@ import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.material.snackbar.Snackbar
+import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.loginResponse.RequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityLoginBinding
@@ -40,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
     var binding: ActivityLoginBinding? = null
     lateinit var loginViewModel: LoginViewModel
     var sessionManegar = SessionManegar()
+    var pswrd : String? = null
 
     override fun onResume() {
         super.onResume()
@@ -54,6 +58,31 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         init()
+
+        binding!!.loginBtn.isEnabled = false
+
+
+        binding!!.passwordNew.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.length >= 3){
+                            binding!!.loginBtn.isEnabled = true
+
+                    } else{
+                        binding!!.loginBtn.isEnabled = false
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
 
         ActivityCompat.requestPermissions(
             this,

@@ -140,6 +140,16 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
         <LinearLayout
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@drawable/edit_drawable"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -395,6 +405,7 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
         <LinearLayout
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -436,6 +447,7 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
+        </LinearLayout>
 
 
         <ProgressBar
@@ -447,7 +459,9 @@
             android:layout_height="wrap_content"/>
 
         <LinearLayout
-
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/edit_drawable"
             android:orientation="vertical"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
@@ -544,7 +558,7 @@
                 android:paddingStart="15dp"
                 android:paddingTop="2dp"
                 android:paddingEnd="15sp"
-                android:paddingBottom="12dp"
+                android:paddingBottom="2dp"
                 android:weightSum="1"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="0dp"
@@ -576,7 +590,8 @@
                     android:textSize="13sp"
 
                     tools:ignore="RtlSymmetry" />
-            </LinearLayout>  <LinearLayout
+            </LinearLayout>
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -597,7 +612,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".6"
                 android:fontFamily="@font/robotomedium"
-                android:text="Balance Due(A)"
+                android:text="Balance Due (A)"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -626,9 +641,11 @@
 
         </LinearLayout>
         <LinearLayout
-
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@drawable/edit_drawable"
             android:orientation="vertical"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -696,7 +713,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Penel ROI (per day)"
+                    android:text="Penal ROI (per day)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -778,7 +795,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".5"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Interest Payable (B)"
+                    android:text="Interest Due (B)"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
 
@@ -819,7 +836,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight=".5"
                 android:fontFamily="@font/robotomedium"
-                android:text="Total Payable (A+B)"
+                android:text="Total Due (A+B)"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -887,7 +904,6 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="end|center"
                     android:paddingStart="15dp"
-
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     tools:ignore="RtlSymmetry" />

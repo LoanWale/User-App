@@ -1,15 +1,16 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.vierifyOtp.VerifyRequestBody
@@ -24,6 +25,7 @@ import com.loanwalle.loanwallecollection.utils.OTP.SMSReceiver
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_otp.*
 import kotlinx.android.synthetic.main.activity_otp.progress
+
 
 class OtpActivity : AppCompatActivity() ,
    SMSReceiver.OTPReceiveListener {
@@ -51,11 +53,39 @@ class OtpActivity : AppCompatActivity() ,
 
         textView5.text = num
 
+        otp_submitClick.isEnabled = false
+
+        button.setOnClickListener {
+            timer()
+            requestOTP()
+            otp_submitClick.isEnabled = true
+            otp_text.setText("")
+        }
 
 
 
 
+        otp_text.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.length ==4){
+                        otp_submitClick.isEnabled = true
+                    }else{
+                        otp_submitClick.isEnabled = false
+                    }
+
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
 
 
         init()
@@ -66,6 +96,7 @@ class OtpActivity : AppCompatActivity() ,
 
            init1()
            submitClick()
+
        }
 
 
@@ -83,6 +114,8 @@ class OtpActivity : AppCompatActivity() ,
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
         otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
+        timer()
+
     }
     override fun onOTPReceived(otp: String) {
         //  showToast("OTP Received: " + otp);
@@ -140,7 +173,6 @@ class OtpActivity : AppCompatActivity() ,
                                 {
                                     toast("OTP Sent Successfully")
                                     //progress.errorSnack(message, Snackbar.LENGTH_LONG)
-
                                 }
                                 else
 
@@ -247,4 +279,24 @@ class OtpActivity : AppCompatActivity() ,
 
     }
 
+
+    fun timer()
+
+    {
+        object : CountDownTimer(5000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+
+                button.isEnabled = false
+
+                button.setText("" + millisUntilFinished / 1000 +" sec left OTP ")
+                //here you can have your logic to set text to edittext
+            }
+
+            override fun onFinish() {
+                button.setText("resend")
+                button.isEnabled = true
+                otp_submitClick.isEnabled = false
+            }
+        }.start()
+    }
 }

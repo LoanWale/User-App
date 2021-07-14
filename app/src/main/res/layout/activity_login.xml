@@ -23,8 +23,8 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/btncamera"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/gif_image_logo"
         android:layout_marginBottom="@dimen/_80sdp"
         android:layout_marginStart="10dp"     />

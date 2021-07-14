@@ -1,8 +1,8 @@
 package com.loanwalle.loanwallecollection.ui.main.view.Activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +17,6 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoanDetailsViewModal
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
-import kotlinx.android.synthetic.main.activity_covence_report.*
 import kotlinx.android.synthetic.main.activity_loan.*
 import java.text.DecimalFormatSymbols
 import java.text.ParseException
@@ -42,6 +41,11 @@ class LoanActivity : AppCompatActivity() {
         back_layout_detail.setOnClickListener{
             onBackPressed()
         }
+
+       /* mobile_admin.setOnClickListener {
+            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "9034799606"))
+            startActivity(intent)
+        }*/
     }
 
     private fun setupViewModel() {
@@ -76,14 +80,16 @@ class LoanActivity : AppCompatActivity() {
 
                                     loanno.text=otpResponse.data.loan_no .replace("FTC","NFPL")
                                     val sansctiondata=otpResponse.data.loan_sanctioned.replace(".00","")
-                                    loan_sanctioned.text=String.format("%,d",(sansctiondata.toLong()))+".00"
+                                    loan_sanctioned.text="\u20B9 "+String.format("%,d",(sansctiondata.toLong()))
 
                                     val fee = otpResponse.data.processing_fee.replace(".00","")
-                                    processing_fee.text=String.format("%,d",(fee.toLong()))+".00"
-                                    tenur_roi.text = otpResponse.data.roi
+                                    processing_fee.text="\u20B9 "+String.format("%,d",(fee.toLong()))
+
+                                    tenur_roi.text = otpResponse.data.roi.replace(".00","%")
                                     tenure_days.text = otpResponse.data.tenure
+
                                     val disbursal = otpResponse.data.net_disbursal_amount//.toString.replace(".00","")
-                                    loan_disbursal.text=String.format("%,d",(disbursal.toLong()))+".00"
+                                    loan_disbursal.text="\u20B9 "+String.format("%,d",(disbursal.toLong()))
                                     disbursal_date.text = otpResponse.data.disbursal_date.substring(0,10)
 
                                     val format = SimpleDateFormat("dd-MMM-yyyy")
@@ -109,26 +115,26 @@ class LoanActivity : AppCompatActivity() {
 
                                     repayment_date.text =output.format(date1)//otpResponse.data.repayment_date.substring(0,10)
                                     val repayment_am = otpResponse.data.payable_amount.toString().replace(".00","")
-                                    repayements_amount.text=String.format("%,d",(repayment_am.toLong()))+".00"
+                                    repayements_amount.text="\u20B9 "+String.format("%,d",(repayment_am.toLong()))
 
                                     val payment_rc = otpResponse.data.payment_recived.replace(".00","")
-                                    payment_received.text=String.format("%,d",(payment_rc.toLong()))+".00"
+                                    payment_received.text=String.format("%,d",(payment_rc.toLong()))
 
                                     val balance_d = otpResponse.data.balance_due.toString().replace(".00","")
-                                    balance_due.text=String.format("%,d",(balance_d.toLong()))+".00"
+                                    balance_due.text="\u20B9 "+String.format("%,d",(balance_d.toLong()))
 
 
                                     day_past_due.text = otpResponse.data.day_past_due.toString()
 
-                                    panel_roi.text = otpResponse.data.penel_roi.replace("%","00")
+                                    panel_roi.text = otpResponse.data.penel_roi.replace("%","%")
 
                                     val intrest_day = otpResponse.data.penal_interest_per_day.toString().replace(".00","")
-                                    panel_intrst_perday.text=String.format("%,d",(intrest_day.toLong()))+".00"
+                                    panel_intrst_perday.text="\u20B9 "+String.format("%,d",(intrest_day.toLong()))
 
                                     inteset_payble.text = otpResponse.data.interest_payable.toString()
 
                                     val total_pay = otpResponse.data.total_payable.toString().replace(".00","")
-                                    total_payble.text=String.format("%,d",(total_pay.toLong()))+".00"
+                                    total_payble.text="\u20B9 "+String.format("%,d",(total_pay.toLong()))
 
                                     name_admine.text = otpResponse.data.name
                                     mobile_admin.text = "+91-"+otpResponse.data.mobile_no
