@@ -21,11 +21,11 @@
         />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/btncamera"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/loanwlee"
+        android:src="@drawable/gif_image_logo"
         android:layout_marginBottom="@dimen/_80sdp"
         android:layout_marginStart="10dp"     />
         <TextView
