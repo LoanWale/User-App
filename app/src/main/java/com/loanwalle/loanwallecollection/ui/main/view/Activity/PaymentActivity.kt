@@ -237,14 +237,11 @@ class PaymentActivity : AppCompatActivity() {
                                 val message: String = otpResponse.message
                                 Log.e("Checkpayment", otpResponse.toString())
                                 if (otpResponse.message.equals("Data updated Successfully")&&otpResponse.status.equals("200")) {
-
-
                                     val intt = Intent(this, PaymentSuccessfullActivity::class.java)
                                     intt.putExtra(Constants.USER_Amount,total_payble.text.toString().trim())
                                     startActivity(intt)
                                     finish()
                                     // final submit
-
 
                                 } else {
                                     Check_progr.errorSnack(message, Snackbar.LENGTH_LONG)
