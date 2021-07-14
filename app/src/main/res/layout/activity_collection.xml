@@ -690,7 +690,7 @@
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sign_in_button_drawable"
-                android:paddingLeft="20dp"
+                android:paddingLeft="21dp"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_120sdp"
