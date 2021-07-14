@@ -107,27 +107,27 @@ interface API {
     suspend fun getconvenceReport(@Body body: ConvenReque): Response<Convence_Resopnce>
 
     @POST("user/get-total-count-of-todays-collection-leads")
-    suspend fun getTodayCountLead(@Body body:GetCountLeadRequest):Response<GetCountLeadResponse>
+    suspend fun getTodayCountLead(@Body body: GetCountLeadRequest): Response<GetCountLeadResponse>
 
-@POST("user/get-residential-address")
-    suspend fun getRecoveryAddress(@Body body:RecoveryRequest):Response<RecoveryResponse>
+    @POST("user/get-residential-address")
+    suspend fun getRecoveryAddress(@Body body: RecoveryRequest): Response<RecoveryResponse>
 
 
     @POST("user/update-token-by-id")
-    suspend fun updatetoken(@Body body:TokenRequest):Response<TokenResponse>
+    suspend fun updatetoken(@Body body: TokenRequest): Response<TokenResponse>
 
     @POST("user/get-prevous-payment-history")
-    suspend fun previousPayment(@Body body:PreviousPaymentRequest):Response<PreviousPaymentResponse>
+    suspend fun previousPayment(@Body body: PreviousPaymentRequest): Response<PreviousPaymentResponse>
 
-  @POST("user/update-collection-followup")
-    suspend fun loanupdat(@Body body: Collection_Request):Response<Collection_Response>
+    @POST("user/update-collection-followup")
+    suspend fun loanupdat(@Body body: Collection_Request): Response<Collection_Response>
 
 
     @POST("Notify/repayCallBack")
-    suspend fun getCheckpayment(@Body body: CheckPaymentR_Request):Response<CheckPayment_Response>
+    suspend fun getCheckpayment(@Body body: CheckPaymentR_Request): Response<CheckPayment_Response>
 
     @POST("user/update-collection-recieved-amount")
-    suspend fun submitPayment(@Body body: SubmitPaymentRequest):Response<SubmitPaymentResponse>
+    suspend fun submitPayment(@Body body: SubmitPaymentRequest): Response<SubmitPaymentResponse>
 
 
 }

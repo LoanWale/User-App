@@ -72,7 +72,9 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-        init()
+
+
+
         back_layout_currnt.setOnClickListener{
             onBackPressed()
         }
@@ -93,6 +95,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
 
+        init()
         map.setOnClickListener {
             Log.e("mappp","ook")
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("geo:28.6782,77.3608"))
@@ -189,7 +192,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         val factory = ViewModelProviderFactory(application, repository)
         startVisitViewModel= ViewModelProvider(this, factory).get(StartVisitViewModel::class.java)
         RecoveryViewModal = ViewModelProvider(this, factory).get(RecoveryAddressViewModel::class.java)
-         GetCollectionAddress()
+
+        GetCollectionAddress()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastLocation()
         getCurrentDate()
@@ -389,12 +393,13 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
     fun GetCollectionAddress() {
         val lead_id = lead_id
+        //Log.d("leaddd",lead_id.toString())
         if (lead_id!=null) {
             val body = RecoveryRequest(
                 lead_id
             )
             RecoveryViewModal.recoveryAddress(body)
-          //  Log.e("BODY",body.toString())
+            //Log.e("BODY",body.toString())
             RecoveryViewModal.recoveryResponse.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
@@ -403,18 +408,20 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                             response.data?.let { otpResponse ->
                                 val message:String= otpResponse.message
                                 LOG.GetLogError("message",otpResponse.toString())
-                              //  Log.e("response",otpResponse.toString())
+                                Log.e("response",otpResponse.toString())
                                 if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
+
                                     Re_Address.setText(otpResponse.data.residence_address_line2)
                                     Re_City.setText(otpResponse.data.city)
                                     Re_State.setText(otpResponse.data.state)
                                     FollupAddress=Re_Address.text.toString()+" "+Re_City.text.toString()
                                     SessionManegar().saveString(this,Constants.USER_Follup_Address,FollupAddress.toString())
+                                    //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
                                 {
-                                 //   newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
                             }
@@ -423,7 +430,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                              //  newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 Log.e("Resopncelogin6",message);
                             }
                         }

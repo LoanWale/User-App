@@ -22,6 +22,7 @@ class RecoveryAddressViewModel(
     private val appRepository: AppRepository
 ) : AndroidViewModel(app) {
 
+
     private val _RecoverResponse = MutableLiveData<Event<Resource<RecoveryResponse>>>()
     val recoveryResponse:LiveData<Event<Resource<RecoveryResponse>>> = _RecoverResponse
 
