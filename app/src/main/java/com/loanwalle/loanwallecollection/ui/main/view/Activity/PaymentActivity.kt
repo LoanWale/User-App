@@ -13,13 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.checkpayment.CheckPaymentR_Request
+import com.loanwalle.loanwallecollection.data.model.submitPayment.SubmitPaymentRequest
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityPaymentBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.adapter.ChcekPayment_ADP
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.CheckPaymentViewModel
+import com.loanwalle.loanwallecollection.ui.main.viewmodel.SubmitPaymentViewModel
 import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.Resource
+import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import com.loanwalle.loanwallecollection.utils.toast
 import kotlinx.android.synthetic.main.activity_home_page.*
@@ -32,6 +35,7 @@ class PaymentActivity : AppCompatActivity() {
     var paymentmode:String =""
     var paymentRecivedfrom:String = ""
     lateinit var viewUpdatePaymetn: CheckPaymentViewModel
+    lateinit var submitPaymentViewModel: SubmitPaymentViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindig = ActivityPaymentBinding.inflate(layoutInflater)
@@ -83,6 +87,7 @@ class PaymentActivity : AppCompatActivity() {
 
         submitpage.setOnClickListener {
 
+
             if (paymentmode.isNullOrEmpty()) {
                 toast("Please Select Payment Mode")
 
@@ -95,10 +100,9 @@ class PaymentActivity : AppCompatActivity() {
                 toast("Please Enter Amount")
             }else
             {
-                val intt = Intent(this, PaymentSuccessfullActivity::class.java)
-                intt.putExtra(Constants.USER_Amount,total_payble.text.toString().trim())
-                startActivity(intt)
-                finish()
+                setupViewModel()
+                SubmitPage()
+
             }
 
 
@@ -146,6 +150,7 @@ class PaymentActivity : AppCompatActivity() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
         viewUpdatePaymetn = ViewModelProvider(this, factory).get(CheckPaymentViewModel::class.java)
+        submitPaymentViewModel = ViewModelProvider(this, factory).get(SubmitPaymentViewModel::class.java)
 
     }
 
@@ -211,17 +216,19 @@ class PaymentActivity : AppCompatActivity() {
 
     }
 
-
     fun SubmitPage() {
-        val user = "44"// sessionManegar.getString(this, Constants.USER_ID)
-        val userid = user
-        if (userid != null) {
-            val body = CheckPaymentR_Request(
-                "55546"
+        val followup_id = SessionManegar().getString(this, Constants.USER_Follup_id)
+        val payment_method = Ra_web.text.toString()
+        val payment_mode = Ra_online.text.toString()
+        val recieved_amount = total_payble.text.toString()// sessionManegar.getString(this, Constants.USER_ID)
+
+        if (followup_id != null && payment_method != null && payment_mode != null && recieved_amount != null) {
+            val body = SubmitPaymentRequest(
+                followup_id,payment_method,payment_mode,recieved_amount
             )
-            viewUpdatePaymetn.loginUser(body)
+            submitPaymentViewModel.paymentSub(body)
             Log.e("BODY", body.toString())
-            viewUpdatePaymetn.loginResponse.observe(this, Observer { event ->
+            submitPaymentViewModel.submitpay.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
                         is Resource.Success -> {
@@ -229,9 +236,13 @@ class PaymentActivity : AppCompatActivity() {
                             response.data?.let { otpResponse ->
                                 val message: String = otpResponse.message
                                 Log.e("Checkpayment", otpResponse.toString())
-                                if (otpResponse.status.equals("200")) {
+                                if (otpResponse.message.equals("Data updated Successfully")&&otpResponse.status.equals("200")) {
 
 
+                                    val intt = Intent(this, PaymentSuccessfullActivity::class.java)
+                                    intt.putExtra(Constants.USER_Amount,total_payble.text.toString().trim())
+                                    startActivity(intt)
+                                    finish()
                                     // final submit
 
 

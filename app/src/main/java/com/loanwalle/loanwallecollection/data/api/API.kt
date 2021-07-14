@@ -29,6 +29,8 @@ import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.sendOtp.ResponseOtp
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitResponse
+import com.loanwalle.loanwallecollection.data.model.submitPayment.SubmitPaymentRequest
+import com.loanwalle.loanwallecollection.data.model.submitPayment.SubmitPaymentResponse
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayLeadResponce
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.token.TokenRequest
@@ -123,6 +125,9 @@ interface API {
 
     @POST("Notify/repayCallBack")
     suspend fun getCheckpayment(@Body body: CheckPaymentR_Request):Response<CheckPayment_Response>
+
+    @POST("user/update-collection-recieved-amount")
+    suspend fun submitPayment(@Body body: SubmitPaymentRequest):Response<SubmitPaymentResponse>
 
 
 }

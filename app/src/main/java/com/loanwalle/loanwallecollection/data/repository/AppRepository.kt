@@ -16,6 +16,7 @@ import com.loanwalle.loanwallecollection.data.model.previousPayment.PreviousPaym
 import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
 import com.loanwalle.loanwallecollection.data.model.sendOtp.RequestOtpBody
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
+import com.loanwalle.loanwallecollection.data.model.submitPayment.SubmitPaymentRequest
 import com.loanwalle.loanwallecollection.data.model.todaylead.TodayleadRequ
 import com.loanwalle.loanwallecollection.data.model.token.TokenRequest
 import com.loanwalle.loanwallecollection.data.model.totalLead.TotalLeadRequest
@@ -47,4 +48,5 @@ class AppRepository {
     suspend fun updateToken(body: TokenRequest) = RetrofitInstance.loginApi.updatetoken(body)
     suspend fun loanupdate(body: Collection_Request) = RetrofitInstance.loginApi.loanupdat(body)
     suspend fun previousPayment(body: PreviousPaymentRequest) = RetrofitInstance.loginApi.previousPayment(body)
+    suspend fun submitPayment(body: SubmitPaymentRequest) = RetrofitInstance.loginApi.submitPayment(body)
 }

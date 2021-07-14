@@ -20,6 +20,14 @@
         android:layout_height="wrap_content"
         />
 
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btncamera"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loanwlee"
+        android:layout_marginBottom="@dimen/_80sdp"
+        android:layout_marginStart="10dp"     />
         <TextView
             android:layout_gravity="center"
             android:id="@+id/imageView"
@@ -32,6 +40,7 @@
 
 
         <TextView
+            android:visibility="gone"
             android:layout_gravity="center"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -45,12 +54,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_17sdp"
-        android:hint="Enter Mobile"
+        android:hint="User ID"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
