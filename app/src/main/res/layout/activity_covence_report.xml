@@ -94,7 +94,7 @@
                 android:layout_gravity="center"
                 android:textSize="@dimen/_16sdp"
                 android:fontFamily="@font/robotomedium"
-                android:text=" From Date "
+                android:text=" From Dat e "
                 android:layout_weight=".5"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"/>
