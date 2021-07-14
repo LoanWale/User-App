@@ -76,7 +76,6 @@ public class AadharCard extends AppCompatActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView((int) R.layout.activity_aadhar_card);
-        getWindow().setFlags(8192, 8192);
         this.sharedPreferences = getSharedPreferences("User_Info", 0);
         this.requestQueue = Volley.newRequestQueue(this);
         this.onLoadImageClick = (Button) findViewById(R.id.onLoadImageClick);

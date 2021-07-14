@@ -46,8 +46,6 @@ class LoanDashboardActivity : AppCompatActivity() {
 
 
         binding!!.currentAddText.setOnClickListener {
-            val running = SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
-            Log.e("Running",running.toString())
             val inten = Intent(this, CurrentRecoveryAddressActivity::class.java)
             inten.putExtra(Constants.RESIDANCE_ADD, "RESIDANCE ADDRESS")
             inten.putExtra(Constants.USER_LEAD_ID, lead_id)

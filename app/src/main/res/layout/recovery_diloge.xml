@@ -7,15 +7,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
+        android:background="@drawable/edit_drawable"
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_height="match_parent">
         <TextView
-            android:textSize="@dimen/_24sdp"
+            android:textSize="@dimen/_18sdp"
             android:gravity="center"
             android:fontFamily="@font/robotomedium"
             android:layout_gravity="center"
-            android:text="Are you want to visit now ? "
+            android:text="Visit Now  "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -26,27 +28,30 @@
             android:weightSum="1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp">
-            <Button
+            <TextView
                 android:padding="@dimen/_2sdp"
                 android:id="@+id/Visit_no"
-
                 android:layout_width="0dp"
                 android:backgroundTint="@color/gray"
                 android:layout_marginLeft="@dimen/_7sdp"
                 android:layout_weight=".5"
+                android:background="@drawable/edit_drawable"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_height="match_parent"
-                android:background="@drawable/sign_in_button_drawable"
                 android:text="NO"
                 android:layout_marginRight="@dimen/_7sdp"
-                android:textColor="@color/white"
+                android:textColor="@color/blacklight"
                 />
-            <Button
+            <TextView
                 android:id="@+id/Visit_yes"
 
                 android:layout_marginRight="@dimen/_7sdp"
                 android:padding="@dimen/_2sdp"
                 android:layout_width="0dp"
                 android:layout_weight=".5"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_height="match_parent"
                 android:background="@drawable/sign_in_button_drawable"
                 android:text="YES"

@@ -23,11 +23,13 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/btncamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:src="@drawable/gif_image_logo"
         android:layout_marginBottom="@dimen/_80sdp"
-        android:layout_marginStart="10dp"     />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        tools:ignore="MissingClass" />
         <TextView
             android:layout_gravity="center"
             android:id="@+id/imageView"

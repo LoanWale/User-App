@@ -8,6 +8,7 @@ object Constants{
     const val RUNNING_STATUS = "running_status"
     const val RUNNING_LEAD_ID = "running_id"
     const val COLLECTION_RUNNING = "collectionrunning"
+    const val REQUESTED_AMOUNT = "requested_amount"
     const val USER_MOBILE = "mobile"
     const val USER_Follup_id = "follup_id"
     const val USER_Follup_Address = "follup_Address"

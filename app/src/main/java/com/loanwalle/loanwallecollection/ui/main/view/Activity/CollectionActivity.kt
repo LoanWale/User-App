@@ -41,6 +41,9 @@ import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
 import com.loanwalle.loanwallecollection.utils.toast
 import kotlinx.android.synthetic.main.activity_collection.*
+import kotlinx.android.synthetic.main.activity_current_recovery_address.*
+import kotlinx.android.synthetic.main.activity_current_recovery_address.startvisit
+import kotlinx.android.synthetic.main.activity_recovery_address.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -55,6 +58,7 @@ class CollectionActivity : AppCompatActivity() {
     var Total_Payable_Amount = ""
     var net_disbursal_amount = ""
     var balanceintrest: Int? = null
+
 
     // Get location
 
@@ -82,7 +86,7 @@ class CollectionActivity : AppCompatActivity() {
                 cal.set(Calendar.YEAR, year)
                 cal.set(Calendar.MONTH, monthOfYear)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                val myFormat = "dd.MM.yyyy" // mention the format you need
+                val myFormat = "dd-MM-yyyy" // mention the format you need
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
                 next_sch_date.text = "Next Schedule Date " + sdf.format(cal.time)
 
@@ -99,12 +103,9 @@ class CollectionActivity : AppCompatActivity() {
 
 
 
-if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
-{
-    val intent = Intent(this, PaymentActivity::class.java)
-    startActivity(intent)
-    finish()
-}
+
+
+
 
         if (!checkGPSEnabled()) {
             return
@@ -129,42 +130,6 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
 
 
 
-        submit.setOnClickListener {
-
-
-            if (principlea.text.toString().isEmpty()) {
-                toast("please enter amount ")
-
-            } else if (closertype.isEmpty()) {
-                toast("please select Closer type")
-
-            } else if (Collection_Remark.text.toString().isEmpty()) {
-                toast("please enter remark")
-
-            } else if (Edit_KM.text.toString().isEmpty()) {
-                toast("please enter travel distance")
-
-            } else if (paymentstatus.equals("2") || paymentstatus.equals("3")) {
-
-                if (next_sch_date.text.toString().equals("Next Schedule Date")) {
-                    toast("please select Schedule Date")
-                } else {
-
-                    update_Loan_Detils()
-
-                }
-
-
-            }else
-            {
-
-                update_Loan_Detils()
-
-            }
-
-
-            // direct paymet page
-        }
 
          radio_reg.setOnClickListener {
 
@@ -250,6 +215,26 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
 
                 }
             }
+
+
+
+
+
+
+        if(SessionManegar().getString(this,Constants.COLLECTION_RUNNING)=="1")
+        {
+            val intent = Intent(this, PaymentActivity::class.java)
+            startActivity(intent)
+            finish()
+        }else
+        {
+
+        }
+
+
+
+
+
 
         principlea.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -343,7 +328,7 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
                     part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
                     next_sch_date.isVisible = true
                     img_calender.isVisible = true
-                    paymentstatus = "nill"
+                    paymentstatus = "3"
 
                     next_sch_date.setText("Next Schedule Date")
 
@@ -352,6 +337,48 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
 
 
         })
+
+        submitpayment.setOnClickListener {
+
+
+            if (principlea.text.toString().isBlank()) {
+              //  toast("please enter amount ")
+
+                Toast.makeText(this, "please enter amount", Toast.LENGTH_SHORT).show()
+
+            } else if (closertype.isEmpty()) {
+                toast("please select Closer type")
+
+            } else if (Edit_KM.text.toString().isEmpty()) {
+                toast("please enter travel distance")
+
+            } else if (paymentstatus.equals("2") || paymentstatus.equals("3")) {
+
+                if (next_sch_date.text.toString().equals("Next Schedule Date")) {
+                    toast("please select Schedule Date")
+                } else {
+
+
+
+
+
+
+
+
+                    update_Loan_Detils()
+
+
+                }
+
+
+            }else
+            {
+                update_Loan_Detils()
+
+            }
+
+        }
+
     }
 
 
@@ -457,8 +484,6 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
 
         val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val time = SimpleDateFormat("hh-mm-ss", Locale.getDefault()).format(Date())
-
-
         val user =  SessionManegar().getString(this, Constants.USER_ID)
         val userid = user
         if (userid != null) {
@@ -493,9 +518,12 @@ if (SessionManegar().getString(this,Constants.COLLECTION_RUNNING).equals("1"))
                                 Log.e("Resopncelogin7", message)
                                 if (otpResponse.status.equals("200")) {
                                     val intent = Intent(this, PaymentActivity::class.java)
-                                    startActivity(intent)
                                     SessionManegar().saveString(this,Constants.COLLECTION_RUNNING,"1")
+                                    SessionManegar().saveString(this,Constants.REQUESTED_AMOUNT,principlea.text.toString().trim())
                                     //SessionManegar().remove(this, Constants.RUNNING_LEAD_ID)
+                                    Log.e("prinipleamount",principlea.text.toString())
+                                    startActivity(intent)
+
                                     finish()
                                 } else {
                                     prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)

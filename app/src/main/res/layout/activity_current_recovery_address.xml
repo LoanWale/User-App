@@ -117,7 +117,7 @@
             android:paddingStart="15dp"
             android:textColor="@color/black"
             android:textSize="13sp"
-            android:text="NOIDA METRO 15"
+            android:text="noida 15 metro "
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
@@ -153,7 +153,7 @@
             android:layout_weight=".6"
             android:fontFamily="@font/robotomedium"
             android:gravity="end|center"
-            android:text="NOIDA 15 GAL INO 13"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="13sp" />
     </LinearLayout>

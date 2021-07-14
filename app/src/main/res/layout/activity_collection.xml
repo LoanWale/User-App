@@ -13,6 +13,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotomedium"
+                android:gravity="center"
+                android:text="Initiation Form"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/robotomedium"
+            android:text="PAYMENT TYPE"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,15 +114,7 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="44dp"
-            android:fontFamily="@font/robotomedium"
-            android:text="PAYMENT TYPE"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+
 
         <TextView
             android:id="@+id/text_balnce"
@@ -96,33 +126,6 @@
             android:visibility="gone" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/ic_left_arrow"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/robotomedium"
-                android:gravity="center"
-                android:text="Collection"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,7 +148,7 @@
                 android:maxLength="7"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/blacklightlow"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,8 +167,8 @@
                 android:hint="Remarks"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="17sp"
+                android:textColorHint="@color/blacklightlow"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_b"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout3_b"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_b" />
@@ -202,8 +205,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_a">
+                app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -266,6 +269,7 @@
                             android:text="Discount"
                             android:textColor="@color/black"
                             android:textSize="10sp" />
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -338,7 +342,7 @@
                                 android:textSize="10sp" />
 
 
-                             <RadioButton
+                            <RadioButton
                                 android:id="@+id/part_radio"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -348,8 +352,6 @@
                                 android:gravity="center"
                                 android:textColor="@color/black"
                                 android:textSize="10sp" />
-
-
 
 
                         </RadioGroup>
@@ -439,7 +441,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Balance Principal"
+                    android:text=" Principal Due"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="14sp"
@@ -495,7 +497,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/robotomedium"
                     android:padding="10dp"
-                    android:text="Balance Interest %"
+                    android:text=" Interest Due"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -547,7 +549,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/robotomedium"
                     android:padding="10dp"
-                    android:text="Total Balance"
+                    android:text="Total Due"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -581,6 +583,61 @@
                     app:layout_constraintVertical_bias="0.476" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_a">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/full_payment_drawable"
+                    android:fontFamily="@font/robotoregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Part"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/part_pyment_drawable"
+                    android:fontFamily="@font/robotoregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Full"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/part_pyment_drawable"
+                    android:fontFamily="@font/robotoregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Nil"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -604,7 +661,7 @@
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/blacklightlow"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -626,32 +683,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="30dp"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/submitpayment"
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sign_in_button_drawable"
                 android:paddingLeft="20dp"
-                android:paddingRight="50dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_120sdp"
+                android:paddingRight="30dp"
+                android:layout_marginBottom="@dimen/_40sdp"
                 android:text="SUBMIT"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                 />
 
 
     </LinearLayout>

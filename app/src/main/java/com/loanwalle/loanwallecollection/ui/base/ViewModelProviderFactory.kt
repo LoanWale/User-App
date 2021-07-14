@@ -17,6 +17,11 @@ class ViewModelProviderFactory(
             return TokenViewModel(app, appRepository) as T
         }
 
+
+ if (modelClass.isAssignableFrom(SubmitPaymentViewModel::class.java)) {
+            return SubmitPaymentViewModel(appRepository,app ) as T
+        }
+
         if (modelClass.isAssignableFrom(CheckPaymentViewModel::class.java)) {
             return CheckPaymentViewModel(app, appRepository) as T
         }
