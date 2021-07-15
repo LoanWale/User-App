@@ -7,6 +7,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
@@ -39,13 +41,17 @@ import com.loanwalle.loanwallecollection.ui.main.viewmodel.RecoveryAddressViewMo
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
 import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.*
-import org.w3c.dom.Text
+import kotlinx.android.synthetic.main.activity_current_recovery_address.*
+import kotlinx.android.synthetic.main.activity_recovery_address.*
+import kotlinx.android.synthetic.main.activity_recovery_address.startvisit
+import kotlinx.android.synthetic.main.activity_resest.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CurrentRecoveryAddressActivity : AppCompatActivity() {
      var binding : ActivityCurrentRecoveryAddressBinding? = null
+
     lateinit var startVisitViewModel : StartVisitViewModel
     lateinit var RecoveryViewModal : RecoveryAddressViewModel
     private val LOCATION_CODE = 1
@@ -69,34 +75,29 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
 
+
+        back_layout_currnt.setOnClickListener{
+            onBackPressed()
+        }
+
         if (intent.getStringExtra(Constants.RESIDANCE_ADD)!= null){
             addName = intent.getStringExtra(Constants.RESIDANCE_ADD)
-            binding!!.ofResPreAdd.text = addName
+            of_res_pre_add.text = addName
             lead_id = intent.getStringExtra(Constants.USER_LEAD_ID)
             loanNub = intent.getStringExtra(Constants.USER_LOAN_NUMBER)
         }
         else if (intent.getStringExtra(Constants.OFFICE_ADD)!= null){
             addName = intent.getStringExtra(Constants.OFFICE_ADD)
-            binding!! .ofResPreAdd.text = addName
+            of_res_pre_add.text = addName
         }
         else if (intent.getStringExtra(Constants.PREFERRED_ADD)!= null){
             addName = intent.getStringExtra(Constants.PREFERRED_ADD)
-            binding!!.ofResPreAdd.text = addName
+            of_res_pre_add.text = addName
         }
+
 
         init()
-
-
-        GetCollectionAddress()
-
-        binding!!.backLayoutCurrnt.setOnClickListener{
-            onBackPressed()
-        }
-
-
-
-
-        binding!!.map.setOnClickListener {
+        map.setOnClickListener {
             Log.e("mappp","ook")
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("geo:28.6782,77.3608"))
             i.setClassName(
@@ -111,8 +112,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
 
-        Log.e("leaddidd",lead_id!!.toString())
-
 
          runningstatus=SessionManegar().getString(this,Constants.RUNNING_STATUS)
          running_Leadid=SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
@@ -122,24 +121,24 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         if(runningstatus=="1" && running_Leadid!!.equals(lead_id))
         {
 
-            binding!!.Continue.isVisible=true
+            Continue.isVisible=true
             // check for running loan status
-            binding!!.startvisit.isVisible=false
-            binding!!.starttnow.isVisible=false
+            startvisit.isVisible=false
+            starttnow.isVisible=false
 
 
         }else
         {
-            binding!!. Continue.isVisible=false
-            binding!!. startvisit.isVisible=true
-            binding!!.starttnow.isVisible=true
+            Continue.isVisible=false
+            startvisit.isVisible=true
+            starttnow.isVisible=true
             //ss start running for collection
 
         }
 
 
 
-        binding!!. Continue.setOnClickListener {
+        Continue.setOnClickListener {
             val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
             startActivity(i)
             finish()
@@ -194,10 +193,11 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         val factory = ViewModelProviderFactory(application, repository)
         startVisitViewModel= ViewModelProvider(this, factory).get(StartVisitViewModel::class.java)
         RecoveryViewModal = ViewModelProvider(this, factory).get(RecoveryAddressViewModel::class.java)
+
+        GetCollectionAddress()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastLocation()
         getCurrentDate()
-
     }
 
     fun verifyClick() {
@@ -238,9 +238,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                     val follupid:String=verifyResponse.data.followup_id.toString()
                                     SessionManegar().saveString(this,Constants.USER_Follup_id,follupid)
                                     SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
-                                    binding!!. startvisit!!.setBackgroundResource(R.color.gray)
-                                    binding!!. starttnow.setBackgroundResource(R.color.applColor)
-                                    SessionManegar().saveString(this,Constants.RUNNING_STATUS,"1")
                                     val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
                                     startActivity(i)
                                     finish()
@@ -249,7 +246,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                                 else
 
                                 {
-                                    binding!!. newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
 
 
@@ -259,7 +256,7 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                                binding!!. newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                             }
                         }
 
@@ -368,6 +365,26 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
 
+
+    private fun getCityName(lat:Double,lon:Double):String{
+        var cityName = ""
+        val geocoder = Geocoder(this,Locale.getDefault())
+        val address : List<Address> = geocoder.getFromLocation(lat,lon,1)
+
+        cityName = address.get(0).locality
+        return cityName
+    }
+
+    private fun getCountryName(lat:Double,lon:Double):String{
+        var countryName = ""
+        val geocoder = Geocoder(this,Locale.getDefault())
+        val address : List<Address> = geocoder.getFromLocation(lat,lon,1)
+
+        countryName = address.get(0).getAddressLine(0)
+        return countryName
+    }
+
+
     private fun getCurrentDate(){
         val dateFormatter: DateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
         dateFormatter.setLenient(false)
@@ -375,32 +392,36 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         CurrentDate = dateFormatter.format(today)
     }
 
-  public  fun GetCollectionAddress() {
-     //   if (lead_id222!==null) {
+    fun GetCollectionAddress() {
+        val lead_id = lead_id
+        //Log.d("leaddd",lead_id.toString())
+        if (lead_id!=null) {
             val body = RecoveryRequest(
-                lead_id.toString())
+                lead_id
+            )
             RecoveryViewModal.recoveryAddress(body)
-            Log.e("BODY",body.toString())
+            //Log.e("BODY",body.toString())
             RecoveryViewModal.recoveryResponse.observe(this, Observer { event ->
                 event.getContentIfNotHandled()?.let { response ->
                     when (response) {
                         is Resource.Success -> {
                             hideProgressBar()
                             response.data?.let { otpResponse ->
-
                                 val message:String= otpResponse.message
-                                Log.e("dattttta",otpResponse.toString())
-                                if (otpResponse.status.equals("200"))
+                                LOG.GetLogError("message",otpResponse.toString())
+                                Log.e("response",otpResponse.toString())
+                                if (message.equals("success")&&otpResponse.status.equals("200"))
                                 {
-                                    binding!!. ReAddress.setText(otpResponse.data.residence_address_line2)
-                                    binding!!. ReCity.setText(otpResponse.data.city)
-                                    binding!!.  ReState.setText(otpResponse.data.state)
-                                    FollupAddress=binding!!.ReAddress.text.toString()+" "+binding!!.ReCity.text.toString()
+                                    Re_Address.setText(otpResponse.data.residence_address_line2)
+                                    Re_City.setText(otpResponse.data.city)
+                                    Re_State.setText(otpResponse.data.state)
+                                    FollupAddress=Re_Address.text.toString()+" "+Re_City.text.toString()
                                     SessionManegar().saveString(this,Constants.USER_Follup_Address,FollupAddress.toString())
+                                    //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
                                 else
                                 {
-                                    binding!!. newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                    newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
                             }
@@ -409,8 +430,8 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Error -> {
                             hideProgressBar()
                             response.message?.let { message ->
-                              //  newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                Log.e("erorresidence",message);
+                                newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
+                                Log.e("Resopncelogin6",message);
                             }
                         }
 
@@ -422,14 +443,14 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             })
 
 
-      //  }
+        }
 
     }
     fun hideProgressBar() {
-        binding!!.newprogress.visibility = View.GONE
+        newprogress.visibility = View.GONE
     }
     fun showProgressBar() {
-        binding!!. newprogress.visibility = View.VISIBLE
+        newprogress.visibility = View.VISIBLE
     }
 
     private fun showDialog() {
@@ -440,7 +461,10 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
         val Visit_yes = dialog.findViewById(R.id.Visit_yes) as TextView
         val Visit_no = dialog.findViewById(R.id.Visit_no) as TextView
         Visit_yes.setOnClickListener {
-
+            startvisit!!.setBackgroundResource(R.color.gray)
+            starttnow.setBackgroundResource(R.color.applColor)
+            SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
+            SessionManegar().saveString(this,Constants.RUNNING_STATUS,"1")
             dialog.dismiss()
 
         }
