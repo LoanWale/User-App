@@ -79,6 +79,10 @@ class CollectionActivity : AppCompatActivity() {
         initializationn()
 
 
+        backkk.setOnClickListener {
+            onBackPressed()
+        }
+
         // next_sch_date.text = SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())
         val cal = Calendar.getInstance()
         val dateSetListener =
@@ -256,8 +260,7 @@ class CollectionActivity : AppCompatActivity() {
                     if (Total_Payable_Amount < principlea.text.toString()) {
                         toast("Amount should be less then repayment amount")
                         paymentstatus = "1"
-                        val unpaidamount2: Int =
-                            Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
+                        val unpaidamount2: Int = Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
                         unpaidamount.setText(unpaidamount2.toString())
                     } else if (Total_Payable_Amount == principlea.text.toString()) {
                         part_payment.background =
@@ -274,9 +277,13 @@ class CollectionActivity : AppCompatActivity() {
                         next_sch_date.isVisible = false
                         img_calender.isVisible = false
                         paymentstatus = "1"
-                        val unpaidamount2: Int =
-                            Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
+                        val unpaidamount2: Int = Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
                         unpaidamount.setText(unpaidamount2.toString())
+
+
+
+
+
 
                     } else if (Total_Payable_Amount > principlea.text.toString() && principlea.text.toString()
                             .toInt() >= 1
@@ -329,7 +336,6 @@ class CollectionActivity : AppCompatActivity() {
                     next_sch_date.isVisible = true
                     img_calender.isVisible = true
                     paymentstatus = "3"
-
                     next_sch_date.setText("Next Schedule Date")
 
                 }
@@ -340,10 +346,8 @@ class CollectionActivity : AppCompatActivity() {
 
         submitpayment.setOnClickListener {
 
-
             if (principlea.text.toString().isBlank()) {
               //  toast("please enter amount ")
-
                 Toast.makeText(this, "please enter amount", Toast.LENGTH_SHORT).show()
 
             } else if (closertype.isEmpty()) {
@@ -357,24 +361,12 @@ class CollectionActivity : AppCompatActivity() {
                 if (next_sch_date.text.toString().equals("Next Schedule Date")) {
                     toast("please select Schedule Date")
                 } else {
-
-
-
-
-
-
-
-
                     update_Loan_Detils()
-
-
                 }
-
 
             }else
             {
                 update_Loan_Detils()
-
             }
 
         }
@@ -476,6 +468,7 @@ class CollectionActivity : AppCompatActivity() {
 
         next_sch_date.isVisible = false
         img_calender.isVisible = false
+        linerpart2.isVisible = false
         setupViewModel()
     }
 

@@ -15,9 +15,11 @@
         android:orientation="vertical">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/backkk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -203,10 +205,10 @@
                 android:id="@+id/constraintLayout4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout5"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
+                app:layout_constraintTop_toBottomOf="@+id/linerpart2">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -584,23 +586,25 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout5"
+                
+                android:id="@+id/linerpart2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:orientation="horizontal"
-                android:weightSum="6"
+                android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout3_a"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout3_a"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_a">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/part2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:background="@drawable/full_payment_drawable"
                     android:fontFamily="@font/robotoregular"
                     android:gravity="center"
@@ -609,12 +613,13 @@
                     android:textColor="@color/white" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/full2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:background="@drawable/part_pyment_drawable"
                     android:fontFamily="@font/robotoregular"
                     android:gravity="center"
@@ -634,6 +639,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Nil"
+                    android:visibility="gone"
                     android:textColor="@color/black" />
 
 
