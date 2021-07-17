@@ -49,7 +49,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CurrentRecoveryAddressActivity : AppCompatActivity() {
+class  CurrentRecoveryAddressActivity : AppCompatActivity() {
      var binding : ActivityCurrentRecoveryAddressBinding? = null
 
     lateinit var startVisitViewModel : StartVisitViewModel
@@ -177,10 +177,6 @@ class CurrentRecoveryAddressActivity : AppCompatActivity() {
             }else
             {
                 verifyClick()
-
-
-
-
 
             }
 

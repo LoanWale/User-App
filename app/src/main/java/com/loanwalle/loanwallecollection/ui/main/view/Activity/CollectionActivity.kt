@@ -70,6 +70,7 @@ class CollectionActivity : AppCompatActivity() {
     var Longitude: Double? = null
 
 
+    @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCollectionBinding.inflate(layoutInflater)
@@ -108,6 +109,18 @@ class CollectionActivity : AppCompatActivity() {
 
 
 
+        part2.setOnClickListener {
+            full2.background =
+                getDrawable(R.drawable.part_pyment_drawable)// getDrawable(R.drawable.part_pyment_drawable)
+            part2.background = getDrawable(R.drawable.full_payment_drawable)
+        }
+
+
+        full2.setOnClickListener {
+            part2.background = getDrawable(R.drawable.part_pyment_drawable)
+            full2.background = getDrawable(R.drawable.full_payment_drawable)
+        }
+
 
 
 
@@ -132,10 +145,7 @@ class CollectionActivity : AppCompatActivity() {
         }
 
 
-
-
-
-         radio_reg.setOnClickListener {
+        radio_reg.setOnClickListener {
 
             if (radio_reg.isChecked) {
                 closertype = "1"
@@ -202,43 +212,28 @@ class CollectionActivity : AppCompatActivity() {
         }
 
 
-         part_radio.setOnClickListener {
-                if (part_radio.isChecked) {
-                    closertype = "5"
-                    radio_settalment.setChecked(false)
-                    radio_writeoff.setChecked(false)
-                    radio_reg.setChecked(false)
-                    radi_discount.setChecked(false)
+        part_radio.setOnClickListener {
+            if (part_radio.isChecked) {
+                closertype = "5"
+                radio_settalment.setChecked(false)
+                radio_writeoff.setChecked(false)
+                radio_reg.setChecked(false)
+                radi_discount.setChecked(false)
 
-//Log.e("partriun","1")
-                } else {
-                    part_radio.setChecked(false)
-                    closertype = ""
-                  //  Log.e("partriun","0")
+            } else {
+                part_radio.setChecked(false)
+                closertype = ""
 
 
-                }
             }
+        }
 
-
-
-
-
-
-        if(SessionManegar().getString(this,Constants.COLLECTION_RUNNING)=="1")
-        {
+        if (SessionManegar().getString(this, Constants.COLLECTION_RUNNING) == "1") {
             val intent = Intent(this, PaymentActivity::class.java)
             startActivity(intent)
             finish()
-        }else
-        {
-
+        } else {
         }
-
-
-
-
-
 
         principlea.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -249,6 +244,7 @@ class CollectionActivity : AppCompatActivity() {
                 count: Int, after: Int
             ) {
 
+
             }
 
             override fun onTextChanged(
@@ -257,88 +253,164 @@ class CollectionActivity : AppCompatActivity() {
             ) {
                 if (s.length > 0) {
 
-                    if (Total_Payable_Amount < principlea.text.toString()) {
+                    /*
+                    *  if  input amount greater then total payabl amount
+                    *
+                    * */
+
+                    if (principlea.text.toString().toInt() >Total_Payable_Amount.toInt()  ) {
                         toast("Amount should be less then repayment amount")
                         paymentstatus = "1"
-                        val unpaidamount2: Int = Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
-                        unpaidamount.setText(unpaidamount2.toString())
-                    } else if (Total_Payable_Amount == principlea.text.toString()) {
-                        part_payment.background =
-                            resources.getDrawable(R.drawable.part_pyment_drawable)
-                        nil_payment.background =
-                            resources.getDrawable(R.drawable.part_pyment_drawable)
-                        full_payment.background =
-                            resources.getDrawable(R.drawable.full_payment_drawable)
-
-                        full_payment.setTextColor(getColor(R.color.white))
-                        nil_payment.setTextColor(getColor(R.color.black))
-                        part_payment.setTextColor(getColor(R.color.black))
-
-                        next_sch_date.isVisible = false
-                        img_calender.isVisible = false
-                        paymentstatus = "1"
-                        val unpaidamount2: Int = Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
-                        unpaidamount.setText(unpaidamount2.toString())
-
-
-
-
-
-
-                    } else if (Total_Payable_Amount > principlea.text.toString() && principlea.text.toString()
-                            .toInt() >= 1
-                    ) {
-                        part_payment.background =
-                            resources.getDrawable(R.drawable.full_payment_drawable)
-                        part_payment.setTextColor(getColor(R.color.white))
-                        full_payment.background =
-                            resources.getDrawable(R.drawable.part_pyment_drawable)
-                        nil_payment.background =
-                            resources.getDrawable(R.drawable.part_pyment_drawable)
-                        full_payment.setTextColor(getColor(R.color.black))
-                        nil_payment.setTextColor(getColor(R.color.black))
-                        img_calender.isVisible = true
-                        next_sch_date.isVisible = true
-                        paymentstatus = "2"
-                        val unpaidamount2: Int =
-                            Total_Payable_Amount.toInt() - principlea.text.toString().toInt()
-                        unpaidamount.setText(unpaidamount2.toString())
-
-                        next_sch_date.setText("Next Schedule Date")
-
-                    } else if (principlea.text.toString().toInt() <= 0) {
-
-                        nil_payment.setTextColor(getColor(R.color.white))
-                        nil_payment.background =
-                            resources.getDrawable(R.drawable.full_payment_drawable)
-                        full_payment.setTextColor(getColor(R.color.black))
-                        full_payment.background =
-                            resources.getDrawable(R.drawable.part_pyment_drawable)
-                        part_payment.setTextColor(getColor(R.color.black))
-                        part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
-                        next_sch_date.isVisible = true
-                        img_calender.isVisible = true
-                        val unpaidamount2: Int = Total_Payable_Amount.toInt()
-                        unpaidamount.setText(unpaidamount2.toString())
-                        paymentstatus = "3"
-                        next_sch_date.setText("Next Schedule Date")
-
+                        unpaidamount.setText("0")
+                        linerpart2.isVisible = false
+                        radio_reg.isChecked = true
+                        radio_settalment.isEnabled = false
+                        radio_writeoff.isEnabled = false
+                        radi_discount.isEnabled = false
 
                     }
 
-                } else {
-                    nil_payment.setTextColor(getColor(R.color.white))
-                    nil_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
-                    full_payment.setTextColor(getColor(R.color.black))
-                    full_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
-                    part_payment.setTextColor(getColor(R.color.black))
-                    part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
-                    next_sch_date.isVisible = true
-                    img_calender.isVisible = true
-                    paymentstatus = "3"
-                    next_sch_date.setText("Next Schedule Date")
+                    /*
+                    * If Input amount equal to totalpayble amount mark as full payment
+                    *    settalment or discount
+                    * */
+
+                  else  if (Total_Payable_Amount == principlea.text.toString()) {
+                        part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+                        nil_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+                        full_payment.background = getDrawable(R.drawable.full_payment_drawable)
+                        full_payment.setTextColor(getColor(R.color.white))
+                        nil_payment.setTextColor(getColor(R.color.black))
+                        part_payment.setTextColor(getColor(R.color.black))
+                        next_sch_date.isVisible = false
+                        img_calender.isVisible = false
+                        paymentstatus = "1"
+                        linerpart2.isVisible = false
+                        radio_reg.isEnabled = true
+                        radio_reg.isChecked = true
+                        radio_settalment.isEnabled = false
+                        radio_writeoff.isEnabled = false
+                        radi_discount.isEnabled = false
+                        payment1.isVisible = true
+                        next_sch_date.isVisible = false
+                        img_calender.isVisible = false
+                        val unpaidamount2: Int = 1
+                        unpaidamount.setText(unpaidamount2.toString())
+                       // next_sch_date.setText("Next Schedule Date")
+
+                    }
+
+
+                    /*
+                    *  If input amount in betn total payble amount and Net disbursal amount
+                    *  write off condition
+                    *
+                    *  Total payble amount = 63,000
+                    *  Net Disburasal amount =45,000
+
+                    * */
+                    else if (
+                        principlea.text.toString().toInt()
+                        < Total_Payable_Amount.toInt()
+                        &&
+                        principlea.text.toString().toInt()
+                        > net_disbursal_amount.toInt()
+                    ) {
+
+                        radio_reg.isEnabled = false
+                        radio_settalment.isChecked = true
+                        radio_settalment.isEnabled = true
+                        radio_writeoff.isEnabled = false
+                        radi_discount.isChecked = false
+                        radi_discount.isEnabled = true
+                        linerpart2.isVisible = true
+                        payment1.isVisible = false
+                        closer_layout.isVisible = true
+
+                        val unpaidamount2: Int = Total_Payable_Amount.toInt()-principlea.text.toString().toInt()
+                        unpaidamount.setText(unpaidamount2.toString())
+                        next_sch_date.isVisible = true
+                        img_calender.isVisible = true
+                        paymentstatus = "2"
+                        next_sch_date.setText("Next Schedule Date")
+                        //19000 <45000 && 19000 >18500
+                    }
+
+                    /*
+                    *
+                    * mark as part payment if less then net diburasl amount
+                    *  Net Disbural Amount = 45,000
+                    *
+                    *
+                    * */
+
+
+                    else   if (principlea.text.toString()
+                            .toInt() < net_disbursal_amount.toInt() && principlea.text.toString()
+                            .toInt() >= 0
+                    ) {
+
+
+                        radio_reg.isEnabled = false
+                        radio_reg.isChecked = false
+                        radio_settalment.isChecked = false
+                        radio_settalment.isEnabled = false
+                        radio_writeoff.isEnabled = true
+                        radio_writeoff.isChecked = true
+                        radi_discount.isChecked = false
+                        radi_discount.isEnabled = false
+
+                        linerpart2.isVisible = true
+                        closer_layout.isVisible = false
+
+                        full2.background = getDrawable(R.drawable.part_pyment_drawable)
+                        part2.background = getDrawable(R.drawable.full_payment_drawable)
+
+                        val unpaidamount2: Int = Total_Payable_Amount.toInt()-principlea.text.toString().toInt()
+                        unpaidamount.setText(unpaidamount2.toString())
+                        next_sch_date.isVisible = true
+                        img_calender.isVisible = true
+                        paymentstatus = "2"
+                        next_sch_date.setText("Next Schedule Date")
+
+                    }
+
+                    else  if (principlea.text.toString().toInt() <= 0 || principlea.text.toString()
+                            .equals("") || principlea.text.toString().length <= 0 || principlea.text.toString()
+                            .isNullOrBlank()
+                    ) {
+
+                        nil_payment.setTextColor(getColor(R.color.white))
+                        nil_payment.background =
+                            getDrawable(R.drawable.full_payment_drawable)
+                        full_payment.setTextColor(getColor(R.color.black))
+                        full_payment.background =
+                            getDrawable(R.drawable.part_pyment_drawable)
+                        part_payment.setTextColor(getColor(R.color.black))
+                        part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+
+                        val unpaidamount2: Int = Total_Payable_Amount.toInt()
+                        unpaidamount.setText(unpaidamount2.toString())
+                        next_sch_date.isVisible = true
+                        img_calender.isVisible = true
+                        paymentstatus = "3"
+                        next_sch_date.setText("Next Schedule Date")
+
+                        radio_reg.isEnabled = false
+                        radio_reg.isChecked = false
+                        radio_settalment.isChecked = false
+                        radio_settalment.isEnabled = false
+                        radio_writeoff.isEnabled = false
+                        radio_writeoff.isChecked = false
+                        radi_discount.isChecked = false
+                        radi_discount.isEnabled = false
+                        payment1.isVisible = true
+                        linerpart2.isVisible = false
+                    }
 
                 }
+
+
             }
 
 
@@ -347,10 +419,10 @@ class CollectionActivity : AppCompatActivity() {
         submitpayment.setOnClickListener {
 
             if (principlea.text.toString().isBlank()) {
-              //  toast("please enter amount ")
+                //  toast("please enter amount ")
                 Toast.makeText(this, "please enter amount", Toast.LENGTH_SHORT).show()
 
-            } else if (closertype.isEmpty()) {
+            } else if (closertype.isBlank()) {
                 toast("please select Closer type")
 
             } else if (Edit_KM.text.toString().isEmpty()) {
@@ -361,11 +433,19 @@ class CollectionActivity : AppCompatActivity() {
                 if (next_sch_date.text.toString().equals("Next Schedule Date")) {
                     toast("please select Schedule Date")
                 } else {
-                    update_Loan_Detils()
+                    //
+                  //  val intent = Intent(this, PaymentActivity::class.java)
+
+                    //startActivity(intent)
+
+                   update_Loan_Detils()
                 }
 
-            }else
-            {
+            } else {
+               // val intent = Intent(this, PaymentActivity::class.java)
+
+                //startActivity(intent)
+
                 update_Loan_Detils()
             }
 
@@ -390,11 +470,14 @@ class CollectionActivity : AppCompatActivity() {
 
     // Get Loan Details
     fun getloandetails() {
-        val user =  SessionManegar().getString(this, Constants.USER_ID)
+        val user = SessionManegar().getString(this, Constants.USER_ID)
         val userid = user
         if (userid != null) {
             val body = LoanDetailsReq(
-                "2", SessionManegar().getString(this,Constants.RUNNING_LEAD_ID).toString(), "2", userid
+                "2",
+                SessionManegar().getString(this, Constants.RUNNING_LEAD_ID).toString(),
+                "2",
+                userid
             )
             loanDetailsViewModal.userProfile(body)
             Log.e("BODY", body.toString())
@@ -417,11 +500,14 @@ class CollectionActivity : AppCompatActivity() {
                                     principlea.setText(Total_Payable_Amount)
                                     balanceprinciple.setText(net_disbursal_amount)
                                     //
-                                    balanceintrest = otpResponse.data.payable_amount - otpResponse.data.net_disbursal_amount
+                                    balanceintrest =
+                                        otpResponse.data.payable_amount - otpResponse.data.net_disbursal_amount
                                     balance_totalintrest.setText(balanceintrest.toString())
                                     totalpaybleamount.setText(Total_Payable_Amount)
                                     unpaidamount.setText("0")
-
+                                    next_sch_date.isVisible = false
+                                    img_calender.isVisible = false
+                                    closertype = "1"
                                     //    prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 } else {
                                     prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
@@ -459,9 +545,9 @@ class CollectionActivity : AppCompatActivity() {
 
     public fun initializationn() {
 
-        part_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
-        nil_payment.background = resources.getDrawable(R.drawable.part_pyment_drawable)
-        full_payment.background = resources.getDrawable(R.drawable.full_payment_drawable)
+        part_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+        nil_payment.background = getDrawable(R.drawable.part_pyment_drawable)
+        full_payment.background = getDrawable(R.drawable.full_payment_drawable)
         full_payment.setTextColor(getColor(R.color.white))
         nil_payment.setTextColor(getColor(R.color.black))
         part_payment.setTextColor(getColor(R.color.black))
@@ -477,7 +563,7 @@ class CollectionActivity : AppCompatActivity() {
 
         val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val time = SimpleDateFormat("hh-mm-ss", Locale.getDefault()).format(Date())
-        val user =  SessionManegar().getString(this, Constants.USER_ID)
+        val user = SessionManegar().getString(this, Constants.USER_ID)
         val userid = user
         if (userid != null) {
             val body = Collection_Request(
@@ -486,7 +572,7 @@ class CollectionActivity : AppCompatActivity() {
                 Longitude.toString(),
                 date,
                 time,
-                SessionManegar().getString(this,Constants.USER_Follup_id).toString(),
+                SessionManegar().getString(this, Constants.USER_Follup_id).toString(),
                 Collection_Remark.text.toString(),
                 next_sch_date.text.toString().trim().replace("Next Schedule Date", ""),
                 principlea.text.toString(),
@@ -495,7 +581,7 @@ class CollectionActivity : AppCompatActivity() {
                 Collection_Remark.text.toString(),
                 Edit_KM.text.toString(),
                 user,
-                SessionManegar().getString(this,Constants.USER_Follup_Address).toString(),
+                SessionManegar().getString(this, Constants.USER_Follup_Address).toString(),
                 closertype
             )
 
@@ -511,10 +597,18 @@ class CollectionActivity : AppCompatActivity() {
                                 Log.e("Resopncelogin7", message)
                                 if (otpResponse.status.equals("200")) {
                                     val intent = Intent(this, PaymentActivity::class.java)
-                                    SessionManegar().saveString(this,Constants.COLLECTION_RUNNING,"1")
-                                    SessionManegar().saveString(this,Constants.REQUESTED_AMOUNT,principlea.text.toString().trim())
+                                    SessionManegar().saveString(
+                                        this,
+                                        Constants.COLLECTION_RUNNING,
+                                        "1"
+                                    )
+                                    SessionManegar().saveString(
+                                        this,
+                                        Constants.REQUESTED_AMOUNT,
+                                        principlea.text.toString().trim()
+                                    )
                                     //SessionManegar().remove(this, Constants.RUNNING_LEAD_ID)
-                                    Log.e("prinipleamount",principlea.text.toString())
+                                    Log.e("prinipleamount", principlea.text.toString())
                                     startActivity(intent)
 
                                     finish()
