@@ -94,6 +94,7 @@ class LoanDashboardActivity : AppCompatActivity() {
 
         binding!!.loanDetailText.setOnClickListener {
             val inte = Intent(this, LoanActivity::class.java)
+            inte.putExtra(Constants.LOAN_TYPE, "1")
             startActivity(inte)
         }
 

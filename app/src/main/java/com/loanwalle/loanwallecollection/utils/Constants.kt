@@ -22,6 +22,7 @@ object Constants{
     const val OFFICE_ADD = "office_add"
     const val RESIDANCE_ADD = "residance_add"
     const val PREFERRED_ADD = "preferred_add"
+    const val LOAN_TYPE = "LoanType"
     const val BASE_URL = "https://fintechcloud.in/api/stagging/loan/"
     const val BASE_URL_2 = "https://fintechcloud.in/api/stagging/loan/"
 }

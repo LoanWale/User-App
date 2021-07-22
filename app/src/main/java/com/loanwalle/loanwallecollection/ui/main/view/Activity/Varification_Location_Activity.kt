@@ -13,120 +13,124 @@ import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.view.Window
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.Debug.getLocation
+
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.constraintlayout.motion.widget.Debug
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
 import com.loanwalle.loanwallecollection.R
 import com.loanwalle.loanwallecollection.data.model.recoveryaddress.RecoveryRequest
 import com.loanwalle.loanwallecollection.data.model.startVisit.StartVisitRequestBodies
 import com.loanwalle.loanwallecollection.data.repository.AppRepository
-import com.loanwalle.loanwallecollection.databinding.ActivityCurrentRecoveryAddressBinding
+import com.loanwalle.loanwallecollection.databinding.ActivityVarificationLocationBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.RecoveryAddressViewModel
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.StartVisitViewModel
 import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.*
 import kotlinx.android.synthetic.main.activity_current_recovery_address.*
+import kotlinx.android.synthetic.main.activity_current_recovery_address.Continue
+import kotlinx.android.synthetic.main.activity_current_recovery_address.Re_Address
+import kotlinx.android.synthetic.main.activity_current_recovery_address.Re_City
+import kotlinx.android.synthetic.main.activity_current_recovery_address.Re_State
+import kotlinx.android.synthetic.main.activity_current_recovery_address.back_layout_currnt
+import kotlinx.android.synthetic.main.activity_current_recovery_address.map
+import kotlinx.android.synthetic.main.activity_current_recovery_address.newprogress
+import kotlinx.android.synthetic.main.activity_current_recovery_address.of_res_pre_add
+import kotlinx.android.synthetic.main.activity_current_recovery_address.starttnow
+import kotlinx.android.synthetic.main.activity_current_recovery_address.startvisit
 import kotlinx.android.synthetic.main.activity_recovery_address.*
-import kotlinx.android.synthetic.main.activity_recovery_address.startvisit
-import kotlinx.android.synthetic.main.activity_resest.*
+import kotlinx.android.synthetic.main.activity_varification_location.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class  CurrentRecoveryAddressActivity : AppCompatActivity() {
-
-    var binding : ActivityCurrentRecoveryAddressBinding? = null
-    lateinit var startVisitViewModel : StartVisitViewModel
-    lateinit var RecoveryViewModal : RecoveryAddressViewModel
+class Varification_Location_Activity : AppCompatActivity() {
+    var binding: ActivityVarificationLocationBinding? = null
+    lateinit var startVisitViewModel: StartVisitViewModel
+    lateinit var RecoveryViewModal: RecoveryAddressViewModel
     private val LOCATION_CODE = 1
-    lateinit var fusedLocationProviderClient : FusedLocationProviderClient
+    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
-    var Latitude:Double?=null
-    var Longitude:Double?=null
-    var CurrentDate:String?=null
-    var addName:String?=null
-    var lead_id:String?=null
-    var loanNub:String?=null
-    var FollupAddress:String?=null
-    var runningstatus:String?=null
-    var running_Leadid:String?=null
+    var Latitude: Double? = null
+    var Longitude: Double? = null
+    var CurrentDate: String? = null
+    var addretype: String? = null
+    var lead_id: String? = null
+    var loanNub: String? = null
+    var FollupAddress: String? = null
+    var runningstatus: String? = null
+    var running_Leadid: String? = null
 
 
     @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCurrentRecoveryAddressBinding.inflate(layoutInflater)
+        //  setContentView(R.layout.activity_varification_location)
+        binding = ActivityVarificationLocationBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
 
-
-        back_layout_currnt.setOnClickListener{
+        back_layout_currnt.setOnClickListener {
             onBackPressed()
         }
 
-        if (intent.getStringExtra(Constants.RESIDANCE_ADD)!= null){
-            addName = intent.getStringExtra(Constants.RESIDANCE_ADD)
-            of_res_pre_add.text = addName
-            lead_id = intent.getStringExtra(Constants.USER_LEAD_ID)
-            loanNub = intent.getStringExtra(Constants.USER_LOAN_NUMBER)
+        if (intent.getStringExtra(Constants.RESIDANCE_ADD) != null) {
+            addretype = intent.getStringExtra(Constants.RESIDANCE_ADD)
+            of_res_pre_add.setText(addretype)
         }
-        else if (intent.getStringExtra(Constants.OFFICE_ADD)!= null){
-            addName = intent.getStringExtra(Constants.OFFICE_ADD)
-            of_res_pre_add.text = addName
+
+
+        if (addretype!!.equals("RESIDANCE ADDRESS")) {
+            office_Name.isVisible = false
+        } else if (addretype!!.equals("OFFICE ADDRESS")) {
+            office_Name.isVisible = true
         }
-        else if (intent.getStringExtra(Constants.PREFERRED_ADD)!= null){
-            addName = intent.getStringExtra(Constants.PREFERRED_ADD)
-            of_res_pre_add.text = addName
-        }
+
+
 
 
         init()
         map.setOnClickListener {
-            Log.e("mappp","ook")
+            Log.e("mappp", "ook")
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("geo:28.6782,77.3608"))
             i.setClassName(
                 "com.google.android.apps.maps",
                 "com.google.android.maps.MapsActivity",
 
-            )
+                )
             startActivity(i)
         }
-
-         runningstatus=SessionManegar().getString(this,Constants.RUNNING_STATUS)
-         running_Leadid=SessionManegar().getString(this,Constants.RUNNING_LEAD_ID)
-
+        runningstatus = SessionManegar().getString(this, Constants.RUNNING_STATUS)
+        running_Leadid = SessionManegar().getString(this, Constants.RUNNING_LEAD_ID)
 
 
-        if(runningstatus=="1" && running_Leadid!!.equals(lead_id))
-        {
 
-            Continue.isVisible=true
+        if (runningstatus == "1" && running_Leadid!!.equals(lead_id)) {
+
+            Continue.isVisible = true
             // check for running loan status
-            startvisit.isVisible=false
-            starttnow.isVisible=false
+            startvisit.isVisible = false
+            starttnow.isVisible = false
 
 
-        }else
-        {
-            Continue.isVisible=false
-            startvisit.isVisible=true
-            starttnow.isVisible=true
+        } else {
+            Continue.isVisible = false
+            startvisit.isVisible = true
+            starttnow.isVisible = true
             //ss start running for collection
 
         }
@@ -134,7 +138,7 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
 
 
         Continue.setOnClickListener {
-            val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
+            val i = Intent(this@Varification_Location_Activity, CollectionActivity::class.java)
             startActivity(i)
             finish()
             toast("your running status is Active")
@@ -147,15 +151,19 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
                 //Location Permission already granted
-                getLocation();
+                Debug.getLocation();
             } else {
                 //Request Location Permission
                 checkLocationPermission()
             }
         } else {
-            getLocation();
+            Debug.getLocation();
         }
 
 
@@ -163,14 +171,12 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
             showDialog()
         }
 
-        binding!!.starttnow.setOnClickListener{
+        binding!!.starttnow.setOnClickListener {
             // Frist check GPS is on or off , if lat/long is getting then start visit
-            if (Latitude== null)
-            {
+            if (Latitude == null) {
                 //
-                Toast.makeText(this,"please Enabel gps",Toast.LENGTH_LONG).show()
-            }else
-            {
+                Toast.makeText(this, "please Enabel gps", Toast.LENGTH_LONG).show()
+            } else {
                 verifyClick()
 
             }
@@ -179,11 +185,13 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
     }
+
     private fun init() {
         val repository = AppRepository()
         val factory = ViewModelProviderFactory(application, repository)
-        startVisitViewModel= ViewModelProvider(this, factory).get(StartVisitViewModel::class.java)
-        RecoveryViewModal = ViewModelProvider(this, factory).get(RecoveryAddressViewModel::class.java)
+        startVisitViewModel = ViewModelProvider(this, factory).get(StartVisitViewModel::class.java)
+        RecoveryViewModal =
+            ViewModelProvider(this, factory).get(RecoveryAddressViewModel::class.java)
 
         GetCollectionAddress()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -192,15 +200,16 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
     }
 
     fun verifyClick() {
-        val user_id = SessionManegar().getString(this,Constants.USER_ID)
+        val user_id = SessionManegar().getString(this, Constants.USER_ID)
         val company_id = 2
         val product_id = 2
         val followup_satarted_at = CurrentDate
         val executive_start_letitude = Latitude
         val executive_start_longitude = Longitude
         val loan_no = loanNub
-        if (lead_id!= null && company_id!= null && user_id!=null && product_id != null && executive_start_letitude != null &&
-            executive_start_longitude != null && followup_satarted_at != null && loan_no !=null) {
+        if (lead_id != null && company_id != null && user_id != null && product_id != null && executive_start_letitude != null &&
+            executive_start_longitude != null && followup_satarted_at != null && loan_no != null
+        ) {
             val body = StartVisitRequestBodies.StartVisitRequest(
                 company_id,
                 executive_start_letitude,
@@ -208,7 +217,7 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
                 followup_satarted_at,
                 lead_id.toString(),
                 product_id,
-                user_id.toInt() ,
+                user_id.toInt(),
                 loan_no
             )
 
@@ -219,24 +228,41 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
                             response.data?.let { verifyResponse ->
-                                val message:String= verifyResponse.message
-                                Log.e("Resopncelogin",message)
-                                if (message.equals("success")&& verifyResponse.status.equals("200"))
-                                {
+                                val message: String = verifyResponse.message
+                                Log.e("Resopncelogin", message)
+                                if (message.equals("success") && verifyResponse.status.equals("200")) {
                                     //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                        //
-                                            //
-                                    val follupid:String=verifyResponse.data.followup_id.toString()
-                                    SessionManegar().saveString(this,Constants.USER_Follup_id,follupid)
-                                    SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
-                                    val i = Intent(this@CurrentRecoveryAddressActivity, CollectionActivity::class.java)
-                                    startActivity(i)
-                                    finish()
+                                    //
+                                    //
+                                    val follupid: String =
+                                        verifyResponse.data.followup_id.toString()
+                                    SessionManegar().saveString(
+                                        this,
+                                        Constants.USER_Follup_id, follupid
+                                    )
+                                    SessionManegar().saveString(
+                                        this,
+                                        Constants.RUNNING_LEAD_ID, lead_id.toString()
+                                    )
 
-                                }
-                                else
+                                    if (addretype!!.equals("RESIDANCE ADDRESS")) {
+                                        val i = Intent(
+                                            this@Varification_Location_Activity,
+                                            ResidanceActivity::class.java
+                                        )
+                                        startActivity(i)
+                                        finish()
+                                    } else if (addretype!!.equals("OFFICE ADDRESS")) {
+                                        val i = Intent(
+                                            this@Varification_Location_Activity,
+                                            OfficeAddressActivity::class.java
+                                        )
+                                        startActivity(i)
+                                        finish()
+                                    }
 
-                                {
+
+                                } else {
                                     newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
 
@@ -261,53 +287,61 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
 
     }
 
-    private fun getLastLocation(){
-        if (checkLocationPermission()){
+    private fun getLastLocation() {
+        if (checkLocationPermission()) {
 
-            if (isLocationEnabled()){
+            if (isLocationEnabled()) {
 
-                fusedLocationProviderClient.lastLocation.addOnCompleteListener{ task ->
-                    val loaction : Location? = task.result
-                    if (loaction==null){
+                fusedLocationProviderClient.lastLocation.addOnCompleteListener { task ->
+                    val loaction: Location? = task.result
+                    if (loaction == null) {
                         getNullLocation()
-                    }else{
+                    } else {
 //                        location_id.text =" "+ loaction.latitude+" "+ loaction.longitude+
 //                                "\n your area "+getCityName(loaction.latitude,loaction.longitude)+
 //                                "\n your city "+ getCountryName(loaction.latitude,loaction.longitude)
-                        Latitude=loaction.latitude
-                        Longitude=loaction.longitude
+                        Latitude = loaction.latitude
+                        Longitude = loaction.longitude
                     }
                 }
 
-            }else{
-                Toast.makeText(this,"Location not on",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Location not on", Toast.LENGTH_LONG).show()
             }
-        }else{
+        } else {
             RequestLocationPermission()
         }
     }
 
-    private fun checkLocationPermission():Boolean{
+    private fun checkLocationPermission(): Boolean {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             return true
         }
         return false
     }
 
-    private fun RequestLocationPermission(){
-        ActivityCompat.requestPermissions(this, arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),LOCATION_CODE)
+    private fun RequestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this, arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
+            ), LOCATION_CODE
+        )
     }
 
-    private fun isLocationEnabled():Boolean{
-        val locationManger: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    private fun isLocationEnabled(): Boolean {
+        val locationManger: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManger.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManger.isProviderEnabled(
-            LocationManager.NETWORK_PROVIDER)
+            LocationManager.NETWORK_PROVIDER
+        )
     }
 
-    private fun getNullLocation(){
+    private fun getNullLocation() {
         locationRequest = LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         locationRequest.interval = 0
@@ -331,13 +365,15 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback
-        ,Looper.myLooper())
+        fusedLocationProviderClient.requestLocationUpdates(
+            locationRequest, locationCallback, Looper.myLooper()
+        )
 
     }
-    private val locationCallback = object :LocationCallback(){
+
+    private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(p0: LocationResult) {
-            val lastLocation : Location = p0.lastLocation
+            val lastLocation: Location = p0.lastLocation
         }
     }
 
@@ -348,35 +384,33 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
         }
 
     }
 
 
-
-
-    private fun getCityName(lat:Double,lon:Double):String{
+    private fun getCityName(lat: Double, lon: Double): String {
         var cityName = ""
-        val geocoder = Geocoder(this,Locale.getDefault())
-        val address : List<Address> = geocoder.getFromLocation(lat,lon,1)
+        val geocoder = Geocoder(this, Locale.getDefault())
+        val address: List<Address> = geocoder.getFromLocation(lat, lon, 1)
 
         cityName = address.get(0).locality
         return cityName
     }
 
-    private fun getCountryName(lat:Double,lon:Double):String{
+    private fun getCountryName(lat: Double, lon: Double): String {
         var countryName = ""
-        val geocoder = Geocoder(this,Locale.getDefault())
-        val address : List<Address> = geocoder.getFromLocation(lat,lon,1)
+        val geocoder = Geocoder(this, Locale.getDefault())
+        val address: List<Address> = geocoder.getFromLocation(lat, lon, 1)
 
         countryName = address.get(0).getAddressLine(0)
         return countryName
     }
 
 
-    private fun getCurrentDate(){
+    private fun getCurrentDate() {
         val dateFormatter: DateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
         dateFormatter.setLenient(false)
         val today = Date()
@@ -384,9 +418,9 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
     }
 
     fun GetCollectionAddress() {
-        val lead_id = lead_id
+        val lead_id = "2475"
         //Log.d("leaddd",lead_id.toString())
-        if (lead_id!=null) {
+        if (lead_id != null) {
             val body = RecoveryRequest(
                 lead_id
             )
@@ -398,20 +432,21 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
                         is Resource.Success -> {
                             hideProgressBar()
                             response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
-                                LOG.GetLogError("message",otpResponse.toString())
-                                Log.e("response",otpResponse.toString())
-                                if (message.equals("success")&&otpResponse.status.equals("200"))
-                                {
+                                val message: String = otpResponse.message
+                                LOG.GetLogError("message", otpResponse.toString())
+                                Log.e("response", otpResponse.toString())
+                                if (message.equals("success") && otpResponse.status.equals("200")) {
                                     Re_Address.setText(otpResponse.data.residence_address_line2)
                                     Re_City.setText(otpResponse.data.city)
                                     Re_State.setText(otpResponse.data.state)
-                                    FollupAddress=Re_Address.text.toString()+" "+Re_City.text.toString()
-                                    SessionManegar().saveString(this,Constants.USER_Follup_Address,FollupAddress.toString())
+                                    FollupAddress =
+                                        Re_Address.text.toString() + " " + Re_City.text.toString()
+                                    SessionManegar().saveString(
+                                        this,
+                                        Constants.USER_Follup_Address, FollupAddress.toString()
+                                    )
                                     //newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                }
-                                else
-                                {
+                                } else {
                                     newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
 
                                 }
@@ -422,7 +457,7 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
                             hideProgressBar()
                             response.message?.let { message ->
                                 newprogress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                Log.e("Resopncelogin6",message);
+                                Log.e("Resopncelogin6", message);
                             }
                         }
 
@@ -437,9 +472,11 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
         }
 
     }
+
     fun hideProgressBar() {
         newprogress.visibility = View.GONE
     }
+
     fun showProgressBar() {
         newprogress.visibility = View.VISIBLE
     }
@@ -454,8 +491,8 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
         Visit_yes.setOnClickListener {
             startvisit!!.setBackgroundResource(R.color.gray)
             starttnow.setBackgroundResource(R.color.applColor)
-            SessionManegar().saveString(this,Constants.RUNNING_LEAD_ID,lead_id.toString())
-            SessionManegar().saveString(this,Constants.RUNNING_STATUS,"1")
+            SessionManegar().saveString(this, Constants.RUNNING_LEAD_ID, lead_id.toString())
+            SessionManegar().saveString(this, Constants.RUNNING_STATUS, "1")
             dialog.dismiss()
 
         }
@@ -468,7 +505,6 @@ class  CurrentRecoveryAddressActivity : AppCompatActivity() {
         dialog.show()
 
     }
-
 
 
     private fun checkGPSEnabled(): Boolean {

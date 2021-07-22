@@ -1002,6 +1002,7 @@
 
 
         <LinearLayout
+            android:id="@+id/collectnow_lnr"
             android:background="@drawable/graybackground"
             android:layout_width="match_parent"
             android:layout_gravity="center"

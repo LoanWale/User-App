@@ -13,9 +13,10 @@
         android:theme="@style/Theme.LoanwalleCollection.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="MissingClass">
-        <activity android:name=".ui.main.view.Activity.ImageActivity">
-
-        </activity>
+        <activity
+            android:name=".ui.main.view.Activity.Varification_Location_Activity"
+            android:exported="true"></activity>
+        <activity android:name=".ui.main.view.Activity.ImageActivity"></activity>
         <activity
             android:name=".ui.main.view.Activity.LoanDashboardActivity"
             android:exported="true" />
@@ -36,12 +37,15 @@
         <activity android:name=".ui.main.view.Activity.ForgotPasswordActivity" />
         <activity android:name=".ui.main.view.Activity.PaymentActivity" />
         <activity android:name=".ui.main.view.Activity.RemarksActivity" />
-        <activity android:name=".ui.main.view.Activity.ResidanceActivity" >
-           <!-- <intent-filter>
+        <activity android:name=".ui.main.view.Activity.ResidanceActivity">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.main.view.Activity.Verification"
@@ -134,14 +138,14 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

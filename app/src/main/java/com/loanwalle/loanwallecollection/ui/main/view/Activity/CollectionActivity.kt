@@ -76,9 +76,7 @@ class CollectionActivity : AppCompatActivity() {
         binding = ActivityCollectionBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         // inialize
-
         initializationn()
-
 
         backkk.setOnClickListener {
             onBackPressed()
@@ -300,14 +298,12 @@ class CollectionActivity : AppCompatActivity() {
 
                     }
 
-
                     /*
                     *  If input amount in betn total payble amount and Net disbursal amount
                     *  write off condition
                     *
                     *  Total payble amount = 63,000
                     *  Net Disburasal amount =45,000
-
                     * */
                     else if (
                         principlea.text.toString().toInt()
@@ -333,6 +329,8 @@ class CollectionActivity : AppCompatActivity() {
                         img_calender.isVisible = true
                         paymentstatus = "2"
                         next_sch_date.setText("Next Schedule Date")
+                        paymenttype_text.isVisible=true
+
                         //19000 <45000 && 19000 >18500
                     }
 
@@ -372,6 +370,7 @@ class CollectionActivity : AppCompatActivity() {
                         img_calender.isVisible = true
                         paymentstatus = "2"
                         next_sch_date.setText("Next Schedule Date")
+                        paymenttype_text.isVisible=true
 
                     }
 
@@ -438,7 +437,29 @@ class CollectionActivity : AppCompatActivity() {
 
                     //startActivity(intent)
 
-                   update_Loan_Detils()
+                 //  update_Loan_Detils()
+
+
+                    val intent = Intent(this, PaymentActivity::class.java)
+                    SessionManegar().saveString(
+                        this,
+                        Constants.COLLECTION_RUNNING,
+                        "1"
+                    )
+                    SessionManegar().saveString(
+                        this,
+                        Constants.REQUESTED_AMOUNT,
+                        principlea.text.toString().trim()
+                    )
+                    //SessionManegar().remove(this, Constants.RUNNING_LEAD_ID)
+                    Log.e("prinipleamount", principlea.text.toString())
+                    startActivity(intent)
+
+                    finish()
+
+
+
+
                 }
 
             } else {
@@ -446,7 +467,26 @@ class CollectionActivity : AppCompatActivity() {
 
                 //startActivity(intent)
 
-                update_Loan_Detils()
+                val intent = Intent(this, PaymentActivity::class.java)
+                SessionManegar().saveString(
+                    this,
+                    Constants.COLLECTION_RUNNING,
+                    "1"
+                )
+                SessionManegar().saveString(
+                    this,
+                    Constants.REQUESTED_AMOUNT,
+                    principlea.text.toString().trim()
+                )
+                //SessionManegar().remove(this, Constants.RUNNING_LEAD_ID)
+                Log.e("prinipleamount", principlea.text.toString())
+                startActivity(intent)
+
+                finish()
+
+
+
+              //  update_Loan_Detils()
             }
 
         }
@@ -492,6 +532,7 @@ class CollectionActivity : AppCompatActivity() {
                                 if (message.equals("success") && otpResponse.status.equals("200")) {
 
                                     Log.e("Resopncelogin5", otpResponse.data.loan_no)
+
                                     Total_Payable_Amount =
                                         otpResponse.data.payable_amount.toString()
                                     net_disbursal_amount =
@@ -507,6 +548,8 @@ class CollectionActivity : AppCompatActivity() {
                                     unpaidamount.setText("0")
                                     next_sch_date.isVisible = false
                                     img_calender.isVisible = false
+                                    paymenttype_text.isVisible=false
+
                                     closertype = "1"
                                     //    prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 } else {
@@ -560,7 +603,6 @@ class CollectionActivity : AppCompatActivity() {
 
 
     fun update_Loan_Detils() {
-
         val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val time = SimpleDateFormat("hh-mm-ss", Locale.getDefault()).format(Date())
         val user = SessionManegar().getString(this, Constants.USER_ID)
@@ -570,8 +612,7 @@ class CollectionActivity : AppCompatActivity() {
                 unpaidamount.text.toString(),
                 Latitude.toString(),
                 Longitude.toString(),
-                date,
-                time,
+                date, time,
                 SessionManegar().getString(this, Constants.USER_Follup_id).toString(),
                 Collection_Remark.text.toString(),
                 next_sch_date.text.toString().trim().replace("Next Schedule Date", ""),
@@ -596,22 +637,7 @@ class CollectionActivity : AppCompatActivity() {
                                 val message: String = otpResponse.message
                                 Log.e("Resopncelogin7", message)
                                 if (otpResponse.status.equals("200")) {
-                                    val intent = Intent(this, PaymentActivity::class.java)
-                                    SessionManegar().saveString(
-                                        this,
-                                        Constants.COLLECTION_RUNNING,
-                                        "1"
-                                    )
-                                    SessionManegar().saveString(
-                                        this,
-                                        Constants.REQUESTED_AMOUNT,
-                                        principlea.text.toString().trim()
-                                    )
-                                    //SessionManegar().remove(this, Constants.RUNNING_LEAD_ID)
-                                    Log.e("prinipleamount", principlea.text.toString())
-                                    startActivity(intent)
-
-                                    finish()
+                                  //
                                 } else {
                                     prog_ress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }

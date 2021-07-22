@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.loanwalle.loanwallecollection.databinding.ActivityVerification2Binding
+import com.loanwalle.loanwallecollection.util.Constants
 import kotlinx.android.synthetic.main.activity_document.*
 import kotlinx.android.synthetic.main.activity_verification2.*
 
@@ -17,6 +18,7 @@ class Verification : AppCompatActivity() {
 
         binding!!.loanDetailText.setOnClickListener {
             val i = Intent(this@Verification, LoanActivity::class.java)
+            i.putExtra(Constants.LOAN_TYPE, "2")
             startActivity(i)
         }
 
@@ -27,13 +29,15 @@ class Verification : AppCompatActivity() {
         binding!!.veriBack.setOnClickListener { finish() }
 
         binding!!.residece.setOnClickListener{
-            val intent = Intent(this,ResidanceActivity::class.java)
+            val intent = Intent(this,Varification_Location_Activity::class.java)
+            intent.putExtra(Constants.RESIDANCE_ADD, "RESIDANCE ADDRESS")
             startActivity(intent)
         }
 
 
         binding!!.officeadd.setOnClickListener{
-           val ins = Intent(this,OfficeAddressActivity::class.java)
+           val ins = Intent(this,Varification_Location_Activity::class.java)
+            ins.putExtra(Constants.RESIDANCE_ADD, "OFFICE ADDRESS")
             startActivity(ins)
         }
     }

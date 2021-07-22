@@ -7,7 +7,7 @@ import android.net.ConnectivityManager
 import android.util.Log
 
 
-class NetworkConnection : BroadcastReceiver() {
+class   NetworkConnection : BroadcastReceiver() {
 
 
 

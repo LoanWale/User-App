@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.view.Activity.CurrentRecoveryAddressActivity">
+
+    <ProgressBar
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/newprogress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/back_layout_currnt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".16"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_left_arrow"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".6"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/of_res_pre_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="40sp"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="center"
+                    android:text="CURRENT ADDRESS"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/map"
+                android:background="@drawable/map"
+                android:layout_weight=".2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+    <LinearLayout
+        android:id="@+id/office_Name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="10sp"
+        android:paddingBottom="3dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight=".34"
+            android:fontFamily="@font/robotomedium"
+            android:text="Office Name"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/officename"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight=".66"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="end|center"
+            android:paddingStart="15dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="LoanWalle pvt ltd"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="10sp"
+        android:paddingBottom="3dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight=".6"
+            android:fontFamily="@font/robotomedium"
+            android:text="NEAREST LANMARK"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/full_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight=".4"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="end|center"
+            android:paddingStart="15dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="noida 15 metro "
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="15sp"
+        android:paddingBottom="3dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight=".4"
+            android:text="ADDRESS"
+            android:fontFamily="@font/robotomedium"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Re_Address"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight=".6"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="end|center"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="15sp"
+        android:paddingBottom="3dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight=".4"
+            android:text="CITY"
+            android:fontFamily="@font/robotomedium"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Re_City"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight=".6"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="end|center"
+            android:text="NOIDA"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+    </LinearLayout> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="15dp"
+    android:paddingTop="3dp"
+    android:paddingEnd="15sp"
+    android:paddingBottom="3dp"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_weight=".4"
+        android:text="STATE"
+        android:fontFamily="@font/robotomedium"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/Re_State"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight=".6"
+        android:fontFamily="@font/robotomedium"
+        android:gravity="end|center"
+        android:text="UP"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+</LinearLayout>
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/Continue"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:background="@drawable/paytmbutton"
+        android:text="Continue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/startvisit"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:background="@drawable/paytmbutton"
+        android:text="Start Visit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/starttnow"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:background="@drawable/graybackground"
+        android:text="Start Now"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+
+</LinearLayout>

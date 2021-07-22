@@ -129,7 +129,9 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     fun getTodayLead() {
-        val userid = sessionManegar.getString(this,Constants.USER_ID)
+     val userid11 :String? =   sessionManegar.getString(this,Constants.USER_ID)
+        Log.e("useriddd",userid11!!)
+        val userid ="44"//
         Log.d("iiidd",userid.toString())
         if (userid!=null) {
             val body = TodayleadRequ.LeadRequest(userid)

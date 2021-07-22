@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/addres_drawable.xml" value="0.25555555555555554" />
         <entry key="app/src/main/res/drawable/btn_drawble.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/calendr_drawable.xml" value="0.2675213675213675" />
         <entry key="app/src/main/res/drawable/contrain_layot_drawable.xml" value="0.25555555555555554" />
         <entry key="app/src/main/res/drawable/edit_text_drawble.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/graybackground.xml" value="0.31145833333333334" />
@@ -48,10 +49,11 @@
         <entry key="app/src/main/res/layout/activity_remarks.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_remarks_visit.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_resest.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_residance.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_residance.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_total_leads.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_unlock.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_varification_location.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_verification2.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_verify_otpactivity.xml" value="0.2423076923076923" />
@@ -75,7 +77,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -14,9 +15,11 @@ import com.loanwalle.loanwallecollection.data.repository.AppRepository
 import com.loanwalle.loanwallecollection.databinding.ActivityLoanBinding
 import com.loanwalle.loanwallecollection.ui.base.ViewModelProviderFactory
 import com.loanwalle.loanwallecollection.ui.main.viewmodel.LoanDetailsViewModal
+import com.loanwalle.loanwallecollection.util.Constants
 import com.loanwalle.loanwallecollection.utils.Resource
 import com.loanwalle.loanwallecollection.utils.SessionManegar
 import com.loanwalle.loanwallecollection.utils.errorSnack
+import kotlinx.android.synthetic.main.activity_current_recovery_address.*
 import kotlinx.android.synthetic.main.activity_loan.*
 import java.text.DecimalFormatSymbols
 import java.text.ParseException
@@ -28,11 +31,27 @@ class LoanActivity : AppCompatActivity() {
     lateinit var loanDetailsViewModal : LoanDetailsViewModal
     var binding: ActivityLoanBinding? = null
     var sessionManegar = SessionManegar()
+    var loantype: String? =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoanBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        if (intent.getStringExtra(Constants.LOAN_TYPE)!= null){
+            loantype = intent.getStringExtra(Constants.LOAN_TYPE)
+
+            if (loantype.equals("1"))
+            {
+
+            }else if (loantype.equals("2"))
+            {
+                collectnow_lnr.isVisible=false
+            }
+        }
+
         setupViewModel()
+
+
 
         collect_button.setOnClickListener{
             val intent = Intent(this,CurrentRecoveryAddressActivity::class.java)
