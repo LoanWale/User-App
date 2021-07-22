@@ -397,7 +397,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_width="match_parent"
             android:background="@drawable/edit_drawable"
-            android:layout_height="@dimen/_350sdp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -500,15 +500,16 @@
                     android:textColor="@color/black">
 
                     <TextView
+                        android:id="@+id/clndr_text__"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:fontFamily="@font/robotolight"
-                        android:text="10-05-2021"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                     <ImageView
+                        android:id="@+id/cllnddr"
                         android:src="@drawable/ic_baseline_calendar_today_24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -561,6 +562,7 @@
                     android:textColor="@color/black">
 
                     <TextView
+                        android:id="@+id/plus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
@@ -569,16 +571,19 @@
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
-                    <TextView
+                    <EditText
+                        android:background="@null"
+                        android:id="@+id/plusminus"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_marginRight="20dp"
                         android:fontFamily="@font/robotolight"
-                        android:text="5"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/minus"
                         android:src="@drawable/ic_baseline_calendar_today_24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -596,7 +601,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout007"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -620,7 +625,7 @@
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
-                <LinearLayout
+                <RadioGroup
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".6"
@@ -630,7 +635,7 @@
                     android:text="73287"
                     android:textColor="@color/black">
 
-                    <TextView
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
@@ -639,14 +644,14 @@
                         android:textColor="@color/black"
                         android:textSize="10sp" />
 
-                    <TextView
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:text="Lic"
                         android:textSize="10sp"
                         android:textColor="@color/black" />
-                    <TextView
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
@@ -654,15 +659,16 @@
                         android:textSize="10sp"
                         android:textColor="@color/black" />
 
-                </LinearLayout>
+                </RadioGroup>
 
 
             </LinearLayout>
 
+
             <LinearLayout
-                android:id="@+id/linearLayout008"
+                android:id="@+id/linearLayout009"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -682,64 +688,12 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight=".4"
                     android:fontFamily="@font/robotomedium"
-                    android:text="Neighbour Check"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <RadioGroup
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:orientation="horizontal"
-                    android:text="73287"
-                    android:textColor="@color/black">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/robotolight"
-                        android:text="Positive"
-                        android:textColor="@color/black"
-                        android:textSize="10sp" />
-
-
-
-                </RadioGroup>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout009"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="2dp"
-                android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/linearLayout008"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout008"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout008">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
                     android:text="Coustomer Photo"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <LinearLayout
+                    android:id="@+id/photo_cs"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".6"
@@ -841,81 +795,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout0011"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="15sp"
-                android:paddingBottom="2dp"
-                android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/linearLayout0010"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout0010"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout0010">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight=".4"
-                    android:fontFamily="@font/robotomedium"
-                    android:text="KYC identity Verified"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".6"
-                    android:fontFamily="@font/robotomedium"
-                    android:gravity="end|center"
-                    android:orientation="horizontal"
-                    android:text="73287"
-                    android:textColor="@color/black">
-
-                    <TextView
-                        android:paddingRight="@dimen/_12sdp"
-                        android:paddingLeft="@dimen/_12sdp"
-                        android:textSize="@dimen/_10sdp"
-                        android:gravity="right"
-                        android:layout_gravity="right"
-                        android:id="@+id/customer_select_family_residance_house34"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/part_pyment_drawable"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
-                        android:text="YES" />
-
-                    <TextView
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:paddingLeft="@dimen/_14sdp"
-                        android:paddingRight="@dimen/_14sdp"
-                        android:paddingTop="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_6sdp"
-                        android:textSize="@dimen/_10sdp"
-                        android:id="@+id/other_met_other_residance_house34"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:background="@drawable/full_payment_drawable"
-                        android:gravity="right"
-                        android:text="NO"
-                        android:textColor="@color/white" />
-
-
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout0012"
@@ -923,6 +802,7 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingStart="15dp"
@@ -930,9 +810,10 @@
                 android:paddingEnd="15sp"
                 android:paddingBottom="2dp"
                 android:weightSum="1"
-                app:layout_constraintEnd_toEndOf="@+id/linearLayout0011"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout0011"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout0011">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout0010"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout0010"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout0010">
 
                 <TextView
                     android:layout_width="0dp"
@@ -976,31 +857,38 @@
                 </RadioGroup>
 
 
+
+
             </LinearLayout>
 
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_24sdp"
+            android:layout_marginRight="@dimen/_24sdp"
             android:background="@drawable/full_payment_drawable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="Submit"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

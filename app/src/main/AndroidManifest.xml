@@ -36,7 +36,13 @@
         <activity android:name=".ui.main.view.Activity.ForgotPasswordActivity" />
         <activity android:name=".ui.main.view.Activity.PaymentActivity" />
         <activity android:name=".ui.main.view.Activity.RemarksActivity" />
-        <activity android:name=".ui.main.view.Activity.ResidanceActivity" />
+        <activity android:name=".ui.main.view.Activity.ResidanceActivity" >
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name=".ui.main.view.Activity.Verification"
             android:exported="true" />
