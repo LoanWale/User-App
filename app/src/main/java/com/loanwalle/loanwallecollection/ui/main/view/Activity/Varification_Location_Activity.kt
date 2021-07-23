@@ -119,29 +119,43 @@ class Varification_Location_Activity : AppCompatActivity() {
 
 
 
-        if (runningstatus == "1" && running_Leadid!!.equals(lead_id)) {
-
-            Continue.isVisible = true
-            // check for running loan status
-            startvisit.isVisible = false
-            starttnow.isVisible = false
-
-
-        } else {
-            Continue.isVisible = false
-            startvisit.isVisible = true
-            starttnow.isVisible = true
-            //ss start running for collection
-
-        }
+//        if (runningstatus == "1" && running_Leadid!!.equals(lead_id)) {
+//
+//            Continue.isVisible = true
+//            // check for running loan status
+//            startvisit.isVisible = false
+//            starttnow.isVisible = false
+//
+//
+//        } else {
+//            Continue.isVisible = false
+//            startvisit.isVisible = true
+//            starttnow.isVisible = true
+//            //ss start running for collection
+//
+//        }
 
 
 
         Continue.setOnClickListener {
-            val i = Intent(this@Varification_Location_Activity, CollectionActivity::class.java)
-            startActivity(i)
-            finish()
-            toast("your running status is Active")
+
+
+            Log.e("addresstype",addretype!!)
+            if (addretype!!.equals("RESIDANCE ADDRESS")) {
+                val i = Intent(
+                    this@Varification_Location_Activity,
+                    ResidanceActivity::class.java
+                )
+                startActivity(i)
+                finish()
+            } else if (addretype!!.equals("OFFICE ADDRESS")) {
+                val i = Intent(
+                    this@Varification_Location_Activity,
+                    OfficeAddressActivity::class.java
+                )
+                startActivity(i)
+                finish()
+            }
         }
 
 
@@ -172,14 +186,34 @@ class Varification_Location_Activity : AppCompatActivity() {
         }
 
         binding!!.starttnow.setOnClickListener {
-            // Frist check GPS is on or off , if lat/long is getting then start visit
-            if (Latitude == null) {
-                //
-                Toast.makeText(this, "please Enabel gps", Toast.LENGTH_LONG).show()
-            } else {
-                verifyClick()
 
+
+
+            Log.e("addresstype",addretype!!)
+            if (addretype!!.equals("RESIDANCE ADDRESS")) {
+                val i = Intent(
+                    this@Varification_Location_Activity,
+                    ResidanceActivity::class.java
+                )
+                startActivity(i)
+                finish()
+            } else if (addretype!!.equals("OFFICE ADDRESS")) {
+                val i = Intent(
+                    this@Varification_Location_Activity,
+                    OfficeAddressActivity::class.java
+                )
+                startActivity(i)
+                finish()
             }
+
+//            // Frist check GPS is on or off , if lat/long is getting then start visit
+//            if (Latitude == null) {
+//                //
+//                Toast.makeText(this, "please Enabel gps", Toast.LENGTH_LONG).show()
+//            } else {
+//                verifyClick()
+//
+//            }
 
 
         }
@@ -192,7 +226,6 @@ class Varification_Location_Activity : AppCompatActivity() {
         startVisitViewModel = ViewModelProvider(this, factory).get(StartVisitViewModel::class.java)
         RecoveryViewModal =
             ViewModelProvider(this, factory).get(RecoveryAddressViewModel::class.java)
-
         GetCollectionAddress()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastLocation()
