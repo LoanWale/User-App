@@ -21,5 +21,6 @@
     <color name="button_color">#2E8CC3</color>
     <color name="lw_coll_clr">#004770</color>
     <color name="blacklightlow">#C9504F4F</color>
+    <color name="green">#00ff00</color>
 
 </resources>

@@ -30,7 +30,9 @@
         <activity
             android:name=".ui.main.view.Activity.Covence_Report"
             android:exported="true" />
-        <activity android:name=".ui.main.view.Activity.OfficeAddressActivity" />
+        <activity android:name=".ui.main.view.Activity.OfficeAddressActivity" >
+
+        </activity>
         <activity android:name=".ui.main.view.Activity.CollectionActivity" />
         <activity android:name=".ui.main.view.Activity.ResestActivity" />
         <activity android:name=".ui.main.view.Activity.VerifyOTPActivity" />
@@ -39,13 +41,12 @@
         <activity android:name=".ui.main.view.Activity.RemarksActivity" />
         <activity android:name=".ui.main.view.Activity.ResidanceActivity">
 
-            <!--
-            <intent-filter>
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter>-->
+
         </activity>
         <activity
             android:name=".ui.main.view.Activity.Verification"

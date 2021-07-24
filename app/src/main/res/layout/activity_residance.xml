@@ -146,6 +146,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cs_family"
+            android:visibility="gone"
             android:orientation="horizontal"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
@@ -204,6 +206,30 @@
                     android:textColor="@color/black" />
 
             </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/name_other___enter"
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Enter Name"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -471,6 +497,7 @@
             </HorizontalScrollView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_marginTop="@dimen/_15sdp"
             android:gravity="center"
