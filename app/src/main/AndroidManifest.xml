@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.loanwalle.loanwallecollection">
+    package="com.loanwalle.personalloan">
 
     <application
         android:name=".app.MyApplication"
@@ -14,65 +14,18 @@
         android:usesCleartextTraffic="true"
         tools:ignore="MissingClass">
         <activity
-            android:name=".ui.main.view.Activity.Varification_Location_Activity"
+            android:name=".ui.main.view.Activity.Registation_User"
             android:exported="true"></activity>
-        <activity android:name=".ui.main.view.Activity.ImageActivity"></activity>
         <activity
-            android:name=".ui.main.view.Activity.LoanDashboardActivity"
-            android:exported="true" />
+            android:name=".ui.main.view.Activity.Permission_Request"
+            android:exported="true"></activity>
         <activity
             android:name=".ui.main.view.Activity.Notification"
             android:exported="true" />
-        <activity android:name=".ui.main.view.Activity.QrCodeActivity" />
-        <activity
-            android:name=".ui.main.view.Activity.Upload_Document"
-            android:exported="true" />
-        <activity
-            android:name=".ui.main.view.Activity.Covence_Report"
-            android:exported="true" />
-        <activity android:name=".ui.main.view.Activity.OfficeAddressActivity" >
-
-        </activity>
-        <activity android:name=".ui.main.view.Activity.CollectionActivity" />
-        <activity android:name=".ui.main.view.Activity.ResestActivity" />
-        <activity android:name=".ui.main.view.Activity.VerifyOTPActivity" />
-        <activity android:name=".ui.main.view.Activity.ForgotPasswordActivity" />
-        <activity android:name=".ui.main.view.Activity.PaymentActivity" />
-        <activity android:name=".ui.main.view.Activity.RemarksActivity" />
-        <activity android:name=".ui.main.view.Activity.ResidanceActivity">
-
-          <!--  <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
-        </activity>
-        <activity
-            android:name=".ui.main.view.Activity.Verification"
-            android:exported="true" />
-        <activity
-            android:name=".ui.main.view.Activity.PreviousPayment"
-            android:exported="true" />
-        <activity
-            android:name=".ui.main.view.Activity.Total_Leads"
-            android:exported="true" />
-        <activity
-            android:name=".ui.main.view.Activity.Collection_Profile"
-            android:exported="true" />
-        <activity android:name=".ui.main.view.Activity.UnlockActivity" />
-        <activity android:name=".ui.main.view.Activity.DocumentActivity" />
-        <activity android:name=".ui.main.view.Activity.LoanActivity" />
-        <activity android:name=".ui.main.view.Activity.IRAActivity" />
-        <activity android:name=".ui.main.view.Activity.HomePageActivity" />
         <activity android:name=".ui.main.view.Activity.OtpActivity" />
-        <activity android:name=".ui.main.view.Activity.AadharCard" />
         <activity android:name=".ui.main.view.Activity.LoginActivity" />
-        <activity android:name=".ui.main.view.Activity.OfferAccepetance" />
-        <activity android:name=".ui.main.view.Activity.PaymentSuccessfullActivity" />
         <activity android:name=".ui.main.view.Activity.Navigation" />
         <activity android:name=".utils.OTP.Auto_Otp" />
-        <activity android:name=".ui.main.view.Activity.CurrentRecoveryAddressActivity" />
         <activity android:name=".ui.main.view.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -139,14 +92,14 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
 </manifest>

@@ -1,0 +1,133 @@
+import com.loanwalle.personalloan.data.model.checkpayment.CheckPaymentR_Request
+import com.loanwalle.personalloan.data.model.checkpayment.CheckPayment_Response
+import com.loanwalle.personalloan.data.model.collection.Collection_Request
+import com.loanwalle.personalloan.data.model.collection.Collection_Response
+import com.loanwalle.personalloan.data.model.convenc.ConvenReque
+import com.loanwalle.personalloan.data.model.convenc.Convence_Resopnce
+import com.loanwalle.personalloan.data.model.forgotPassword.ForgotRequestBodies
+import com.loanwalle.personalloan.data.model.forgotPassword.ForgotResponse
+
+import com.loanwalle.personalloan.data.model.getFollowupCollection.GetFollowupRequest
+import com.loanwalle.personalloan.data.model.getFollowupCollection.GetFollowupResponse
+import com.loanwalle.personalloan.data.model.getTodayCountLead.GetCountLeadRequest
+import com.loanwalle.personalloan.data.model.getTodayCountLead.GetCountLeadResponse
+import com.loanwalle.personalloan.data.model.getUserProfile.GetUserProfileBodies
+import com.loanwalle.personalloan.data.model.getUserProfile.GetUserProfileResponse
+import com.loanwalle.personalloan.data.model.irContact.IrContact_Response
+import com.loanwalle.personalloan.data.model.irContact.Ir_Request
+import com.loanwalle.personalloan.data.model.loanDetails.LoanDetailsReq
+import com.loanwalle.personalloan.data.model.loanDetails.LoanDetailsResponse
+import com.loanwalle.personalloan.data.model.loginResponse.LoginResponce
+import com.loanwalle.personalloan.data.model.loginResponse.RequestBodies
+import com.loanwalle.personalloan.data.model.newPassword.NewPasswordRequestBodies
+import com.loanwalle.personalloan.data.model.newPassword.NewPasswordResponse
+import com.loanwalle.personalloan.data.model.previousPayment.PreviousPaymentRequest
+import com.loanwalle.personalloan.data.model.previousPayment.PreviousPaymentResponse
+import com.loanwalle.personalloan.data.model.recoveryaddress.RecoveryRequest
+import com.loanwalle.personalloan.data.model.recoveryaddress.RecoveryResponse
+import com.loanwalle.personalloan.data.model.sendOtp.RequestOtpBody
+import com.loanwalle.personalloan.data.model.sendOtp.ResponseOtp
+import com.loanwalle.personalloan.data.model.startVisit.StartVisitRequestBodies
+import com.loanwalle.personalloan.data.model.startVisit.StartVisitResponse
+import com.loanwalle.personalloan.data.model.submitPayment.SubmitPaymentRequest
+import com.loanwalle.personalloan.data.model.submitPayment.SubmitPaymentResponse
+import com.loanwalle.personalloan.data.model.todaylead.TodayLeadResponce
+import com.loanwalle.personalloan.data.model.todaylead.TodayleadRequ
+import com.loanwalle.personalloan.data.model.token.TokenRequest
+import com.loanwalle.personalloan.data.model.token.TokenResponse
+import com.loanwalle.personalloan.data.model.totalLead.TotalLeadResponce
+import com.loanwalle.personalloan.data.model.totalLead.TotalLeadRequest
+import com.loanwalle.personalloan.data.model.upDateFollowup.UpdateFollowupRequestBodies
+import com.loanwalle.personalloan.data.model.upDateFollowup.UpdateFollowupResponse
+import com.loanwalle.personalloan.data.model.userProfile.UserProfileBody
+import com.loanwalle.personalloan.data.model.userProfile.UserProfileResponse
+import com.loanwalle.personalloan.data.model.verifyPasswordOtp.VerifyPasswordOTPRequest
+import com.loanwalle.personalloan.data.model.verifyPasswordOtp.VerifyPasswordResponse
+import com.loanwalle.personalloan.data.model.vierifyOtp.VerifyRequestBody
+import com.loanwalle.personalloan.data.model.vierifyOtp.VerifyResponse
+import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.POST
+
+interface API {
+
+    @POST("User_login/login_api")
+    suspend fun loginUser(@Body body: RequestBodies.LoginBody): Response<LoginResponce>
+
+
+    @POST("User_login/send_otp")
+    suspend fun loginOtp(@Body body: RequestOtpBody.RequestOtp): Response<ResponseOtp>
+
+
+    @POST("User_login/Verify_OTP")
+    suspend fun verifyOtp(@Body body: VerifyRequestBody.VerifyRequest): Response<VerifyResponse>
+
+
+    @POST("user/get-current-address")
+    suspend fun userProfile(@Body body: UserProfileBody.UserProfileRequest): Response<UserProfileResponse>
+
+
+    @POST("user/get-old-collection-leads")
+    suspend fun totalLeads(@Body body: TotalLeadRequest.LeadRequest): Response<TotalLeadResponce>
+
+    @POST("user/get-todays-collection-leads")
+    suspend fun todayLeads(@Body body: TodayleadRequ.LeadRequest): Response<TodayLeadResponce>
+
+    @POST("login/forget-password")
+    suspend fun forgotPassword(@Body body: ForgotRequestBodies.ForgotRequest): Response<ForgotResponse>
+
+    @POST("user/verify-password-otp")
+    suspend fun verfiyPassword(@Body body: VerifyPasswordOTPRequest.VerifyPasswordOTP): Response<VerifyPasswordResponse>
+
+    @POST("user/update-password")
+    suspend fun newPassword(@Body body: NewPasswordRequestBodies.NewPasswordRequest): Response<NewPasswordResponse>
+
+    @POST("User/get_profile")
+    suspend fun getUserProfile(@Body body: GetUserProfileBodies.GetUserProfileRequest): Response<GetUserProfileResponse>
+
+    @POST("user/get-loan-deatils-by-id")
+    suspend fun getLoanDetails(@Body body: LoanDetailsReq): Response<LoanDetailsResponse>
+
+    @POST("user/insert-collection-followup")
+    suspend fun startVisit(@Body body: StartVisitRequestBodies.StartVisitRequest): Response<StartVisitResponse>
+
+
+    @POST("user/get-users-ircontacts")
+    suspend fun getIrContact(@Body body: Ir_Request): Response<IrContact_Response>
+
+
+    @POST("user/get-collection-followup")
+    suspend fun getfollowupColle(@Body body: GetFollowupRequest.GetFollowupRequest): Response<GetFollowupResponse>
+
+    @POST("user/update-collection-followup")
+    suspend fun updatefollowupColle(@Body body: UpdateFollowupRequestBodies.UpdateFollowupRequest): Response<UpdateFollowupResponse>
+
+
+    @POST("user/get-convenience-report")
+    suspend fun getconvenceReport(@Body body: ConvenReque): Response<Convence_Resopnce>
+
+    @POST("user/get-total-count-of-todays-collection-leads")
+    suspend fun getTodayCountLead(@Body body:GetCountLeadRequest):Response<GetCountLeadResponse>
+
+   @POST("user/get-residential-address")
+    suspend fun getRecoveryAddress(@Body body:RecoveryRequest):Response<RecoveryResponse>
+
+
+    @POST("user/update-token-by-id")
+    suspend fun updatetoken(@Body body:TokenRequest):Response<TokenResponse>
+
+    @POST("user/get-prevous-payment-history")
+    suspend fun previousPayment(@Body body:PreviousPaymentRequest):Response<PreviousPaymentResponse>
+
+  @POST("user/update-collection-followup")
+    suspend fun loanupdat(@Body body: Collection_Request):Response<Collection_Response>
+
+
+    @POST("Notify/repayCallBack")
+    suspend fun getCheckpayment(@Body body: CheckPaymentR_Request):Response<CheckPayment_Response>
+
+    @POST("user/update-collection-recieved-amount")
+    suspend fun submitPayment(@Body body: SubmitPaymentRequest):Response<SubmitPaymentResponse>
+
+
+}

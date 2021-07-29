@@ -5,11 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@drawable/splash_pix"
     tools:context=".ui.main.view.Activity.SplashActivity">
 
 
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/btncamera"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/gif_image_logo"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        tools:ignore="MissingClass" />
+
     <LinearLayout
+        android:visibility="gone"
         android:layout_marginTop="172dp"
         android:gravity="center|top"
         android:layout_gravity="center|top"

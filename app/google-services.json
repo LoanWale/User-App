@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "816949304336",
-    "project_id": "lwcollex",
-    "storage_bucket": "lwcollex.appspot.com"
+    "project_number": "422645354728",
+    "project_id": "loanwalle-df0d1",
+    "storage_bucket": "loanwalle-df0d1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:816949304336:android:4ae192372b960d5577be95",
+        "mobilesdk_app_id": "1:422645354728:android:3da5ab0cb61ddf0633395d",
         "android_client_info": {
-          "package_name": "com.loanwalle.loanwallecollection"
+          "package_name": "com.loanwalle.personalloan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "816949304336-egrhte73ug67ruc5847bgsa8cnsceh7l.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.loanwalle.loanwallecollection",
-            "certificate_hash": "5f1abfc5fa05356d15f212ba09c8b55d3b8dc364"
-          }
-        },
-        {
-          "client_id": "816949304336-luhjrfb5bdm6r56ve8bv7c2hn4m0djj2.apps.googleusercontent.com",
+          "client_id": "422645354728-al9s1e0ti84koc3l11en3oebc1fi71f5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3xYF7IWTMz_RLOErzDhIr5M-rB4srL-4"
+          "current_key": "AIzaSyDJrYAhH_wmZ0c53a4VrSwJOmZT_jgfbHs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "816949304336-luhjrfb5bdm6r56ve8bv7c2hn4m0djj2.apps.googleusercontent.com",
+              "client_id": "422645354728-al9s1e0ti84koc3l11en3oebc1fi71f5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

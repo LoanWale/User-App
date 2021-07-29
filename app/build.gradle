@@ -13,11 +13,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.loanwalle.loanwallecollection"
+        applicationId "com.loanwalle.personalloan"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.4"
+        versionCode 1
+        versionName "1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
