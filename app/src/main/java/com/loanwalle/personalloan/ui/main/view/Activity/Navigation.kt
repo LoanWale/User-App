@@ -19,8 +19,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
-import com.loanwalle.personalloan.data.model.getTodayCountLead.GetCountLeadRequest
-import com.loanwalle.personalloan.data.model.getUserProfile.GetUserProfileBodies
 import com.loanwalle.personalloan.data.repository.AppRepository
 import com.loanwalle.personalloan.databinding.ActivityNavigationBinding
 import com.loanwalle.personalloan.ui.base.ViewModelProviderFactory
@@ -33,8 +31,7 @@ import kotlinx.android.synthetic.main.activity_navigation.*
 
 class Navigation : AppCompatActivity() {
 
-    lateinit var getCountLeadViewModel: GetCountLeadViewModel
-    lateinit var userProfileViewModel: GetUserProfileViewModel
+
     var binding: ActivityNavigationBinding?=null
     val sessionManegar = SessionManegar()
 
@@ -122,34 +119,34 @@ class Navigation : AppCompatActivity() {
         }
 
 
-
-        init()
-        updateLead()
-
-
-        convey_reprt.setOnClickListener{
-            var i = Intent(this,Covence_Report::class.java)
-            startActivity(i)
-        }
-
-        binding!!.profile.setOnClickListener{
-            var intent1 = Intent(this,Collection_Profile::class.java)
-            startActivity(intent1)
-        }
+//
+//        init()
+//        updateLead()
 
 
-           binding!!.todayld.setOnClickListener{
-            var intent1 = Intent(this,HomePageActivity::class.java)
-            startActivity(intent1)
-        }
-           binding!!.totaled.setOnClickListener{
-            var intent1 = Intent(this,Total_Leads::class.java)
-            startActivity(intent1)
-        }
-           binding!!.ircontact.setOnClickListener{
-            var intent1 = Intent(this,IRAActivity::class.java)
-            startActivity(intent1)
-        }
+//        convey_reprt.setOnClickListener{
+//            var i = Intent(this,Covence_Report::class.java)
+//            startActivity(i)
+//        }
+
+//        binding!!.profile.setOnClickListener{
+//            var intent1 = Intent(this,Collection_Profile::class.java)
+//            startActivity(intent1)
+//        }
+
+
+//           binding!!.todayld.setOnClickListener{
+//            var intent1 = Intent(this,HomePageActivity::class.java)
+//            startActivity(intent1)
+//        }
+//           binding!!.totaled.setOnClickListener{
+//            var intent1 = Intent(this,Total_Leads::class.java)
+//            startActivity(intent1)
+//        }
+//           binding!!.ircontact.setOnClickListener{
+//            var intent1 = Intent(this,IRAActivity::class.java)
+//            startActivity(intent1)
+//        }
 
 
 
@@ -162,131 +159,131 @@ class Navigation : AppCompatActivity() {
 
     }
 
-    private fun init(){
-        val repository = AppRepository()
-        val factory = ViewModelProviderFactory(application,repository)
-        getCountLeadViewModel = ViewModelProvider(this,factory).get(GetCountLeadViewModel::class.java)
-        userProfileViewModel = ViewModelProvider(this,factory).get(GetUserProfileViewModel::class.java)
-        userProfile()
-    }
-
-    private fun userProfile(){
-        val userid = 44
-        if (userid!=null) {
-            val body = GetUserProfileBodies.GetUserProfileRequest(
-                userid
-            )
-
-            userProfileViewModel.getUserProfile(body)
-
-            userProfileViewModel.getUserProfile.observe(this,{ event ->
-                event.getContentIfNotHandled()?.let { response ->
-                    when (response) {
-                        is Resource.Success -> {
-                            hideProgressBar()
-
-
-                            response.data?.let { verifyResponse ->
-                                val message:String= verifyResponse.message
-                                Log.e("Resopncelogin11",message);
-                                if (message.equals("success")&&verifyResponse.status.equals("200"))
-                                {
-                                   // Toast.makeText(this,)
-                                       val empid = verifyResponse.data.get(0).name.substring(0,4) +" "+ verifyResponse.data.get(0).mobile.substring(6,10)
-                                       name.text = verifyResponse.data.get(0).name
-
-                                    phone.text ="Emp Id "+ empid
-                                    Glide.with(this).load(verifyResponse.data.get(0).profile_pic).into(btncamera)
-                                //nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                }
-                                else
-
-                                {
-                                    nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
-                                }
-
-
-                            }
-                        }
-
-                        is Resource.Error -> {
-                            hideProgressBar()
-                            response.message?.let { message ->
-                                nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
-                            }
-                        }
-
-                        is Resource.Loading -> {
-                            showProgressBar()
-                        }
-                    }
-                }
-
-            })
-        }
-    }
-
-    private fun updateLead(){
-            val userid = "44"
-            if (userid!=null) {
-                val body = GetCountLeadRequest(
-                    userid
-                )
-
-               getCountLeadViewModel.getCountslead(body)
-                Log.e("BODY",body.toString())
-
-
-
-                getCountLeadViewModel.getCountlead.observe(this, Observer { event ->
-                    event.getContentIfNotHandled()?.let { response ->
-                        when (response) {
-                            is Resource.Success -> {
-                                hideProgressBar()
-
-                                response.data?.let { otpResponse ->
-                                    val message:String= otpResponse.message
-                                    Log.e("Resopncelogin7",otpResponse.toString())
-                                    if (message.equals("success")&&otpResponse.status.equals("200"))
-                                    {
-                                        val todayLead = otpResponse.No_of_todays_leads.toString()
-                                        binding!!.todayLeadCount.text = todayLead
-
-                                        total_lead_count.text = otpResponse.old_leads_count.toString()
-
-                                    }
-                                    else
-
-                                    {
-                                        //nav_progress.errorSnack(message, Snackbar.LENGTH_LONG)
-
-                                    }
-
-
-                                }
-                            }
-
-                            is Resource.Error -> {
-                                hideProgressBar()
-                                response.message?.let { message ->
-                                    //nav_progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                    Log.e("Resopncelogin6",message);
-                                }
-                            }
-
-                            is Resource.Loading -> {
-                                showProgressBar()
-                            }
-                        }
-                    }
-                })
-
-
-
-        }
-
-    }
+//    private fun init(){
+//        val repository = AppRepository()
+//        val factory = ViewModelProviderFactory(application,repository)
+//        getCountLeadViewModel = ViewModelProvider(this,factory).get(GetCountLeadViewModel::class.java)
+//        userProfileViewModel = ViewModelProvider(this,factory).get(GetUserProfileViewModel::class.java)
+//        userProfile()
+//    }
+//
+//    private fun userProfile(){
+//        val userid = 44
+//        if (userid!=null) {
+//            val body = GetUserProfileBodies.GetUserProfileRequest(
+//                userid
+//            )
+//
+//            userProfileViewModel.getUserProfile(body)
+//
+//            userProfileViewModel.getUserProfile.observe(this,{ event ->
+//                event.getContentIfNotHandled()?.let { response ->
+//                    when (response) {
+//                        is Resource.Success -> {
+//                            hideProgressBar()
+//
+//
+//                            response.data?.let { verifyResponse ->
+//                                val message:String= verifyResponse.message
+//                                Log.e("Resopncelogin11",message);
+//                                if (message.equals("success")&&verifyResponse.status.equals("200"))
+//                                {
+//                                   // Toast.makeText(this,)
+//                                       val empid = verifyResponse.data.get(0).name.substring(0,4) +" "+ verifyResponse.data.get(0).mobile.substring(6,10)
+//                                       name.text = verifyResponse.data.get(0).name
+//
+//                                    phone.text ="Emp Id "+ empid
+//                                    Glide.with(this).load(verifyResponse.data.get(0).profile_pic).into(btncamera)
+//                                //nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
+//
+//                                }
+//                                else
+//
+//                                {
+//                                    nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
+//                                }
+//
+//
+//                            }
+//                        }
+//
+//                        is Resource.Error -> {
+//                            hideProgressBar()
+//                            response.message?.let { message ->
+//                                nav_progreess.errorSnack(message, Snackbar.LENGTH_LONG)
+//                            }
+//                        }
+//
+//                        is Resource.Loading -> {
+//                            showProgressBar()
+//                        }
+//                    }
+//                }
+//
+//            })
+//        }
+//    }
+//
+//    private fun updateLead(){
+//            val userid = "44"
+//            if (userid!=null) {
+//                val body = GetCountLeadRequest(
+//                    userid
+//                )
+//
+//               getCountLeadViewModel.getCountslead(body)
+//                Log.e("BODY",body.toString())
+//
+//
+//
+//                getCountLeadViewModel.getCountlead.observe(this, Observer { event ->
+//                    event.getContentIfNotHandled()?.let { response ->
+//                        when (response) {
+//                            is Resource.Success -> {
+//                                hideProgressBar()
+//
+//                                response.data?.let { otpResponse ->
+//                                    val message:String= otpResponse.message
+//                                    Log.e("Resopncelogin7",otpResponse.toString())
+//                                    if (message.equals("success")&&otpResponse.status.equals("200"))
+//                                    {
+//                                        val todayLead = otpResponse.No_of_todays_leads.toString()
+//                                        binding!!.todayLeadCount.text = todayLead
+//
+//                                        total_lead_count.text = otpResponse.old_leads_count.toString()
+//
+//                                    }
+//                                    else
+//
+//                                    {
+//                                        //nav_progress.errorSnack(message, Snackbar.LENGTH_LONG)
+//
+//                                    }
+//
+//
+//                                }
+//                            }
+//
+//                            is Resource.Error -> {
+//                                hideProgressBar()
+//                                response.message?.let { message ->
+//                                    //nav_progress.errorSnack(message, Snackbar.LENGTH_LONG)
+//                                    Log.e("Resopncelogin6",message);
+//                                }
+//                            }
+//
+//                            is Resource.Loading -> {
+//                                showProgressBar()
+//                            }
+//                        }
+//                    }
+//                })
+//
+//
+//
+//        }
+//
+//    }
 
     fun hideProgressBar() {
         //nav_progress.visibility = View.GONE

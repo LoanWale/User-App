@@ -32,14 +32,10 @@ class OtpActivity : AppCompatActivity() ,
     lateinit var otpViewModel: OtpViewModel
 
     private var view: View? = null
-    lateinit var verifyViewModel: VerifyOtpViewModel
+//    lateinit var verifyViewModel: VerifyOtpViewModel
 
 
     var sessionManegar = SessionManegar()
-
-
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,14 +43,14 @@ class OtpActivity : AppCompatActivity() ,
         binding = ActivityOtpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        var num =sessionManegar.getString(this,"mobile")
+        var num = sessionManegar.getString(this, "mobile")
 
         textView5.text = num
 
         otp_submitClick.isEnabled = false
 
         button.setOnClickListener {
-            timer()
+           // timer()
             requestOTP()
             otp_submitClick.isEnabled = true
             otp_text.setText("")
@@ -63,16 +59,16 @@ class OtpActivity : AppCompatActivity() ,
 
 
 
-        otp_text.addTextChangedListener(object :TextWatcher{
+        otp_text.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null) {
-                    if (s.length ==4){
+                    if (s.length == 4) {
                         otp_submitClick.isEnabled = true
-                    }else{
+                    } else {
                         otp_submitClick.isEnabled = false
                     }
 
@@ -86,35 +82,34 @@ class OtpActivity : AppCompatActivity() ,
         })
 
 
-        init()
+       // init()
         requestOTP()
 
 
-       otp_submitClick.setOnClickListener{
+        otp_submitClick.setOnClickListener {
 
-           init1()
-           submitClick()
+            //init1()
+            submitClick()
 
-       }
-
-
+        }
 
 
     }
 
-    private fun init1() {
-        val repository = AppRepository()
-        val factory = ViewModelProviderFactory(application, repository)
-        verifyViewModel = ViewModelProvider(this, factory).get(VerifyOtpViewModel::class.java)
-    }
+//    private fun init1() {
+//        val repository = AppRepository()
+//        val factory = ViewModelProviderFactory(application, repository)
+//        verifyViewModel = ViewModelProvider(this, factory).get(VerifyOtpViewModel::class.java)
+//    }
 
-    private fun init() {
-        val repository = AppRepository()
-        val factory = ViewModelProviderFactory(application, repository)
-        otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
-        timer()
+//    private fun init() {
+//        val repository = AppRepository()
+//        val factory = ViewModelProviderFactory(application, repository)
+//        otpViewModel = ViewModelProvider(this, factory).get(OtpViewModel::class.java)
+//        timer()
+//
+//    }
 
-    }
     override fun onOTPReceived(otp: String) {
         //  showToast("OTP Received: " + otp);
         otp_text.setText("")
@@ -141,11 +136,11 @@ class OtpActivity : AppCompatActivity() ,
     }
 
     fun requestOTP() {
-        var user =sessionManegar.getString(this@OtpActivity, Constants.USER_ID)
-        var mob =sessionManegar.getString(this@OtpActivity,"mobile")
+        var user = sessionManegar.getString(this@OtpActivity, Constants.USER_ID)
+        var mob = sessionManegar.getString(this@OtpActivity, "mobile")
         val mobile = mob.toString()
         val user_id = user
-        if (mobile.isNotEmpty() && user_id!=null) {
+        if (mobile.isNotEmpty() && user_id != null) {
             val body = RequestOtpBody.RequestOtp(
                 mobile,
                 user_id.toString()
@@ -165,16 +160,12 @@ class OtpActivity : AppCompatActivity() ,
 
 
                             response.data?.let { otpResponse ->
-                                val message:String= otpResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("OTP sent Successfully")&&otpResponse.user_id != null)
-                                {
+                                val message: String = otpResponse.message
+                                Log.e("Resopncelogin", message);
+                                if (message.equals("OTP sent Successfully") && otpResponse.user_id != null) {
                                     toast("OTP Sent Successfully")
                                     //progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                }
-                                else
-
-                                {
+                                } else {
                                     progress.errorSnack(message, Snackbar.LENGTH_LONG)
                                 }
 
@@ -202,99 +193,97 @@ class OtpActivity : AppCompatActivity() ,
     fun hideProgressBar() {
         progress.visibility = View.GONE
     }
+
     fun showProgressBar() {
         progress.visibility = View.VISIBLE
     }
 
     fun submitClick() {
-        var use =sessionManegar.getString(this@OtpActivity,Constants.USER_ID)
+        var use = sessionManegar.getString(this@OtpActivity, Constants.USER_ID)
         val mobile = otp_text.text.toString().toInt()
         val user_id = use.toString().toInt()
-        if (mobile!= null && user_id!=null) {
+        if (mobile != null && user_id != null) {
             val body = VerifyRequestBody.VerifyRequest(
                 mobile,
                 user_id
             )
 
 
-
-            verifyViewModel.verifyOtp(body)
-
+            //      verifyViewModel.verifyOtp(body)
 
 
-            verifyViewModel.verifyResponse.observe(this, Observer { event ->
-                event.getContentIfNotHandled()?.let { response ->
-                    when (response) {
-                        is Resource.Success -> {
-                            hideProgressBar()
+//            verifyViewModel.verifyResponse.observe(this, Observer { event ->
+//                event.getContentIfNotHandled()?.let { response ->
+//                    when (response) {
+//                        is Resource.Success -> {
+//                            hideProgressBar()
+//
+//
+//
+//                            response.data?.let { verifyResponse ->
+//                                val message:String= verifyResponse.message
+//                                Log.e("Resopncelogin",message);
+//                                if (message.equals("Login success!")&&verifyResponse.status.equals("200"))
+//                                {
+//
+//                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+//
+//
+//
+//                                    sessionManegar.saveInt(this@OtpActivity,sessionManegar.LOGIN_STATE,
+//                                        ConstantsSave.LoginFlow.HOMESCREEN)
+//                                    var intent = Intent(this,HomePageActivity::class.java)
+//                                    startActivity(intent)
+//                                    finish()
+//
+//
+//
+//
+//                                }
+//                                else
+//
+//                                {
+//                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
+//                                }
+//
+//
+//                            }
+//                        }
+//
+//                        is Resource.Error -> {
+//                            hideProgressBar()
+//                            response.message?.let { message ->
+//                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
+//                            }
+//                        }
+//
+//                        is Resource.Loading -> {
+//                            showProgressBar()
+//                        }
+//                    }
+//                }
+//            })
+//        }
 
-
-
-                            response.data?.let { verifyResponse ->
-                                val message:String= verifyResponse.message
-                                Log.e("Resopncelogin",message);
-                                if (message.equals("Login success!")&&verifyResponse.status.equals("200"))
-                                {
-
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-
-
-
-                                    sessionManegar.saveInt(this@OtpActivity,sessionManegar.LOGIN_STATE,
-                                        ConstantsSave.LoginFlow.HOMESCREEN)
-                                    var intent = Intent(this,HomePageActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-
-
-
-
-                                }
-                                else
-
-                                {
-                                    progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                                }
-
-
-                            }
-                        }
-
-                        is Resource.Error -> {
-                            hideProgressBar()
-                            response.message?.let { message ->
-                                progress.errorSnack(message, Snackbar.LENGTH_LONG)
-                            }
-                        }
-
-                        is Resource.Loading -> {
-                            showProgressBar()
-                        }
-                    }
-                }
-            })
         }
 
-    }
 
+        fun timer() {
+            object : CountDownTimer(29000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
 
-    fun timer()
+                    button.isEnabled = false
 
-    {
-        object : CountDownTimer(29000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
+                    button.setText("" + millisUntilFinished / 1000 + " sec left OTP ")
+                    //here you can have your logic to set text to edittext
+                }
 
-                button.isEnabled = false
-
-                button.setText("" + millisUntilFinished / 1000 +" sec left OTP ")
-                //here you can have your logic to set text to edittext
-            }
-
-            override fun onFinish() {
-                button.setText("resend")
-                button.isEnabled = true
-                otp_submitClick.isEnabled = false
-            }
-        }.start()
+                override fun onFinish() {
+                    button.setText("resend")
+                    button.isEnabled = true
+                    otp_submitClick.isEnabled = false
+                }
+            }.start()
+        }
     }
 }
