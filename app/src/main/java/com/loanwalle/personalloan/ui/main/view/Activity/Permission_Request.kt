@@ -8,5 +8,6 @@ class Permission_Request : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permission_request)
+        // heeelllllooo
     }
 }
