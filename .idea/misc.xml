@@ -44,6 +44,7 @@
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_payment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_payment_successfull.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_permission_request.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_previous_payment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_qr_code.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_recovery_address.xml" value="0.25" />
